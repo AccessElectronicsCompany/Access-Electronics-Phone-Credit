@@ -1,0 +1,68 @@
+Build a web platform where customers can request for quotes to buy phones on credit from access electronics. 
+
+The calculator should use the logic of 16.8% , monthly payments ranging from 12,24 & 36 months to pay. For example : a customer can choose a phone which is 10,000 , so they will pay : 10,000+(16.8%)‎ = 11,680(11680/36‎ = 324.444) so they will have to pay a rounded figure of: N$324.44 per month for 36 months. If not paying any deposit upfront which is optional. If they choose to pay deposit, then the deposit is optional. 
+
+Below are the mandatory fields in the form request part: 
+- full name 
+- Contact number 
+- Email address 
+- Quantity
+- Physical address 
+- Postal address
+- City/town.
+- Region 
+- country 
+- Product name 
+- Storage capacity 
+- Condition 
+- Color 
+- Credit amount 
+
+Make 3 sections for the platform : for iPhones , Samsung & Used phones: I will give you details to put on the used phone section later. 
+
+Phone prices: 
+- iPhone 11 128GB N$8500
+- iPhone 11 Pro 256GB 9800
+- iPhone 11 Pro Max 256GB 11,300
+- iPhone 12 128GB 9500
+- iPhone 12 Pro 256GB 11999
+- iPhone 12 Pro Max 128GB 12999
+- iPhone 12 Pro Max 256GB 13999
+- iPhone 13 128GB 10499
+- iPhone 13 256GB 11499
+- iPhone 13 Pro 128GB 14,400
+- iPhone 13 Pro 256GB 14,999
+- iPhone 14 128GB 12,999
+- iPhone 14 256GB 13,499
+- iPhone 14 Plus 128GB N$14,400
+- iPhone 14 Pro 256GB 16,999
+- iPhone 14 Pro Max 256GB 19999
+- iPhone 15 128GB 16800
+- iPhone 15 256GB 17800
+- iPhone 15 Pro 256GB 23,999
+- iPhone 15 Pro Max 256GB 27,999
+- iPhone 16 128GB 17,999
+- iPhone 16 256GB 19999
+- iPhone 16 Pro 256GB 25999
+- iPhone 16 Pro max 256GB 27999
+
+Samsung: 
+
+- Samsung S22 256GB 9500
+- Samsung S22 Ultra 256GB 15,999
+- Samsung S22 Ultra 512GB 16999
+- Samsung S23 Ultra 256GB 19999
+- Samsung S23 256GB 12999
+- Samsung S23 512GB 13999
+- Samsung S24 256GB 15,499
+- Samsung S24 Plus 256GB 18,499
+- Samsung S24 Ultra 256GB 23999
+- Samsung S24 Ultra 512GB 26999
+- Samsung S25 256GB 18,499
+- Samsung S25 plus 256GB 21999
+- Samsung S25 ultra 256GB 26999
+- samsung S25 Ultra 512GB 27999
+- Samsung Z Fold 256GB 24999
+
+
+The platform should be clean , neat and modern. Use an inter font. The buttons on the platform should have a blue- violet - pinkish gradient. The platform should be very engaging with customers. It should give them a good customer experience! 
