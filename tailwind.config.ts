@@ -6,7 +6,7 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        samsung: ['Samsung One', 'sans-serif'],
+        inter: ['Inter', 'sans-serif'],
       },
       borderRadius: {
         lg: "var(--radius)",
