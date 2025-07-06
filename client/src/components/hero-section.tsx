@@ -9,7 +9,7 @@ export default function HeroSection({ onBrowsePhones, onOpenCalculator }: HeroSe
   return (
     <section className="gradient-bg py-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <h2 className="text-4xl md:text-6xl font-bold text-white mb-6 font-samsung">
+        <h2 className="text-4xl md:text-6xl font-black text-white mb-6 font-tight tracking-tight uppercase">
           Get Your Dream Phone Today
         </h2>
         <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
