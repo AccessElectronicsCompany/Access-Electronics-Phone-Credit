@@ -7,6 +7,7 @@ export default {
     extend: {
       fontFamily: {
         inter: ['Inter', 'sans-serif'],
+        samsung: ['Samsung One', 'sans-serif'],
       },
       borderRadius: {
         lg: "var(--radius)",
