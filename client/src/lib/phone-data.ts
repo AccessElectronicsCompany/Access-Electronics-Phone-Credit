@@ -17,6 +17,13 @@ export const iphones: Phone[] = [
   {
     name: "iPhone 16 Pro",
     storage: "128GB",
+    price: 23999,
+    colors: ["Black Titanium", "White Titanium", "Natural Titanium", "Desert Titanium"],
+    condition: "Brand New"
+  },
+  {
+    name: "iPhone 16 Pro",
+    storage: "256GB",
     price: 25999,
     colors: ["Black Titanium", "White Titanium", "Natural Titanium", "Desert Titanium"],
     condition: "Brand New"
@@ -38,7 +45,14 @@ export const iphones: Phone[] = [
   {
     name: "iPhone 16 Plus",
     storage: "128GB",
-    price: 24999,
+    price: 20499,
+    colors: ["Black", "White", "Pink", "Teal", "Ultramarine"],
+    condition: "Brand New"
+  },
+  {
+    name: "iPhone 16 Plus",
+    storage: "256GB",
+    price: 23999,
     colors: ["Black", "White", "Pink", "Teal", "Ultramarine"],
     condition: "Brand New"
   },
@@ -52,21 +66,21 @@ export const iphones: Phone[] = [
   {
     name: "iPhone 15 Pro",
     storage: "128GB",
-    price: 23999,
+    price: 21999,
     colors: ["Black Titanium", "White Titanium", "Blue Titanium", "Natural Titanium"],
     condition: "Brand New"
   },
   {
     name: "iPhone 15 Pro",
     storage: "256GB",
-    price: 25999,
+    price: 24999,
     colors: ["Black Titanium", "White Titanium", "Blue Titanium", "Natural Titanium"],
     condition: "Brand New"
   },
   {
     name: "iPhone 15",
     storage: "128GB",
-    price: 16800,
+    price: 16499,
     colors: ["Black", "Blue", "Green", "Pink", "Yellow"],
     condition: "Brand New"
   },
@@ -87,7 +101,7 @@ export const iphones: Phone[] = [
   {
     name: "iPhone 14 Pro",
     storage: "256GB",
-    price: 16999,
+    price: 15999,
     colors: ["Deep Purple", "Space Black"],
     condition: "Brand New"
   },
@@ -115,7 +129,7 @@ export const iphones: Phone[] = [
   {
     name: "iPhone 13 Pro Max",
     storage: "256GB",
-    price: 14999,
+    price: 15999,
     colors: ["Graphite", "Silver", "Gold", "Sierra Blue", "Alpine Green"],
     condition: "Brand New"
   },
