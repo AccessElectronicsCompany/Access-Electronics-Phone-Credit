@@ -1,38 +1,89 @@
-import React from 'react';
-
 export default function FloatingParticles() {
   return (
-    <div className="fixed inset-0 pointer-events-none z-[1] overflow-hidden">
-      {/* Blue particles */}
-      <div className="absolute w-1 h-1 bg-blue-500 rounded-full animate-pulse" style={{ top: '10%', left: '15%', animationDelay: '0s' }} />
-      <div className="absolute w-1.5 h-1.5 bg-blue-500 rounded-full animate-pulse" style={{ top: '25%', left: '80%', animationDelay: '1s' }} />
-      <div className="absolute w-1 h-1 bg-blue-500 rounded-full animate-pulse" style={{ top: '45%', left: '10%', animationDelay: '2s' }} />
-      <div className="absolute w-1.5 h-1.5 bg-blue-500 rounded-full animate-pulse" style={{ top: '65%', left: '90%', animationDelay: '3s' }} />
-      <div className="absolute w-1 h-1 bg-blue-500 rounded-full animate-pulse" style={{ top: '80%', left: '25%', animationDelay: '4s' }} />
+    <>
+      {/* Large visible test particles first */}
+      <div 
+        style={{
+          position: 'fixed',
+          top: '10%',
+          left: '10%',
+          width: '10px',
+          height: '10px',
+          backgroundColor: '#3B82F6',
+          borderRadius: '50%',
+          zIndex: 9999,
+          pointerEvents: 'none',
+          animation: 'pulse 2s infinite'
+        }}
+      />
+      <div 
+        style={{
+          position: 'fixed',
+          top: '20%',
+          right: '10%',
+          width: '8px',
+          height: '8px',
+          backgroundColor: '#F59E0B',
+          borderRadius: '50%',
+          zIndex: 9999,
+          pointerEvents: 'none',
+          animation: 'pulse 2s infinite 0.5s'
+        }}
+      />
+      <div 
+        style={{
+          position: 'fixed',
+          top: '30%',
+          left: '50%',
+          width: '6px',
+          height: '6px',
+          backgroundColor: '#10B981',
+          borderRadius: '50%',
+          zIndex: 9999,
+          pointerEvents: 'none',
+          animation: 'pulse 2s infinite 1s'
+        }}
+      />
+      <div 
+        style={{
+          position: 'fixed',
+          bottom: '20%',
+          left: '20%',
+          width: '8px',
+          height: '8px',
+          backgroundColor: '#EF4444',
+          borderRadius: '50%',
+          zIndex: 9999,
+          pointerEvents: 'none',
+          animation: 'pulse 2s infinite 1.5s'
+        }}
+      />
+      <div 
+        style={{
+          position: 'fixed',
+          bottom: '30%',
+          right: '20%',
+          width: '6px',
+          height: '6px',
+          backgroundColor: '#8B5CF6',
+          borderRadius: '50%',
+          zIndex: 9999,
+          pointerEvents: 'none',
+          animation: 'pulse 2s infinite 2s'
+        }}
+      />
       
-      {/* Orange particles */}
-      <div className="absolute w-1 h-1 bg-orange-500 rounded-full animate-pulse" style={{ top: '15%', left: '60%', animationDelay: '0.5s' }} />
-      <div className="absolute w-1.5 h-1.5 bg-orange-500 rounded-full animate-pulse" style={{ top: '35%', left: '20%', animationDelay: '1.5s' }} />
-      <div className="absolute w-1 h-1 bg-orange-500 rounded-full animate-pulse" style={{ top: '55%', left: '75%', animationDelay: '2.5s' }} />
-      <div className="absolute w-1.5 h-1.5 bg-orange-500 rounded-full animate-pulse" style={{ top: '75%', left: '5%', animationDelay: '3.5s' }} />
-      <div className="absolute w-1 h-1 bg-orange-500 rounded-full animate-pulse" style={{ top: '90%', left: '85%', animationDelay: '4.5s' }} />
-      
-      {/* Green particles */}
-      <div className="absolute w-1 h-1 bg-green-500 rounded-full animate-pulse" style={{ top: '20%', left: '40%', animationDelay: '1s' }} />
-      <div className="absolute w-1.5 h-1.5 bg-green-500 rounded-full animate-pulse" style={{ top: '40%', left: '85%', animationDelay: '2s' }} />
-      <div className="absolute w-1 h-1 bg-green-500 rounded-full animate-pulse" style={{ top: '60%', left: '15%', animationDelay: '3s' }} />
-      <div className="absolute w-1.5 h-1.5 bg-green-500 rounded-full animate-pulse" style={{ top: '85%', left: '70%', animationDelay: '4s' }} />
-      
-      {/* Purple particles */}
-      <div className="absolute w-1 h-1 bg-purple-500 rounded-full animate-pulse" style={{ top: '30%', left: '50%', animationDelay: '1.5s' }} />
-      <div className="absolute w-1.5 h-1.5 bg-purple-500 rounded-full animate-pulse" style={{ top: '50%', left: '30%', animationDelay: '2.5s' }} />
-      <div className="absolute w-1 h-1 bg-purple-500 rounded-full animate-pulse" style={{ top: '70%', left: '80%', animationDelay: '3.5s' }} />
-      
-      {/* Red particles */}
-      <div className="absolute w-1 h-1 bg-red-500 rounded-full animate-pulse" style={{ top: '5%', left: '70%', animationDelay: '2s' }} />
-      <div className="absolute w-1.5 h-1.5 bg-red-500 rounded-full animate-pulse" style={{ top: '25%', left: '35%', animationDelay: '3s' }} />
-      <div className="absolute w-1 h-1 bg-red-500 rounded-full animate-pulse" style={{ top: '45%', left: '65%', animationDelay: '4s' }} />
-      <div className="absolute w-1.5 h-1.5 bg-red-500 rounded-full animate-pulse" style={{ top: '95%', left: '40%', animationDelay: '5s' }} />
-    </div>
+      {/* More scattered particles */}
+      <div style={{ position: 'fixed', top: '15%', left: '25%', width: '4px', height: '4px', backgroundColor: '#3B82F6', borderRadius: '50%', zIndex: 9999, pointerEvents: 'none', animation: 'pulse 3s infinite' }} />
+      <div style={{ position: 'fixed', top: '40%', left: '80%', width: '5px', height: '5px', backgroundColor: '#F59E0B', borderRadius: '50%', zIndex: 9999, pointerEvents: 'none', animation: 'pulse 3s infinite 0.5s' }} />
+      <div style={{ position: 'fixed', top: '60%', left: '15%', width: '3px', height: '3px', backgroundColor: '#10B981', borderRadius: '50%', zIndex: 9999, pointerEvents: 'none', animation: 'pulse 3s infinite 1s' }} />
+      <div style={{ position: 'fixed', top: '80%', left: '70%', width: '4px', height: '4px', backgroundColor: '#EF4444', borderRadius: '50%', zIndex: 9999, pointerEvents: 'none', animation: 'pulse 3s infinite 1.5s' }} />
+      <div style={{ position: 'fixed', top: '50%', left: '40%', width: '5px', height: '5px', backgroundColor: '#8B5CF6', borderRadius: '50%', zIndex: 9999, pointerEvents: 'none', animation: 'pulse 3s infinite 2s' }} />
+      <div style={{ position: 'fixed', top: '25%', left: '60%', width: '4px', height: '4px', backgroundColor: '#3B82F6', borderRadius: '50%', zIndex: 9999, pointerEvents: 'none', animation: 'pulse 3s infinite 2.5s' }} />
+      <div style={{ position: 'fixed', top: '70%', left: '30%', width: '3px', height: '3px', backgroundColor: '#F59E0B', borderRadius: '50%', zIndex: 9999, pointerEvents: 'none', animation: 'pulse 3s infinite 3s' }} />
+      <div style={{ position: 'fixed', top: '35%', left: '90%', width: '4px', height: '4px', backgroundColor: '#10B981', borderRadius: '50%', zIndex: 9999, pointerEvents: 'none', animation: 'pulse 3s infinite 3.5s' }} />
+      <div style={{ position: 'fixed', top: '90%', left: '50%', width: '5px', height: '5px', backgroundColor: '#EF4444', borderRadius: '50%', zIndex: 9999, pointerEvents: 'none', animation: 'pulse 3s infinite 4s' }} />
+      <div style={{ position: 'fixed', top: '45%', left: '10%', width: '3px', height: '3px', backgroundColor: '#8B5CF6', borderRadius: '50%', zIndex: 9999, pointerEvents: 'none', animation: 'pulse 3s infinite 4.5s' }} />
+    </>
   );
 }

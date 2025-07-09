@@ -126,3 +126,4 @@ Preferred communication style: Simple, everyday language.
 Design Theme: Samsung-inspired black and white theme with Samsung font throughout platform.
 UI Style: Rounded corners (0.75rem) for all containers and components with proper spacing between content and borders.
 Animation Style: Continuous animations in hero section for engaging user experience.
+Particles: User requires floating particles visible across entire interface like tech websites for modern appearance.
