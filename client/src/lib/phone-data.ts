@@ -11,56 +11,70 @@ export const iphones: Phone[] = [
     name: "iPhone 16 Pro Max",
     storage: "256GB",
     price: 27999,
-    colors: ["Space Black", "White", "Gold"],
+    colors: ["Black Titanium", "White Titanium", "Natural Titanium", "Desert Titanium"],
     condition: "Brand New"
   },
   {
     name: "iPhone 16 Pro",
-    storage: "256GB",
+    storage: "128GB",
     price: 25999,
-    colors: ["Space Black", "White", "Gold"],
+    colors: ["Black Titanium", "White Titanium", "Natural Titanium", "Desert Titanium"],
     condition: "Brand New"
   },
   {
     name: "iPhone 16",
     storage: "256GB",
     price: 19999,
-    colors: ["Pink", "Blue", "Green", "Yellow"],
+    colors: ["Black", "White", "Pink", "Teal", "Ultramarine"],
     condition: "Brand New"
   },
   {
     name: "iPhone 16",
     storage: "128GB",
     price: 17999,
-    colors: ["Pink", "Blue", "Green", "Yellow"],
+    colors: ["Black", "White", "Pink", "Teal", "Ultramarine"],
+    condition: "Brand New"
+  },
+  {
+    name: "iPhone 16 Plus",
+    storage: "128GB",
+    price: 24999,
+    colors: ["Black", "White", "Pink", "Teal", "Ultramarine"],
     condition: "Brand New"
   },
   {
     name: "iPhone 15 Pro Max",
     storage: "256GB",
     price: 27999,
-    colors: ["Titanium", "Blue", "White"],
+    colors: ["Black Titanium", "White Titanium", "Blue Titanium", "Natural Titanium"],
+    condition: "Brand New"
+  },
+  {
+    name: "iPhone 15 Pro",
+    storage: "128GB",
+    price: 23999,
+    colors: ["Black Titanium", "White Titanium", "Blue Titanium", "Natural Titanium"],
     condition: "Brand New"
   },
   {
     name: "iPhone 15 Pro",
     storage: "256GB",
-    price: 23999,
-    colors: ["Titanium", "Blue", "White"],
-    condition: "Brand New"
-  },
-  {
-    name: "iPhone 15",
-    storage: "256GB",
-    price: 17800,
-    colors: ["Pink", "Blue", "Green", "Yellow"],
+    price: 25999,
+    colors: ["Black Titanium", "White Titanium", "Blue Titanium", "Natural Titanium"],
     condition: "Brand New"
   },
   {
     name: "iPhone 15",
     storage: "128GB",
     price: 16800,
-    colors: ["Pink", "Blue", "Green", "Yellow"],
+    colors: ["Black", "Blue", "Green", "Pink", "Yellow"],
+    condition: "Brand New"
+  },
+  {
+    name: "iPhone 15",
+    storage: "256GB",
+    price: 17800,
+    colors: ["Black", "Blue", "Green", "Pink", "Yellow"],
     condition: "Brand New"
   },
   {
@@ -81,105 +95,105 @@ export const iphones: Phone[] = [
     name: "iPhone 14 Plus",
     storage: "128GB",
     price: 14400,
-    colors: ["Blue", "Purple", "Midnight"],
+    colors: ["Midnight", "Starlight", "Blue", "Purple", "Yellow", "(PRODUCT)RED"],
     condition: "Brand New"
   },
   {
     name: "iPhone 14",
     storage: "256GB",
     price: 13499,
-    colors: ["Blue", "Purple", "Midnight"],
+    colors: ["Midnight", "Starlight", "Blue", "Purple", "Yellow", "(PRODUCT)RED"],
     condition: "Brand New"
   },
   {
     name: "iPhone 14",
     storage: "128GB",
     price: 12999,
-    colors: ["Blue", "Purple", "Midnight"],
+    colors: ["Midnight", "Starlight", "Blue", "Purple", "Yellow", "(PRODUCT)RED"],
     condition: "Brand New"
   },
   {
     name: "iPhone 13 Pro Max",
     storage: "256GB",
     price: 14999,
-    colors: ["Sierra Blue", "Gold", "Silver"],
+    colors: ["Graphite", "Silver", "Gold", "Sierra Blue", "Alpine Green"],
     condition: "Brand New"
   },
   {
     name: "iPhone 13 Pro",
     storage: "256GB",
     price: 14999,
-    colors: ["Sierra Blue", "Gold", "Silver"],
+    colors: ["Graphite", "Silver", "Gold", "Sierra Blue", "Alpine Green"],
     condition: "Brand New"
   },
   {
-    name: "iPhone 13 Pro",
+    name: "iPhone 13 Pro Max",
     storage: "128GB",
     price: 14400,
-    colors: ["Sierra Blue", "Gold", "Silver"],
+    colors: ["Graphite", "Silver", "Gold", "Sierra Blue", "Alpine Green"],
     condition: "Brand New"
   },
   {
     name: "iPhone 13",
     storage: "256GB",
     price: 11499,
-    colors: ["Pink", "Blue", "Midnight"],
+    colors: ["Midnight", "Starlight", "Blue", "Pink", "Green", "(PRODUCT)RED"],
     condition: "Brand New"
   },
   {
     name: "iPhone 13",
     storage: "128GB",
     price: 10499,
-    colors: ["Pink", "Blue", "Midnight"],
+    colors: ["Midnight", "Starlight", "Blue", "Pink", "Green", "(PRODUCT)RED"],
     condition: "Brand New"
   },
   {
     name: "iPhone 12 Pro Max",
     storage: "256GB",
     price: 13999,
-    colors: ["Pacific Blue", "Gold", "Silver"],
+    colors: ["Graphite", "Silver", "Gold", "Pacific Blue"],
     condition: "Brand New"
   },
   {
     name: "iPhone 12 Pro Max",
     storage: "128GB",
     price: 12999,
-    colors: ["Pacific Blue", "Gold", "Silver"],
+    colors: ["Graphite", "Silver", "Gold", "Pacific Blue"],
     condition: "Brand New"
   },
   {
     name: "iPhone 12 Pro",
     storage: "256GB",
     price: 11999,
-    colors: ["Pacific Blue", "Gold", "Silver"],
+    colors: ["Graphite", "Silver", "Gold", "Pacific Blue"],
     condition: "Brand New"
   },
   {
     name: "iPhone 12",
     storage: "128GB",
     price: 9500,
-    colors: ["Blue", "Green", "Purple"],
+    colors: ["Black", "White", "Blue", "Green", "Purple", "(PRODUCT)RED"],
     condition: "Brand New"
   },
   {
     name: "iPhone 11 Pro Max",
     storage: "256GB",
     price: 11300,
-    colors: ["Midnight Green", "Space Gray", "Gold"],
+    colors: ["Space Gray", "Silver", "Midnight Green", "Gold"],
     condition: "Brand New"
   },
   {
     name: "iPhone 11 Pro",
     storage: "256GB",
     price: 9800,
-    colors: ["Midnight Green", "Space Gray", "Gold"],
+    colors: ["Space Gray", "Silver", "Midnight Green", "Gold"],
     condition: "Brand New"
   },
   {
     name: "iPhone 11",
     storage: "128GB",
     price: 8500,
-    colors: ["Purple", "Yellow", "Green"],
+    colors: ["Black", "White", "Green", "Purple", "Yellow", "(PRODUCT)RED"],
     condition: "Brand New"
   }
 ];

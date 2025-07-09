@@ -156,7 +156,7 @@ export default function QuoteFormModal({ isOpen, onClose, selectedPhone }: Quote
 
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent className="max-w-4xl max-h-[85vh] overflow-y-auto p-8 m-4 rounded-xl border-2 border-black">
+      <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto p-4 md:p-8 m-2 md:m-4 rounded-xl border-2 border-black w-[95vw] md:w-auto">
         <DialogHeader className="pb-6">
           <DialogTitle className="text-3xl samsung-header text-center mb-2">
             Request Quote for {selectedPhone?.name}
@@ -168,9 +168,9 @@ export default function QuoteFormModal({ isOpen, onClose, selectedPhone }: Quote
         
         <form onSubmit={handleSubmit(onSubmit)} className="space-y-8">
           {/* Personal Information */}
-          <div className="bg-gray-50 p-6 rounded-xl border border-gray-200">
-            <h3 className="text-xl samsung-header mb-4">Personal Information</h3>
-            <div className="grid md:grid-cols-2 gap-6">
+          <div className="bg-gray-50 p-4 md:p-6 rounded-xl border border-gray-200">
+            <h3 className="text-lg md:text-xl samsung-header mb-4">Personal Information</h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
               <div>
                 <Label htmlFor="fullName" className="text-sm font-semibold samsung-text mb-2 block">Full Name *</Label>
                 <Input
@@ -212,9 +212,9 @@ export default function QuoteFormModal({ isOpen, onClose, selectedPhone }: Quote
           </div>
 
           {/* Address Information */}
-          <div className="bg-gray-50 p-6 rounded-xl border border-gray-200">
-            <h3 className="text-xl samsung-header mb-4">Address Information</h3>
-            <div className="grid md:grid-cols-2 gap-6">
+          <div className="bg-gray-50 p-4 md:p-6 rounded-xl border border-gray-200">
+            <h3 className="text-lg md:text-xl samsung-header mb-4">Address Information</h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
               <div>
                 <Label htmlFor="physicalAddress" className="text-sm font-semibold samsung-text mb-2 block">Physical Address *</Label>
                 <Input
@@ -279,9 +279,9 @@ export default function QuoteFormModal({ isOpen, onClose, selectedPhone }: Quote
           </div>
 
           {/* Product Information */}
-          <div className="bg-gray-50 p-6 rounded-xl border border-gray-200">
-            <h3 className="text-xl samsung-header mb-4">Product Information</h3>
-            <div className="grid md:grid-cols-2 gap-6">
+          <div className="bg-gray-50 p-4 md:p-6 rounded-xl border border-gray-200">
+            <h3 className="text-lg md:text-xl samsung-header mb-4">Product Information</h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
               <div>
                 <Label htmlFor="productName" className="text-sm font-semibold samsung-text mb-2 block">Product Name *</Label>
                 <Input
@@ -366,9 +366,9 @@ export default function QuoteFormModal({ isOpen, onClose, selectedPhone }: Quote
           </div>
 
           {/* Financial Information */}
-          <div className="bg-gray-50 p-6 rounded-xl border border-gray-200">
-            <h3 className="text-xl samsung-header mb-4">Financial Information</h3>
-            <div className="grid md:grid-cols-2 gap-6">
+          <div className="bg-gray-50 p-4 md:p-6 rounded-xl border border-gray-200">
+            <h3 className="text-lg md:text-xl samsung-header mb-4">Financial Information</h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
               <div>
                 <Label htmlFor="deposit" className="text-sm font-semibold samsung-text mb-2 block">Deposit (Optional)</Label>
                 <Input
@@ -434,19 +434,19 @@ export default function QuoteFormModal({ isOpen, onClose, selectedPhone }: Quote
           )}
 
           {/* Submit Button */}
-          <div className="flex justify-end space-x-4 pt-4">
+          <div className="flex flex-col sm:flex-row justify-end gap-3 sm:gap-4 pt-4">
             <Button
               type="button"
               variant="outline"
               onClick={onClose}
-              className="px-8 py-3 samsung-btn-outline"
+              className="px-6 md:px-8 py-3 samsung-btn-outline order-2 sm:order-1"
             >
               Cancel
             </Button>
             <Button
               type="submit"
               disabled={createQuoteMutation.isPending}
-              className="px-8 py-3 samsung-btn"
+              className="px-6 md:px-8 py-3 samsung-btn order-1 sm:order-2"
             >
               {createQuoteMutation.isPending ? "Submitting..." : "Submit Quote Request"}
             </Button>
