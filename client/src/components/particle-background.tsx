@@ -1,155 +1,82 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useState } from 'react';
 
 interface Particle {
+  id: number;
   x: number;
   y: number;
+  color: string;
+  size: number;
   vx: number;
   vy: number;
-  size: number;
-  opacity: number;
 }
 
-interface ParticleBackgroundProps {
-  particleCount?: number;
-  connectionDistance?: number;
-  particleSpeed?: number;
-  className?: string;
-}
-
-export default function ParticleBackground({
-  particleCount = 50,
-  connectionDistance = 150,
-  particleSpeed = 0.5,
-  className = ""
-}: ParticleBackgroundProps) {
-  const canvasRef = useRef<HTMLCanvasElement>(null);
-  const animationRef = useRef<number>();
-  const particlesRef = useRef<Particle[]>([]);
+export default function ParticleBackground() {
+  const [particles, setParticles] = useState<Particle[]>([]);
 
   useEffect(() => {
-    const canvas = canvasRef.current;
-    if (!canvas) {
-      console.log('Canvas not found');
-      return;
+    const colors = ['#3B82F6', '#F59E0B', '#10B981', '#EF4444', '#8B5CF6'];
+    const newParticles: Particle[] = [];
+
+    // Create 30 particles
+    for (let i = 0; i < 30; i++) {
+      newParticles.push({
+        id: i,
+        x: Math.random() * window.innerWidth,
+        y: Math.random() * window.innerHeight,
+        color: colors[Math.floor(Math.random() * colors.length)],
+        size: Math.random() * 4 + 2,
+        vx: (Math.random() - 0.5) * 0.3,
+        vy: (Math.random() - 0.5) * 0.3,
+      });
     }
 
-    const ctx = canvas.getContext('2d');
-    if (!ctx) {
-      console.log('Canvas context not found');
-      return;
-    }
-
-    console.log('Particle system initialized');
-
-    // Set canvas size
-    const resizeCanvas = () => {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
-      console.log('Canvas resized to:', canvas.width, 'x', canvas.height);
-    };
-
-    resizeCanvas();
-    window.addEventListener('resize', resizeCanvas);
-
-    // Initialize particles
-    const initParticles = () => {
-      particlesRef.current = [];
-      for (let i = 0; i < particleCount; i++) {
-        particlesRef.current.push({
-          x: Math.random() * canvas.width,
-          y: Math.random() * canvas.height,
-          vx: (Math.random() - 0.5) * particleSpeed,
-          vy: (Math.random() - 0.5) * particleSpeed,
-          size: Math.random() * 4 + 3,
-          opacity: Math.random() * 0.4 + 0.6
-        });
-      }
-      console.log('Particles initialized:', particlesRef.current.length);
-    };
-
-    initParticles();
+    setParticles(newParticles);
 
     // Animation loop
-    const animate = () => {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-      
-      // Draw a large test circle to verify canvas is working
-      ctx.beginPath();
-      ctx.arc(100, 100, 20, 0, Math.PI * 2);
-      ctx.fillStyle = 'red';
-      ctx.fill();
-      
-      // Draw test text
-      ctx.fillStyle = 'blue';
-      ctx.font = '20px Arial';
-      ctx.fillText('PARTICLES TEST', 200, 100);
-      
-      // Update and draw particles
-      particlesRef.current.forEach((particle, index) => {
-        // Update position
-        particle.x += particle.vx;
-        particle.y += particle.vy;
-
-        // Bounce off edges
-        if (particle.x < 0 || particle.x > canvas.width) particle.vx *= -1;
-        if (particle.y < 0 || particle.y > canvas.height) particle.vy *= -1;
-
-        // Keep particles within bounds
-        particle.x = Math.max(0, Math.min(canvas.width, particle.x));
-        particle.y = Math.max(0, Math.min(canvas.height, particle.y));
-
-        // Draw particle
-        ctx.beginPath();
-        ctx.arc(particle.x, particle.y, particle.size, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(0, 0, 0, ${particle.opacity})`;
-        ctx.fill();
-
-        // Draw connections to nearby particles
-        particlesRef.current.forEach((otherParticle, otherIndex) => {
-          if (index !== otherIndex) {
-            const dx = particle.x - otherParticle.x;
-            const dy = particle.y - otherParticle.y;
-            const distance = Math.sqrt(dx * dx + dy * dy);
-
-            if (distance < connectionDistance) {
-              const opacity = (1 - distance / connectionDistance) * 0.6;
-              ctx.beginPath();
-              ctx.moveTo(particle.x, particle.y);
-              ctx.lineTo(otherParticle.x, otherParticle.y);
-              ctx.strokeStyle = `rgba(0, 0, 0, ${opacity})`;
-              ctx.lineWidth = 1;
-              ctx.stroke();
-            }
-          }
-        });
-      });
-
-      animationRef.current = requestAnimationFrame(animate);
+    const animateParticles = () => {
+      setParticles(prevParticles => 
+        prevParticles.map(particle => ({
+          ...particle,
+          x: particle.x + particle.vx,
+          y: particle.y + particle.vy,
+          vx: particle.x <= 0 || particle.x >= window.innerWidth ? -particle.vx : particle.vx,
+          vy: particle.y <= 0 || particle.y >= window.innerHeight ? -particle.vy : particle.vy,
+        }))
+      );
     };
 
-    animate();
-
-    return () => {
-      window.removeEventListener('resize', resizeCanvas);
-      if (animationRef.current) {
-        cancelAnimationFrame(animationRef.current);
-      }
-    };
-  }, [particleCount, connectionDistance, particleSpeed]);
+    const intervalId = setInterval(animateParticles, 50);
+    return () => clearInterval(intervalId);
+  }, []);
 
   return (
-    <canvas
-      ref={canvasRef}
-      style={{ 
+    <div
+      style={{
         position: 'fixed',
         top: 0,
         left: 0,
         width: '100vw',
         height: '100vh',
-        zIndex: 1,
         pointerEvents: 'none',
-        background: 'transparent'
+        zIndex: 1,
       }}
-    />
+    >
+      {particles.map(particle => (
+        <div
+          key={particle.id}
+          style={{
+            position: 'absolute',
+            left: `${particle.x}px`,
+            top: `${particle.y}px`,
+            width: `${particle.size}px`,
+            height: `${particle.size}px`,
+            backgroundColor: particle.color,
+            borderRadius: '50%',
+            opacity: 0.7,
+            transform: 'translate(-50%, -50%)',
+          }}
+        />
+      ))}
+    </div>
   );
 }

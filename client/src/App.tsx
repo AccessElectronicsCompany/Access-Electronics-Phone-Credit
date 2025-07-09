@@ -25,11 +25,7 @@ function App() {
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>
         <div style={{ position: 'relative' }}>
-          <ParticleBackground 
-            particleCount={60}
-            connectionDistance={140}
-            particleSpeed={0.4}
-          />
+          <ParticleBackground />
           <div style={{ position: 'relative', zIndex: 10 }}>
             <Toaster />
             <Router />
