@@ -17,7 +17,7 @@ const quoteFormSchema = z.object({
   fullName: z.string().min(2, "Full name is required"),
   contactNumber: z.string().min(10, "Valid contact number is required"),
   email: z.string().email("Valid email is required"),
-  physicalAddress: z.string().min(10, "Physical address is required"),
+  physicalAddress: z.string().min(1, "Physical address is required"),
   city: z.string().min(2, "City is required"),
   region: z.string().min(2, "Region is required"),
   country: z.string().min(2, "Country is required"),
@@ -31,6 +31,23 @@ const quoteFormSchema = z.object({
   deposit: z.number().min(0, "Deposit must be 0 or greater").optional(),
   paymentTerm: z.number().min(12, "Payment term is required"),
 });
+
+const namibianRegions = [
+  "Erongo",
+  "Hardap",
+  "Kavango East",
+  "Kavango West",
+  "Khomas",
+  "Kunene",
+  "Ohangwena",
+  "Omaheke",
+  "Omusati",
+  "Oshana",
+  "Oshikoto",
+  "Otjozondjupa",
+  "Zambezi",
+  "ǁKaras"
+];
 
 type QuoteFormData = z.infer<typeof quoteFormSchema>;
 
@@ -49,8 +66,42 @@ export default function QuoteFormModal({ isOpen, onClose, selectedPhone }: Quote
   const [paymentTerm, setPaymentTerm] = useState("36");
   const [monthlyPayment, setMonthlyPayment] = useState("");
   const [totalAmount, setTotalAmount] = useState("");
+  const [canSubmit, setCanSubmit] = useState(true);
+  const [timeRemaining, setTimeRemaining] = useState(0);
   const { toast } = useToast();
   const queryClient = useQueryClient();
+
+  // Check if user can submit based on last submission time
+  useEffect(() => {
+    const lastSubmission = localStorage.getItem('lastQuoteSubmission');
+    if (lastSubmission) {
+      const lastSubmissionTime = new Date(lastSubmission).getTime();
+      const now = Date.now();
+      const timeDiff = now - lastSubmissionTime;
+      const thirtyMinutes = 30 * 60 * 1000;
+      
+      if (timeDiff < thirtyMinutes) {
+        setCanSubmit(false);
+        setTimeRemaining(thirtyMinutes - timeDiff);
+        
+        // Update countdown every second
+        const interval = setInterval(() => {
+          const currentTime = Date.now();
+          const remaining = thirtyMinutes - (currentTime - lastSubmissionTime);
+          
+          if (remaining <= 0) {
+            setCanSubmit(true);
+            setTimeRemaining(0);
+            clearInterval(interval);
+          } else {
+            setTimeRemaining(remaining);
+          }
+        }, 1000);
+        
+        return () => clearInterval(interval);
+      }
+    }
+  }, [isOpen]);
 
   const {
     register,
@@ -135,9 +186,14 @@ export default function QuoteFormModal({ isOpen, onClose, selectedPhone }: Quote
       return apiRequest("POST", "/api/quote-requests", quoteData);
     },
     onSuccess: () => {
+      // Set last submission time
+      localStorage.setItem('lastQuoteSubmission', new Date().toISOString());
+      setCanSubmit(false);
+      setTimeRemaining(30 * 60 * 1000);
+      
       toast({
         title: "Quote Request Submitted",
-        description: "We will contact you within 24 hours with your quote details.",
+        description: "We will contact you within 24 hours with your quote details. You can submit another quote in 30 minutes.",
       });
       reset();
       onClose();
@@ -153,7 +209,21 @@ export default function QuoteFormModal({ isOpen, onClose, selectedPhone }: Quote
   });
 
   const onSubmit = (data: QuoteFormData) => {
+    if (!canSubmit) {
+      toast({
+        title: "Please wait",
+        description: `You can submit another quote in ${formatTimeRemaining(timeRemaining)}.`,
+        variant: "destructive",
+      });
+      return;
+    }
     createQuoteMutation.mutate(data);
+  };
+
+  const formatTimeRemaining = (milliseconds: number) => {
+    const minutes = Math.floor(milliseconds / 60000);
+    const seconds = Math.floor((milliseconds % 60000) / 1000);
+    return `${minutes}:${seconds.toString().padStart(2, '0')}`;
   };
 
   return (
@@ -166,6 +236,11 @@ export default function QuoteFormModal({ isOpen, onClose, selectedPhone }: Quote
           <DialogDescription className="samsung-text text-center text-lg">
             Please fill out the form below to request a quote for your selected phone.
           </DialogDescription>
+          {!canSubmit && (
+            <div className="bg-orange-100 border border-orange-400 text-orange-700 px-4 py-3 rounded-xl text-center">
+              <p className="samsung-text">You can submit another quote in {formatTimeRemaining(timeRemaining)}</p>
+            </div>
+          )}
         </DialogHeader>
         
         <form onSubmit={handleSubmit(onSubmit)} className="space-y-8">
@@ -223,7 +298,7 @@ export default function QuoteFormModal({ isOpen, onClose, selectedPhone }: Quote
                   id="physicalAddress"
                   {...register("physicalAddress")}
                   className={`rounded-xl border-2 h-12 ${errors.physicalAddress ? "border-red-500" : "border-gray-300 focus:border-black"}`}
-                  placeholder="Street address, city"
+                  placeholder="Enter area/location"
                 />
                 {errors.physicalAddress && (
                   <p className="text-red-500 text-sm mt-1">{errors.physicalAddress.message}</p>
@@ -244,11 +319,21 @@ export default function QuoteFormModal({ isOpen, onClose, selectedPhone }: Quote
               </div>
               <div>
                 <Label htmlFor="region" className="text-sm font-semibold samsung-text mb-2 block">Region *</Label>
-                <Input
-                  id="region"
-                  {...register("region")}
-                  className={`rounded-xl border-2 h-12 ${errors.region ? "border-red-500" : "border-gray-300 focus:border-black"}`}
-                  placeholder="Enter your region"
+                <Controller
+                  name="region"
+                  control={control}
+                  render={({ field }) => (
+                    <Select onValueChange={field.onChange} value={field.value}>
+                      <SelectTrigger className={`rounded-xl border-2 h-12 ${errors.region ? "border-red-500" : "border-gray-300 focus:border-black"}`}>
+                        <SelectValue placeholder="Select your region" />
+                      </SelectTrigger>
+                      <SelectContent className="rounded-xl">
+                        {namibianRegions.map((region) => (
+                          <SelectItem key={region} value={region}>{region}</SelectItem>
+                        ))}
+                      </SelectContent>
+                    </Select>
+                  )}
                 />
                 {errors.region && (
                   <p className="text-red-500 text-sm mt-1">{errors.region.message}</p>
@@ -441,10 +526,12 @@ export default function QuoteFormModal({ isOpen, onClose, selectedPhone }: Quote
             </Button>
             <Button
               type="submit"
-              disabled={createQuoteMutation.isPending}
+              disabled={createQuoteMutation.isPending || !canSubmit}
               className="px-6 md:px-8 py-3 samsung-btn order-1 sm:order-2"
             >
-              {createQuoteMutation.isPending ? "Submitting..." : "Submit Quote Request"}
+              {createQuoteMutation.isPending ? "Submitting..." : 
+               !canSubmit ? `Wait ${formatTimeRemaining(timeRemaining)}` : 
+               "Submit Quote Request"}
             </Button>
           </div>
         </form>
