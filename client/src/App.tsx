@@ -26,9 +26,9 @@ function App() {
       <TooltipProvider>
         <div className="relative">
           <ParticleBackground 
-            particleCount={40}
-            connectionDistance={120}
-            particleSpeed={0.3}
+            particleCount={60}
+            connectionDistance={140}
+            particleSpeed={0.4}
           />
           <div className="relative z-10">
             <Toaster />

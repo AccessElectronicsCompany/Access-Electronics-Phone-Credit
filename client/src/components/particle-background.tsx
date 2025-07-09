@@ -51,8 +51,8 @@ export default function ParticleBackground({
           y: Math.random() * canvas.height,
           vx: (Math.random() - 0.5) * particleSpeed,
           vy: (Math.random() - 0.5) * particleSpeed,
-          size: Math.random() * 2 + 1,
-          opacity: Math.random() * 0.5 + 0.2
+          size: Math.random() * 4 + 3,
+          opacity: Math.random() * 0.4 + 0.6
         });
       }
     };
@@ -91,12 +91,12 @@ export default function ParticleBackground({
             const distance = Math.sqrt(dx * dx + dy * dy);
 
             if (distance < connectionDistance) {
-              const opacity = (1 - distance / connectionDistance) * 0.3;
+              const opacity = (1 - distance / connectionDistance) * 0.6;
               ctx.beginPath();
               ctx.moveTo(particle.x, particle.y);
               ctx.lineTo(otherParticle.x, otherParticle.y);
               ctx.strokeStyle = `rgba(0, 0, 0, ${opacity})`;
-              ctx.lineWidth = 0.5;
+              ctx.lineWidth = 1;
               ctx.stroke();
             }
           }
