@@ -1,32 +1,72 @@
+import { useState } from "react";
 import { Card, CardContent } from "@/components/ui/card";
+import { Menu, X } from "lucide-react";
 
 export default function Terms() {
+  const [showMobileMenu, setShowMobileMenu] = useState(false);
+
   return (
     <div className="min-h-screen bg-background">
       {/* Header */}
       <header className="bg-white border-b border-black sticky top-0 z-50">
         <div className="samsung-container">
           <div className="flex justify-between items-center h-20">
-            <div className="flex items-center ml-4">
-              <h1 className="text-3xl samsung-header tracking-widest">
+            <div className="flex items-center">
+              <h1 className="text-2xl md:text-3xl samsung-header tracking-widest">
                 ACCESS ELECTRONICS
               </h1>
             </div>
-            <nav className="hidden md:flex space-x-12">
+            
+            {/* Desktop Navigation */}
+            <nav className="hidden lg:flex space-x-8 xl:space-x-12">
               <button
                 onClick={() => window.location.href = '/'}
-                className="samsung-text hover:text-black transition-colors font-medium tracking-wide uppercase text-sm"
+                className="samsung-text hover:text-black transition-colors font-medium tracking-wide uppercase text-sm whitespace-nowrap"
               >
                 Home
               </button>
               <button
                 onClick={() => window.location.href = '/phones'}
-                className="samsung-text hover:text-black transition-colors font-medium tracking-wide uppercase text-sm"
+                className="samsung-text hover:text-black transition-colors font-medium tracking-wide uppercase text-sm whitespace-nowrap"
               >
                 Phones
               </button>
             </nav>
+
+            {/* Mobile Menu Button */}
+            <button
+              onClick={() => setShowMobileMenu(!showMobileMenu)}
+              className="lg:hidden p-2 samsung-text hover:text-black transition-colors"
+            >
+              {showMobileMenu ? <X size={24} /> : <Menu size={24} />}
+            </button>
           </div>
+
+          {/* Mobile Menu */}
+          {showMobileMenu && (
+            <div className="lg:hidden bg-white border-t border-black">
+              <nav className="py-4 space-y-2">
+                <button
+                  onClick={() => {
+                    window.location.href = '/';
+                    setShowMobileMenu(false);
+                  }}
+                  className="block w-full text-left px-4 py-3 samsung-text hover:bg-gray-50 transition-colors font-medium tracking-wide uppercase text-sm"
+                >
+                  Home
+                </button>
+                <button
+                  onClick={() => {
+                    window.location.href = '/phones';
+                    setShowMobileMenu(false);
+                  }}
+                  className="block w-full text-left px-4 py-3 samsung-text hover:bg-gray-50 transition-colors font-medium tracking-wide uppercase text-sm"
+                >
+                  Phones
+                </button>
+              </nav>
+            </div>
+          )}
         </div>
       </header>
 

@@ -4,7 +4,7 @@ import PhoneCard from "@/components/phone-card";
 import QuoteFormModal from "@/components/quote-form-modal";
 import { Card, CardContent } from "@/components/ui/card";
 import { iphones, samsungPhones } from "@/lib/phone-data";
-import { ArrowLeft } from "lucide-react";
+import { ArrowLeft, Menu, X } from "lucide-react";
 
 export default function Phones() {
   const [selectedPhone, setSelectedPhone] = useState<{
@@ -14,6 +14,7 @@ export default function Phones() {
   } | null>(null);
   
   const [showQuoteForm, setShowQuoteForm] = useState(false);
+  const [showMobileMenu, setShowMobileMenu] = useState(false);
 
   const handleSelectPhone = (name: string, storage: string, price: number) => {
     setSelectedPhone({ name, storage, price });
@@ -31,16 +32,66 @@ export default function Phones() {
       <header className="bg-white border-b border-black sticky top-0 z-50">
         <div className="samsung-container">
           <div className="flex justify-between items-center h-20">
-            <div className="flex items-center space-x-8">
+            <div className="flex items-center space-x-4 md:space-x-8">
               <Link href="/" className="flex items-center space-x-2 samsung-text hover:text-black transition-colors">
                 <ArrowLeft className="h-5 w-5" />
-                <span className="font-medium tracking-wide uppercase text-sm">Back to Home</span>
+                <span className="hidden sm:inline font-medium tracking-wide uppercase text-sm">Back to Home</span>
               </Link>
-              <h1 className="text-3xl samsung-header tracking-widest">
+              <h1 className="text-xl md:text-2xl lg:text-3xl samsung-header tracking-widest">
                 PHONE COLLECTION
               </h1>
             </div>
+            
+            {/* Desktop Navigation */}
+            <nav className="hidden lg:flex space-x-8">
+              <button
+                onClick={() => window.location.href = '/'}
+                className="samsung-text hover:text-black transition-colors font-medium tracking-wide uppercase text-sm whitespace-nowrap"
+              >
+                Home
+              </button>
+              <button
+                onClick={() => window.location.href = '/terms'}
+                className="samsung-text hover:text-black transition-colors font-medium tracking-wide uppercase text-sm whitespace-nowrap"
+              >
+                Terms
+              </button>
+            </nav>
+
+            {/* Mobile Menu Button */}
+            <button
+              onClick={() => setShowMobileMenu(!showMobileMenu)}
+              className="lg:hidden p-2 samsung-text hover:text-black transition-colors"
+            >
+              {showMobileMenu ? <X size={24} /> : <Menu size={24} />}
+            </button>
           </div>
+
+          {/* Mobile Menu */}
+          {showMobileMenu && (
+            <div className="lg:hidden bg-white border-t border-black">
+              <nav className="py-4 space-y-2">
+                <button
+                  onClick={() => {
+                    window.location.href = '/';
+                    setShowMobileMenu(false);
+                  }}
+                  className="block w-full text-left px-4 py-3 samsung-text hover:bg-gray-50 transition-colors font-medium tracking-wide uppercase text-sm"
+                >
+                  Home
+                </button>
+                <button
+                  onClick={() => {
+                    window.location.href = '/terms';
+                    setShowMobileMenu(false);
+                  }}
+                  className="block w-full text-left px-4 py-3 samsung-text hover:bg-gray-50 transition-colors font-medium tracking-wide uppercase text-sm"
+                >
+                  Terms & Conditions
+                </button>
+              </nav>
+            </div>
+          )}
         </div>
       </header>
 
