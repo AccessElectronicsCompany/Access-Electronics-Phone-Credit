@@ -1,12 +1,9 @@
 import { useState } from "react";
 import HeroSection from "@/components/hero-section";
-import PhoneSection from "@/components/phone-section";
 import QuoteFormModal from "@/components/quote-form-modal";
 import CalculatorModal from "@/components/calculator-modal";
 import { Card, CardContent } from "@/components/ui/card";
 import { Smartphone, DollarSign, Calendar, CheckCircle } from "lucide-react";
-import PhoneCard from "@/components/phone-card";
-import { iphones, samsungPhones } from "@/lib/phone-data";
 
 export default function Home() {
   const [selectedPhone, setSelectedPhone] = useState<{
@@ -48,22 +45,10 @@ export default function Home() {
             </div>
             <nav className="hidden md:flex space-x-8">
               <button
-                onClick={() => scrollToSection('iphones')}
+                onClick={() => window.location.href = '/phones'}
                 className="text-gray-700 hover:text-blue-600 transition-colors"
               >
-                iPhones
-              </button>
-              <button
-                onClick={() => scrollToSection('samsung')}
-                className="text-gray-700 hover:text-blue-600 transition-colors"
-              >
-                Samsung
-              </button>
-              <button
-                onClick={() => scrollToSection('used')}
-                className="text-gray-700 hover:text-blue-600 transition-colors"
-              >
-                Used Phones
+                Browse Phones
               </button>
               <button
                 onClick={() => scrollToSection('calculator')}
@@ -140,19 +125,19 @@ export default function Home() {
           </div>
           <div className="grid md:grid-cols-3 gap-8">
             <Card className="text-center p-8 gradient-border-light hover:shadow-lg transition-shadow cursor-pointer"
-                  onClick={() => scrollToSection('iphones')}>
+                  onClick={() => window.location.href = '/phones'}>
               <CardContent className="pt-6">
                 <div className="text-6xl mb-4">📱</div>
-                <h4 className="text-xl font-semibold text-gray-900 mb-2">iPhones</h4>
-                <p className="text-gray-600">Premium Apple devices with cutting-edge technology</p>
+                <h4 className="text-xl font-semibold text-gray-900 mb-2">Browse Phones</h4>
+                <p className="text-gray-600">Explore our complete collection of smartphones</p>
               </CardContent>
             </Card>
             <Card className="text-center p-8 gradient-border-light hover:shadow-lg transition-shadow cursor-pointer"
-                  onClick={() => scrollToSection('samsung')}>
+                  onClick={() => scrollToSection('calculator')}>
               <CardContent className="pt-6">
-                <div className="text-6xl mb-4">📱</div>
-                <h4 className="text-xl font-semibold text-gray-900 mb-2">Samsung</h4>
-                <p className="text-gray-600">Innovation meets performance in Samsung's flagship devices</p>
+                <div className="text-6xl mb-4">🧮</div>
+                <h4 className="text-xl font-semibold text-gray-900 mb-2">Calculator</h4>
+                <p className="text-gray-600">Calculate your monthly payments instantly</p>
               </CardContent>
             </Card>
             <Card className="text-center p-8 gradient-border-light hover:shadow-lg transition-shadow cursor-pointer"
@@ -167,73 +152,36 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Phone Sections - Hidden but available via navigation */}
-      <div style={{ display: 'none' }}>
-        <PhoneSection
-          type="iphone"
-          title="iPhone Collection"
-          description="Premium Apple devices with cutting-edge technology"
-          onSelectPhone={handleSelectPhone}
-          onRequestQuote={handleRequestQuote}
-        />
-
-        <PhoneSection
-          type="samsung"
-          title="Samsung Collection"
-          description="Innovation meets performance in Samsung's flagship devices"
-          onSelectPhone={handleSelectPhone}
-          onRequestQuote={handleRequestQuote}
-        />
-      </div>
-
-      {/* iPhone Section */}
+      {/* Placeholder sections for navigation - no phone listings */}
       <section id="iphones" className="py-16 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
+          <div className="text-center py-12">
             <h3 className="text-3xl font-bold text-gray-900 mb-4">iPhone Collection</h3>
-            <p className="text-gray-600">Premium Apple devices with cutting-edge technology</p>
-          </div>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-            {iphones.map((phone) => (
-              <PhoneCard
-                key={`${phone.name}-${phone.storage}`}
-                phone={phone}
-                onSelect={handleSelectPhone}
-                onRequestQuote={handleRequestQuote}
-              />
-            ))}
+            <p className="text-gray-600 mb-8">Premium Apple devices with cutting-edge technology</p>
+            <div className="text-6xl mb-4">📱</div>
+            <p className="text-xl text-gray-600 mb-4">Coming Soon</p>
+            <p className="text-gray-500">Browse our premium iPhone collection</p>
           </div>
         </div>
       </section>
 
-      {/* Samsung Section */}
       <section id="samsung" className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
+          <div className="text-center py-12">
             <h3 className="text-3xl font-bold text-gray-900 mb-4">Samsung Collection</h3>
-            <p className="text-gray-600">Innovation meets performance in Samsung's flagship devices</p>
-          </div>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-            {samsungPhones.map((phone) => (
-              <PhoneCard
-                key={`${phone.name}-${phone.storage}`}
-                phone={phone}
-                onSelect={handleSelectPhone}
-                onRequestQuote={handleRequestQuote}
-              />
-            ))}
+            <p className="text-gray-600 mb-8">Innovation meets performance in Samsung's flagship devices</p>
+            <div className="text-6xl mb-4">📱</div>
+            <p className="text-xl text-gray-600 mb-4">Coming Soon</p>
+            <p className="text-gray-500">Explore our Samsung smartphone range</p>
           </div>
         </div>
       </section>
 
-      {/* Used Phones Section */}
       <section id="used" className="py-16 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h3 className="text-3xl font-bold text-gray-900 mb-4">Used Phones</h3>
-            <p className="text-gray-600">Quality pre-owned devices at great prices</p>
-          </div>
           <div className="text-center py-12">
+            <h3 className="text-3xl font-bold text-gray-900 mb-4">Used Phones</h3>
+            <p className="text-gray-600 mb-8">Quality pre-owned devices at great prices</p>
             <div className="text-6xl mb-4">🔧</div>
             <p className="text-xl text-gray-600 mb-4">Coming Soon</p>
             <p className="text-gray-500">We're preparing an amazing selection of quality used phones</p>
