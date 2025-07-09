@@ -18,29 +18,28 @@ interface PhoneCardProps {
 
 export default function PhoneCard({ phone, onSelect, onRequestQuote }: PhoneCardProps) {
   return (
-    <Card className="gradient-border-light hover:shadow-lg transition-all transform hover:scale-105 cursor-pointer">
-      <CardContent className="text-center p-6">
-        <div className="text-4xl mb-4">
-          <Smartphone className="mx-auto h-12 w-12 text-gray-400" />
+    <Card className="samsung-card hover:shadow-lg transition-all cursor-pointer">
+      <CardContent className="text-center p-8">
+        <div className="text-4xl mb-6">
+          <Smartphone className="mx-auto h-16 w-16 text-black" />
         </div>
-        <h4 className="font-semibold text-gray-900 mb-2">{phone.name}</h4>
-        <p className="text-sm text-gray-600 mb-2">{phone.storage}</p>
-        <p className="text-2xl font-bold gradient-text mb-4">N${phone.price.toLocaleString()}</p>
-        <div className="space-y-2 text-sm text-gray-600 mb-4">
+        <h4 className="font-semibold samsung-text mb-3 text-lg tracking-wide">{phone.name}</h4>
+        <p className="text-sm samsung-text mb-3 opacity-70">{phone.storage}</p>
+        <p className="text-3xl font-bold samsung-text mb-6">N${phone.price.toLocaleString()}</p>
+        <div className="space-y-2 text-sm samsung-text mb-6 opacity-70">
           <div>Colors: {phone.colors.join(", ")}</div>
           <div>Condition: {phone.condition}</div>
         </div>
-        <div className="space-y-2">
+        <div className="space-y-3">
           <Button
             onClick={() => onSelect(phone.name, phone.storage, phone.price)}
-            className="w-full gradient-bg text-white hover:opacity-90 transition-opacity rounded-full font-semibold"
+            className="samsung-btn w-full py-3"
           >
             Select Phone
           </Button>
           <Button
             onClick={() => onRequestQuote(phone.name, phone.storage, phone.price)}
-            variant="outline"
-            className="w-full border-2 border-gray-300 text-gray-700 hover:border-gray-400 rounded-full font-semibold"
+            className="samsung-btn-outline w-full py-3"
           >
             Request Quote
           </Button>

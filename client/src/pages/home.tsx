@@ -35,24 +35,24 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-background">
       {/* Header */}
-      <header className="bg-white shadow-lg sticky top-0 z-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-16">
+      <header className="bg-white border-b border-black sticky top-0 z-50">
+        <div className="samsung-container">
+          <div className="flex justify-between items-center h-20">
             <div className="flex items-center">
-              <h1 className="text-2xl font-bold gradient-text">
-                Access Electronics
+              <h1 className="text-3xl samsung-header tracking-widest">
+                ACCESS ELECTRONICS
               </h1>
             </div>
-            <nav className="hidden md:flex space-x-8">
+            <nav className="hidden md:flex space-x-12">
               <button
                 onClick={() => window.location.href = '/phones'}
-                className="text-gray-700 hover:text-blue-600 transition-colors"
+                className="samsung-text hover:text-black transition-colors font-medium tracking-wide uppercase text-sm"
               >
-                Browse Phones
+                Select Phone
               </button>
               <button
                 onClick={() => scrollToSection('calculator')}
-                className="text-gray-700 hover:text-blue-600 transition-colors"
+                className="samsung-text hover:text-black transition-colors font-medium tracking-wide uppercase text-sm"
               >
                 Calculator
               </button>
@@ -68,32 +68,32 @@ export default function Home() {
       />
 
       {/* Credit Info Section */}
-      <section className="py-16 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h3 className="text-3xl font-bold text-gray-900 mb-4">Flexible Credit Options</h3>
-            <p className="text-gray-600 max-w-2xl mx-auto">Choose from multiple payment plans with competitive rates</p>
+      <section className="samsung-section bg-white">
+        <div className="samsung-container">
+          <div className="text-center mb-16">
+            <h3 className="text-4xl samsung-header mb-6">FLEXIBLE CREDIT OPTIONS</h3>
+            <p className="samsung-text max-w-2xl mx-auto text-lg">Choose from multiple payment plans with competitive rates</p>
           </div>
           <div className="grid md:grid-cols-3 gap-8">
-            <Card className="text-center p-6 gradient-border-light hover:shadow-lg transition-shadow">
+            <Card className="samsung-card text-center p-8">
               <CardContent className="pt-6">
-                <div className="text-4xl font-bold gradient-text mb-2">12</div>
-                <div className="text-lg font-semibold text-gray-900 mb-2">Months</div>
-                <div className="text-gray-600">Higher monthly payments, less interest</div>
+                <div className="text-6xl font-bold samsung-text mb-4">12</div>
+                <div className="text-xl font-semibold samsung-text mb-4 tracking-wide">MONTHS</div>
+                <div className="samsung-text opacity-70">Higher monthly payments, less interest</div>
               </CardContent>
             </Card>
-            <Card className="text-center p-6 gradient-border-light hover:shadow-lg transition-shadow">
+            <Card className="samsung-card text-center p-8">
               <CardContent className="pt-6">
-                <div className="text-4xl font-bold gradient-text mb-2">24</div>
-                <div className="text-lg font-semibold text-gray-900 mb-2">Months</div>
-                <div className="text-gray-600">Balanced payment option</div>
+                <div className="text-6xl font-bold samsung-text mb-4">24</div>
+                <div className="text-xl font-semibold samsung-text mb-4 tracking-wide">MONTHS</div>
+                <div className="samsung-text opacity-70">Balanced payment option</div>
               </CardContent>
             </Card>
-            <Card className="text-center p-6 gradient-border-light hover:shadow-lg transition-shadow">
+            <Card className="samsung-card text-center p-8">
               <CardContent className="pt-6">
-                <div className="text-4xl font-bold gradient-text mb-2">36</div>
-                <div className="text-lg font-semibold text-gray-900 mb-2">Months</div>
-                <div className="text-gray-600">Lower monthly payments</div>
+                <div className="text-6xl font-bold samsung-text mb-4">36</div>
+                <div className="text-xl font-semibold samsung-text mb-4 tracking-wide">MONTHS</div>
+                <div className="samsung-text opacity-70">Lower monthly payments</div>
               </CardContent>
             </Card>
           </div>
@@ -101,11 +101,11 @@ export default function Home() {
       </section>
 
       {/* Payment Calculator Section */}
-      <section id="calculator" className="py-16 bg-gray-50">
+      <section id="calculator" className="samsung-section bg-gray-50">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h3 className="text-3xl font-bold text-gray-900 mb-4">Payment Calculator</h3>
-            <p className="text-gray-600">Calculate your monthly payments with our flexible credit options</p>
+          <div className="text-center mb-16">
+            <h3 className="text-4xl samsung-header mb-6">PAYMENT CALCULATOR</h3>
+            <p className="samsung-text text-lg">Calculate your monthly payments with our flexible credit options</p>
           </div>
           <CalculatorModal 
             isOpen={true}
@@ -117,35 +117,35 @@ export default function Home() {
       </section>
 
       {/* Phone Collections Navigation */}
-      <section className="py-16 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h3 className="text-3xl font-bold text-gray-900 mb-4">Browse Our Collections</h3>
-            <p className="text-gray-600">Discover premium smartphones available on credit</p>
+      <section className="samsung-section bg-white">
+        <div className="samsung-container">
+          <div className="text-center mb-16">
+            <h3 className="text-4xl samsung-header mb-6">BROWSE OUR COLLECTIONS</h3>
+            <p className="samsung-text text-lg">Discover premium smartphones available on credit</p>
           </div>
           <div className="grid md:grid-cols-3 gap-8">
-            <Card className="text-center p-8 gradient-border-light hover:shadow-lg transition-shadow cursor-pointer"
+            <Card className="text-center p-12 border-2 border-black hover:bg-black hover:text-white transition-all cursor-pointer"
                   onClick={() => window.location.href = '/phones'}>
               <CardContent className="pt-6">
-                <div className="text-6xl mb-4">📱</div>
-                <h4 className="text-xl font-semibold text-gray-900 mb-2">Browse Phones</h4>
-                <p className="text-gray-600">Explore our complete collection of smartphones</p>
+                <div className="text-6xl mb-6">📱</div>
+                <h4 className="text-xl font-semibold mb-4 tracking-wide">SELECT PHONE</h4>
+                <p className="text-sm opacity-80">Choose from our premium smartphone collection</p>
               </CardContent>
             </Card>
-            <Card className="text-center p-8 gradient-border-light hover:shadow-lg transition-shadow cursor-pointer"
+            <Card className="text-center p-12 border-2 border-black hover:bg-black hover:text-white transition-all cursor-pointer"
                   onClick={() => scrollToSection('calculator')}>
               <CardContent className="pt-6">
-                <div className="text-6xl mb-4">🧮</div>
-                <h4 className="text-xl font-semibold text-gray-900 mb-2">Calculator</h4>
-                <p className="text-gray-600">Calculate your monthly payments instantly</p>
+                <div className="text-6xl mb-6">🧮</div>
+                <h4 className="text-xl font-semibold mb-4 tracking-wide">CALCULATOR</h4>
+                <p className="text-sm opacity-80">Calculate your monthly payments instantly</p>
               </CardContent>
             </Card>
-            <Card className="text-center p-8 gradient-border-light hover:shadow-lg transition-shadow cursor-pointer"
+            <Card className="text-center p-12 border-2 border-black hover:bg-black hover:text-white transition-all cursor-pointer"
                   onClick={() => scrollToSection('used')}>
               <CardContent className="pt-6">
-                <div className="text-6xl mb-4">🔧</div>
-                <h4 className="text-xl font-semibold text-gray-900 mb-2">Used Phones</h4>
-                <p className="text-gray-600">Quality pre-owned devices at great prices</p>
+                <div className="text-6xl mb-6">🔧</div>
+                <h4 className="text-xl font-semibold mb-4 tracking-wide">USED PHONES</h4>
+                <p className="text-sm opacity-80">Quality pre-owned devices at great prices</p>
               </CardContent>
             </Card>
           </div>

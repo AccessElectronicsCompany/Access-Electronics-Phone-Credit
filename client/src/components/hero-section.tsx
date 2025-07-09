@@ -7,27 +7,26 @@ interface HeroSectionProps {
 
 export default function HeroSection({ onBrowsePhones, onOpenCalculator }: HeroSectionProps) {
   return (
-    <section className="gradient-bg py-20">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <h2 className="text-4xl md:text-6xl font-black text-white mb-6 font-tight tracking-tight uppercase">
-          Get Your Dream Phone Today
+    <section className="bg-black text-white samsung-section">
+      <div className="samsung-container text-center">
+        <h2 className="text-5xl md:text-7xl font-black text-white mb-8 tracking-wider uppercase">
+          GET YOUR DREAM PHONE TODAY
         </h2>
-        <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
+        <p className="text-xl text-white/90 mb-12 max-w-2xl mx-auto leading-relaxed">
           Buy premium smartphones on credit with flexible payment plans. 
           No upfront payment required - start with just a quote request.
         </p>
-        <div className="flex flex-col sm:flex-row gap-4 justify-center">
+        <div className="flex flex-col sm:flex-row gap-6 justify-center">
           <Button
             onClick={onBrowsePhones}
-            className="bg-white text-blue-600 hover:bg-gray-100 px-8 py-3 rounded-full font-semibold transition-all transform hover:scale-105"
+            className="bg-white text-black hover:bg-gray-200 px-12 py-4 font-semibold tracking-wide uppercase text-sm transition-all"
             size="lg"
           >
             Browse Phones
           </Button>
           <Button
             onClick={onOpenCalculator}
-            variant="outline"
-            className="border-2 border-white text-white hover:bg-white hover:text-blue-600 px-8 py-3 rounded-full font-semibold transition-all transform hover:scale-105"
+            className="bg-transparent text-white border-2 border-white hover:bg-white hover:text-black px-12 py-4 font-semibold tracking-wide uppercase text-sm transition-all"
             size="lg"
           >
             Calculate Payments

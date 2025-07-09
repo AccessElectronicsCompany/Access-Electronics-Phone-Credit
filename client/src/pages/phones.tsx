@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link } from "wouter";
 import PhoneCard from "@/components/phone-card";
 import QuoteFormModal from "@/components/quote-form-modal";
+import { Card, CardContent } from "@/components/ui/card";
 import { iphones, samsungPhones } from "@/lib/phone-data";
 import { ArrowLeft } from "lucide-react";
 
@@ -27,28 +28,64 @@ export default function Phones() {
   return (
     <div className="min-h-screen bg-background">
       {/* Header */}
-      <header className="bg-white shadow-lg sticky top-0 z-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-16">
-            <div className="flex items-center space-x-4">
-              <Link href="/" className="flex items-center space-x-2 text-gray-700 hover:text-blue-600 transition-colors">
+      <header className="bg-white border-b border-black sticky top-0 z-50">
+        <div className="samsung-container">
+          <div className="flex justify-between items-center h-20">
+            <div className="flex items-center space-x-8">
+              <Link href="/" className="flex items-center space-x-2 samsung-text hover:text-black transition-colors">
                 <ArrowLeft className="h-5 w-5" />
-                <span>Back to Home</span>
+                <span className="font-medium tracking-wide uppercase text-sm">Back to Home</span>
               </Link>
-              <h1 className="text-2xl font-bold gradient-text">
-                Phone Collection
+              <h1 className="text-3xl samsung-header tracking-widest">
+                PHONE COLLECTION
               </h1>
             </div>
           </div>
         </div>
       </header>
 
+      {/* Collections Navigation */}
+      <section className="samsung-section bg-white">
+        <div className="samsung-container">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl samsung-header mb-6">CHOOSE YOUR COLLECTION</h2>
+            <p className="samsung-text text-lg">Select from our premium smartphone categories</p>
+          </div>
+          <div className="grid md:grid-cols-3 gap-8 mb-16">
+            <Card className="text-center p-12 border-2 border-black hover:bg-black hover:text-white transition-all cursor-pointer"
+                  onClick={() => document.getElementById('iphones')?.scrollIntoView({ behavior: 'smooth' })}>
+              <CardContent className="pt-6">
+                <div className="text-6xl mb-6">📱</div>
+                <h4 className="text-xl font-semibold mb-4 tracking-wide">iPHONES</h4>
+                <p className="text-sm opacity-80">Premium Apple devices with cutting-edge technology</p>
+              </CardContent>
+            </Card>
+            <Card className="text-center p-12 border-2 border-black hover:bg-black hover:text-white transition-all cursor-pointer"
+                  onClick={() => document.getElementById('samsung')?.scrollIntoView({ behavior: 'smooth' })}>
+              <CardContent className="pt-6">
+                <div className="text-6xl mb-6">📱</div>
+                <h4 className="text-xl font-semibold mb-4 tracking-wide">SAMSUNG</h4>
+                <p className="text-sm opacity-80">Innovation meets performance in flagship devices</p>
+              </CardContent>
+            </Card>
+            <Card className="text-center p-12 border-2 border-black hover:bg-black hover:text-white transition-all cursor-pointer"
+                  onClick={() => document.getElementById('used')?.scrollIntoView({ behavior: 'smooth' })}>
+              <CardContent className="pt-6">
+                <div className="text-6xl mb-6">🔧</div>
+                <h4 className="text-xl font-semibold mb-4 tracking-wide">USED PHONES</h4>
+                <p className="text-sm opacity-80">Quality pre-owned devices at great prices</p>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </section>
+
       {/* iPhone Section */}
-      <section className="py-16 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">iPhone Collection</h2>
-            <p className="text-gray-600">Premium Apple devices with cutting-edge technology</p>
+      <section id="iphones" className="samsung-section bg-gray-50">
+        <div className="samsung-container">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl samsung-header mb-6">iPHONE COLLECTION</h2>
+            <p className="samsung-text text-lg">Premium Apple devices with cutting-edge technology</p>
           </div>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
             {iphones.map((phone) => (
@@ -64,11 +101,11 @@ export default function Phones() {
       </section>
 
       {/* Samsung Section */}
-      <section className="py-16 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">Samsung Collection</h2>
-            <p className="text-gray-600">Innovation meets performance in Samsung's flagship devices</p>
+      <section id="samsung" className="samsung-section bg-white">
+        <div className="samsung-container">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl samsung-header mb-6">SAMSUNG COLLECTION</h2>
+            <p className="samsung-text text-lg">Innovation meets performance in Samsung's flagship devices</p>
           </div>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
             {samsungPhones.map((phone) => (
@@ -79,6 +116,21 @@ export default function Phones() {
                 onRequestQuote={handleRequestQuote}
               />
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Used Phones Section */}
+      <section id="used" className="samsung-section bg-gray-50">
+        <div className="samsung-container">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl samsung-header mb-6">USED PHONES</h2>
+            <p className="samsung-text text-lg">Quality pre-owned devices at great prices</p>
+          </div>
+          <div className="text-center py-16">
+            <div className="text-8xl mb-8">🔧</div>
+            <p className="text-2xl samsung-text mb-6 tracking-wide">COMING SOON</p>
+            <p className="samsung-text opacity-70 text-lg">We're preparing an amazing selection of quality used phones</p>
           </div>
         </div>
       </section>

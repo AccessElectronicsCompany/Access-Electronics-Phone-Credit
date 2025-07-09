@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Inter+Tight:wght@300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -7,30 +8,25 @@
 
 :root {
   --background: hsl(0, 0%, 100%);
-  --foreground: hsl(222, 84%, 4.9%);
-  --muted: hsl(210, 40%, 96%);
-  --muted-foreground: hsl(215, 13%, 40%);
+  --foreground: hsl(0, 0%, 0%);
+  --muted: hsl(0, 0%, 96%);
+  --muted-foreground: hsl(0, 0%, 40%);
   --popover: hsl(0, 0%, 100%);
-  --popover-foreground: hsl(222, 84%, 4.9%);
+  --popover-foreground: hsl(0, 0%, 0%);
   --card: hsl(0, 0%, 100%);
-  --card-foreground: hsl(222, 84%, 4.9%);
-  --border: hsl(214, 32%, 91%);
-  --input: hsl(214, 32%, 91%);
-  --primary: hsl(222, 47%, 11%);
-  --primary-foreground: hsl(210, 40%, 98%);
-  --secondary: hsl(210, 40%, 96%);
-  --secondary-foreground: hsl(222, 84%, 4.9%);
-  --accent: hsl(210, 40%, 96%);
-  --accent-foreground: hsl(222, 84%, 4.9%);
+  --card-foreground: hsl(0, 0%, 0%);
+  --border: hsl(0, 0%, 85%);
+  --input: hsl(0, 0%, 95%);
+  --primary: hsl(0, 0%, 0%);
+  --primary-foreground: hsl(0, 0%, 100%);
+  --secondary: hsl(0, 0%, 96%);
+  --secondary-foreground: hsl(0, 0%, 0%);
+  --accent: hsl(0, 0%, 96%);
+  --accent-foreground: hsl(0, 0%, 0%);
   --destructive: hsl(0, 84%, 60%);
-  --destructive-foreground: hsl(210, 40%, 98%);
-  --ring: hsl(222, 84%, 4.9%);
-  --radius: 0.5rem;
-  
-  /* Custom gradient colors */
-  --gradient-start: hsl(233, 77%, 72%);
-  --gradient-middle: hsl(271, 36%, 65%);
-  --gradient-end: hsl(317, 93%, 78%);
+  --destructive-foreground: hsl(0, 0%, 100%);
+  --ring: hsl(0, 0%, 0%);
+  --radius: 0.25rem;
 }
 
 .dark {
@@ -61,31 +57,37 @@
   }
 
   body {
-    @apply font-inter antialiased bg-background text-foreground;
+    @apply antialiased bg-background text-foreground;
+    font-family: 'Open Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
   }
 }
 
 @layer utilities {
-  .gradient-bg {
-    background: linear-gradient(135deg, var(--gradient-start), var(--gradient-middle), var(--gradient-end));
+  .samsung-btn {
+    @apply bg-black text-white hover:bg-gray-800 transition-colors border-0 rounded-none font-semibold tracking-wide uppercase text-sm;
   }
   
-  .gradient-text {
-    background: linear-gradient(135deg, var(--gradient-start), var(--gradient-middle), var(--gradient-end));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+  .samsung-btn-outline {
+    @apply bg-transparent text-black border-2 border-black hover:bg-black hover:text-white transition-all rounded-none font-semibold tracking-wide uppercase text-sm;
   }
   
-  .gradient-border {
-    border: 2px solid transparent;
-    background: linear-gradient(white, white) padding-box,
-                linear-gradient(135deg, var(--gradient-start), var(--gradient-middle), var(--gradient-end)) border-box;
+  .samsung-card {
+    @apply bg-white border-2 border-gray-200 hover:border-black transition-colors rounded-none shadow-none;
   }
   
-  .gradient-border-light {
-    border: 2px solid transparent;
-    background: linear-gradient(white, white) padding-box,
-                linear-gradient(135deg, hsl(233, 77%, 72%, 0.3), hsl(271, 36%, 65%, 0.3), hsl(317, 93%, 78%, 0.3)) border-box;
+  .samsung-header {
+    @apply font-bold tracking-tight text-black;
+  }
+  
+  .samsung-text {
+    @apply text-black leading-relaxed;
+  }
+  
+  .samsung-section {
+    @apply py-20 px-4;
+  }
+  
+  .samsung-container {
+    @apply max-w-7xl mx-auto;
   }
 }

@@ -55,7 +55,7 @@ export default function CalculatorModal({ isOpen, onClose, selectedPrice, isEmbe
   const calculatorContent = (
     <div className="space-y-6">
       <div>
-        <Label htmlFor="phonePrice" className="text-sm font-medium text-gray-700">
+        <Label htmlFor="phonePrice" className="text-sm font-medium samsung-text tracking-wide uppercase">
           Phone Price (N$)
         </Label>
         <Input
@@ -64,16 +64,16 @@ export default function CalculatorModal({ isOpen, onClose, selectedPrice, isEmbe
           value={phonePrice}
           onChange={(e) => setPhonePrice(e.target.value)}
           placeholder="Enter phone price"
-          className="mt-1"
+          className="mt-2 border-2 border-gray-300 focus:border-black rounded-none"
         />
       </div>
       
       <div>
-        <Label htmlFor="paymentTerm" className="text-sm font-medium text-gray-700">
+        <Label htmlFor="paymentTerm" className="text-sm font-medium samsung-text tracking-wide uppercase">
           Payment Term
         </Label>
         <Select value={paymentTerm} onValueChange={setPaymentTerm}>
-          <SelectTrigger className="mt-1">
+          <SelectTrigger className="mt-2 border-2 border-gray-300 focus:border-black rounded-none">
             <SelectValue placeholder="Select payment term" />
           </SelectTrigger>
           <SelectContent>
@@ -85,7 +85,7 @@ export default function CalculatorModal({ isOpen, onClose, selectedPrice, isEmbe
       </div>
       
       <div>
-        <Label htmlFor="deposit" className="text-sm font-medium text-gray-700">
+        <Label htmlFor="deposit" className="text-sm font-medium samsung-text tracking-wide uppercase">
           Deposit (Optional)
         </Label>
         <Input
@@ -94,45 +94,45 @@ export default function CalculatorModal({ isOpen, onClose, selectedPrice, isEmbe
           value={deposit}
           onChange={(e) => setDeposit(e.target.value)}
           placeholder="Enter deposit amount"
-          className="mt-1"
+          className="mt-2 border-2 border-gray-300 focus:border-black rounded-none"
         />
       </div>
       
       <Button
         onClick={handleCalculate}
-        className="w-full gradient-bg text-white hover:opacity-90 transition-opacity"
+        className="samsung-btn w-full py-3"
       >
         Calculate Monthly Payment
       </Button>
       
       {result && (
-        <Card className="gradient-border-light">
+        <Card className="samsung-card">
           <CardContent className="p-6">
-            <h4 className="font-semibold text-gray-900 mb-4">Payment Breakdown</h4>
-            <div className="space-y-2 text-sm">
-              <div className="flex justify-between">
+            <h4 className="font-semibold samsung-text mb-4 tracking-wide uppercase">Payment Breakdown</h4>
+            <div className="space-y-3 text-sm">
+              <div className="flex justify-between samsung-text">
                 <span>Phone Price:</span>
                 <span>N${result.price.toFixed(2)}</span>
               </div>
-              <div className="flex justify-between">
+              <div className="flex justify-between samsung-text">
                 <span>Deposit:</span>
                 <span>N${result.deposit.toFixed(2)}</span>
               </div>
-              <div className="flex justify-between">
+              <div className="flex justify-between samsung-text">
                 <span>Credit Amount:</span>
                 <span>N${result.creditAmount.toFixed(2)}</span>
               </div>
-              <div className="flex justify-between">
+              <div className="flex justify-between samsung-text">
                 <span>Interest (16.8%):</span>
                 <span>N${result.interestAmount.toFixed(2)}</span>
               </div>
-              <div className="flex justify-between">
+              <div className="flex justify-between samsung-text">
                 <span>Total Amount:</span>
                 <span>N${result.totalAmount.toFixed(2)}</span>
               </div>
-              <div className="flex justify-between font-bold text-lg border-t pt-2">
-                <span>Monthly Payment:</span>
-                <span className="gradient-text">N${result.monthlyPayment.toFixed(2)}</span>
+              <div className="flex justify-between font-bold text-lg border-t border-black pt-3">
+                <span className="samsung-text">Monthly Payment:</span>
+                <span className="samsung-text font-bold">N${result.monthlyPayment.toFixed(2)}</span>
               </div>
             </div>
           </CardContent>
@@ -143,7 +143,7 @@ export default function CalculatorModal({ isOpen, onClose, selectedPrice, isEmbe
 
   if (isEmbedded) {
     return (
-      <Card className="max-w-2xl mx-auto gradient-border-light">
+      <Card className="max-w-2xl mx-auto samsung-card">
         <CardContent className="p-8">
           {calculatorContent}
         </CardContent>
@@ -155,8 +155,8 @@ export default function CalculatorModal({ isOpen, onClose, selectedPrice, isEmbe
     <Dialog open={isOpen} onOpenChange={onClose}>
       <DialogContent className="max-w-md">
         <DialogHeader>
-          <DialogTitle className="text-2xl font-bold gradient-text">Payment Calculator</DialogTitle>
-          <DialogDescription>
+          <DialogTitle className="text-2xl samsung-header tracking-wide">PAYMENT CALCULATOR</DialogTitle>
+          <DialogDescription className="samsung-text">
             Calculate your monthly payments for any phone with our flexible credit options.
           </DialogDescription>
         </DialogHeader>
