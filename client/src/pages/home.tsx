@@ -58,6 +58,12 @@ export default function Home() {
               >
                 Calculator
               </button>
+              <button
+                onClick={() => window.location.href = '/terms'}
+                className="samsung-text hover:text-black transition-colors font-medium tracking-wide uppercase text-sm"
+              >
+                Terms
+              </button>
             </nav>
           </div>
         </div>
@@ -313,10 +319,9 @@ export default function Home() {
             <div>
               <h5 className="font-semibold mb-4">Support</h5>
               <ul className="space-y-2 text-gray-400">
-                <li><a href="#" className="hover:text-white transition-colors">Contact Us</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">FAQ</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">Terms & Conditions</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">Privacy Policy</a></li>
+                <li><a href="/terms" className="hover:text-white transition-colors">Terms & Conditions</a></li>
+                <li><a href="mailto:info@accessnamibia.com" className="hover:text-white transition-colors">Contact Us</a></li>
+                <li><a href="mailto:credit@accessnamibia.com" className="hover:text-white transition-colors">Credit Team</a></li>
               </ul>
             </div>
             <div>
