@@ -68,15 +68,15 @@
 
 @layer utilities {
   .samsung-btn {
-    @apply bg-black text-white hover:bg-gray-800 transition-colors border-0 rounded-none font-semibold tracking-wide uppercase text-sm;
+    @apply bg-black text-white hover:bg-gray-800 transition-colors border-0 rounded-md font-semibold tracking-wide uppercase text-sm;
   }
   
   .samsung-btn-outline {
-    @apply bg-transparent text-black border-2 border-black hover:bg-black hover:text-white transition-all rounded-none font-semibold tracking-wide uppercase text-sm;
+    @apply bg-transparent text-black border-2 border-black hover:bg-black hover:text-white transition-all rounded-md font-semibold tracking-wide uppercase text-sm;
   }
   
   .samsung-card {
-    @apply bg-white border-2 border-gray-200 hover:border-black transition-colors rounded-none shadow-none;
+    @apply bg-white border-2 border-gray-200 hover:border-black transition-colors rounded-md shadow-none;
   }
   
   .samsung-header {
@@ -93,5 +93,63 @@
   
   .samsung-container {
     @apply max-w-7xl mx-auto;
+  }
+
+  /* Hero animations */
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes fadeInLeft {
+    from {
+      opacity: 0;
+      transform: translateX(-30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes fadeInRight {
+    from {
+      opacity: 0;
+      transform: translateX(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  .animate-fadeInUp {
+    animation: fadeInUp 0.8s ease-out;
+  }
+
+  .animate-fadeInLeft {
+    animation: fadeInLeft 0.8s ease-out;
+  }
+
+  .animate-fadeInRight {
+    animation: fadeInRight 0.8s ease-out;
+  }
+
+  .animate-delay-200 {
+    animation-delay: 0.2s;
+  }
+
+  .animate-delay-400 {
+    animation-delay: 0.4s;
+  }
+
+  .animate-delay-600 {
+    animation-delay: 0.6s;
   }
 }

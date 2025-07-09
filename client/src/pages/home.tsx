@@ -40,7 +40,7 @@ export default function Home() {
       <header className="bg-white border-b border-black sticky top-0 z-50">
         <div className="samsung-container">
           <div className="flex justify-between items-center h-20">
-            <div className="flex items-center">
+            <div className="flex items-center ml-4">
               <h1 className="text-3xl samsung-header tracking-widest">
                 ACCESS ELECTRONICS
               </h1>

@@ -3,6 +3,7 @@ import {
   DialogContent,
   DialogHeader,
   DialogTitle,
+  DialogDescription,
 } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -25,9 +26,9 @@ export default function QuoteInstructionsModal({
           <DialogTitle className="text-2xl font-bold text-center samsung-header">
             How to Request a Quote - Simple 4-Step Process
           </DialogTitle>
-          <p className="text-center samsung-text opacity-80">
+          <DialogDescription className="text-center samsung-text opacity-80">
             Follow these easy steps to get financing for your dream phone
-          </p>
+          </DialogDescription>
         </DialogHeader>
 
         <div className="space-y-6 mt-6">
@@ -41,21 +42,17 @@ export default function QuoteInstructionsModal({
                 <div className="flex-1">
                   <h3 className="text-xl font-semibold samsung-text mb-2">Choose Your Phone</h3>
                   <p className="samsung-text mb-4">
-                    Browse our iPhone, Samsung, or Huawei collections and find the phone you want. 
+                    Browse our iPhone and Samsung collections and find the phone you want. 
                     Each phone shows the price and available storage options.
                   </p>
-                  <div className="grid grid-cols-3 gap-4 text-sm">
+                  <div className="grid grid-cols-2 gap-4 text-sm max-w-md mx-auto">
                     <div className="text-center">
                       <div className="font-semibold">iPhones from</div>
-                      <div className="text-lg font-bold">N$4,300</div>
+                      <div className="text-lg font-bold">N$5,500</div>
                     </div>
                     <div className="text-center">
                       <div className="font-semibold">Samsung from</div>
-                      <div className="text-lg font-bold">N$2,500</div>
-                    </div>
-                    <div className="text-center">
-                      <div className="font-semibold">Huawei from</div>
-                      <div className="text-lg font-bold">N$1,800</div>
+                      <div className="text-lg font-bold">N$6,300</div>
                     </div>
                   </div>
                 </div>
