@@ -147,6 +147,51 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Looking for Device Not Listed Section */}
+      <section className="samsung-section bg-gradient-to-br from-purple-500 to-cyan-400">
+        <div className="samsung-container">
+          <Card className="max-w-5xl mx-auto p-8 bg-white/95 backdrop-blur-sm border-0 shadow-lg">
+            <CardContent className="text-center">
+              <h3 className="text-3xl font-bold text-cyan-600 mb-6">
+                Looking for a Device on Credit That's Not Listed?
+              </h3>
+              <p className="text-lg text-gray-700 mb-6 max-w-3xl mx-auto">
+                If you're interested in buying a phone, iPad, tablet, or MacBook on credit that isn't listed here, we're happy to help!
+              </p>
+              <p className="text-lg text-gray-700 mb-8 max-w-3xl mx-auto">
+                Simply submit your quote request via email to{' '}
+                <a 
+                  href="mailto:info@accessnamibia.com" 
+                  className="text-cyan-600 font-semibold hover:underline"
+                >
+                  info@accessnamibia.com
+                </a>
+                , or contact one of our branches directly:
+              </p>
+              
+              <div className="grid md:grid-cols-3 gap-8 mb-8">
+                <div className="text-center">
+                  <h4 className="text-xl font-bold text-blue-600 mb-2">Windhoek</h4>
+                  <p className="text-gray-700">081 162 6462 / 081 495 2277</p>
+                </div>
+                <div className="text-center">
+                  <h4 className="text-xl font-bold text-blue-600 mb-2">Oshakati</h4>
+                  <p className="text-gray-700">081 860 1188</p>
+                </div>
+                <div className="text-center">
+                  <h4 className="text-xl font-bold text-blue-600 mb-2">Walvis Bay</h4>
+                  <p className="text-gray-700">081 670 5032</p>
+                </div>
+              </div>
+
+              <p className="text-gray-600 text-base">
+                Our sales team at each branch will gladly assist you in getting a customized quote for the device you need.
+              </p>
+            </CardContent>
+          </Card>
+        </div>
+      </section>
+
 
 
       {/* Calculator Modal */}
