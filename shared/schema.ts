@@ -17,6 +17,7 @@ export const quoteRequests = pgTable("quote_requests", {
   condition: text("condition").notNull(),
   color: text("color").notNull(),
   quantity: integer("quantity").notNull(),
+  originalPrice: decimal("original_price", { precision: 10, scale: 2 }).notNull(),
   creditAmount: decimal("credit_amount", { precision: 10, scale: 2 }).notNull(),
   deposit: decimal("deposit", { precision: 10, scale: 2 }).notNull().default('0'),
   paymentTerm: integer("payment_term").notNull(), // 12, 24, or 36 months

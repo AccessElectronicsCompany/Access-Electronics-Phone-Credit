@@ -129,26 +129,29 @@ export default function Home() {
             <h3 className="text-4xl samsung-header mb-6">FLEXIBLE CREDIT OPTIONS</h3>
             <p className="samsung-text max-w-2xl mx-auto text-lg">Choose from multiple payment plans with competitive rates</p>
           </div>
-          <div className="grid md:grid-cols-3 gap-8">
-            <Card className="samsung-card text-center p-8">
-              <CardContent className="pt-6">
-                <div className="text-6xl font-bold samsung-text mb-4">12</div>
-                <div className="text-xl font-semibold samsung-text mb-4 tracking-wide">MONTHS</div>
-                <div className="samsung-text opacity-70">Higher monthly payments, less interest</div>
+          <div className="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+            <Card className="samsung-card text-center p-6">
+              <CardContent className="pt-4">
+                <div className="text-4xl font-bold samsung-text mb-2">12</div>
+                <div className="text-sm font-semibold samsung-text mb-3 tracking-wide">MONTHS</div>
+                <p className="samsung-text text-sm opacity-70">Higher monthly payments,</p>
+                <p className="samsung-text text-sm opacity-70">less interest</p>
               </CardContent>
             </Card>
-            <Card className="samsung-card text-center p-8">
-              <CardContent className="pt-6">
-                <div className="text-6xl font-bold samsung-text mb-4">24</div>
-                <div className="text-xl font-semibold samsung-text mb-4 tracking-wide">MONTHS</div>
-                <div className="samsung-text opacity-70">Balanced payment option</div>
+            <Card className="samsung-card text-center p-6">
+              <CardContent className="pt-4">
+                <div className="text-4xl font-bold samsung-text mb-2">24</div>
+                <div className="text-sm font-semibold samsung-text mb-3 tracking-wide">MONTHS</div>
+                <p className="samsung-text text-sm opacity-70">Balanced</p>
+                <p className="samsung-text text-sm opacity-70">payment option</p>
               </CardContent>
             </Card>
-            <Card className="samsung-card text-center p-8">
-              <CardContent className="pt-6">
-                <div className="text-6xl font-bold samsung-text mb-4">36</div>
-                <div className="text-xl font-semibold samsung-text mb-4 tracking-wide">MONTHS</div>
-                <div className="samsung-text opacity-70">Lower monthly payments</div>
+            <Card className="samsung-card text-center p-6">
+              <CardContent className="pt-4">
+                <div className="text-4xl font-bold samsung-text mb-2">36</div>
+                <div className="text-sm font-semibold samsung-text mb-3 tracking-wide">MONTHS</div>
+                <p className="samsung-text text-sm opacity-70">Lower</p>
+                <p className="samsung-text text-sm opacity-70">monthly payments</p>
               </CardContent>
             </Card>
           </div>
@@ -175,23 +178,23 @@ export default function Home() {
       <section className="samsung-section bg-white">
         <div className="samsung-container">
           <div className="text-center mb-16">
-            <h3 className="text-4xl samsung-header mb-6">BROWSE OUR COLLECTIONS</h3>
-            <p className="samsung-text text-lg">Discover premium smartphones available on credit</p>
+            <h3 className="text-4xl samsung-header mb-6">CHOOSE YOUR PHONE TYPE</h3>
+            <p className="samsung-text text-lg">Select from our premium smartphone categories</p>
           </div>
-          <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-            <Card className="text-center p-12 border-2 border-black hover:bg-black hover:text-white transition-all cursor-pointer"
+          <div className="grid md:grid-cols-2 gap-6 max-w-3xl mx-auto">
+            <Card className="text-center p-8 border-2 border-black hover:bg-black hover:text-white transition-all cursor-pointer rounded-xl"
                   onClick={() => window.location.href = '/phones'}>
-              <CardContent className="pt-6">
-                <div className="text-6xl mb-6">📱</div>
-                <h4 className="text-xl font-semibold mb-4 tracking-wide">SELECT PHONE</h4>
+              <CardContent className="pt-4">
+                <div className="text-4xl mb-4">📱</div>
+                <h4 className="text-lg font-semibold mb-3 tracking-wide">SELECT PHONE</h4>
                 <p className="text-sm opacity-80">Choose from our premium smartphone collection</p>
               </CardContent>
             </Card>
-            <Card className="text-center p-12 border-2 border-black hover:bg-black hover:text-white transition-all cursor-pointer"
+            <Card className="text-center p-8 border-2 border-black hover:bg-black hover:text-white transition-all cursor-pointer rounded-xl"
                   onClick={() => scrollToSection('calculator')}>
-              <CardContent className="pt-6">
-                <div className="text-6xl mb-6">🧮</div>
-                <h4 className="text-xl font-semibold mb-4 tracking-wide">CALCULATOR</h4>
+              <CardContent className="pt-4">
+                <div className="text-4xl mb-4">🧮</div>
+                <h4 className="text-lg font-semibold mb-3 tracking-wide">CALCULATOR</h4>
                 <p className="text-sm opacity-80">Calculate your monthly payments instantly</p>
               </CardContent>
             </Card>

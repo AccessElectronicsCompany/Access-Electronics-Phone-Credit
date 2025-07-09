@@ -19,29 +19,29 @@ interface PhoneCardProps {
 export default function PhoneCard({ phone, onSelect, onRequestQuote }: PhoneCardProps) {
   return (
     <Card className="samsung-card hover:shadow-lg transition-all cursor-pointer">
-      <CardContent className="text-center p-8">
-        <div className="text-4xl mb-6">
-          <Smartphone className="mx-auto h-16 w-16 text-black" />
+      <CardContent className="text-center p-4">
+        <div className="text-2xl mb-3">
+          <Smartphone className="mx-auto h-8 w-8 text-black" />
         </div>
-        <h4 className="font-semibold samsung-text mb-3 text-lg tracking-wide">{phone.name}</h4>
-        <p className="text-sm samsung-text mb-3 opacity-70">{phone.storage}</p>
-        <p className="text-3xl font-bold samsung-text mb-6">N${phone.price.toLocaleString()}</p>
-        <div className="space-y-2 text-sm samsung-text mb-6 opacity-70">
+        <h4 className="font-semibold samsung-text mb-2 text-base tracking-wide">{phone.name}</h4>
+        <p className="text-xs samsung-text mb-2 opacity-70">{phone.storage}</p>
+        <p className="text-xl font-bold samsung-text mb-4">N${phone.price.toLocaleString()}</p>
+        <div className="space-y-1 text-xs samsung-text mb-4 opacity-70">
           <div>Colors: {phone.colors.join(", ")}</div>
           <div>Condition: {phone.condition}</div>
         </div>
-        <div className="space-y-3">
+        <div className="space-y-2">
           <Button
             onClick={() => onSelect(phone.name, phone.storage, phone.price)}
-            className="samsung-btn w-full py-3 h-12"
+            className="samsung-btn w-full py-2 h-8 text-xs"
           >
-            Select Phone
+            SELECT PHONE
           </Button>
           <Button
             onClick={() => onRequestQuote(phone.name, phone.storage, phone.price)}
-            className="samsung-btn-outline w-full py-3 h-12"
+            className="samsung-btn-outline w-full py-2 h-8 text-xs"
           >
-            Request Quote
+            REQUEST QUOTE
           </Button>
         </div>
       </CardContent>

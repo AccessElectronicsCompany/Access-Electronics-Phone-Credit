@@ -99,32 +99,32 @@ export default function Phones() {
       <section className="samsung-section bg-white">
         <div className="samsung-container">
           <div className="text-center mb-16">
-            <h2 className="text-4xl samsung-header mb-6">CHOOSE YOUR COLLECTION</h2>
-            <p className="samsung-text text-lg">Select from our premium smartphone categories</p>
+            <h2 className="text-3xl samsung-header mb-4">CHOOSE YOUR PHONE TYPE</h2>
+            <p className="samsung-text">Select from our premium smartphone categories</p>
           </div>
-          <div className="grid md:grid-cols-3 gap-8 mb-16">
-            <Card className="text-center p-12 border-2 border-black hover:bg-black hover:text-white transition-all cursor-pointer"
+          <div className="grid md:grid-cols-3 gap-4 max-w-4xl mx-auto mb-12">
+            <Card className="text-center p-6 border-2 border-black hover:bg-black hover:text-white transition-all cursor-pointer rounded-xl"
                   onClick={() => document.getElementById('iphones')?.scrollIntoView({ behavior: 'smooth' })}>
-              <CardContent className="pt-6">
-                <div className="text-6xl mb-6">📱</div>
-                <h4 className="text-xl font-semibold mb-4 tracking-wide">iPHONES</h4>
-                <p className="text-sm opacity-80">Premium Apple devices with cutting-edge technology</p>
+              <CardContent className="pt-4">
+                <div className="text-3xl mb-3">📱</div>
+                <h4 className="text-lg font-semibold mb-2 tracking-wide">iPHONES</h4>
+                <p className="text-xs opacity-80">Premium Apple devices with cutting-edge technology</p>
               </CardContent>
             </Card>
-            <Card className="text-center p-12 border-2 border-black hover:bg-black hover:text-white transition-all cursor-pointer"
+            <Card className="text-center p-6 border-2 border-black hover:bg-black hover:text-white transition-all cursor-pointer rounded-xl"
                   onClick={() => document.getElementById('samsung')?.scrollIntoView({ behavior: 'smooth' })}>
-              <CardContent className="pt-6">
-                <div className="text-6xl mb-6">📱</div>
-                <h4 className="text-xl font-semibold mb-4 tracking-wide">SAMSUNG</h4>
-                <p className="text-sm opacity-80">Innovation meets performance in flagship devices</p>
+              <CardContent className="pt-4">
+                <div className="text-3xl mb-3">📱</div>
+                <h4 className="text-lg font-semibold mb-2 tracking-wide">SAMSUNG</h4>
+                <p className="text-xs opacity-80">Innovation meets performance in flagship devices</p>
               </CardContent>
             </Card>
-            <Card className="text-center p-12 border-2 border-black hover:bg-black hover:text-white transition-all cursor-pointer"
+            <Card className="text-center p-6 border-2 border-black hover:bg-black hover:text-white transition-all cursor-pointer rounded-xl"
                   onClick={() => document.getElementById('used')?.scrollIntoView({ behavior: 'smooth' })}>
-              <CardContent className="pt-6">
-                <div className="text-6xl mb-6">🔧</div>
-                <h4 className="text-xl font-semibold mb-4 tracking-wide">USED PHONES</h4>
-                <p className="text-sm opacity-80">Quality pre-owned devices at great prices</p>
+              <CardContent className="pt-4">
+                <div className="text-3xl mb-3">🔧</div>
+                <h4 className="text-lg font-semibold mb-2 tracking-wide">USED PHONES</h4>
+                <p className="text-xs opacity-80">Quality pre-owned devices at great prices</p>
               </CardContent>
             </Card>
           </div>
@@ -138,7 +138,7 @@ export default function Phones() {
             <h2 className="text-4xl samsung-header mb-6">iPHONE COLLECTION</h2>
             <p className="samsung-text text-lg">Premium Apple devices with cutting-edge technology</p>
           </div>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
             {iphones.map((phone) => (
               <PhoneCard
                 key={`${phone.name}-${phone.storage}`}
@@ -158,7 +158,7 @@ export default function Phones() {
             <h2 className="text-4xl samsung-header mb-6">SAMSUNG COLLECTION</h2>
             <p className="samsung-text text-lg">Innovation meets performance in Samsung's flagship devices</p>
           </div>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
             {samsungPhones.map((phone) => (
               <PhoneCard
                 key={`${phone.name}-${phone.storage}`}

@@ -27,6 +27,7 @@ const quoteFormSchema = z.object({
   condition: z.string().min(1, "Condition is required"),
   color: z.string().min(2, "Color is required"),
   quantity: z.number().min(1, "Quantity must be at least 1"),
+  originalPrice: z.number().min(1, "Original price is required"),
   creditAmount: z.number().min(1, "Credit amount is required"),
   deposit: z.number().min(0, "Deposit must be 0 or greater").optional(),
   paymentTerm: z.number().min(12, "Payment term is required"),
@@ -74,6 +75,7 @@ export default function QuoteFormModal({ isOpen, onClose, selectedPhone }: Quote
       condition: "",
       color: "",
       quantity: 1,
+      originalPrice: selectedPhone?.price || 0,
       creditAmount: selectedPhone?.price || 0,
       deposit: 0,
       paymentTerm: 36,
@@ -85,31 +87,36 @@ export default function QuoteFormModal({ isOpen, onClose, selectedPhone }: Quote
     if (selectedPhone) {
       setValue("productName", selectedPhone.name);
       setValue("storageCapacity", selectedPhone.storage);
+      setValue("originalPrice", selectedPhone.price);
       setValue("creditAmount", selectedPhone.price);
       setValue("country", "Namibia");
     }
   }, [selectedPhone, setValue]);
 
-  // Watch for changes in credit amount, deposit, and payment term for automatic calculation
-  const phonePrice = watch("creditAmount");
-  const deposit = watch("deposit");
+  // Watch for changes in original price, deposit, and payment term for automatic calculation
+  const originalPrice = watch("originalPrice");
+  const deposit = watch("deposit") || 0;
   
   useEffect(() => {
-    if (phonePrice && phonePrice > 0) {
+    if (originalPrice && originalPrice > 0) {
+      // Calculate credit amount dynamically: credit amount = original price - deposit
+      const creditAmount = originalPrice - deposit;
+      setValue("creditAmount", creditAmount);
+
       const calculation = calculatePayment(
-        phonePrice,
+        originalPrice,
         parseInt(paymentTerm),
         deposit || 0
       );
       setMonthlyPayment(calculation.monthlyPayment.toFixed(2));
       setTotalAmount(calculation.totalAmount.toFixed(2));
     }
-  }, [phonePrice, deposit, paymentTerm]);
+  }, [originalPrice, deposit, paymentTerm, setValue]);
 
   const createQuoteMutation = useMutation({
     mutationFn: async (data: QuoteFormData) => {
       const calculation = calculatePayment(
-        data.creditAmount,
+        data.originalPrice,
         data.paymentTerm,
         data.deposit || 0
       );
@@ -117,6 +124,7 @@ export default function QuoteFormModal({ isOpen, onClose, selectedPhone }: Quote
       const quoteData = {
         ...data,
         deposit: data.deposit?.toString() || "0",
+        originalPrice: data.originalPrice.toString(),
         creditAmount: calculation.creditAmount.toString(),
         monthlyPayment: calculation.monthlyPayment.toString(),
         totalAmount: calculation.totalAmount.toString(),
@@ -340,6 +348,20 @@ export default function QuoteFormModal({ isOpen, onClose, selectedPhone }: Quote
                   <p className="text-red-500 text-sm mt-1">{errors.quantity.message}</p>
                 )}
               </div>
+              <div>
+                <Label htmlFor="originalPrice" className="text-sm font-semibold samsung-text mb-2 block">Original Phone Price *</Label>
+                <Input
+                  id="originalPrice"
+                  type="number"
+                  step="0.01"
+                  {...register("originalPrice", { valueAsNumber: true })}
+                  className={`rounded-xl border-2 h-12 ${errors.originalPrice ? "border-red-500" : "border-gray-300 focus:border-black"} bg-gray-100`}
+                  readOnly
+                />
+                {errors.originalPrice && (
+                  <p className="text-red-500 text-sm mt-1">{errors.originalPrice.message}</p>
+                )}
+              </div>
             </div>
           </div>
 
@@ -347,6 +369,17 @@ export default function QuoteFormModal({ isOpen, onClose, selectedPhone }: Quote
           <div className="bg-gray-50 p-6 rounded-xl border border-gray-200">
             <h3 className="text-xl samsung-header mb-4">Financial Information</h3>
             <div className="grid md:grid-cols-2 gap-6">
+              <div>
+                <Label htmlFor="deposit" className="text-sm font-semibold samsung-text mb-2 block">Deposit (Optional)</Label>
+                <Input
+                  id="deposit"
+                  type="number"
+                  step="0.01"
+                  {...register("deposit", { valueAsNumber: true })}
+                  className="rounded-xl border-2 h-12 border-gray-300 focus:border-black"
+                  placeholder="Enter deposit amount"
+                />
+              </div>
               <div>
                 <Label htmlFor="creditAmount" className="text-sm font-semibold samsung-text mb-2 block">Credit Amount *</Label>
                 <Input
@@ -360,17 +393,6 @@ export default function QuoteFormModal({ isOpen, onClose, selectedPhone }: Quote
                 {errors.creditAmount && (
                   <p className="text-red-500 text-sm mt-1">{errors.creditAmount.message}</p>
                 )}
-              </div>
-              <div>
-                <Label htmlFor="deposit" className="text-sm font-semibold samsung-text mb-2 block">Deposit (Optional)</Label>
-                <Input
-                  id="deposit"
-                  type="number"
-                  step="0.01"
-                  {...register("deposit", { valueAsNumber: true })}
-                  className="rounded-xl border-2 h-12 border-gray-300 focus:border-black"
-                  placeholder="Enter deposit amount"
-                />
               </div>
               <div>
                 <Label htmlFor="paymentTerm" className="text-sm font-semibold samsung-text mb-2 block">Payment Term *</Label>

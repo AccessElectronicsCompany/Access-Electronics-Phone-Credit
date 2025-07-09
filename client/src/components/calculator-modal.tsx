@@ -53,7 +53,7 @@ export default function CalculatorModal({ isOpen, onClose, selectedPrice, isEmbe
   }, [phonePrice, paymentTerm, deposit]);
 
   const calculatorContent = (
-    <div className="space-y-6 scroll-smooth">
+    <div className="space-y-4">
       <div>
         <Label htmlFor="phonePrice" className="text-sm font-semibold samsung-text tracking-wide uppercase mb-2 block">
           Phone Price (N$)
@@ -169,7 +169,7 @@ export default function CalculatorModal({ isOpen, onClose, selectedPrice, isEmbe
   if (isEmbedded) {
     return (
       <Card className="max-w-2xl mx-auto samsung-card">
-        <CardContent className="p-8 max-h-[80vh] overflow-y-auto">
+        <CardContent className="p-6">
           {calculatorContent}
         </CardContent>
       </Card>
