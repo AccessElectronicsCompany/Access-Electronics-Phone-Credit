@@ -217,105 +217,140 @@ export const samsungPhones: Phone[] = [
     name: "Samsung S25 Ultra",
     storage: "512GB",
     price: 27999,
-    colors: ["Titanium Black", "Titanium Gray"],
+    colors: ["Titanium Silver Blue", "Titanium Black", "Titanium White Silver", "Titanium Gray"],
     condition: "Brand New"
   },
   {
     name: "Samsung S25 Ultra",
     storage: "256GB",
     price: 26999,
-    colors: ["Titanium Black", "Titanium Gray"],
+    colors: ["Titanium Silver Blue", "Titanium Black", "Titanium White Silver", "Titanium Gray"],
     condition: "Brand New"
   },
   {
     name: "Samsung S25 Plus",
     storage: "256GB",
     price: 21999,
-    colors: ["Black", "Silver", "Blue"],
+    colors: ["Icy Blue", "Mint", "Navy", "Silver Shadow"],
     condition: "Brand New"
   },
   {
     name: "Samsung S25",
     storage: "256GB",
     price: 18499,
-    colors: ["Black", "Silver", "Blue"],
+    colors: ["Icy Blue", "Mint", "Navy", "Silver Shadow"],
     condition: "Brand New"
   },
   {
     name: "Samsung S24 Ultra",
     storage: "512GB",
     price: 26999,
-    colors: ["Titanium Black", "Titanium Gray"],
+    colors: ["Titanium Black", "Titanium Gray", "Titanium Violet", "Titanium Yellow", "Titanium Green", "Titanium Blue", "Titanium Orange"],
     condition: "Brand New"
   },
   {
     name: "Samsung S24 Ultra",
     storage: "256GB",
     price: 23999,
-    colors: ["Titanium Black", "Titanium Gray"],
+    colors: ["Titanium Black", "Titanium Gray", "Titanium Violet", "Titanium Yellow", "Titanium Green", "Titanium Blue", "Titanium Orange"],
     condition: "Brand New"
   },
   {
     name: "Samsung S24 Plus",
     storage: "256GB",
     price: 18499,
-    colors: ["Black", "Silver", "Blue"],
+    colors: ["Onyx Black", "Marble Gray", "Cobalt Violet", "Amber Yellow", "Jade Green", "Sapphire Blue"],
     condition: "Brand New"
   },
   {
     name: "Samsung S24",
     storage: "256GB",
     price: 15499,
-    colors: ["Black", "Silver", "Blue"],
+    colors: ["Onyx Black", "Marble Gray", "Cobalt Violet", "Amber Yellow", "Jade Green", "Sapphire Blue"],
     condition: "Brand New"
   },
   {
     name: "Samsung Z Fold",
     storage: "256GB",
     price: 24999,
-    colors: ["Phantom Black", "Phantom Silver"],
+    colors: ["Phantom Black", "Icy Blue", "Cream", "Gray", "Blue", "Crafted Black", "Silver Shadow"],
     condition: "Brand New"
   },
   {
     name: "Samsung S23 Ultra",
     storage: "256GB",
     price: 19999,
-    colors: ["Phantom Black", "Cream"],
+    colors: ["Phantom Black", "Cream", "Green", "Lavender", "Graphite", "Lime", "Sky Blue", "Red"],
+    condition: "Brand New"
+  },
+  {
+    name: "Samsung S23 Plus",
+    storage: "256GB",
+    price: 16999,
+    colors: ["Phantom Black", "Cream", "Green", "Lavender", "Graphite", "Lime"],
     condition: "Brand New"
   },
   {
     name: "Samsung S23",
     storage: "512GB",
     price: 13999,
-    colors: ["Phantom Black", "Cream"],
+    colors: ["Phantom Black", "Cream", "Green", "Lavender", "Graphite", "Lime"],
     condition: "Brand New"
   },
   {
     name: "Samsung S23",
     storage: "256GB",
     price: 12999,
-    colors: ["Phantom Black", "Cream"],
+    colors: ["Phantom Black", "Cream", "Green", "Lavender", "Graphite", "Lime"],
     condition: "Brand New"
   },
   {
     name: "Samsung S22 Ultra",
     storage: "512GB",
     price: 16999,
-    colors: ["Phantom Black", "Burgundy"],
+    colors: ["Phantom Black", "Phantom White", "Green", "Burgundy", "Graphite", "Sky Blue", "Red"],
     condition: "Brand New"
   },
   {
     name: "Samsung S22 Ultra",
     storage: "256GB",
     price: 15999,
-    colors: ["Phantom Black", "Burgundy"],
+    colors: ["Phantom Black", "Phantom White", "Green", "Burgundy", "Graphite", "Sky Blue", "Red"],
+    condition: "Brand New"
+  },
+  {
+    name: "Samsung S22 Plus",
+    storage: "256GB",
+    price: 11999,
+    colors: ["Phantom Black", "Phantom White", "Green", "Pink Gold", "Graphite", "Sky Blue", "Violet", "Cream"],
     condition: "Brand New"
   },
   {
     name: "Samsung S22",
     storage: "256GB",
     price: 9500,
-    colors: ["Phantom Black", "White"],
+    colors: ["Phantom Black", "Phantom White", "Green", "Pink Gold", "Graphite", "Sky Blue", "Violet", "Cream"],
+    condition: "Brand New"
+  },
+  {
+    name: "Samsung A56",
+    storage: "128GB",
+    price: 5999,
+    colors: ["Awesome Iceblue", "Awesome Lilac", "Awesome Navy", "Awesome White"],
+    condition: "Brand New"
+  },
+  {
+    name: "Samsung A36",
+    storage: "128GB",
+    price: 4999,
+    colors: ["Awesome Navy", "Awesome Lilac", "Awesome Mint", "Awesome White"],
+    condition: "Brand New"
+  },
+  {
+    name: "Samsung Z Flip",
+    storage: "256GB",
+    price: 19999,
+    colors: ["Mint", "Graphite", "Cream", "Lavender", "Yellow", "Blue", "Green", "Gray", "Peach", "Indigo"],
     condition: "Brand New"
   }
 ];
