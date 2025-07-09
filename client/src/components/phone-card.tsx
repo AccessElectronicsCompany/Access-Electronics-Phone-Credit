@@ -33,13 +33,13 @@ export default function PhoneCard({ phone, onSelect, onRequestQuote }: PhoneCard
         <div className="space-y-3">
           <Button
             onClick={() => onSelect(phone.name, phone.storage, phone.price)}
-            className="samsung-btn w-full py-3"
+            className="samsung-btn w-full py-3 h-12"
           >
             Select Phone
           </Button>
           <Button
             onClick={() => onRequestQuote(phone.name, phone.storage, phone.price)}
-            className="samsung-btn-outline w-full py-3"
+            className="samsung-btn-outline w-full py-3 h-12"
           >
             Request Quote
           </Button>

@@ -55,7 +55,7 @@ export default function CalculatorModal({ isOpen, onClose, selectedPrice, isEmbe
   const calculatorContent = (
     <div className="space-y-6 scroll-smooth">
       <div>
-        <Label htmlFor="phonePrice" className="text-sm font-medium samsung-text tracking-wide uppercase">
+        <Label htmlFor="phonePrice" className="text-sm font-semibold samsung-text tracking-wide uppercase mb-2 block">
           Phone Price (N$)
         </Label>
         <Input
@@ -64,19 +64,19 @@ export default function CalculatorModal({ isOpen, onClose, selectedPrice, isEmbe
           value={phonePrice}
           onChange={(e) => setPhonePrice(e.target.value)}
           placeholder="Enter phone price"
-          className="mt-2 border-2 border-gray-300 focus:border-black rounded-none"
+          className="border-2 border-gray-300 focus:border-black rounded-xl h-12"
         />
       </div>
       
       <div>
-        <Label htmlFor="paymentTerm" className="text-sm font-medium samsung-text tracking-wide uppercase">
+        <Label htmlFor="paymentTerm" className="text-sm font-semibold samsung-text tracking-wide uppercase mb-2 block">
           Payment Term
         </Label>
         <Select value={paymentTerm} onValueChange={setPaymentTerm}>
-          <SelectTrigger className="mt-2 border-2 border-gray-300 focus:border-black rounded-none">
+          <SelectTrigger className="border-2 border-gray-300 focus:border-black rounded-xl h-12">
             <SelectValue placeholder="Select payment term" />
           </SelectTrigger>
-          <SelectContent>
+          <SelectContent className="rounded-xl">
             <SelectItem value="12">12 Months</SelectItem>
             <SelectItem value="24">24 Months</SelectItem>
             <SelectItem value="36">36 Months</SelectItem>
@@ -85,7 +85,7 @@ export default function CalculatorModal({ isOpen, onClose, selectedPrice, isEmbe
       </div>
       
       <div>
-        <Label htmlFor="deposit" className="text-sm font-medium samsung-text tracking-wide uppercase">
+        <Label htmlFor="deposit" className="text-sm font-semibold samsung-text tracking-wide uppercase mb-2 block">
           Deposit (Optional)
         </Label>
         <Input
@@ -94,7 +94,7 @@ export default function CalculatorModal({ isOpen, onClose, selectedPrice, isEmbe
           value={deposit}
           onChange={(e) => setDeposit(e.target.value)}
           placeholder="Enter deposit amount"
-          className="mt-2 border-2 border-gray-300 focus:border-black rounded-none"
+          className="border-2 border-gray-300 focus:border-black rounded-xl h-12"
         />
       </div>
       

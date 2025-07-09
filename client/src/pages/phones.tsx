@@ -32,7 +32,7 @@ export default function Phones() {
       <header className="bg-white border-b border-black sticky top-0 z-50">
         <div className="samsung-container">
           <div className="flex justify-between items-center h-20">
-            <div className="flex items-center space-x-4 md:space-x-8">
+            <div className="flex items-center space-x-4 md:space-x-8 ml-4">
               <Link href="/" className="flex items-center space-x-2 samsung-text hover:text-black transition-colors">
                 <ArrowLeft className="h-5 w-5" />
                 <span className="hidden sm:inline font-medium tracking-wide uppercase text-sm">Back to Home</span>

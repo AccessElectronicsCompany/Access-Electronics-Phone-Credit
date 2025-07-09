@@ -41,7 +41,7 @@ export default function Home() {
       <header className="bg-white border-b border-black sticky top-0 z-50">
         <div className="samsung-container">
           <div className="flex justify-between items-center h-20">
-            <div className="flex items-center">
+            <div className="flex items-center ml-4">
               <h1 className="text-2xl md:text-3xl samsung-header tracking-widest">
                 ACCESS ELECTRONICS
               </h1>
@@ -356,13 +356,13 @@ export default function Home() {
                 Connecting you with the latest technology through flexible financing options.
               </p>
               <div className="flex space-x-4">
-                <div className="w-8 h-8 bg-gray-700 rounded flex items-center justify-center hover:bg-gray-600 transition-colors cursor-pointer">
+                <div className="w-8 h-8 bg-gray-700 rounded-xl flex items-center justify-center hover:bg-gray-600 transition-colors cursor-pointer">
                   <span className="text-white text-sm">f</span>
                 </div>
-                <div className="w-8 h-8 bg-gray-700 rounded flex items-center justify-center hover:bg-gray-600 transition-colors cursor-pointer">
+                <div className="w-8 h-8 bg-gray-700 rounded-xl flex items-center justify-center hover:bg-gray-600 transition-colors cursor-pointer">
                   <span className="text-white text-sm">t</span>
                 </div>
-                <div className="w-8 h-8 bg-gray-700 rounded flex items-center justify-center hover:bg-gray-600 transition-colors cursor-pointer">
+                <div className="w-8 h-8 bg-gray-700 rounded-xl flex items-center justify-center hover:bg-gray-600 transition-colors cursor-pointer">
                   <span className="text-white text-sm">@</span>
                 </div>
               </div>
@@ -386,7 +386,7 @@ export default function Home() {
             <div>
               <h4 className="text-xl font-bold text-white mb-4">Our Branches</h4>
               <div className="space-y-4">
-                <div>
+                <div className="p-4 bg-gray-800 rounded-xl">
                   <div className="flex items-center space-x-2 mb-2">
                     <div className="w-4 h-4 bg-gray-600 rounded-full flex items-center justify-center">
                       <div className="w-2 h-2 bg-white rounded-full"></div>
@@ -401,7 +401,7 @@ export default function Home() {
                   </p>
                 </div>
 
-                <div>
+                <div className="p-4 bg-gray-800 rounded-xl">
                   <div className="flex items-center space-x-2 mb-2">
                     <div className="w-4 h-4 bg-gray-600 rounded-full flex items-center justify-center">
                       <div className="w-2 h-2 bg-white rounded-full"></div>
@@ -413,7 +413,7 @@ export default function Home() {
                   </p>
                 </div>
 
-                <div>
+                <div className="p-4 bg-gray-800 rounded-xl">
                   <div className="flex items-center space-x-2 mb-2">
                     <div className="w-4 h-4 bg-gray-600 rounded-full flex items-center justify-center">
                       <div className="w-2 h-2 bg-white rounded-full"></div>
