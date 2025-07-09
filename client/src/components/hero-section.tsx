@@ -42,7 +42,7 @@ export default function HeroSection({ onBrowsePhones, onOpenCalculator }: HeroSe
             How to Request Quotes
           </Button>
           <Button
-            onClick={() => window.open('https://access-electronics.com', '_blank')}
+            onClick={() => window.open('https://accessnamibia.com/', '_blank')}
             className="bg-blue-600 text-white hover:bg-blue-700 px-12 py-4 font-semibold tracking-wide uppercase text-sm transition-all"
             size="lg"
           >
