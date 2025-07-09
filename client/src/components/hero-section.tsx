@@ -3,9 +3,10 @@ import { Button } from "@/components/ui/button";
 interface HeroSectionProps {
   onBrowsePhones: () => void;
   onOpenCalculator: () => void;
+  onOpenInstructions: () => void;
 }
 
-export default function HeroSection({ onBrowsePhones, onOpenCalculator }: HeroSectionProps) {
+export default function HeroSection({ onBrowsePhones, onOpenCalculator, onOpenInstructions }: HeroSectionProps) {
   return (
     <section className="bg-black text-white samsung-section">
       <div className="samsung-container text-center">
@@ -35,7 +36,7 @@ export default function HeroSection({ onBrowsePhones, onOpenCalculator }: HeroSe
             Select Phone Brand
           </Button>
           <Button
-            onClick={onOpenCalculator}
+            onClick={onOpenInstructions}
             className="bg-gray-800 text-white hover:bg-gray-700 px-12 py-4 font-semibold tracking-wide uppercase text-sm transition-all"
             size="lg"
           >

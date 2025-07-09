@@ -2,6 +2,7 @@ import { useState } from "react";
 import HeroSection from "@/components/hero-section";
 import QuoteFormModal from "@/components/quote-form-modal";
 import CalculatorModal from "@/components/calculator-modal";
+import QuoteInstructionsModal from "@/components/quote-instructions-modal";
 import { Card, CardContent } from "@/components/ui/card";
 import { Smartphone, DollarSign, Calendar, CheckCircle } from "lucide-react";
 
@@ -14,6 +15,7 @@ export default function Home() {
   
   const [showCalculator, setShowCalculator] = useState(false);
   const [showQuoteForm, setShowQuoteForm] = useState(false);
+  const [showInstructions, setShowInstructions] = useState(false);
 
   const handleSelectPhone = (name: string, storage: string, price: number) => {
     setSelectedPhone({ name, storage, price });
@@ -63,8 +65,9 @@ export default function Home() {
 
       {/* Hero Section */}
       <HeroSection 
-        onBrowsePhones={() => scrollToSection('iphones')}
+        onBrowsePhones={() => window.location.href = '/phones'}
         onOpenCalculator={() => setShowCalculator(true)}
+        onOpenInstructions={() => setShowInstructions(true)}
       />
 
       {/* Credit Info Section */}
@@ -158,6 +161,13 @@ export default function Home() {
         isOpen={showQuoteForm}
         onClose={() => setShowQuoteForm(false)}
         selectedPhone={selectedPhone}
+      />
+
+      {/* Quote Instructions Modal */}
+      <QuoteInstructionsModal
+        isOpen={showInstructions}
+        onClose={() => setShowInstructions(false)}
+        onBrowsePhones={() => window.location.href = '/phones'}
       />
 
       {/* Footer */}
