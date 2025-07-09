@@ -5,6 +5,8 @@ import QuoteFormModal from "@/components/quote-form-modal";
 import CalculatorModal from "@/components/calculator-modal";
 import { Card, CardContent } from "@/components/ui/card";
 import { Smartphone, DollarSign, Calendar, CheckCircle } from "lucide-react";
+import PhoneCard from "@/components/phone-card";
+import { iphones, samsungPhones } from "@/lib/phone-data";
 
 export default function Home() {
   const [selectedPhone, setSelectedPhone] = useState<{
@@ -165,22 +167,64 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Phone Sections */}
-      <PhoneSection
-        type="iphone"
-        title="iPhone Collection"
-        description="Premium Apple devices with cutting-edge technology"
-        onSelectPhone={handleSelectPhone}
-        onRequestQuote={handleRequestQuote}
-      />
+      {/* Phone Sections - Hidden but available via navigation */}
+      <div style={{ display: 'none' }}>
+        <PhoneSection
+          type="iphone"
+          title="iPhone Collection"
+          description="Premium Apple devices with cutting-edge technology"
+          onSelectPhone={handleSelectPhone}
+          onRequestQuote={handleRequestQuote}
+        />
 
-      <PhoneSection
-        type="samsung"
-        title="Samsung Collection"
-        description="Innovation meets performance in Samsung's flagship devices"
-        onSelectPhone={handleSelectPhone}
-        onRequestQuote={handleRequestQuote}
-      />
+        <PhoneSection
+          type="samsung"
+          title="Samsung Collection"
+          description="Innovation meets performance in Samsung's flagship devices"
+          onSelectPhone={handleSelectPhone}
+          onRequestQuote={handleRequestQuote}
+        />
+      </div>
+
+      {/* iPhone Section */}
+      <section id="iphones" className="py-16 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h3 className="text-3xl font-bold text-gray-900 mb-4">iPhone Collection</h3>
+            <p className="text-gray-600">Premium Apple devices with cutting-edge technology</p>
+          </div>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+            {iphones.map((phone) => (
+              <PhoneCard
+                key={`${phone.name}-${phone.storage}`}
+                phone={phone}
+                onSelect={handleSelectPhone}
+                onRequestQuote={handleRequestQuote}
+              />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Samsung Section */}
+      <section id="samsung" className="py-16 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h3 className="text-3xl font-bold text-gray-900 mb-4">Samsung Collection</h3>
+            <p className="text-gray-600">Innovation meets performance in Samsung's flagship devices</p>
+          </div>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+            {samsungPhones.map((phone) => (
+              <PhoneCard
+                key={`${phone.name}-${phone.storage}`}
+                phone={phone}
+                onSelect={handleSelectPhone}
+                onRequestQuote={handleRequestQuote}
+              />
+            ))}
+          </div>
+        </div>
+      </section>
 
       {/* Used Phones Section */}
       <section id="used" className="py-16 bg-gray-50">

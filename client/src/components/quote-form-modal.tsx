@@ -1,9 +1,9 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { z } from "zod";
-import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -46,6 +46,8 @@ interface QuoteFormModalProps {
 
 export default function QuoteFormModal({ isOpen, onClose, selectedPhone }: QuoteFormModalProps) {
   const [paymentTerm, setPaymentTerm] = useState("36");
+  const [monthlyPayment, setMonthlyPayment] = useState("");
+  const [totalAmount, setTotalAmount] = useState("");
   const { toast } = useToast();
   const queryClient = useQueryClient();
 
@@ -55,6 +57,7 @@ export default function QuoteFormModal({ isOpen, onClose, selectedPhone }: Quote
     formState: { errors },
     reset,
     setValue,
+    watch,
   } = useForm<QuoteFormData>({
     resolver: zodResolver(quoteFormSchema),
     defaultValues: {
@@ -65,7 +68,7 @@ export default function QuoteFormModal({ isOpen, onClose, selectedPhone }: Quote
       postalAddress: "",
       city: "",
       region: "",
-      country: "",
+      country: "Namibia",
       productName: selectedPhone?.name || "",
       storageCapacity: selectedPhone?.storage || "",
       condition: "",
@@ -78,13 +81,30 @@ export default function QuoteFormModal({ isOpen, onClose, selectedPhone }: Quote
   });
 
   // Update form when selectedPhone changes
-  useState(() => {
+  useEffect(() => {
     if (selectedPhone) {
       setValue("productName", selectedPhone.name);
       setValue("storageCapacity", selectedPhone.storage);
       setValue("creditAmount", selectedPhone.price);
+      setValue("country", "Namibia");
     }
-  });
+  }, [selectedPhone, setValue]);
+
+  // Watch for changes in credit amount, deposit, and payment term for automatic calculation
+  const creditAmount = watch("creditAmount");
+  const deposit = watch("deposit");
+  
+  useEffect(() => {
+    if (creditAmount && creditAmount > 0) {
+      const calculation = calculatePayment(
+        creditAmount,
+        parseInt(paymentTerm),
+        deposit || 0
+      );
+      setMonthlyPayment(calculation.monthlyPayment.toFixed(2));
+      setTotalAmount(calculation.totalAmount.toFixed(2));
+    }
+  }, [creditAmount, deposit, paymentTerm]);
 
   const createQuoteMutation = useMutation({
     mutationFn: async (data: QuoteFormData) => {
@@ -128,11 +148,14 @@ export default function QuoteFormModal({ isOpen, onClose, selectedPhone }: Quote
 
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent className="max-w-4xl max-h-[80vh] overflow-y-auto">
+      <DialogContent className="max-w-4xl max-h-[85vh] overflow-y-auto p-8 m-4">
         <DialogHeader>
           <DialogTitle className="text-2xl font-bold gradient-text">
             Request Quote for {selectedPhone?.name}
           </DialogTitle>
+          <DialogDescription>
+            Please fill out the form below to request a quote for your selected phone.
+          </DialogDescription>
         </DialogHeader>
         
         <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
@@ -226,6 +249,7 @@ export default function QuoteFormModal({ isOpen, onClose, selectedPhone }: Quote
                 id="country"
                 {...register("country")}
                 className={errors.country ? "border-red-500" : ""}
+                readOnly
               />
               {errors.country && (
                 <p className="text-red-500 text-sm mt-1">{errors.country.message}</p>
@@ -343,6 +367,23 @@ export default function QuoteFormModal({ isOpen, onClose, selectedPhone }: Quote
               </Select>
             </div>
           </div>
+
+          {/* Payment Summary */}
+          {monthlyPayment && (
+            <div className="bg-gray-50 p-6 rounded-lg">
+              <h4 className="font-semibold text-gray-900 mb-4">Payment Summary</h4>
+              <div className="grid md:grid-cols-2 gap-4 text-sm">
+                <div className="flex justify-between">
+                  <span>Monthly Payment:</span>
+                  <span className="font-semibold gradient-text">N${monthlyPayment}</span>
+                </div>
+                <div className="flex justify-between">
+                  <span>Total Amount:</span>
+                  <span className="font-semibold">N${totalAmount}</span>
+                </div>
+              </div>
+            </div>
+          )}
 
           {/* Submit Button */}
           <div className="flex justify-end space-x-4">

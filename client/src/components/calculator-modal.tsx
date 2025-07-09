@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -39,6 +39,18 @@ export default function CalculatorModal({ isOpen, onClose, selectedPrice, isEmbe
     const calculation = calculatePayment(price, term, depositAmount);
     setResult(calculation);
   };
+
+  // Auto-calculate when inputs change
+  useEffect(() => {
+    const price = parseFloat(phonePrice);
+    const term = parseInt(paymentTerm);
+    const depositAmount = parseFloat(deposit) || 0;
+
+    if (price && price > 0) {
+      const calculation = calculatePayment(price, term, depositAmount);
+      setResult(calculation);
+    }
+  }, [phonePrice, paymentTerm, deposit]);
 
   const calculatorContent = (
     <div className="space-y-6">
@@ -144,6 +156,9 @@ export default function CalculatorModal({ isOpen, onClose, selectedPrice, isEmbe
       <DialogContent className="max-w-md">
         <DialogHeader>
           <DialogTitle className="text-2xl font-bold gradient-text">Payment Calculator</DialogTitle>
+          <DialogDescription>
+            Calculate your monthly payments for any phone with our flexible credit options.
+          </DialogDescription>
         </DialogHeader>
         {calculatorContent}
       </DialogContent>
