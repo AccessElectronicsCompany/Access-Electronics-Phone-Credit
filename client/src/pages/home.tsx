@@ -1,7 +1,7 @@
 import { useState } from "react";
 import HeroSection from "@/components/hero-section";
 import PhoneSection from "@/components/phone-section";
-import QuoteForm from "@/components/quote-form";
+import QuoteFormModal from "@/components/quote-form-modal";
 import CalculatorModal from "@/components/calculator-modal";
 import { Card, CardContent } from "@/components/ui/card";
 import { Smartphone, DollarSign, Calendar, CheckCircle } from "lucide-react";
@@ -14,16 +14,16 @@ export default function Home() {
   } | null>(null);
   
   const [showCalculator, setShowCalculator] = useState(false);
+  const [showQuoteForm, setShowQuoteForm] = useState(false);
 
   const handleSelectPhone = (name: string, storage: string, price: number) => {
     setSelectedPhone({ name, storage, price });
-    // Scroll to quote form
-    setTimeout(() => {
-      const quoteForm = document.getElementById('quote-form');
-      if (quoteForm) {
-        quoteForm.scrollIntoView({ behavior: 'smooth' });
-      }
-    }, 100);
+    setShowQuoteForm(true);
+  };
+
+  const handleRequestQuote = (name: string, storage: string, price: number) => {
+    setSelectedPhone({ name, storage, price });
+    setShowQuoteForm(true);
   };
 
   const scrollToSection = (sectionId: string) => {
@@ -64,7 +64,7 @@ export default function Home() {
                 Used Phones
               </button>
               <button
-                onClick={() => setShowCalculator(true)}
+                onClick={() => scrollToSection('calculator')}
                 className="text-gray-700 hover:text-blue-600 transition-colors"
               >
                 Calculator
@@ -113,12 +113,65 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Payment Calculator Section */}
+      <section id="calculator" className="py-16 bg-gray-50">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h3 className="text-3xl font-bold text-gray-900 mb-4">Payment Calculator</h3>
+            <p className="text-gray-600">Calculate your monthly payments with our flexible credit options</p>
+          </div>
+          <CalculatorModal 
+            isOpen={true}
+            onClose={() => {}}
+            selectedPrice={undefined}
+            isEmbedded={true}
+          />
+        </div>
+      </section>
+
+      {/* Phone Collections Navigation */}
+      <section className="py-16 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h3 className="text-3xl font-bold text-gray-900 mb-4">Browse Our Collections</h3>
+            <p className="text-gray-600">Discover premium smartphones available on credit</p>
+          </div>
+          <div className="grid md:grid-cols-3 gap-8">
+            <Card className="text-center p-8 gradient-border-light hover:shadow-lg transition-shadow cursor-pointer"
+                  onClick={() => scrollToSection('iphones')}>
+              <CardContent className="pt-6">
+                <div className="text-6xl mb-4">📱</div>
+                <h4 className="text-xl font-semibold text-gray-900 mb-2">iPhones</h4>
+                <p className="text-gray-600">Premium Apple devices with cutting-edge technology</p>
+              </CardContent>
+            </Card>
+            <Card className="text-center p-8 gradient-border-light hover:shadow-lg transition-shadow cursor-pointer"
+                  onClick={() => scrollToSection('samsung')}>
+              <CardContent className="pt-6">
+                <div className="text-6xl mb-4">📱</div>
+                <h4 className="text-xl font-semibold text-gray-900 mb-2">Samsung</h4>
+                <p className="text-gray-600">Innovation meets performance in Samsung's flagship devices</p>
+              </CardContent>
+            </Card>
+            <Card className="text-center p-8 gradient-border-light hover:shadow-lg transition-shadow cursor-pointer"
+                  onClick={() => scrollToSection('used')}>
+              <CardContent className="pt-6">
+                <div className="text-6xl mb-4">🔧</div>
+                <h4 className="text-xl font-semibold text-gray-900 mb-2">Used Phones</h4>
+                <p className="text-gray-600">Quality pre-owned devices at great prices</p>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </section>
+
       {/* Phone Sections */}
       <PhoneSection
         type="iphone"
         title="iPhone Collection"
         description="Premium Apple devices with cutting-edge technology"
         onSelectPhone={handleSelectPhone}
+        onRequestQuote={handleRequestQuote}
       />
 
       <PhoneSection
@@ -126,6 +179,7 @@ export default function Home() {
         title="Samsung Collection"
         description="Innovation meets performance in Samsung's flagship devices"
         onSelectPhone={handleSelectPhone}
+        onRequestQuote={handleRequestQuote}
       />
 
       {/* Used Phones Section */}
@@ -143,14 +197,18 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Quote Form */}
-      <QuoteForm selectedPhone={selectedPhone} />
-
       {/* Calculator Modal */}
       <CalculatorModal 
         isOpen={showCalculator}
         onClose={() => setShowCalculator(false)}
         selectedPrice={selectedPhone?.price}
+      />
+
+      {/* Quote Form Modal */}
+      <QuoteFormModal
+        isOpen={showQuoteForm}
+        onClose={() => setShowQuoteForm(false)}
+        selectedPhone={selectedPhone}
       />
 
       {/* Footer */}

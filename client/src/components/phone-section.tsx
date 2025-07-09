@@ -6,9 +6,10 @@ interface PhoneSectionProps {
   title: string;
   description: string;
   onSelectPhone: (name: string, storage: string, price: number) => void;
+  onRequestQuote: (name: string, storage: string, price: number) => void;
 }
 
-export default function PhoneSection({ type, title, description, onSelectPhone }: PhoneSectionProps) {
+export default function PhoneSection({ type, title, description, onSelectPhone, onRequestQuote }: PhoneSectionProps) {
   const phones = type === "iphone" ? iphones : samsungPhones;
   const sectionId = type === "iphone" ? "iphones" : "samsung";
   const bgColor = type === "iphone" ? "bg-gray-50" : "bg-white";
@@ -26,6 +27,7 @@ export default function PhoneSection({ type, title, description, onSelectPhone }
               key={`${phone.name}-${phone.storage}`}
               phone={phone}
               onSelect={onSelectPhone}
+              onRequestQuote={onRequestQuote}
             />
           ))}
         </div>
