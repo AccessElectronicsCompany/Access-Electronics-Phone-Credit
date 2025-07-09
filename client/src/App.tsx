@@ -30,7 +30,7 @@ function App() {
             connectionDistance={140}
             particleSpeed={0.4}
           />
-          <div className="relative z-10">
+          <div className="relative z-20">
             <Toaster />
             <Router />
           </div>

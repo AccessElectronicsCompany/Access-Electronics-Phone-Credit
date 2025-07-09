@@ -28,15 +28,24 @@ export default function ParticleBackground({
 
   useEffect(() => {
     const canvas = canvasRef.current;
-    if (!canvas) return;
+    if (!canvas) {
+      console.log('Canvas not found');
+      return;
+    }
 
     const ctx = canvas.getContext('2d');
-    if (!ctx) return;
+    if (!ctx) {
+      console.log('Canvas context not found');
+      return;
+    }
+
+    console.log('Particle system initialized');
 
     // Set canvas size
     const resizeCanvas = () => {
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
+      console.log('Canvas resized to:', canvas.width, 'x', canvas.height);
     };
 
     resizeCanvas();
@@ -55,6 +64,7 @@ export default function ParticleBackground({
           opacity: Math.random() * 0.4 + 0.6
         });
       }
+      console.log('Particles initialized:', particlesRef.current.length);
     };
 
     initParticles();
@@ -62,6 +72,12 @@ export default function ParticleBackground({
     // Animation loop
     const animate = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
+      
+      // Draw a test circle to verify canvas is working
+      ctx.beginPath();
+      ctx.arc(50, 50, 10, 0, Math.PI * 2);
+      ctx.fillStyle = 'red';
+      ctx.fill();
       
       // Update and draw particles
       particlesRef.current.forEach((particle, index) => {
@@ -119,8 +135,15 @@ export default function ParticleBackground({
   return (
     <canvas
       ref={canvasRef}
-      className={`fixed inset-0 pointer-events-none z-0 ${className}`}
-      style={{ background: 'transparent' }}
+      className={`fixed inset-0 pointer-events-none z-10 ${className}`}
+      style={{ 
+        background: 'transparent',
+        position: 'fixed',
+        top: 0,
+        left: 0,
+        width: '100vw',
+        height: '100vh'
+      }}
     />
   );
 }
