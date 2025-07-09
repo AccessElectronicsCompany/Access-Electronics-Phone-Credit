@@ -12,6 +12,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { useToast } from "@/hooks/use-toast";
 import { apiRequest } from "@/lib/queryClient";
 import { calculatePayment } from "@/lib/calculations";
+import SuccessModal from "./success-modal";
 
 const quoteFormSchema = z.object({
   fullName: z.string().min(2, "Full name is required"),
@@ -70,6 +71,7 @@ export default function QuoteFormModal({ isOpen, onClose, selectedPhone }: Quote
   const [canSubmit, setCanSubmit] = useState(true);
   const [timeRemaining, setTimeRemaining] = useState(0);
   const [depositMethod, setDepositMethod] = useState("");
+  const [showSuccessModal, setShowSuccessModal] = useState(false);
   const { toast } = useToast();
   const queryClient = useQueryClient();
 
@@ -216,13 +218,9 @@ export default function QuoteFormModal({ isOpen, onClose, selectedPhone }: Quote
       setCanSubmit(false);
       setTimeRemaining(30 * 60 * 1000);
       
-      toast({
-        title: "✅ Thank you for requesting a quote!",
-        description: "Our team is working on it — your quote will be sent to your email within the next 2 hours (during working hours: 08:00 – 17:00). If you don't receive it within that time, please feel free to reach out to our team for assistance.",
-        duration: 8000,
-      });
       reset();
       onClose();
+      setShowSuccessModal(true);
       queryClient.invalidateQueries({ queryKey: ["/api/quote-requests"] });
     },
     onError: (error: any) => {
@@ -252,8 +250,24 @@ export default function QuoteFormModal({ isOpen, onClose, selectedPhone }: Quote
     return `${minutes}:${seconds.toString().padStart(2, '0')}`;
   };
 
+  const handleRequestAnother = () => {
+    // Reset form and reopen
+    reset();
+    setShowSuccessModal(false);
+    // Small delay to ensure modal closes first
+    setTimeout(() => {
+      onClose();
+    }, 100);
+  };
+
   return (
-    <Dialog open={isOpen} onOpenChange={onClose}>
+    <>
+      <SuccessModal
+        isOpen={showSuccessModal}
+        onClose={() => setShowSuccessModal(false)}
+        onRequestAnother={handleRequestAnother}
+      />
+      <Dialog open={isOpen} onOpenChange={onClose}>
       <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto p-4 md:p-8 m-2 md:m-4 rounded-xl border-2 border-black w-[95vw] md:w-auto">
         <DialogHeader className="pb-6">
           <DialogTitle className="text-3xl samsung-header text-center mb-2">
@@ -600,5 +614,6 @@ export default function QuoteFormModal({ isOpen, onClose, selectedPhone }: Quote
         </form>
       </DialogContent>
     </Dialog>
+    </>
   );
 }
