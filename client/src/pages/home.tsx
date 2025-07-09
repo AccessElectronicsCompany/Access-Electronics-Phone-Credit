@@ -123,7 +123,7 @@ export default function Home() {
             <h3 className="text-4xl samsung-header mb-6">BROWSE OUR COLLECTIONS</h3>
             <p className="samsung-text text-lg">Discover premium smartphones available on credit</p>
           </div>
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
             <Card className="text-center p-12 border-2 border-black hover:bg-black hover:text-white transition-all cursor-pointer"
                   onClick={() => window.location.href = '/phones'}>
               <CardContent className="pt-6">
@@ -140,54 +140,11 @@ export default function Home() {
                 <p className="text-sm opacity-80">Calculate your monthly payments instantly</p>
               </CardContent>
             </Card>
-            <Card className="text-center p-12 border-2 border-black hover:bg-black hover:text-white transition-all cursor-pointer"
-                  onClick={() => scrollToSection('used')}>
-              <CardContent className="pt-6">
-                <div className="text-6xl mb-6">🔧</div>
-                <h4 className="text-xl font-semibold mb-4 tracking-wide">USED PHONES</h4>
-                <p className="text-sm opacity-80">Quality pre-owned devices at great prices</p>
-              </CardContent>
-            </Card>
           </div>
         </div>
       </section>
 
-      {/* Placeholder sections for navigation - no phone listings */}
-      <section id="iphones" className="py-16 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center py-12">
-            <h3 className="text-3xl font-bold text-gray-900 mb-4">iPhone Collection</h3>
-            <p className="text-gray-600 mb-8">Premium Apple devices with cutting-edge technology</p>
-            <div className="text-6xl mb-4">📱</div>
-            <p className="text-xl text-gray-600 mb-4">Coming Soon</p>
-            <p className="text-gray-500">Browse our premium iPhone collection</p>
-          </div>
-        </div>
-      </section>
 
-      <section id="samsung" className="py-16 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center py-12">
-            <h3 className="text-3xl font-bold text-gray-900 mb-4">Samsung Collection</h3>
-            <p className="text-gray-600 mb-8">Innovation meets performance in Samsung's flagship devices</p>
-            <div className="text-6xl mb-4">📱</div>
-            <p className="text-xl text-gray-600 mb-4">Coming Soon</p>
-            <p className="text-gray-500">Explore our Samsung smartphone range</p>
-          </div>
-        </div>
-      </section>
-
-      <section id="used" className="py-16 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center py-12">
-            <h3 className="text-3xl font-bold text-gray-900 mb-4">Used Phones</h3>
-            <p className="text-gray-600 mb-8">Quality pre-owned devices at great prices</p>
-            <div className="text-6xl mb-4">🔧</div>
-            <p className="text-xl text-gray-600 mb-4">Coming Soon</p>
-            <p className="text-gray-500">We're preparing an amazing selection of quality used phones</p>
-          </div>
-        </div>
-      </section>
 
       {/* Calculator Modal */}
       <CalculatorModal 
