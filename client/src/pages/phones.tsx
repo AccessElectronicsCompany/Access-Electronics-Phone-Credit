@@ -11,18 +11,21 @@ export default function Phones() {
     name: string;
     storage: string;
     price: number;
+    colors: string[];
   } | null>(null);
   
   const [showQuoteForm, setShowQuoteForm] = useState(false);
   const [showMobileMenu, setShowMobileMenu] = useState(false);
 
   const handleSelectPhone = (name: string, storage: string, price: number) => {
-    setSelectedPhone({ name, storage, price });
+    // Find the phone to get colors
+    const phone = [...iphones, ...samsungPhones].find(p => p.name === name && p.storage === storage);
+    setSelectedPhone({ name, storage, price, colors: phone?.colors || [] });
     setShowQuoteForm(true);
   };
 
-  const handleRequestQuote = (name: string, storage: string, price: number) => {
-    setSelectedPhone({ name, storage, price });
+  const handleRequestQuote = (name: string, storage: string, price: number, colors: string[]) => {
+    setSelectedPhone({ name, storage, price, colors });
     setShowQuoteForm(true);
   };
 

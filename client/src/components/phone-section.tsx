@@ -6,7 +6,7 @@ interface PhoneSectionProps {
   title: string;
   description: string;
   onSelectPhone: (name: string, storage: string, price: number) => void;
-  onRequestQuote: (name: string, storage: string, price: number) => void;
+  onRequestQuote: (name: string, storage: string, price: number, colors: string[]) => void;
 }
 
 export default function PhoneSection({ type, title, description, onSelectPhone, onRequestQuote }: PhoneSectionProps) {

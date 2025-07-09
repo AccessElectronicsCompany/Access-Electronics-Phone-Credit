@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useForm } from "react-hook-form";
+import { useForm, Controller } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { z } from "zod";
@@ -18,7 +18,6 @@ const quoteFormSchema = z.object({
   contactNumber: z.string().min(10, "Valid contact number is required"),
   email: z.string().email("Valid email is required"),
   physicalAddress: z.string().min(10, "Physical address is required"),
-  postalAddress: z.string().min(5, "Postal address is required"),
   city: z.string().min(2, "City is required"),
   region: z.string().min(2, "Region is required"),
   country: z.string().min(2, "Country is required"),
@@ -42,6 +41,7 @@ interface QuoteFormModalProps {
     name: string;
     storage: string;
     price: number;
+    colors: string[];
   } | null;
 }
 
@@ -59,6 +59,7 @@ export default function QuoteFormModal({ isOpen, onClose, selectedPhone }: Quote
     reset,
     setValue,
     watch,
+    control,
   } = useForm<QuoteFormData>({
     resolver: zodResolver(quoteFormSchema),
     defaultValues: {
@@ -66,13 +67,12 @@ export default function QuoteFormModal({ isOpen, onClose, selectedPhone }: Quote
       contactNumber: "",
       email: "",
       physicalAddress: "",
-      postalAddress: "",
       city: "",
       region: "",
       country: "Namibia",
       productName: selectedPhone?.name || "",
       storageCapacity: selectedPhone?.storage || "",
-      condition: "",
+      condition: "NEW",
       color: "",
       quantity: 1,
       originalPrice: selectedPhone?.price || 0,
@@ -90,6 +90,8 @@ export default function QuoteFormModal({ isOpen, onClose, selectedPhone }: Quote
       setValue("originalPrice", selectedPhone.price);
       setValue("creditAmount", selectedPhone.price);
       setValue("country", "Namibia");
+      setValue("condition", "NEW");
+      setValue("color", "");
     }
   }, [selectedPhone, setValue]);
 
@@ -227,18 +229,7 @@ export default function QuoteFormModal({ isOpen, onClose, selectedPhone }: Quote
                   <p className="text-red-500 text-sm mt-1">{errors.physicalAddress.message}</p>
                 )}
               </div>
-              <div>
-                <Label htmlFor="postalAddress" className="text-sm font-semibold samsung-text mb-2 block">Postal Address *</Label>
-                <Input
-                  id="postalAddress"
-                  {...register("postalAddress")}
-                  className={`rounded-xl border-2 h-12 ${errors.postalAddress ? "border-red-500" : "border-gray-300 focus:border-black"}`}
-                  placeholder="P.O. Box, city"
-                />
-                {errors.postalAddress && (
-                  <p className="text-red-500 text-sm mt-1">{errors.postalAddress.message}</p>
-                )}
-              </div>
+
               <div>
                 <Label htmlFor="city" className="text-sm font-semibold samsung-text mb-2 block">City/Town *</Label>
                 <Input
@@ -308,28 +299,33 @@ export default function QuoteFormModal({ isOpen, onClose, selectedPhone }: Quote
               </div>
               <div>
                 <Label htmlFor="condition" className="text-sm font-semibold samsung-text mb-2 block">Condition *</Label>
-                <Select onValueChange={(value) => setValue("condition", value)}>
-                  <SelectTrigger className={`rounded-xl border-2 h-12 ${errors.condition ? "border-red-500" : "border-gray-300 focus:border-black"}`}>
-                    <SelectValue placeholder="Select condition" />
-                  </SelectTrigger>
-                  <SelectContent className="rounded-xl">
-                    <SelectItem value="brand-new">Brand New</SelectItem>
-                    <SelectItem value="excellent">Excellent</SelectItem>
-                    <SelectItem value="good">Good</SelectItem>
-                    <SelectItem value="fair">Fair</SelectItem>
-                  </SelectContent>
-                </Select>
+                <Input
+                  id="condition"
+                  {...register("condition")}
+                  className={`rounded-xl border-2 h-12 ${errors.condition ? "border-red-500" : "border-gray-300 focus:border-black"} bg-gray-100`}
+                  readOnly
+                />
                 {errors.condition && (
                   <p className="text-red-500 text-sm mt-1">{errors.condition.message}</p>
                 )}
               </div>
               <div>
                 <Label htmlFor="color" className="text-sm font-semibold samsung-text mb-2 block">Color *</Label>
-                <Input
-                  id="color"
-                  {...register("color")}
-                  className={`rounded-xl border-2 h-12 ${errors.color ? "border-red-500" : "border-gray-300 focus:border-black"}`}
-                  placeholder="Enter phone color"
+                <Controller
+                  name="color"
+                  control={control}
+                  render={({ field }) => (
+                    <Select onValueChange={field.onChange} value={field.value}>
+                      <SelectTrigger className={`rounded-xl border-2 h-12 ${errors.color ? "border-red-500" : "border-gray-300 focus:border-black"}`}>
+                        <SelectValue placeholder="Select color" />
+                      </SelectTrigger>
+                      <SelectContent className="rounded-xl">
+                        {selectedPhone?.colors?.map((color) => (
+                          <SelectItem key={color} value={color}>{color}</SelectItem>
+                        ))}
+                      </SelectContent>
+                    </Select>
+                  )}
                 />
                 {errors.color && (
                   <p className="text-red-500 text-sm mt-1">{errors.color.message}</p>

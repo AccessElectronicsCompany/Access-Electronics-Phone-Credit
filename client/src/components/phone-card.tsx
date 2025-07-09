@@ -13,7 +13,7 @@ interface Phone {
 interface PhoneCardProps {
   phone: Phone;
   onSelect: (name: string, storage: string, price: number) => void;
-  onRequestQuote: (name: string, storage: string, price: number) => void;
+  onRequestQuote: (name: string, storage: string, price: number, colors: string[]) => void;
 }
 
 export default function PhoneCard({ phone, onSelect, onRequestQuote }: PhoneCardProps) {
@@ -38,7 +38,7 @@ export default function PhoneCard({ phone, onSelect, onRequestQuote }: PhoneCard
             SELECT PHONE
           </Button>
           <Button
-            onClick={() => onRequestQuote(phone.name, phone.storage, phone.price)}
+            onClick={() => onRequestQuote(phone.name, phone.storage, phone.price, phone.colors)}
             className="samsung-btn-outline w-full py-2 h-8 text-xs"
           >
             REQUEST QUOTE
