@@ -217,8 +217,9 @@ export default function QuoteFormModal({ isOpen, onClose, selectedPhone }: Quote
       setTimeRemaining(30 * 60 * 1000);
       
       toast({
-        title: "Quote Request Submitted",
-        description: "We will contact you within 24 hours with your quote details. You can submit another quote in 30 minutes.",
+        title: "✅ Thank you for requesting a quote!",
+        description: "Our team is working on it — your quote will be sent to your email within the next 2 hours (during working hours: 08:00 – 17:00). If you don't receive it within that time, please feel free to reach out to our team for assistance.",
+        duration: 8000,
       });
       reset();
       onClose();
