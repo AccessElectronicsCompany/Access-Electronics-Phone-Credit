@@ -192,6 +192,98 @@ export default function Phones() {
         onClose={() => setShowQuoteForm(false)}
         selectedPhone={selectedPhone}
       />
+
+      {/* Footer */}
+      <footer className="bg-gray-900 text-white py-12">
+        <div className="samsung-container">
+          <div className="grid md:grid-cols-3 gap-12">
+            {/* Company Info */}
+            <div>
+              <h4 className="text-xl font-bold text-white mb-4">ACCESS ELECTRONICS</h4>
+              <p className="text-gray-400 mb-6">
+                Connecting you with the latest technology through flexible financing options.
+              </p>
+              <div className="flex space-x-4">
+                <div className="w-8 h-8 bg-gray-700 rounded flex items-center justify-center hover:bg-gray-600 transition-colors cursor-pointer">
+                  <span className="text-white text-sm">f</span>
+                </div>
+                <div className="w-8 h-8 bg-gray-700 rounded flex items-center justify-center hover:bg-gray-600 transition-colors cursor-pointer">
+                  <span className="text-white text-sm">t</span>
+                </div>
+                <div className="w-8 h-8 bg-gray-700 rounded flex items-center justify-center hover:bg-gray-600 transition-colors cursor-pointer">
+                  <span className="text-white text-sm">@</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Quick Links */}
+            <div>
+              <h4 className="text-xl font-bold text-white mb-4">Quick Links</h4>
+              <ul className="space-y-3 text-gray-400">
+                <li><a href="/" className="hover:text-white transition-colors">Home</a></li>
+                <li><a href="/phones" className="hover:text-white transition-colors">Products</a></li>
+                <li><a href="/" className="hover:text-white transition-colors">Financing Options</a></li>
+                <li><a href="/terms" className="hover:text-white transition-colors">Terms & Conditions</a></li>
+                <li><a href="mailto:info@accessnamibia.com" className="hover:text-white transition-colors">Official Online Store</a></li>
+                <li><a href="mailto:info@accessnamibia.com" className="hover:text-white transition-colors">About Us</a></li>
+                <li><a href="mailto:info@accessnamibia.com" className="hover:text-white transition-colors">Contact</a></li>
+              </ul>
+            </div>
+
+            {/* Our Branches */}
+            <div>
+              <h4 className="text-xl font-bold text-white mb-4">Our Branches</h4>
+              <div className="space-y-4">
+                <div>
+                  <div className="flex items-center space-x-2 mb-2">
+                    <div className="w-4 h-4 bg-gray-600 rounded-full flex items-center justify-center">
+                      <div className="w-2 h-2 bg-white rounded-full"></div>
+                    </div>
+                    <span className="text-white font-semibold">Windhoek (Main Shop)</span>
+                  </div>
+                  <p className="text-gray-400 text-sm ml-6">
+                    Independence Avenue, Opposite Zoo Park, next to NWR Head Office
+                  </p>
+                  <p className="text-gray-400 text-sm ml-6">
+                    📞 +264 814952277 / +264 811626462
+                  </p>
+                </div>
+
+                <div>
+                  <div className="flex items-center space-x-2 mb-2">
+                    <div className="w-4 h-4 bg-gray-600 rounded-full flex items-center justify-center">
+                      <div className="w-2 h-2 bg-white rounded-full"></div>
+                    </div>
+                    <span className="text-white font-semibold">Oshakati</span>
+                  </div>
+                  <p className="text-gray-400 text-sm ml-6">
+                    📞 +264 818601188
+                  </p>
+                </div>
+
+                <div>
+                  <div className="flex items-center space-x-2 mb-2">
+                    <div className="w-4 h-4 bg-gray-600 rounded-full flex items-center justify-center">
+                      <div className="w-2 h-2 bg-white rounded-full"></div>
+                    </div>
+                    <span className="text-white font-semibold">Walvis Bay</span>
+                  </div>
+                  <p className="text-gray-400 text-sm ml-6">
+                    📞 +264 816705032
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Copyright */}
+          <div className="border-t border-gray-800 mt-8 pt-6 text-center">
+            <p className="text-gray-400 text-sm">
+              © 2025 Access Electronics. All rights reserved.
+            </p>
+          </div>
+        </div>
+      </footer>
     </div>
   );
 }
