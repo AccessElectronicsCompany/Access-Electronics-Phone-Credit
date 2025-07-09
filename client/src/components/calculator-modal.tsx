@@ -3,7 +3,7 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } f
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+
 import { Card, CardContent } from "@/components/ui/card";
 import { calculatePayment } from "@/lib/calculations";
 
@@ -69,19 +69,44 @@ export default function CalculatorModal({ isOpen, onClose, selectedPrice, isEmbe
       </div>
       
       <div>
-        <Label htmlFor="paymentTerm" className="text-sm font-semibold samsung-text tracking-wide uppercase mb-2 block">
+        <Label className="text-sm font-semibold samsung-text tracking-wide uppercase mb-4 block">
           Payment Term
         </Label>
-        <Select value={paymentTerm} onValueChange={setPaymentTerm}>
-          <SelectTrigger className="border-2 border-gray-300 focus:border-black rounded-xl h-12">
-            <SelectValue placeholder="Select payment term" />
-          </SelectTrigger>
-          <SelectContent className="rounded-xl">
-            <SelectItem value="12">12 Months</SelectItem>
-            <SelectItem value="24">24 Months</SelectItem>
-            <SelectItem value="36">36 Months</SelectItem>
-          </SelectContent>
-        </Select>
+        <div className="grid grid-cols-3 gap-3">
+          <button
+            onClick={() => setPaymentTerm("12")}
+            className={`p-3 border-2 rounded-xl text-center transition-all ${
+              paymentTerm === "12" 
+                ? "border-black bg-black text-white" 
+                : "border-gray-300 hover:border-gray-400"
+            }`}
+          >
+            <div className="text-lg font-bold">12</div>
+            <div className="text-xs uppercase">Months</div>
+          </button>
+          <button
+            onClick={() => setPaymentTerm("24")}
+            className={`p-3 border-2 rounded-xl text-center transition-all ${
+              paymentTerm === "24" 
+                ? "border-black bg-black text-white" 
+                : "border-gray-300 hover:border-gray-400"
+            }`}
+          >
+            <div className="text-lg font-bold">24</div>
+            <div className="text-xs uppercase">Months</div>
+          </button>
+          <button
+            onClick={() => setPaymentTerm("36")}
+            className={`p-3 border-2 rounded-xl text-center transition-all ${
+              paymentTerm === "36" 
+                ? "border-black bg-black text-white" 
+                : "border-gray-300 hover:border-gray-400"
+            }`}
+          >
+            <div className="text-lg font-bold">36</div>
+            <div className="text-xs uppercase">Months</div>
+          </button>
+        </div>
       </div>
       
       <div>

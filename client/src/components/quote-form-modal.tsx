@@ -91,20 +91,20 @@ export default function QuoteFormModal({ isOpen, onClose, selectedPhone }: Quote
   }, [selectedPhone, setValue]);
 
   // Watch for changes in credit amount, deposit, and payment term for automatic calculation
-  const creditAmount = watch("creditAmount");
+  const phonePrice = watch("creditAmount");
   const deposit = watch("deposit");
   
   useEffect(() => {
-    if (creditAmount && creditAmount > 0) {
+    if (phonePrice && phonePrice > 0) {
       const calculation = calculatePayment(
-        creditAmount,
+        phonePrice,
         parseInt(paymentTerm),
         deposit || 0
       );
       setMonthlyPayment(calculation.monthlyPayment.toFixed(2));
       setTotalAmount(calculation.totalAmount.toFixed(2));
     }
-  }, [creditAmount, deposit, paymentTerm]);
+  }, [phonePrice, deposit, paymentTerm]);
 
   const createQuoteMutation = useMutation({
     mutationFn: async (data: QuoteFormData) => {
@@ -117,7 +117,7 @@ export default function QuoteFormModal({ isOpen, onClose, selectedPhone }: Quote
       const quoteData = {
         ...data,
         deposit: data.deposit?.toString() || "0",
-        creditAmount: data.creditAmount.toString(),
+        creditAmount: calculation.creditAmount.toString(),
         monthlyPayment: calculation.monthlyPayment.toString(),
         totalAmount: calculation.totalAmount.toString(),
       };
@@ -187,14 +187,14 @@ export default function QuoteFormModal({ isOpen, onClose, selectedPhone }: Quote
                   <p className="text-red-500 text-sm mt-1">{errors.contactNumber.message}</p>
                 )}
               </div>
-              <div className="md:col-span-2">
+              <div>
                 <Label htmlFor="email" className="text-sm font-semibold samsung-text mb-2 block">Email Address *</Label>
                 <Input
                   id="email"
                   type="email"
                   {...register("email")}
                   className={`rounded-xl border-2 h-12 ${errors.email ? "border-red-500" : "border-gray-300 focus:border-black"}`}
-                  placeholder="Enter your email address"
+                  placeholder="your.email@example.com"
                 />
                 {errors.email && (
                   <p className="text-red-500 text-sm mt-1">{errors.email.message}</p>
@@ -207,27 +207,25 @@ export default function QuoteFormModal({ isOpen, onClose, selectedPhone }: Quote
           <div className="bg-gray-50 p-6 rounded-xl border border-gray-200">
             <h3 className="text-xl samsung-header mb-4">Address Information</h3>
             <div className="grid md:grid-cols-2 gap-6">
-              <div className="md:col-span-2">
+              <div>
                 <Label htmlFor="physicalAddress" className="text-sm font-semibold samsung-text mb-2 block">Physical Address *</Label>
-                <Textarea
+                <Input
                   id="physicalAddress"
                   {...register("physicalAddress")}
-                  className={`rounded-xl border-2 ${errors.physicalAddress ? "border-red-500" : "border-gray-300 focus:border-black"}`}
-                  placeholder="Enter your physical address"
-                  rows={3}
+                  className={`rounded-xl border-2 h-12 ${errors.physicalAddress ? "border-red-500" : "border-gray-300 focus:border-black"}`}
+                  placeholder="Street address, city"
                 />
                 {errors.physicalAddress && (
                   <p className="text-red-500 text-sm mt-1">{errors.physicalAddress.message}</p>
                 )}
               </div>
-              <div className="md:col-span-2">
+              <div>
                 <Label htmlFor="postalAddress" className="text-sm font-semibold samsung-text mb-2 block">Postal Address *</Label>
-                <Textarea
+                <Input
                   id="postalAddress"
                   {...register("postalAddress")}
-                  className={`rounded-xl border-2 ${errors.postalAddress ? "border-red-500" : "border-gray-300 focus:border-black"}`}
-                  placeholder="Enter your postal address"
-                  rows={3}
+                  className={`rounded-xl border-2 h-12 ${errors.postalAddress ? "border-red-500" : "border-gray-300 focus:border-black"}`}
+                  placeholder="P.O. Box, city"
                 />
                 {errors.postalAddress && (
                   <p className="text-red-500 text-sm mt-1">{errors.postalAddress.message}</p>

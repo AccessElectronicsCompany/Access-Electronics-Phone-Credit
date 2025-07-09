@@ -65,7 +65,7 @@ export default function Home() {
                 onClick={() => window.location.href = '/terms'}
                 className="samsung-text hover:text-black transition-colors font-medium tracking-wide uppercase text-sm whitespace-nowrap"
               >
-                Terms
+                Terms & Conditions
               </button>
             </nav>
 
