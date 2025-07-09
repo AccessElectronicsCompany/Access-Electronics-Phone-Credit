@@ -3,6 +3,7 @@ import { queryClient } from "./lib/queryClient";
 import { QueryClientProvider } from "@tanstack/react-query";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
+import ParticleBackground from "@/components/particle-background";
 import Home from "@/pages/home";
 import Phones from "@/pages/phones";
 import Terms from "@/pages/terms";
@@ -23,8 +24,17 @@ function App() {
   return (
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>
-        <Toaster />
-        <Router />
+        <div className="relative">
+          <ParticleBackground 
+            particleCount={40}
+            connectionDistance={120}
+            particleSpeed={0.3}
+          />
+          <div className="relative z-10">
+            <Toaster />
+            <Router />
+          </div>
+        </div>
       </TooltipProvider>
     </QueryClientProvider>
   );
