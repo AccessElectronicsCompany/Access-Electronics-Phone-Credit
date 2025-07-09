@@ -29,6 +29,7 @@ const quoteFormSchema = z.object({
   originalPrice: z.number().min(1, "Original price is required"),
   creditAmount: z.number().min(1, "Credit amount is required"),
   deposit: z.number().min(0, "Deposit must be 0 or greater").optional(),
+  depositMethod: z.string().optional(),
   paymentTerm: z.number().min(12, "Payment term is required"),
 });
 
@@ -68,6 +69,7 @@ export default function QuoteFormModal({ isOpen, onClose, selectedPhone }: Quote
   const [totalAmount, setTotalAmount] = useState("");
   const [canSubmit, setCanSubmit] = useState(true);
   const [timeRemaining, setTimeRemaining] = useState(0);
+  const [depositMethod, setDepositMethod] = useState("");
   const { toast } = useToast();
   const queryClient = useQueryClient();
 
@@ -129,6 +131,7 @@ export default function QuoteFormModal({ isOpen, onClose, selectedPhone }: Quote
       originalPrice: selectedPhone?.price || 0,
       creditAmount: selectedPhone?.price || 0,
       deposit: 0,
+      depositMethod: "",
       paymentTerm: 36,
     },
   });
@@ -149,6 +152,7 @@ export default function QuoteFormModal({ isOpen, onClose, selectedPhone }: Quote
   // Watch for changes in original price, deposit, and payment term for automatic calculation
   const originalPrice = watch("originalPrice");
   const deposit = watch("deposit") || 0;
+  const watchedDepositMethod = watch("depositMethod");
   
   useEffect(() => {
     if (originalPrice && originalPrice > 0) {
@@ -177,12 +181,27 @@ export default function QuoteFormModal({ isOpen, onClose, selectedPhone }: Quote
       const quoteData = {
         ...data,
         deposit: data.deposit?.toString() || "0",
+        depositMethod: data.depositMethod || "",
         originalPrice: data.originalPrice.toString(),
         creditAmount: calculation.creditAmount.toString(),
         monthlyPayment: calculation.monthlyPayment.toString(),
         totalAmount: calculation.totalAmount.toString(),
       };
 
+      // Submit to FormCarry
+      const formCarryResponse = await fetch("https://formcarry.com/s/UzI6HDYG6hC", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(quoteData),
+      });
+
+      if (!formCarryResponse.ok) {
+        throw new Error("Failed to submit to FormCarry");
+      }
+
+      // Also submit to our internal API
       return apiRequest("POST", "/api/quote-requests", quoteData);
     },
     onSuccess: () => {
@@ -495,6 +514,34 @@ export default function QuoteFormModal({ isOpen, onClose, selectedPhone }: Quote
                 </Select>
               </div>
             </div>
+            
+            {deposit > 0 && (
+              <div className="mt-4">
+                <Label htmlFor="depositMethod" className="text-sm font-semibold samsung-text mb-2 block">Deposit Payment Method *</Label>
+                <Controller
+                  name="depositMethod"
+                  control={control}
+                  render={({ field }) => (
+                    <Select onValueChange={field.onChange} value={field.value}>
+                      <SelectTrigger className="rounded-xl border-2 border-gray-300 focus:border-black h-12">
+                        <SelectValue placeholder="Choose payment method" />
+                      </SelectTrigger>
+                      <SelectContent className="rounded-xl">
+                        <SelectItem value="cash">Cash</SelectItem>
+                        <SelectItem value="trade-in">Trade-in</SelectItem>
+                      </SelectContent>
+                    </Select>
+                  )}
+                />
+                {watchedDepositMethod === "trade-in" && (
+                  <div className="mt-3 p-3 bg-blue-50 border border-blue-200 rounded-xl">
+                    <p className="text-sm samsung-text text-blue-800">
+                      Please input the valuation estimate that you got from Access Electronics / contact Access Electronics team to obtain a valuation estimate for your phone, which you will then use as a deposit.
+                    </p>
+                  </div>
+                )}
+              </div>
+            )}
           </div>
 
           {/* Payment Summary */}
@@ -511,6 +558,15 @@ export default function QuoteFormModal({ isOpen, onClose, selectedPhone }: Quote
                   <span className="font-bold text-white">N${totalAmount}</span>
                 </div>
               </div>
+            </div>
+          )}
+
+          {/* Deposit Confirmation */}
+          {deposit > 0 && (
+            <div className="bg-orange-50 border border-orange-200 p-4 rounded-xl">
+              <p className="text-sm samsung-text text-orange-800">
+                Please ensure you are able to pay the deposit you have chosen in the previous steps.
+              </p>
             </div>
           )}
 

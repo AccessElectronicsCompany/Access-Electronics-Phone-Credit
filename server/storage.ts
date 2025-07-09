@@ -21,6 +21,7 @@ export class MemStorage implements IStorage {
       ...insertQuoteRequest,
       id,
       deposit: insertQuoteRequest.deposit || '0',
+      depositMethod: insertQuoteRequest.depositMethod || null,
       createdAt: new Date(),
     };
     this.quoteRequests.set(id, quoteRequest);
