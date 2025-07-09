@@ -188,17 +188,23 @@ export default function QuoteFormModal({ isOpen, onClose, selectedPhone }: Quote
         totalAmount: calculation.totalAmount.toString(),
       };
 
-      // Submit to FormCarry
-      const formCarryResponse = await fetch("https://formcarry.com/s/UzI6HDYG6hC", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(quoteData),
+      // Submit to FormCarry with form data format
+      const formData = new FormData();
+      Object.entries(quoteData).forEach(([key, value]) => {
+        formData.append(key, value?.toString() || '');
       });
 
-      if (!formCarryResponse.ok) {
-        throw new Error("Failed to submit to FormCarry");
+      try {
+        const formCarryResponse = await fetch("https://formcarry.com/s/UzI6HDYG6hC", {
+          method: "POST",
+          body: formData,
+        });
+
+        if (!formCarryResponse.ok) {
+          console.warn("FormCarry submission failed, but continuing with internal API");
+        }
+      } catch (error) {
+        console.warn("FormCarry submission error:", error);
       }
 
       // Also submit to our internal API
