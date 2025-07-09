@@ -73,11 +73,16 @@ export default function ParticleBackground({
     const animate = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
       
-      // Draw a test circle to verify canvas is working
+      // Draw a large test circle to verify canvas is working
       ctx.beginPath();
-      ctx.arc(50, 50, 10, 0, Math.PI * 2);
+      ctx.arc(100, 100, 20, 0, Math.PI * 2);
       ctx.fillStyle = 'red';
       ctx.fill();
+      
+      // Draw test text
+      ctx.fillStyle = 'blue';
+      ctx.font = '20px Arial';
+      ctx.fillText('PARTICLES TEST', 200, 100);
       
       // Update and draw particles
       particlesRef.current.forEach((particle, index) => {
@@ -135,14 +140,15 @@ export default function ParticleBackground({
   return (
     <canvas
       ref={canvasRef}
-      className={`fixed inset-0 pointer-events-none z-10 ${className}`}
       style={{ 
-        background: 'transparent',
         position: 'fixed',
         top: 0,
         left: 0,
         width: '100vw',
-        height: '100vh'
+        height: '100vh',
+        zIndex: 1,
+        pointerEvents: 'none',
+        background: 'transparent'
       }}
     />
   );

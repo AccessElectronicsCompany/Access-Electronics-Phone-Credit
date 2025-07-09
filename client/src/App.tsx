@@ -24,13 +24,13 @@ function App() {
   return (
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>
-        <div className="relative">
+        <div style={{ position: 'relative' }}>
           <ParticleBackground 
             particleCount={60}
             connectionDistance={140}
             particleSpeed={0.4}
           />
-          <div className="relative z-20">
+          <div style={{ position: 'relative', zIndex: 10 }}>
             <Toaster />
             <Router />
           </div>
