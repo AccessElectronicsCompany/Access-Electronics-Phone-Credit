@@ -75,7 +75,7 @@ export default function CalculatorModal({ isOpen, onClose, selectedPrice, isEmbe
         <div className="grid grid-cols-3 gap-3">
           <button
             onClick={() => setPaymentTerm("12")}
-            className={`p-3 border-2 rounded-xl text-center transition-all ${
+            className={`px-4 py-2 border-2 rounded-xl text-center transition-all flex flex-col items-center justify-center min-h-[60px] ${
               paymentTerm === "12" 
                 ? "border-black bg-black text-white" 
                 : "border-gray-300 hover:border-gray-400"
@@ -86,7 +86,7 @@ export default function CalculatorModal({ isOpen, onClose, selectedPrice, isEmbe
           </button>
           <button
             onClick={() => setPaymentTerm("24")}
-            className={`p-3 border-2 rounded-xl text-center transition-all ${
+            className={`px-4 py-2 border-2 rounded-xl text-center transition-all flex flex-col items-center justify-center min-h-[60px] ${
               paymentTerm === "24" 
                 ? "border-black bg-black text-white" 
                 : "border-gray-300 hover:border-gray-400"
@@ -97,7 +97,7 @@ export default function CalculatorModal({ isOpen, onClose, selectedPrice, isEmbe
           </button>
           <button
             onClick={() => setPaymentTerm("36")}
-            className={`p-3 border-2 rounded-xl text-center transition-all ${
+            className={`px-4 py-2 border-2 rounded-xl text-center transition-all flex flex-col items-center justify-center min-h-[60px] ${
               paymentTerm === "36" 
                 ? "border-black bg-black text-white" 
                 : "border-gray-300 hover:border-gray-400"
