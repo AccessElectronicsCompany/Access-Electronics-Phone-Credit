@@ -41,32 +41,32 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-background">
       {/* Header */}
-      <header className="bg-white border-b border-black sticky top-0 z-50">
+      <header className="bg-white border-b border-black sticky top-0 z-50 animate-in slide-in-from-top duration-1000">
         <div className="samsung-container">
           <div className="flex justify-between items-center h-20">
             <div className="flex items-center ml-4">
-              <h1 className="text-2xl md:text-3xl samsung-header tracking-widest">
+              <h1 className="text-2xl md:text-3xl samsung-header tracking-widest animate-in fade-in duration-1000 delay-500">
                 ACCESS ELECTRONICS
               </h1>
             </div>
             
             {/* Desktop Navigation */}
-            <nav className="hidden lg:flex space-x-8 xl:space-x-12 items-center">
+            <nav className="hidden lg:flex space-x-8 xl:space-x-12 items-center animate-in slide-in-from-right duration-1000 delay-700">
               <button
                 onClick={() => window.location.href = '/phones'}
-                className="samsung-text hover:text-black transition-colors font-medium tracking-wide uppercase text-sm whitespace-nowrap"
+                className="samsung-text hover:text-black transition-all duration-300 font-medium tracking-wide uppercase text-sm whitespace-nowrap hover:scale-105 transform"
               >
                 Select Phone
               </button>
               <button
                 onClick={() => scrollToSection('calculator')}
-                className="samsung-text hover:text-black transition-colors font-medium tracking-wide uppercase text-sm whitespace-nowrap"
+                className="samsung-text hover:text-black transition-all duration-300 font-medium tracking-wide uppercase text-sm whitespace-nowrap hover:scale-105 transform"
               >
                 Calculator
               </button>
               <button
                 onClick={() => window.location.href = '/terms'}
-                className="samsung-text hover:text-black transition-colors font-medium tracking-wide uppercase text-sm whitespace-nowrap"
+                className="samsung-text hover:text-black transition-all duration-300 font-medium tracking-wide uppercase text-sm whitespace-nowrap hover:scale-105 transform"
               >
                 Terms & Conditions
               </button>
@@ -135,30 +135,30 @@ export default function Home() {
       {/* Credit Info Section */}
       <section className="samsung-section bg-white">
         <div className="samsung-container">
-          <div className="text-center mb-16">
+          <div className="text-center mb-16 animate-in slide-in-from-bottom duration-1000">
             <h3 className="text-4xl samsung-header mb-6">FLEXIBLE CREDIT OPTIONS</h3>
             <p className="samsung-text max-w-2xl mx-auto text-lg">Choose from multiple payment plans with competitive rates</p>
           </div>
           <div className="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">
-            <Card className="samsung-card text-center p-6">
+            <Card className="samsung-card text-center p-6 animate-in slide-in-from-left duration-1000 delay-300 hover:scale-105 transition-transform">
               <CardContent className="pt-4">
-                <div className="text-4xl font-bold samsung-text mb-2">12</div>
+                <div className="text-4xl font-bold samsung-text mb-2 animate-pulse">12</div>
                 <div className="text-sm font-semibold samsung-text mb-3 tracking-wide">MONTHS</div>
                 <p className="samsung-text text-sm opacity-70">Higher monthly payments,</p>
                 <p className="samsung-text text-sm opacity-70">less interest</p>
               </CardContent>
             </Card>
-            <Card className="samsung-card text-center p-6">
+            <Card className="samsung-card text-center p-6 animate-in slide-in-from-bottom duration-1000 delay-500 hover:scale-105 transition-transform">
               <CardContent className="pt-4">
-                <div className="text-4xl font-bold samsung-text mb-2">24</div>
+                <div className="text-4xl font-bold samsung-text mb-2 animate-pulse">24</div>
                 <div className="text-sm font-semibold samsung-text mb-3 tracking-wide">MONTHS</div>
                 <p className="samsung-text text-sm opacity-70">Balanced</p>
                 <p className="samsung-text text-sm opacity-70">payment option</p>
               </CardContent>
             </Card>
-            <Card className="samsung-card text-center p-6">
+            <Card className="samsung-card text-center p-6 animate-in slide-in-from-right duration-1000 delay-700 hover:scale-105 transition-transform">
               <CardContent className="pt-4">
-                <div className="text-4xl font-bold samsung-text mb-2">36</div>
+                <div className="text-4xl font-bold samsung-text mb-2 animate-pulse">36</div>
                 <div className="text-sm font-semibold samsung-text mb-3 tracking-wide">MONTHS</div>
                 <p className="samsung-text text-sm opacity-70">Lower</p>
                 <p className="samsung-text text-sm opacity-70">monthly payments</p>
@@ -171,39 +171,41 @@ export default function Home() {
       {/* Payment Calculator Section */}
       <section id="calculator" className="samsung-section bg-gray-50">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
+          <div className="text-center mb-16 animate-in slide-in-from-top duration-1000">
             <h3 className="text-4xl samsung-header mb-6">PAYMENT CALCULATOR</h3>
             <p className="samsung-text text-lg">Calculate your monthly payments with our flexible credit options</p>
           </div>
-          <CalculatorModal 
-            isOpen={true}
-            onClose={() => {}}
-            selectedPrice={undefined}
-            isEmbedded={true}
-          />
+          <div className="animate-in fade-in duration-1000 delay-500">
+            <CalculatorModal 
+              isOpen={true}
+              onClose={() => {}}
+              selectedPrice={undefined}
+              isEmbedded={true}
+            />
+          </div>
         </div>
       </section>
 
       {/* Phone Collections Navigation */}
       <section className="samsung-section bg-white">
         <div className="samsung-container">
-          <div className="text-center mb-16">
+          <div className="text-center mb-16 animate-in slide-in-from-bottom duration-1000">
             <h3 className="text-4xl samsung-header mb-6">CHOOSE YOUR PHONE TYPE</h3>
             <p className="samsung-text text-lg">Select from our premium smartphone categories</p>
           </div>
           <div className="grid md:grid-cols-2 gap-6 max-w-3xl mx-auto">
-            <Card className="text-center p-8 border-2 border-black hover:bg-black hover:text-white transition-all cursor-pointer rounded-xl"
+            <Card className="text-center p-8 border-2 border-black hover:bg-black hover:text-white transition-all duration-500 cursor-pointer rounded-xl animate-in slide-in-from-left duration-1000 delay-300 hover:scale-105 transform"
                   onClick={() => window.location.href = '/phones'}>
               <CardContent className="pt-4">
-                <div className="text-4xl mb-4">📱</div>
+                <div className="text-4xl mb-4 animate-bounce">📱</div>
                 <h4 className="text-lg font-semibold mb-3 tracking-wide">SELECT PHONE</h4>
                 <p className="text-sm opacity-80">Choose from our premium smartphone collection</p>
               </CardContent>
             </Card>
-            <Card className="text-center p-8 border-2 border-black hover:bg-black hover:text-white transition-all cursor-pointer rounded-xl"
+            <Card className="text-center p-8 border-2 border-black hover:bg-black hover:text-white transition-all duration-500 cursor-pointer rounded-xl animate-in slide-in-from-right duration-1000 delay-500 hover:scale-105 transform"
                   onClick={() => scrollToSection('calculator')}>
               <CardContent className="pt-4">
-                <div className="text-4xl mb-4">🧮</div>
+                <div className="text-4xl mb-4 animate-bounce">🧮</div>
                 <h4 className="text-lg font-semibold mb-3 tracking-wide">CALCULATOR</h4>
                 <p className="text-sm opacity-80">Calculate your monthly payments instantly</p>
               </CardContent>
@@ -215,19 +217,19 @@ export default function Home() {
       {/* Looking for Device Not Listed Section */}
       <section className="samsung-section bg-gray-50">
         <div className="samsung-container">
-          <Card className="max-w-5xl mx-auto p-8 samsung-card">
+          <Card className="max-w-5xl mx-auto p-8 samsung-card animate-in slide-in-from-bottom duration-1000 hover:scale-[1.02] transition-transform">
             <CardContent className="text-center">
-              <h3 className="text-3xl samsung-header mb-6">
+              <h3 className="text-3xl samsung-header mb-6 animate-in fade-in duration-1000 delay-300">
                 Looking for a Device on Credit That's Not Listed?
               </h3>
-              <p className="text-lg samsung-text mb-6 max-w-3xl mx-auto">
+              <p className="text-lg samsung-text mb-6 max-w-3xl mx-auto animate-in slide-in-from-left duration-1000 delay-500">
                 If you're interested in buying a phone, iPad, tablet, or MacBook on credit that isn't listed here, we're happy to help!
               </p>
-              <p className="text-lg samsung-text mb-8 max-w-3xl mx-auto">
+              <p className="text-lg samsung-text mb-8 max-w-3xl mx-auto animate-in slide-in-from-right duration-1000 delay-700">
                 Simply submit your quote request via email to{' '}
                 <a 
                   href="mailto:info@accessnamibia.com" 
-                  className="text-black font-semibold hover:underline border-b border-black"
+                  className="text-black font-semibold hover:underline border-b border-black transition-all duration-300 hover:scale-105 inline-block"
                 >
                   info@accessnamibia.com
                 </a>
@@ -235,21 +237,21 @@ export default function Home() {
               </p>
               
               <div className="grid md:grid-cols-3 gap-8 mb-8">
-                <div className="text-center">
+                <div className="text-center animate-in slide-in-from-bottom duration-1000 delay-700 hover:scale-105 transition-transform">
                   <h4 className="text-xl font-bold samsung-header mb-2">Windhoek</h4>
                   <p className="samsung-text">081 162 6462 / 081 495 2277</p>
                 </div>
-                <div className="text-center">
+                <div className="text-center animate-in slide-in-from-bottom duration-1000 delay-900 hover:scale-105 transition-transform">
                   <h4 className="text-xl font-bold samsung-header mb-2">Oshakati</h4>
                   <p className="samsung-text">081 860 1188</p>
                 </div>
-                <div className="text-center">
+                <div className="text-center animate-in slide-in-from-bottom duration-1000 delay-1000 hover:scale-105 transition-transform">
                   <h4 className="text-xl font-bold samsung-header mb-2">Walvis Bay</h4>
                   <p className="samsung-text">081 670 5032</p>
                 </div>
               </div>
 
-              <p className="samsung-text text-base opacity-80">
+              <p className="samsung-text text-base opacity-80 animate-in fade-in duration-1000 delay-1200">
                 Our sales team at each branch will gladly assist you in getting a customized quote for the device you need.
               </p>
             </CardContent>
@@ -260,27 +262,27 @@ export default function Home() {
       {/* Credit Application Requirements Section */}
       <section className="samsung-section bg-white">
         <div className="samsung-container">
-          <Card className="max-w-4xl mx-auto p-8 samsung-card">
+          <Card className="max-w-4xl mx-auto p-8 samsung-card animate-in slide-in-from-top duration-1000 hover:scale-[1.01] transition-transform">
             <CardContent>
-              <h3 className="text-3xl samsung-header mb-8 text-center">
+              <h3 className="text-3xl samsung-header mb-8 text-center animate-in fade-in duration-1000 delay-300">
                 Requirements for a Credit Application
               </h3>
               
               <div className="space-y-4 mb-8">
-                <div className="flex items-center gap-3">
-                  <div className="w-2 h-2 bg-black rounded-full"></div>
+                <div className="flex items-center gap-3 animate-in slide-in-from-left duration-1000 delay-500 hover:translate-x-2 transition-transform">
+                  <div className="w-2 h-2 bg-black rounded-full animate-pulse"></div>
                   <p className="text-lg samsung-text">Latest Payslip</p>
                 </div>
-                <div className="flex items-center gap-3">
-                  <div className="w-2 h-2 bg-black rounded-full"></div>
+                <div className="flex items-center gap-3 animate-in slide-in-from-left duration-1000 delay-600 hover:translate-x-2 transition-transform">
+                  <div className="w-2 h-2 bg-black rounded-full animate-pulse"></div>
                   <p className="text-lg samsung-text">Employment Confirmation Letter</p>
                 </div>
-                <div className="flex items-center gap-3">
-                  <div className="w-2 h-2 bg-black rounded-full"></div>
+                <div className="flex items-center gap-3 animate-in slide-in-from-left duration-1000 delay-700 hover:translate-x-2 transition-transform">
+                  <div className="w-2 h-2 bg-black rounded-full animate-pulse"></div>
                   <p className="text-lg samsung-text">Copy of ID</p>
                 </div>
-                <div className="flex items-center gap-3">
-                  <div className="w-2 h-2 bg-black rounded-full"></div>
+                <div className="flex items-center gap-3 animate-in slide-in-from-left duration-1000 delay-800 hover:translate-x-2 transition-transform">
+                  <div className="w-2 h-2 bg-black rounded-full animate-pulse"></div>
                   <p className="text-lg samsung-text">Quotation (We'll provide this after you complete the quote request form)</p>
                 </div>
               </div>
@@ -317,17 +319,17 @@ export default function Home() {
       {/* Our Promise Section */}
       <section className="samsung-section bg-gray-50">
         <div className="samsung-container">
-          <Card className="max-w-4xl mx-auto p-8 samsung-card">
+          <Card className="max-w-4xl mx-auto p-8 samsung-card animate-in slide-in-from-bottom duration-1000 hover:scale-[1.02] transition-transform">
             <CardContent className="text-center">
-              <h3 className="text-3xl samsung-header mb-8">
+              <h3 className="text-3xl samsung-header mb-8 animate-in fade-in duration-1000 delay-300">
                 Our Promise to You
               </h3>
               
-              <p className="text-lg samsung-text mb-6 max-w-3xl mx-auto">
+              <p className="text-lg samsung-text mb-6 max-w-3xl mx-auto animate-in slide-in-from-left duration-1000 delay-500">
                 We aim to send your quotation within 1 hour of receiving your quote request — during our working hours, 08:00 to 18:00.
               </p>
               
-              <p className="text-lg samsung-text opacity-80">
+              <p className="text-lg samsung-text opacity-80 animate-in slide-in-from-right duration-1000 delay-700">
                 Requests submitted outside of these hours will be prioritized and sent out first thing the next morning.
               </p>
             </CardContent>
