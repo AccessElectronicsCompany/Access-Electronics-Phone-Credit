@@ -38,38 +38,40 @@ export default function PhoneCard({ phone, onSelect, onRequestQuote }: PhoneCard
   };
 
   return (
-    <Card className="samsung-card hover:shadow-lg transition-all cursor-pointer">
-      <CardContent className="text-center p-4">
+    <Card className="samsung-card hover:shadow-lg transition-all cursor-pointer flex flex-col">
+      <CardContent className="text-center p-4 flex-grow flex flex-col">
         <div className="text-2xl mb-3">
           <Smartphone className="mx-auto h-8 w-8 text-black" />
         </div>
         <h4 className="font-semibold samsung-text mb-2 text-base tracking-wide">{phone.name}</h4>
         <p className="text-xs samsung-text mb-2 opacity-70">{phone.storage}</p>
         <p className="text-xl font-bold samsung-text mb-4">N${phone.price.toLocaleString()}</p>
-        <div className="space-y-1 text-xs samsung-text mb-4 opacity-70">
+        <div className="space-y-1 text-xs samsung-text mb-4 opacity-70 flex-grow">
           <div>Colors: {phone.colors.join(", ")}</div>
           <div>Condition: {phone.condition}</div>
         </div>
-        <div className="space-y-2">
+        <div className="space-y-2 mt-auto">
           <Button
             onClick={() => onSelect(phone.name, phone.storage, phone.price)}
-            className="samsung-btn w-full py-2 h-8 text-xs"
+            className="samsung-btn w-full py-2 h-10 text-xs"
           >
             SELECT PHONE
           </Button>
-          <div className="flex space-x-2">
+          <div className="flex space-x-1">
             <Button
               onClick={handleAddToCart}
-              className="samsung-btn-outline flex-1 py-2 h-8 text-xs"
+              className="samsung-btn-outline flex-1 py-2 h-10 text-xs px-2"
             >
               <ShoppingCart className="h-3 w-3 mr-1" />
-              ADD TO CART
+              <span className="hidden sm:inline">ADD TO CART</span>
+              <span className="sm:hidden">ADD</span>
             </Button>
             <Button
               onClick={() => onRequestQuote(phone.name, phone.storage, phone.price, phone.colors)}
-              className="samsung-btn-outline flex-1 py-2 h-8 text-xs"
+              className="samsung-btn-outline flex-1 py-2 h-10 text-xs px-2"
             >
-              QUOTE NOW
+              <span className="hidden sm:inline">QUOTE NOW</span>
+              <span className="sm:hidden">QUOTE</span>
             </Button>
           </div>
         </div>

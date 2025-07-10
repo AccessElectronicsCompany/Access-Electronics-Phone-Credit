@@ -96,6 +96,12 @@ export default function Phones() {
                 >
                   Terms & Conditions
                 </button>
+                <div className="px-4 py-3">
+                  <CartButton onClick={() => {
+                    setShowCart(true);
+                    setShowMobileMenu(false);
+                  }} />
+                </div>
               </nav>
             </div>
           )}
