@@ -199,9 +199,11 @@ export default function QuoteFormModal({ isOpen, onClose, selectedPhone }: Quote
       const totalPrice = cartItems.reduce((sum, item) => {
         const phoneSelection = phoneSelections[item.name];
         const itemPrice = phoneSelection?.price || item.price;
-        return sum + itemPrice;
+        return sum + (itemPrice * item.quantity); // Multiply by quantity for total
       }, 0);
       const phoneNames = Array.from(new Set(cartItems.map(item => item.name))).join(", ");
+      const totalQuantity = cartItems.reduce((sum, item) => sum + item.quantity, 0);
+      
       setValue("productName", phoneNames || "Multiple Phones");
       setValue("storageCapacity", "Multiple");
       setValue("originalPrice", totalPrice || 0);
@@ -209,7 +211,7 @@ export default function QuoteFormModal({ isOpen, onClose, selectedPhone }: Quote
       setValue("country", "Namibia");
       setValue("condition", "NEW");
       setValue("color", "Multiple");
-      setValue("quantity", cartItems.length); // Total quantity = number of items in cart
+      setValue("quantity", totalQuantity); // Total quantity = sum of all item quantities
     }
   }, [selectedPhone, isCartQuote, phoneSelections, setValue]);
 
@@ -260,27 +262,39 @@ export default function QuoteFormModal({ isOpen, onClose, selectedPhone }: Quote
         formData.append(key, value?.toString() || '');
       });
 
-      // If cart quote, add detailed individual phone selections to FormCarry
+      // If cart quote, add detailed individual phone data to FormCarry
       if (isCartQuote) {
-        cartItems.forEach((item, index) => {
+        // Create individual entries for each phone unit (expanding quantities)
+        let phoneIndex = 1;
+        cartItems.forEach((item) => {
           // Get the phone selection details for this cart item
           const phoneSelection = phoneSelections[item.name];
           const itemPrice = phoneSelection?.price || item.price;
+          const itemStorage = phoneSelection?.storage || item.storage;
+          const itemColor = phoneSelection?.color || item.color;
           
-          formData.append(`phone_${index + 1}_name`, item.name);
-          formData.append(`phone_${index + 1}_storage`, phoneSelection?.storage || item.storage);
-          formData.append(`phone_${index + 1}_color`, phoneSelection?.color || item.color);
-          formData.append(`phone_${index + 1}_quantity`, "1"); // Each cart item should have quantity 1
-          formData.append(`phone_${index + 1}_price`, itemPrice.toString());
-          formData.append(`phone_${index + 1}_total`, itemPrice.toString()); // Total = price * 1
+          // Create separate entries for each quantity of this item
+          for (let i = 0; i < item.quantity; i++) {
+            formData.append(`phone_${phoneIndex}_name`, item.name);
+            formData.append(`phone_${phoneIndex}_storage`, itemStorage);
+            formData.append(`phone_${phoneIndex}_color`, itemColor);
+            formData.append(`phone_${phoneIndex}_quantity`, "1"); // Each entry is quantity 1
+            formData.append(`phone_${phoneIndex}_price`, itemPrice.toString());
+            formData.append(`phone_${phoneIndex}_total`, itemPrice.toString()); // Total = price * 1
+            phoneIndex++;
+          }
         });
-        formData.append('total_phones', cartItems.length.toString());
-        formData.append('total_quantity', cartItems.length.toString()); // Total quantity = number of items
-        formData.append('total_amount', cartItems.reduce((sum, item) => {
+        
+        const totalPhones = cartItems.reduce((sum, item) => sum + item.quantity, 0);
+        const totalAmount = cartItems.reduce((sum, item) => {
           const phoneSelection = phoneSelections[item.name];
           const itemPrice = phoneSelection?.price || item.price;
-          return sum + itemPrice;
-        }, 0).toString());
+          return sum + (itemPrice * item.quantity);
+        }, 0);
+        
+        formData.append('total_phones', totalPhones.toString());
+        formData.append('total_quantity', totalPhones.toString());
+        formData.append('total_amount', totalAmount.toString());
       }
 
       try {
