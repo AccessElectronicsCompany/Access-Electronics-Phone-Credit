@@ -641,9 +641,10 @@ export default function QuoteFormModal({ isOpen, onClose, selectedPhone }: Quote
             </div>
           </div>
 
-          {/* Product Information */}
-          <div className="bg-gray-50 p-4 md:p-6 rounded-xl border border-gray-200">
-            <h3 className="text-lg md:text-xl samsung-header mb-4">Product Information</h3>
+          {/* Product Information - Only show for single phone quotes */}
+          {!isCartQuote && (
+            <div className="bg-gray-50 p-4 md:p-6 rounded-xl border border-gray-200">
+              <h3 className="text-lg md:text-xl samsung-header mb-4">Product Information</h3>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
               <div>
                 <Label htmlFor="productName" className="text-sm font-semibold samsung-text mb-2 block">Product Name *</Label>
@@ -732,6 +733,7 @@ export default function QuoteFormModal({ isOpen, onClose, selectedPhone }: Quote
               </div>
             </div>
           </div>
+          )}
 
           {/* Financial Information */}
           <div className="bg-gray-50 p-4 md:p-6 rounded-xl border border-gray-200">
