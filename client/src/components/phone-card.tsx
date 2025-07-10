@@ -1,6 +1,8 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Smartphone } from "lucide-react";
+import { Smartphone, ShoppingCart } from "lucide-react";
+import { useCart } from "@/hooks/use-cart";
+import { useToast } from "@/hooks/use-toast";
 
 interface Phone {
   name: string;
@@ -17,6 +19,24 @@ interface PhoneCardProps {
 }
 
 export default function PhoneCard({ phone, onSelect, onRequestQuote }: PhoneCardProps) {
+  const { addToCart } = useCart();
+  const { toast } = useToast();
+
+  const handleAddToCart = () => {
+    // Add with first available color as default
+    addToCart({
+      name: phone.name,
+      storage: phone.storage,
+      price: phone.price,
+      color: phone.colors[0]
+    });
+    
+    toast({
+      title: "Added to cart",
+      description: `${phone.name} ${phone.storage} has been added to your cart`,
+    });
+  };
+
   return (
     <Card className="samsung-card hover:shadow-lg transition-all cursor-pointer">
       <CardContent className="text-center p-4">
@@ -37,12 +57,21 @@ export default function PhoneCard({ phone, onSelect, onRequestQuote }: PhoneCard
           >
             SELECT PHONE
           </Button>
-          <Button
-            onClick={() => onRequestQuote(phone.name, phone.storage, phone.price, phone.colors)}
-            className="samsung-btn-outline w-full py-2 h-8 text-xs"
-          >
-            REQUEST QUOTE
-          </Button>
+          <div className="flex space-x-2">
+            <Button
+              onClick={handleAddToCart}
+              className="samsung-btn-outline flex-1 py-2 h-8 text-xs"
+            >
+              <ShoppingCart className="h-3 w-3 mr-1" />
+              ADD TO CART
+            </Button>
+            <Button
+              onClick={() => onRequestQuote(phone.name, phone.storage, phone.price, phone.colors)}
+              className="samsung-btn-outline flex-1 py-2 h-8 text-xs"
+            >
+              QUOTE NOW
+            </Button>
+          </div>
         </div>
       </CardContent>
     </Card>

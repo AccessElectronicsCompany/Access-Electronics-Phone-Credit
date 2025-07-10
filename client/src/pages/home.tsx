@@ -3,6 +3,8 @@ import HeroSection from "@/components/hero-section";
 import QuoteFormModal from "@/components/quote-form-modal";
 import CalculatorModal from "@/components/calculator-modal";
 import QuoteInstructionsModal from "@/components/quote-instructions-modal";
+import CartButton from "@/components/cart-button";
+import CartModal from "@/components/cart-modal";
 import { Card, CardContent } from "@/components/ui/card";
 import { Smartphone, DollarSign, Calendar, CheckCircle, Menu, X } from "lucide-react";
 
@@ -17,6 +19,7 @@ export default function Home() {
   const [showQuoteForm, setShowQuoteForm] = useState(false);
   const [showInstructions, setShowInstructions] = useState(false);
   const [showMobileMenu, setShowMobileMenu] = useState(false);
+  const [showCart, setShowCart] = useState(false);
 
   const handleSelectPhone = (name: string, storage: string, price: number) => {
     setSelectedPhone({ name, storage, price });
@@ -48,7 +51,7 @@ export default function Home() {
             </div>
             
             {/* Desktop Navigation */}
-            <nav className="hidden lg:flex space-x-8 xl:space-x-12">
+            <nav className="hidden lg:flex space-x-8 xl:space-x-12 items-center">
               <button
                 onClick={() => window.location.href = '/phones'}
                 className="samsung-text hover:text-black transition-colors font-medium tracking-wide uppercase text-sm whitespace-nowrap"
@@ -67,6 +70,7 @@ export default function Home() {
               >
                 Terms & Conditions
               </button>
+              <CartButton onClick={() => setShowCart(true)} />
             </nav>
 
             {/* Mobile Menu Button */}
@@ -346,6 +350,15 @@ export default function Home() {
         isOpen={showInstructions}
         onClose={() => setShowInstructions(false)}
         onBrowsePhones={() => window.location.href = '/phones'}
+      />
+
+      <CartModal
+        isOpen={showCart}
+        onClose={() => setShowCart(false)}
+        onRequestQuote={() => {
+          setShowCart(false);
+          setShowQuoteForm(true);
+        }}
       />
 
       {/* Footer */}

@@ -12,6 +12,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { useToast } from "@/hooks/use-toast";
 import { apiRequest } from "@/lib/queryClient";
 import { calculatePayment } from "@/lib/calculations";
+import { useCart } from "@/hooks/use-cart";
 import SuccessModal from "./success-modal";
 
 const quoteFormSchema = z.object({
@@ -74,6 +75,10 @@ export default function QuoteFormModal({ isOpen, onClose, selectedPhone }: Quote
   const [showSuccessModal, setShowSuccessModal] = useState(false);
   const { toast } = useToast();
   const queryClient = useQueryClient();
+  const { cartItems, clearCart } = useCart();
+  
+  // Check if we're handling a cart-based quote
+  const isCartQuote = !selectedPhone && cartItems.length > 0;
 
   // Check if user can submit based on last submission time
   useEffect(() => {
@@ -138,7 +143,7 @@ export default function QuoteFormModal({ isOpen, onClose, selectedPhone }: Quote
     },
   });
 
-  // Update form when selectedPhone changes
+  // Update form when selectedPhone changes or cart is being used
   useEffect(() => {
     if (selectedPhone) {
       setValue("productName", selectedPhone.name);
@@ -148,8 +153,20 @@ export default function QuoteFormModal({ isOpen, onClose, selectedPhone }: Quote
       setValue("country", "Namibia");
       setValue("condition", "NEW");
       setValue("color", "");
+    } else if (isCartQuote) {
+      // For cart quotes, combine all items
+      const totalPrice = cartItems.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+      const phoneNames = cartItems.map(item => `${item.name} ${item.storage}`).join(", ");
+      setValue("productName", phoneNames);
+      setValue("storageCapacity", "Multiple");
+      setValue("originalPrice", totalPrice);
+      setValue("creditAmount", totalPrice);
+      setValue("country", "Namibia");
+      setValue("condition", "NEW");
+      setValue("color", "Multiple");
+      setValue("quantity", cartItems.reduce((sum, item) => sum + item.quantity, 0));
     }
-  }, [selectedPhone, setValue]);
+  }, [selectedPhone, isCartQuote, cartItems, setValue]);
 
   // Watch for changes in original price, deposit, and payment term for automatic calculation
   const originalPrice = watch("originalPrice");
@@ -188,6 +205,7 @@ export default function QuoteFormModal({ isOpen, onClose, selectedPhone }: Quote
         creditAmount: calculation.creditAmount.toString(),
         monthlyPayment: calculation.monthlyPayment.toString(),
         totalAmount: calculation.totalAmount.toString(),
+        cartItems: isCartQuote ? JSON.stringify(cartItems) : null,
       };
 
       // Submit to FormCarry with form data format
@@ -217,6 +235,11 @@ export default function QuoteFormModal({ isOpen, onClose, selectedPhone }: Quote
       localStorage.setItem('lastQuoteSubmission', new Date().toISOString());
       setCanSubmit(false);
       setTimeRemaining(30 * 60 * 1000);
+      
+      // Clear cart if this was a cart quote
+      if (isCartQuote) {
+        clearCart();
+      }
       
       reset();
       onClose();
@@ -271,10 +294,13 @@ export default function QuoteFormModal({ isOpen, onClose, selectedPhone }: Quote
       <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto p-4 md:p-8 m-2 md:m-4 rounded-xl border-2 border-black w-[95vw] md:w-auto">
         <DialogHeader className="pb-6">
           <DialogTitle className="text-3xl samsung-header text-center mb-2">
-            Request Quote for {selectedPhone?.name}
+            {isCartQuote ? "Request Quote for Your Cart" : `Request Quote for ${selectedPhone?.name}`}
           </DialogTitle>
           <DialogDescription className="samsung-text text-center text-lg">
-            Please fill out the form below to request a quote for your selected phone.
+            {isCartQuote 
+              ? "Please fill out the form below to request a quote for all items in your cart."
+              : "Please fill out the form below to request a quote for your selected phone."
+            }
           </DialogDescription>
           {!canSubmit && (
             <div className="bg-orange-100 border border-orange-400 text-orange-700 px-4 py-3 rounded-xl text-center">
@@ -282,6 +308,33 @@ export default function QuoteFormModal({ isOpen, onClose, selectedPhone }: Quote
             </div>
           )}
         </DialogHeader>
+        
+        {/* Cart Items Display */}
+        {isCartQuote && (
+          <div className="bg-blue-50 p-4 md:p-6 rounded-xl border border-blue-200 mb-6">
+            <h3 className="text-lg md:text-xl samsung-header mb-4">Cart Items</h3>
+            <div className="space-y-3">
+              {cartItems.map((item) => (
+                <div key={item.id} className="flex justify-between items-center p-3 bg-white rounded-lg border border-gray-200">
+                  <div className="flex-1">
+                    <p className="samsung-text font-semibold">{item.name} - {item.storage}</p>
+                    <p className="samsung-text text-sm text-gray-600">Color: {item.color}</p>
+                  </div>
+                  <div className="text-right">
+                    <p className="samsung-text font-semibold">N$ {item.price.toLocaleString()}</p>
+                    <p className="samsung-text text-sm text-gray-600">Qty: {item.quantity}</p>
+                  </div>
+                </div>
+              ))}
+              <div className="border-t border-gray-300 pt-3">
+                <div className="flex justify-between items-center">
+                  <p className="samsung-text font-bold text-lg">Total:</p>
+                  <p className="samsung-text font-bold text-lg">N$ {cartItems.reduce((sum, item) => sum + (item.price * item.quantity), 0).toLocaleString()}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
         
         <form onSubmit={handleSubmit(onSubmit)} className="space-y-8">
           {/* Personal Information */}

@@ -2,6 +2,8 @@ import { useState } from "react";
 import { Link } from "wouter";
 import PhoneCard from "@/components/phone-card";
 import QuoteFormModal from "@/components/quote-form-modal";
+import CartButton from "@/components/cart-button";
+import CartModal from "@/components/cart-modal";
 import { Card, CardContent } from "@/components/ui/card";
 import { iphones, samsungPhones } from "@/lib/phone-data";
 import { ArrowLeft, Menu, X } from "lucide-react";
@@ -16,6 +18,7 @@ export default function Phones() {
   
   const [showQuoteForm, setShowQuoteForm] = useState(false);
   const [showMobileMenu, setShowMobileMenu] = useState(false);
+  const [showCart, setShowCart] = useState(false);
 
   const handleSelectPhone = (name: string, storage: string, price: number) => {
     // Find the phone to get colors
@@ -46,7 +49,7 @@ export default function Phones() {
             </div>
             
             {/* Desktop Navigation */}
-            <nav className="hidden lg:flex space-x-8">
+            <nav className="hidden lg:flex space-x-8 items-center">
               <button
                 onClick={() => window.location.href = '/'}
                 className="samsung-text hover:text-black transition-colors font-medium tracking-wide uppercase text-sm whitespace-nowrap"
@@ -59,6 +62,7 @@ export default function Phones() {
               >
                 Terms
               </button>
+              <CartButton onClick={() => setShowCart(true)} />
             </nav>
 
             {/* Mobile Menu Button */}
@@ -194,6 +198,15 @@ export default function Phones() {
         isOpen={showQuoteForm}
         onClose={() => setShowQuoteForm(false)}
         selectedPhone={selectedPhone}
+      />
+
+      <CartModal
+        isOpen={showCart}
+        onClose={() => setShowCart(false)}
+        onRequestQuote={() => {
+          setShowCart(false);
+          setShowQuoteForm(true);
+        }}
       />
 
       {/* Footer */}
