@@ -24,6 +24,7 @@ export const quoteRequests = pgTable("quote_requests", {
   monthlyPayment: decimal("monthly_payment", { precision: 10, scale: 2 }).notNull(),
   totalAmount: decimal("total_amount", { precision: 10, scale: 2 }).notNull(),
   cartItems: text("cart_items"), // JSON string of cart items for multi-phone quotes
+  isMultipleItems: text("is_multiple_items").notNull().default('false'), // 'true' or 'false'
   createdAt: timestamp("created_at").defaultNow().notNull(),
 });
 

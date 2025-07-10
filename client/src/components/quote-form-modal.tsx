@@ -206,13 +206,29 @@ export default function QuoteFormModal({ isOpen, onClose, selectedPhone }: Quote
         monthlyPayment: calculation.monthlyPayment.toString(),
         totalAmount: calculation.totalAmount.toString(),
         cartItems: isCartQuote ? JSON.stringify(cartItems) : null,
+        isMultipleItems: isCartQuote ? "true" : "false",
       };
 
-      // Submit to FormCarry with form data format
+      // Submit to FormCarry with enhanced cart data
       const formData = new FormData();
       Object.entries(quoteData).forEach(([key, value]) => {
         formData.append(key, value?.toString() || '');
       });
+
+      // If cart quote, add detailed cart items to FormCarry
+      if (isCartQuote) {
+        cartItems.forEach((item, index) => {
+          formData.append(`item_${index + 1}_name`, item.name);
+          formData.append(`item_${index + 1}_storage`, item.storage);
+          formData.append(`item_${index + 1}_color`, item.color);
+          formData.append(`item_${index + 1}_quantity`, item.quantity.toString());
+          formData.append(`item_${index + 1}_price`, item.price.toString());
+          formData.append(`item_${index + 1}_total`, (item.price * item.quantity).toString());
+        });
+        formData.append('total_items', cartItems.length.toString());
+        formData.append('total_quantity', cartItems.reduce((sum, item) => sum + item.quantity, 0).toString());
+        formData.append('total_amount', data.originalPrice.toString());
+      }
 
       try {
         const formCarryResponse = await fetch("https://formcarry.com/s/UzI6HDYG6hC", {
