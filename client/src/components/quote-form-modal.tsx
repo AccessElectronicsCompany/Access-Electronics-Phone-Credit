@@ -195,11 +195,13 @@ export default function QuoteFormModal({ isOpen, onClose, selectedPhone }: Quote
       setValue("condition", "NEW");
       setValue("color", "");
     } else if (isCartQuote) {
-      // For cart quotes, calculate total from individual phone selections
-      const totalPrice = Object.values(phoneSelections).reduce((sum, selection) => {
-        return sum + ((selection.price || 0) * (selection.quantity || 1));
+      // For cart quotes, calculate total from cart items using their selected configurations
+      const totalPrice = cartItems.reduce((sum, item) => {
+        const phoneSelection = phoneSelections[item.name];
+        const itemPrice = phoneSelection?.price || item.price;
+        return sum + itemPrice;
       }, 0);
-      const phoneNames = Object.keys(phoneSelections).join(", ");
+      const phoneNames = Array.from(new Set(cartItems.map(item => item.name))).join(", ");
       setValue("productName", phoneNames || "Multiple Phones");
       setValue("storageCapacity", "Multiple");
       setValue("originalPrice", totalPrice || 0);
@@ -207,7 +209,7 @@ export default function QuoteFormModal({ isOpen, onClose, selectedPhone }: Quote
       setValue("country", "Namibia");
       setValue("condition", "NEW");
       setValue("color", "Multiple");
-      setValue("quantity", Object.values(phoneSelections).reduce((sum, selection) => sum + (selection.quantity || 1), 0));
+      setValue("quantity", cartItems.length); // Total quantity = number of items in cart
     }
   }, [selectedPhone, isCartQuote, phoneSelections, setValue]);
 
@@ -260,17 +262,25 @@ export default function QuoteFormModal({ isOpen, onClose, selectedPhone }: Quote
 
       // If cart quote, add detailed individual phone selections to FormCarry
       if (isCartQuote) {
-        Object.entries(phoneSelections).forEach(([phoneName, selection], index) => {
-          formData.append(`phone_${index + 1}_name`, phoneName);
-          formData.append(`phone_${index + 1}_storage`, selection.storage);
-          formData.append(`phone_${index + 1}_color`, selection.color);
-          formData.append(`phone_${index + 1}_quantity`, selection.quantity.toString());
-          formData.append(`phone_${index + 1}_price`, selection.price.toString());
-          formData.append(`phone_${index + 1}_total`, (selection.price * selection.quantity).toString());
+        cartItems.forEach((item, index) => {
+          // Get the phone selection details for this cart item
+          const phoneSelection = phoneSelections[item.name];
+          const itemPrice = phoneSelection?.price || item.price;
+          
+          formData.append(`phone_${index + 1}_name`, item.name);
+          formData.append(`phone_${index + 1}_storage`, phoneSelection?.storage || item.storage);
+          formData.append(`phone_${index + 1}_color`, phoneSelection?.color || item.color);
+          formData.append(`phone_${index + 1}_quantity`, "1"); // Each cart item should have quantity 1
+          formData.append(`phone_${index + 1}_price`, itemPrice.toString());
+          formData.append(`phone_${index + 1}_total`, itemPrice.toString()); // Total = price * 1
         });
-        formData.append('total_phones', Object.keys(phoneSelections).length.toString());
-        formData.append('total_quantity', Object.values(phoneSelections).reduce((sum, selection) => sum + selection.quantity, 0).toString());
-        formData.append('total_amount', Object.values(phoneSelections).reduce((sum, selection) => sum + (selection.price * selection.quantity), 0).toString());
+        formData.append('total_phones', cartItems.length.toString());
+        formData.append('total_quantity', cartItems.length.toString()); // Total quantity = number of items
+        formData.append('total_amount', cartItems.reduce((sum, item) => {
+          const phoneSelection = phoneSelections[item.name];
+          const itemPrice = phoneSelection?.price || item.price;
+          return sum + itemPrice;
+        }, 0).toString());
       }
 
       try {
