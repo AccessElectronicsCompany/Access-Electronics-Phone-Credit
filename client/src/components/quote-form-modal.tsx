@@ -13,6 +13,7 @@ import { useToast } from "@/hooks/use-toast";
 import { apiRequest } from "@/lib/queryClient";
 import { calculatePayment } from "@/lib/calculations";
 import { useCart } from "@/contexts/CartContext";
+import { iphones, samsungPhones } from "@/lib/phone-data";
 import SuccessModal from "./success-modal";
 
 const quoteFormSchema = z.object({
@@ -33,6 +34,15 @@ const quoteFormSchema = z.object({
   deposit: z.number().min(0, "Deposit must be 0 or greater").optional(),
   depositMethod: z.string().optional(),
   paymentTerm: z.number().min(12, "Payment term is required"),
+});
+
+// Schema for individual phone selections in multi-phone quotes
+const phoneSelectionSchema = z.object({
+  name: z.string().min(1, "Phone name is required"),
+  storage: z.string().min(1, "Storage selection is required"),
+  color: z.string().min(1, "Color selection is required"),
+  quantity: z.number().min(1, "Quantity must be at least 1"),
+  price: z.number().min(1, "Price is required"),
 });
 
 const namibianRegions = [
@@ -79,6 +89,37 @@ export default function QuoteFormModal({ isOpen, onClose, selectedPhone }: Quote
   
   // Check if we're handling a cart-based quote
   const isCartQuote = !selectedPhone && cartItems.length > 0;
+  
+  // Get unique phone models from cart for multi-phone selection
+  const uniquePhoneModels = isCartQuote ? 
+    Array.from(new Set(cartItems.map(item => item.name))).map(name => {
+      const cartItem = cartItems.find(item => item.name === name);
+      return { name, baseItem: cartItem };
+    }) : [];
+  
+  // State for individual phone selections in multi-phone quotes
+  const [phoneSelections, setPhoneSelections] = useState<{[key: string]: {
+    storage: string;
+    color: string;
+    quantity: number;
+    price: number;
+  }}>({});
+  
+  // Initialize phone selections when modal opens with cart items
+  useEffect(() => {
+    if (isCartQuote && uniquePhoneModels.length > 0) {
+      const initialSelections: {[key: string]: {storage: string; color: string; quantity: number; price: number}} = {};
+      uniquePhoneModels.forEach(phoneModel => {
+        initialSelections[phoneModel.name] = {
+          storage: "",
+          color: "",
+          quantity: 1,
+          price: 0
+        };
+      });
+      setPhoneSelections(initialSelections);
+    }
+  }, [isCartQuote, uniquePhoneModels.length]);
 
   // Check if user can submit based on last submission time
   useEffect(() => {
@@ -154,19 +195,21 @@ export default function QuoteFormModal({ isOpen, onClose, selectedPhone }: Quote
       setValue("condition", "NEW");
       setValue("color", "");
     } else if (isCartQuote) {
-      // For cart quotes, combine all items
-      const totalPrice = cartItems.reduce((sum, item) => sum + (item.price * item.quantity), 0);
-      const phoneNames = cartItems.map(item => `${item.name} ${item.storage}`).join(", ");
-      setValue("productName", phoneNames);
+      // For cart quotes, calculate total from individual phone selections
+      const totalPrice = Object.values(phoneSelections).reduce((sum, selection) => {
+        return sum + ((selection.price || 0) * (selection.quantity || 1));
+      }, 0);
+      const phoneNames = Object.keys(phoneSelections).join(", ");
+      setValue("productName", phoneNames || "Multiple Phones");
       setValue("storageCapacity", "Multiple");
-      setValue("originalPrice", totalPrice);
-      setValue("creditAmount", totalPrice);
+      setValue("originalPrice", totalPrice || 0);
+      setValue("creditAmount", totalPrice || 0);
       setValue("country", "Namibia");
       setValue("condition", "NEW");
       setValue("color", "Multiple");
-      setValue("quantity", cartItems.reduce((sum, item) => sum + item.quantity, 0));
+      setValue("quantity", Object.values(phoneSelections).reduce((sum, selection) => sum + (selection.quantity || 1), 0));
     }
-  }, [selectedPhone, isCartQuote, cartItems, setValue]);
+  }, [selectedPhone, isCartQuote, phoneSelections, setValue]);
 
   // Watch for changes in original price, deposit, and payment term for automatic calculation
   const originalPrice = watch("originalPrice");
@@ -215,19 +258,19 @@ export default function QuoteFormModal({ isOpen, onClose, selectedPhone }: Quote
         formData.append(key, value?.toString() || '');
       });
 
-      // If cart quote, add detailed cart items to FormCarry
+      // If cart quote, add detailed individual phone selections to FormCarry
       if (isCartQuote) {
-        cartItems.forEach((item, index) => {
-          formData.append(`item_${index + 1}_name`, item.name);
-          formData.append(`item_${index + 1}_storage`, item.storage);
-          formData.append(`item_${index + 1}_color`, item.color);
-          formData.append(`item_${index + 1}_quantity`, item.quantity.toString());
-          formData.append(`item_${index + 1}_price`, item.price.toString());
-          formData.append(`item_${index + 1}_total`, (item.price * item.quantity).toString());
+        Object.entries(phoneSelections).forEach(([phoneName, selection], index) => {
+          formData.append(`phone_${index + 1}_name`, phoneName);
+          formData.append(`phone_${index + 1}_storage`, selection.storage);
+          formData.append(`phone_${index + 1}_color`, selection.color);
+          formData.append(`phone_${index + 1}_quantity`, selection.quantity.toString());
+          formData.append(`phone_${index + 1}_price`, selection.price.toString());
+          formData.append(`phone_${index + 1}_total`, (selection.price * selection.quantity).toString());
         });
-        formData.append('total_items', cartItems.length.toString());
-        formData.append('total_quantity', cartItems.reduce((sum, item) => sum + item.quantity, 0).toString());
-        formData.append('total_amount', data.originalPrice.toString());
+        formData.append('total_phones', Object.keys(phoneSelections).length.toString());
+        formData.append('total_quantity', Object.values(phoneSelections).reduce((sum, selection) => sum + selection.quantity, 0).toString());
+        formData.append('total_amount', Object.values(phoneSelections).reduce((sum, selection) => sum + (selection.price * selection.quantity), 0).toString());
       }
 
       try {
@@ -280,6 +323,24 @@ export default function QuoteFormModal({ isOpen, onClose, selectedPhone }: Quote
       });
       return;
     }
+    
+    // Validate individual phone selections for multi-phone quotes
+    if (isCartQuote) {
+      const incompleteSelections = uniquePhoneModels.filter(phoneModel => {
+        const selection = phoneSelections[phoneModel.name];
+        return !selection || !selection.storage || !selection.color || !selection.quantity;
+      });
+      
+      if (incompleteSelections.length > 0) {
+        toast({
+          title: "Incomplete Selections",
+          description: `Please complete storage and color selections for: ${incompleteSelections.map(p => p.name).join(", ")}`,
+          variant: "destructive",
+        });
+        return;
+      }
+    }
+    
     createQuoteMutation.mutate(data);
   };
 
@@ -325,27 +386,144 @@ export default function QuoteFormModal({ isOpen, onClose, selectedPhone }: Quote
           )}
         </DialogHeader>
         
-        {/* Cart Items Display */}
+        {/* Individual Phone Selection Sections for Multi-Phone Quotes */}
         {isCartQuote && (
           <div className="bg-blue-50 p-4 md:p-6 rounded-xl border border-blue-200 mb-6">
-            <h3 className="text-lg md:text-xl samsung-header mb-4">Cart Items</h3>
-            <div className="space-y-3">
-              {cartItems.map((item) => (
-                <div key={item.id} className="flex justify-between items-center p-3 bg-white rounded-lg border border-gray-200">
-                  <div className="flex-1">
-                    <p className="samsung-text font-semibold">{item.name} - {item.storage}</p>
-                    <p className="samsung-text text-sm text-gray-600">Color: {item.color}</p>
+            <h3 className="text-lg md:text-xl samsung-header mb-4">Select Storage & Color for Each Phone</h3>
+            <div className="space-y-6">
+              {uniquePhoneModels.map((phoneModel, index) => {
+                const phoneData = [...iphones, ...samsungPhones];
+                const phoneVariants = phoneData.filter(phone => phone.name === phoneModel.name);
+                const storageOptions = Array.from(new Set(phoneVariants.map(phone => phone.storage)));
+                
+                const currentSelection = phoneSelections[phoneModel.name] || {};
+                const selectedVariant = phoneVariants.find(phone => phone.storage === currentSelection.storage);
+                const availableColors = selectedVariant?.colors || [];
+                
+                return (
+                  <div key={phoneModel.name} className="bg-white p-4 rounded-xl border border-gray-200">
+                    <h4 className="samsung-text font-semibold text-lg mb-4">{phoneModel.name}</h4>
+                    
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                      {/* Storage Selection */}
+                      <div>
+                        <Label className="text-sm font-semibold samsung-text mb-2 block">Storage Capacity *</Label>
+                        <Select
+                          value={currentSelection.storage || ""}
+                          onValueChange={(value) => {
+                            const variant = phoneVariants.find(phone => phone.storage === value);
+                            if (variant) {
+                              setPhoneSelections(prev => ({
+                                ...prev,
+                                [phoneModel.name]: {
+                                  ...prev[phoneModel.name],
+                                  storage: value,
+                                  price: variant.price,
+                                  color: "", // Reset color when storage changes
+                                  quantity: prev[phoneModel.name]?.quantity || 1
+                                }
+                              }));
+                            }
+                          }}
+                        >
+                          <SelectTrigger className="rounded-xl border-2 border-gray-300 focus:border-black">
+                            <SelectValue placeholder="Select storage capacity" />
+                          </SelectTrigger>
+                          <SelectContent className="rounded-xl">
+                            {storageOptions.map((storage) => {
+                              const variant = phoneVariants.find(phone => phone.storage === storage);
+                              return (
+                                <SelectItem key={storage} value={storage}>
+                                  {storage} - N${variant?.price.toLocaleString()}
+                                </SelectItem>
+                              );
+                            })}
+                          </SelectContent>
+                        </Select>
+                      </div>
+                      
+                      {/* Color Selection */}
+                      <div>
+                        <Label className="text-sm font-semibold samsung-text mb-2 block">Color *</Label>
+                        <Select
+                          value={currentSelection.color || ""}
+                          onValueChange={(value) => {
+                            setPhoneSelections(prev => ({
+                              ...prev,
+                              [phoneModel.name]: {
+                                ...prev[phoneModel.name],
+                                color: value
+                              }
+                            }));
+                          }}
+                          disabled={!currentSelection.storage}
+                        >
+                          <SelectTrigger className="rounded-xl border-2 border-gray-300 focus:border-black">
+                            <SelectValue placeholder={currentSelection.storage ? "Select color" : "Select storage first"} />
+                          </SelectTrigger>
+                          <SelectContent className="rounded-xl">
+                            {availableColors.map((color) => (
+                              <SelectItem key={color} value={color}>
+                                {color}
+                              </SelectItem>
+                            ))}
+                          </SelectContent>
+                        </Select>
+                      </div>
+                      
+                      {/* Quantity Selection */}
+                      <div>
+                        <Label className="text-sm font-semibold samsung-text mb-2 block">Quantity *</Label>
+                        <Select
+                          value={currentSelection.quantity?.toString() || "1"}
+                          onValueChange={(value) => {
+                            setPhoneSelections(prev => ({
+                              ...prev,
+                              [phoneModel.name]: {
+                                ...prev[phoneModel.name],
+                                quantity: parseInt(value)
+                              }
+                            }));
+                          }}
+                        >
+                          <SelectTrigger className="rounded-xl border-2 border-gray-300 focus:border-black">
+                            <SelectValue placeholder="Select quantity" />
+                          </SelectTrigger>
+                          <SelectContent className="rounded-xl">
+                            {[1, 2, 3, 4, 5].map((qty) => (
+                              <SelectItem key={qty} value={qty.toString()}>
+                                {qty}
+                              </SelectItem>
+                            ))}
+                          </SelectContent>
+                        </Select>
+                      </div>
+                    </div>
+                    
+                    {/* Selection Summary */}
+                    {currentSelection.storage && currentSelection.color && (
+                      <div className="mt-4 p-3 bg-gray-50 rounded-lg">
+                        <p className="samsung-text font-semibold">
+                          {phoneModel.name} - {currentSelection.storage} - {currentSelection.color}
+                        </p>
+                        <p className="samsung-text text-sm text-gray-600">
+                          Price: N${currentSelection.price?.toLocaleString()} x {currentSelection.quantity} = N${((currentSelection.price || 0) * (currentSelection.quantity || 1)).toLocaleString()}
+                        </p>
+                      </div>
+                    )}
                   </div>
-                  <div className="text-right">
-                    <p className="samsung-text font-semibold">N$ {item.price.toLocaleString()}</p>
-                    <p className="samsung-text text-sm text-gray-600">Qty: {item.quantity}</p>
-                  </div>
-                </div>
-              ))}
-              <div className="border-t border-gray-300 pt-3">
-                <div className="flex justify-between items-center">
-                  <p className="samsung-text font-bold text-lg">Total:</p>
-                  <p className="samsung-text font-bold text-lg">N$ {cartItems.reduce((sum, item) => sum + (item.price * item.quantity), 0).toLocaleString()}</p>
+                );
+              })}
+              
+              {/* Total Summary */}
+              <div className="border-t border-gray-300 pt-4">
+                <div className="flex justify-between items-center bg-gray-100 p-4 rounded-xl">
+                  <p className="samsung-text font-bold text-lg">Total Quote Amount:</p>
+                  <p className="samsung-text font-bold text-lg">
+                    N$ {Object.values(phoneSelections).reduce((sum, selection) => {
+                      return sum + ((selection.price || 0) * (selection.quantity || 1));
+                    }, 0).toLocaleString()}
+                  </p>
                 </div>
               </div>
             </div>
