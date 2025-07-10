@@ -156,6 +156,7 @@ export default function Phones() {
               <PhoneCard
                 key={`${phone.name}-${phone.storage}`}
                 phone={phone}
+                phoneType="iphone"
                 onSelect={handleSelectPhone}
                 onRequestQuote={handleRequestQuote}
               />
@@ -176,6 +177,7 @@ export default function Phones() {
               <PhoneCard
                 key={`${phone.name}-${phone.storage}`}
                 phone={phone}
+                phoneType="samsung"
                 onSelect={handleSelectPhone}
                 onRequestQuote={handleRequestQuote}
               />

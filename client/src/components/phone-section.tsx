@@ -26,6 +26,7 @@ export default function PhoneSection({ type, title, description, onSelectPhone, 
             <PhoneCard
               key={`${phone.name}-${phone.storage}`}
               phone={phone}
+              phoneType={type}
               onSelect={onSelectPhone}
               onRequestQuote={onRequestQuote}
             />
