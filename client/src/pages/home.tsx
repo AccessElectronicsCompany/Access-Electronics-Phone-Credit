@@ -6,7 +6,7 @@ import QuoteInstructionsModal from "@/components/quote-instructions-modal";
 import CartButton from "@/components/cart-button";
 import CartModal from "@/components/cart-modal";
 import { Card, CardContent } from "@/components/ui/card";
-import { Smartphone, DollarSign, Calendar, CheckCircle, Menu, X } from "lucide-react";
+import { Smartphone, DollarSign, Calendar, CheckCircle, Menu, X, Tablet } from "lucide-react";
 
 export default function Home() {
   const [selectedPhone, setSelectedPhone] = useState<{
@@ -205,7 +205,9 @@ export default function Home() {
             <Card className="text-center p-6 border-2 border-black hover:bg-black hover:text-white transition-all duration-500 cursor-pointer rounded-xl animate-in slide-in-from-bottom duration-1000 delay-400 hover:scale-105 transform"
                   onClick={() => window.location.href = '/ipads'}>
               <CardContent className="pt-4">
-                <div className="text-4xl mb-4 animate-bounce">📟</div>
+                <div className="mb-4 flex justify-center">
+                  <Tablet size={48} className="text-black animate-bounce" />
+                </div>
                 <h4 className="text-lg font-semibold mb-3 tracking-wide">IPADS</h4>
                 <p className="text-sm opacity-80">iPad Pro, Air & more</p>
               </CardContent>

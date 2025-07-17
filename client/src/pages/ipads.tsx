@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { ArrowLeft, Menu, X } from "lucide-react";
+import { ArrowLeft, Menu, X, Tablet } from "lucide-react";
 import { ipads } from "@/lib/phone-data";
 import QuoteFormModal from "@/components/quote-form-modal";
 import CalculatorModal from "@/components/calculator-modal";
@@ -138,7 +138,9 @@ export default function IPads() {
               <Card key={index} className="samsung-card hover:scale-105 transition-all duration-300 animate-in slide-in-from-bottom duration-1000" style={{ animationDelay: `${index * 100}ms` }}>
                 <CardContent className="p-6">
                   <div className="text-center mb-4">
-                    <div className="text-4xl mb-4">📟</div>
+                    <div className="mb-4 flex justify-center">
+                      <Tablet size={48} className="text-black" />
+                    </div>
                     <h3 className="text-xl font-bold samsung-header mb-2">{device.name}</h3>
                     {device.storage && (
                       <p className="text-sm samsung-text opacity-70 mb-1">{device.storage}</p>
