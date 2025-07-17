@@ -6,6 +6,15 @@ export interface Phone {
   condition: string;
 }
 
+export interface Device {
+  name: string;
+  storage?: string;
+  price: number;
+  colors: string[];
+  condition: string;
+  specs?: string;
+}
+
 export const iphones: Phone[] = [
   {
     name: "iPhone 16 Pro Max",
@@ -352,5 +361,373 @@ export const samsungPhones: Phone[] = [
     price: 24999,
     colors: ["Mint", "Graphite", "Cream", "Lavender", "Yellow", "Blue", "Green", "Gray", "Peach", "Indigo"],
     condition: "NEW"
+  }
+];
+
+export const ipads: Device[] = [
+  {
+    name: "iPad Pro 13-inch M4",
+    storage: "256GB",
+    price: 23999,
+    colors: ["Space Black", "Silver"],
+    condition: "NEW",
+    specs: "M4 chip, 13-inch Liquid Retina XDR display"
+  },
+  {
+    name: "iPad Pro 13-inch M4",
+    storage: "512GB",
+    price: 26999,
+    colors: ["Space Black", "Silver"],
+    condition: "NEW",
+    specs: "M4 chip, 13-inch Liquid Retina XDR display"
+  },
+  {
+    name: "iPad Pro 11-inch M4",
+    storage: "256GB",
+    price: 18999,
+    colors: ["Space Black", "Silver"],
+    condition: "NEW",
+    specs: "M4 chip, 11-inch Liquid Retina display"
+  },
+  {
+    name: "iPad Pro 11-inch M4",
+    storage: "512GB",
+    price: 21999,
+    colors: ["Space Black", "Silver"],
+    condition: "NEW",
+    specs: "M4 chip, 11-inch Liquid Retina display"
+  },
+  {
+    name: "iPad Air 13-inch M2",
+    storage: "128GB",
+    price: 14999,
+    colors: ["Space Gray", "Starlight", "Pink", "Purple", "Blue"],
+    condition: "NEW",
+    specs: "M2 chip, 13-inch Liquid Retina display"
+  },
+  {
+    name: "iPad Air 13-inch M2",
+    storage: "256GB",
+    price: 16999,
+    colors: ["Space Gray", "Starlight", "Pink", "Purple", "Blue"],
+    condition: "NEW",
+    specs: "M2 chip, 13-inch Liquid Retina display"
+  },
+  {
+    name: "iPad Air 11-inch M2",
+    storage: "128GB",
+    price: 12999,
+    colors: ["Space Gray", "Starlight", "Pink", "Purple", "Blue"],
+    condition: "NEW",
+    specs: "M2 chip, 11-inch Liquid Retina display"
+  },
+  {
+    name: "iPad Air 11-inch M2",
+    storage: "256GB",
+    price: 14999,
+    colors: ["Space Gray", "Starlight", "Pink", "Purple", "Blue"],
+    condition: "NEW",
+    specs: "M2 chip, 11-inch Liquid Retina display"
+  },
+  {
+    name: "iPad 10th Gen",
+    storage: "64GB",
+    price: 8999,
+    colors: ["Silver", "Pink", "Blue", "Yellow"],
+    condition: "NEW",
+    specs: "A14 Bionic chip, 10.9-inch Liquid Retina display"
+  },
+  {
+    name: "iPad 10th Gen",
+    storage: "256GB",
+    price: 10999,
+    colors: ["Silver", "Pink", "Blue", "Yellow"],
+    condition: "NEW",
+    specs: "A14 Bionic chip, 10.9-inch Liquid Retina display"
+  }
+];
+
+export const macbooks: Device[] = [
+  {
+    name: "MacBook Pro 16-inch M4 Pro",
+    storage: "512GB",
+    price: 49999,
+    colors: ["Space Black", "Silver"],
+    condition: "NEW",
+    specs: "M4 Pro chip, 16-inch Liquid Retina XDR display"
+  },
+  {
+    name: "MacBook Pro 16-inch M4 Pro",
+    storage: "1TB",
+    price: 54999,
+    colors: ["Space Black", "Silver"],
+    condition: "NEW",
+    specs: "M4 Pro chip, 16-inch Liquid Retina XDR display"
+  },
+  {
+    name: "MacBook Pro 14-inch M4",
+    storage: "512GB",
+    price: 39999,
+    colors: ["Space Black", "Silver"],
+    condition: "NEW",
+    specs: "M4 chip, 14-inch Liquid Retina XDR display"
+  },
+  {
+    name: "MacBook Pro 14-inch M4",
+    storage: "1TB",
+    price: 44999,
+    colors: ["Space Black", "Silver"],
+    condition: "NEW",
+    specs: "M4 chip, 14-inch Liquid Retina XDR display"
+  },
+  {
+    name: "MacBook Air 15-inch M3",
+    storage: "256GB",
+    price: 27999,
+    colors: ["Midnight", "Starlight", "Space Gray", "Silver"],
+    condition: "NEW",
+    specs: "M3 chip, 15.3-inch Liquid Retina display"
+  },
+  {
+    name: "MacBook Air 15-inch M3",
+    storage: "512GB",
+    price: 31999,
+    colors: ["Midnight", "Starlight", "Space Gray", "Silver"],
+    condition: "NEW",
+    specs: "M3 chip, 15.3-inch Liquid Retina display"
+  },
+  {
+    name: "MacBook Air 13-inch M3",
+    storage: "256GB",
+    price: 24999,
+    colors: ["Midnight", "Starlight", "Space Gray", "Silver"],
+    condition: "NEW",
+    specs: "M3 chip, 13.6-inch Liquid Retina display"
+  },
+  {
+    name: "MacBook Air 13-inch M3",
+    storage: "512GB",
+    price: 28999,
+    colors: ["Midnight", "Starlight", "Space Gray", "Silver"],
+    condition: "NEW",
+    specs: "M3 chip, 13.6-inch Liquid Retina display"
+  },
+  {
+    name: "MacBook Air 13-inch M2",
+    storage: "256GB",
+    price: 22999,
+    colors: ["Midnight", "Starlight", "Space Gray", "Silver"],
+    condition: "NEW",
+    specs: "M2 chip, 13.6-inch Liquid Retina display"
+  },
+  {
+    name: "MacBook Air 13-inch M2",
+    storage: "512GB",
+    price: 26999,
+    colors: ["Midnight", "Starlight", "Space Gray", "Silver"],
+    condition: "NEW",
+    specs: "M2 chip, 13.6-inch Liquid Retina display"
+  }
+];
+
+export const buds: Device[] = [
+  {
+    name: "AirPods Pro 2nd Gen",
+    price: 5999,
+    colors: ["White"],
+    condition: "NEW",
+    specs: "H2 chip, Active Noise Cancellation, USB-C"
+  },
+  {
+    name: "AirPods 3rd Gen",
+    price: 4499,
+    colors: ["White"],
+    condition: "NEW",
+    specs: "H1 chip, Spatial Audio, Lightning"
+  },
+  {
+    name: "AirPods Max",
+    price: 12999,
+    colors: ["Space Gray", "Silver", "Pink", "Green", "Sky Blue"],
+    condition: "NEW",
+    specs: "H1 chip, Active Noise Cancellation, Premium over-ear"
+  },
+  {
+    name: "Samsung Galaxy Buds3 Pro",
+    price: 4999,
+    colors: ["Silver", "White"],
+    condition: "NEW",
+    specs: "Adaptive Active Noise Cancellation, 360 Audio"
+  },
+  {
+    name: "Samsung Galaxy Buds3",
+    price: 3999,
+    colors: ["Silver", "White"],
+    condition: "NEW",
+    specs: "Adaptive EQ, 360 Audio"
+  },
+  {
+    name: "Samsung Galaxy Buds2 Pro",
+    price: 3499,
+    colors: ["Bora Purple", "Graphite", "White"],
+    condition: "NEW",
+    specs: "Intelligent Active Noise Cancellation, 360 Audio"
+  },
+  {
+    name: "Samsung Galaxy Buds2",
+    price: 2999,
+    colors: ["Graphite", "White", "Olive", "Lavender"],
+    condition: "NEW",
+    specs: "Active Noise Cancellation, 360 Audio"
+  }
+];
+
+export const watches: Device[] = [
+  {
+    name: "Apple Watch Ultra 2",
+    storage: "64GB",
+    price: 17999,
+    colors: ["Natural Titanium"],
+    condition: "NEW",
+    specs: "S9 chip, 49mm Titanium case, Action Button"
+  },
+  {
+    name: "Apple Watch Series 10",
+    storage: "64GB",
+    price: 8999,
+    colors: ["Jet Black", "Rose Gold", "Silver"],
+    condition: "NEW",
+    specs: "S10 chip, 45mm Aluminum case"
+  },
+  {
+    name: "Apple Watch Series 10",
+    storage: "64GB",
+    price: 7999,
+    colors: ["Jet Black", "Rose Gold", "Silver"],
+    condition: "NEW",
+    specs: "S10 chip, 41mm Aluminum case"
+  },
+  {
+    name: "Apple Watch SE",
+    storage: "32GB",
+    price: 5999,
+    colors: ["Midnight", "Starlight", "Silver"],
+    condition: "NEW",
+    specs: "S8 chip, 44mm Aluminum case"
+  },
+  {
+    name: "Apple Watch SE",
+    storage: "32GB",
+    price: 5499,
+    colors: ["Midnight", "Starlight", "Silver"],
+    condition: "NEW",
+    specs: "S8 chip, 40mm Aluminum case"
+  },
+  {
+    name: "Samsung Galaxy Watch7",
+    storage: "32GB",
+    price: 6999,
+    colors: ["Green", "Cream"],
+    condition: "NEW",
+    specs: "Exynos W1000, 44mm Aluminum case"
+  },
+  {
+    name: "Samsung Galaxy Watch7",
+    storage: "32GB",
+    price: 6499,
+    colors: ["Green", "Cream"],
+    condition: "NEW",
+    specs: "Exynos W1000, 40mm Aluminum case"
+  },
+  {
+    name: "Samsung Galaxy Watch Ultra",
+    storage: "32GB",
+    price: 12999,
+    colors: ["Titanium Gray", "Titanium White", "Titanium Silver"],
+    condition: "NEW",
+    specs: "Exynos W1000, 47mm Titanium case"
+  }
+];
+
+export const samsungTablets: Device[] = [
+  {
+    name: "Samsung Galaxy Tab S10 Ultra",
+    storage: "256GB",
+    price: 24999,
+    colors: ["Moonstone Gray", "Platinum Silver"],
+    condition: "NEW",
+    specs: "MediaTek Dimensity 9300+, 14.6-inch AMOLED display"
+  },
+  {
+    name: "Samsung Galaxy Tab S10 Ultra",
+    storage: "512GB",
+    price: 27999,
+    colors: ["Moonstone Gray", "Platinum Silver"],
+    condition: "NEW",
+    specs: "MediaTek Dimensity 9300+, 14.6-inch AMOLED display"
+  },
+  {
+    name: "Samsung Galaxy Tab S10+",
+    storage: "256GB",
+    price: 19999,
+    colors: ["Moonstone Gray", "Platinum Silver"],
+    condition: "NEW",
+    specs: "MediaTek Dimensity 9300+, 12.4-inch AMOLED display"
+  },
+  {
+    name: "Samsung Galaxy Tab S10+",
+    storage: "512GB",
+    price: 22999,
+    colors: ["Moonstone Gray", "Platinum Silver"],
+    condition: "NEW",
+    specs: "MediaTek Dimensity 9300+, 12.4-inch AMOLED display"
+  },
+  {
+    name: "Samsung Galaxy Tab S9 Ultra",
+    storage: "256GB",
+    price: 22999,
+    colors: ["Beige", "Graphite"],
+    condition: "NEW",
+    specs: "Snapdragon 8 Gen 2, 14.6-inch AMOLED display"
+  },
+  {
+    name: "Samsung Galaxy Tab S9+",
+    storage: "256GB",
+    price: 17999,
+    colors: ["Beige", "Graphite"],
+    condition: "NEW",
+    specs: "Snapdragon 8 Gen 2, 12.4-inch AMOLED display"
+  },
+  {
+    name: "Samsung Galaxy Tab S9",
+    storage: "128GB",
+    price: 14999,
+    colors: ["Beige", "Graphite"],
+    condition: "NEW",
+    specs: "Snapdragon 8 Gen 2, 11-inch AMOLED display"
+  },
+  {
+    name: "Samsung Galaxy Tab S9",
+    storage: "256GB",
+    price: 16999,
+    colors: ["Beige", "Graphite"],
+    condition: "NEW",
+    specs: "Snapdragon 8 Gen 2, 11-inch AMOLED display"
+  },
+  {
+    name: "Samsung Galaxy Tab A9+",
+    storage: "128GB",
+    price: 5999,
+    colors: ["Graphite", "Silver", "Navy"],
+    condition: "NEW",
+    specs: "Snapdragon 695, 11-inch TFT display"
+  },
+  {
+    name: "Samsung Galaxy Tab A9",
+    storage: "128GB",
+    price: 4999,
+    colors: ["Graphite", "Silver", "Navy"],
+    condition: "NEW",
+    specs: "Snapdragon 695, 8.7-inch TFT display"
   }
 ];

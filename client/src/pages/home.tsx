@@ -186,23 +186,65 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Phone Collections Navigation */}
+      {/* Device Categories Navigation */}
       <section className="samsung-section bg-white">
         <div className="samsung-container">
           <div className="text-center mb-16 animate-in slide-in-from-bottom duration-1000">
-            <h3 className="text-4xl samsung-header mb-6">CHOOSE YOUR PHONE TYPE</h3>
-            <p className="samsung-text text-lg">Select from our premium smartphone categories</p>
+            <h3 className="text-4xl samsung-header mb-6">CHOOSE YOUR DEVICE</h3>
+            <p className="samsung-text text-lg">Select from our premium device categories</p>
           </div>
-          <div className="grid md:grid-cols-2 gap-6 max-w-3xl mx-auto">
-            <Card className="text-center p-8 border-2 border-black hover:bg-black hover:text-white transition-all duration-500 cursor-pointer rounded-xl animate-in slide-in-from-left duration-1000 delay-300 hover:scale-105 transform"
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+            <Card className="text-center p-6 border-2 border-black hover:bg-black hover:text-white transition-all duration-500 cursor-pointer rounded-xl animate-in slide-in-from-left duration-1000 delay-300 hover:scale-105 transform"
                   onClick={() => window.location.href = '/phones'}>
               <CardContent className="pt-4">
                 <div className="text-4xl mb-4 animate-bounce">📱</div>
-                <h4 className="text-lg font-semibold mb-3 tracking-wide">SELECT PHONE</h4>
-                <p className="text-sm opacity-80">Choose from our premium smartphone collection</p>
+                <h4 className="text-lg font-semibold mb-3 tracking-wide">PHONES</h4>
+                <p className="text-sm opacity-80">iPhones, Samsung & more</p>
               </CardContent>
             </Card>
-            <Card className="text-center p-8 border-2 border-black hover:bg-black hover:text-white transition-all duration-500 cursor-pointer rounded-xl animate-in slide-in-from-right duration-1000 delay-500 hover:scale-105 transform"
+            <Card className="text-center p-6 border-2 border-black hover:bg-black hover:text-white transition-all duration-500 cursor-pointer rounded-xl animate-in slide-in-from-bottom duration-1000 delay-400 hover:scale-105 transform"
+                  onClick={() => window.location.href = '/ipads'}>
+              <CardContent className="pt-4">
+                <div className="text-4xl mb-4 animate-bounce">📟</div>
+                <h4 className="text-lg font-semibold mb-3 tracking-wide">IPADS</h4>
+                <p className="text-sm opacity-80">iPad Pro, Air & more</p>
+              </CardContent>
+            </Card>
+            <Card className="text-center p-6 border-2 border-black hover:bg-black hover:text-white transition-all duration-500 cursor-pointer rounded-xl animate-in slide-in-from-right duration-1000 delay-500 hover:scale-105 transform"
+                  onClick={() => window.location.href = '/macbooks'}>
+              <CardContent className="pt-4">
+                <div className="text-4xl mb-4 animate-bounce">💻</div>
+                <h4 className="text-lg font-semibold mb-3 tracking-wide">MACBOOKS</h4>
+                <p className="text-sm opacity-80">MacBook Pro & Air</p>
+              </CardContent>
+            </Card>
+            <Card className="text-center p-6 border-2 border-black hover:bg-black hover:text-white transition-all duration-500 cursor-pointer rounded-xl animate-in slide-in-from-left duration-1000 delay-600 hover:scale-105 transform"
+                  onClick={() => window.location.href = '/buds'}>
+              <CardContent className="pt-4">
+                <div className="text-4xl mb-4 animate-bounce">🎧</div>
+                <h4 className="text-lg font-semibold mb-3 tracking-wide">BUDS</h4>
+                <p className="text-sm opacity-80">AirPods & Galaxy Buds</p>
+              </CardContent>
+            </Card>
+            <Card className="text-center p-6 border-2 border-black hover:bg-black hover:text-white transition-all duration-500 cursor-pointer rounded-xl animate-in slide-in-from-bottom duration-1000 delay-700 hover:scale-105 transform"
+                  onClick={() => window.location.href = '/watches'}>
+              <CardContent className="pt-4">
+                <div className="text-4xl mb-4 animate-bounce">⌚</div>
+                <h4 className="text-lg font-semibold mb-3 tracking-wide">WATCHES</h4>
+                <p className="text-sm opacity-80">Apple Watch & Galaxy Watch</p>
+              </CardContent>
+            </Card>
+            <Card className="text-center p-6 border-2 border-black hover:bg-black hover:text-white transition-all duration-500 cursor-pointer rounded-xl animate-in slide-in-from-right duration-1000 delay-800 hover:scale-105 transform"
+                  onClick={() => window.location.href = '/tablets'}>
+              <CardContent className="pt-4">
+                <div className="text-4xl mb-4 animate-bounce">📱</div>
+                <h4 className="text-lg font-semibold mb-3 tracking-wide">TABLETS</h4>
+                <p className="text-sm opacity-80">Samsung Galaxy Tabs</p>
+              </CardContent>
+            </Card>
+          </div>
+          <div className="mt-12 text-center">
+            <Card className="text-center p-6 border-2 border-black hover:bg-black hover:text-white transition-all duration-500 cursor-pointer rounded-xl animate-in slide-in-from-bottom duration-1000 delay-900 hover:scale-105 transform max-w-md mx-auto"
                   onClick={() => scrollToSection('calculator')}>
               <CardContent className="pt-4">
                 <div className="text-4xl mb-4 animate-bounce">🧮</div>
