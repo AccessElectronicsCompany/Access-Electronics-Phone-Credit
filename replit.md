@@ -146,6 +146,12 @@ This is a full-stack web application built for Access Electronics, allowing cust
   - Implemented consistent cart functionality across all device types
   - Enhanced dashboard with 6-category grid layout and animated device selection cards
   - Maintained existing quote form integration for all new device categories
+  - Updated all device categories with correct pricing and specifications as provided by user:
+    * iPads: 7 models ranging from N$6,999 to N$26,999
+    * MacBooks: 7 models ranging from N$12,999 to N$54,999
+    * Buds: 5 models ranging from N$1,199 to N$5,499
+    * Samsung Tablets: 5 models ranging from N$2,999 to N$24,999
+    * Watches: 9 models ranging from N$4,999 to N$18,999
 
 ## User Preferences
 
