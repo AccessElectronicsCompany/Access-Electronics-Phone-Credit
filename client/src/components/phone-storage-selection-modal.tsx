@@ -5,13 +5,13 @@ import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { useCart } from "@/contexts/CartContext";
 import { useToast } from "@/hooks/use-toast";
-import { iphones, samsungPhones } from "@/lib/phone-data";
+import { iphones, samsungPhones, ipads, macbooks, buds, watches, samsungTablets } from "@/lib/phone-data";
 
 interface PhoneStorageSelectionModalProps {
   isOpen: boolean;
   onClose: () => void;
   phoneBaseName: string; // e.g., "iPhone 16 Pro"
-  phoneType: "iphone" | "samsung";
+  phoneType: "iphone" | "samsung" | "ipad" | "macbook" | "buds" | "watch" | "tablet";
 }
 
 export default function PhoneStorageSelectionModal({ 
@@ -25,15 +25,28 @@ export default function PhoneStorageSelectionModal({
   const { addToCart } = useCart();
   const { toast } = useToast();
 
-  // Get all storage options for this phone model
-  const phoneData = phoneType === "iphone" ? iphones : samsungPhones;
+  // Get all storage options for this device model
+  const getPhoneData = () => {
+    switch (phoneType) {
+      case "iphone": return iphones;
+      case "samsung": return samsungPhones;
+      case "ipad": return ipads;
+      case "macbook": return macbooks;
+      case "buds": return buds;
+      case "watch": return watches;
+      case "tablet": return samsungTablets;
+      default: return [...iphones, ...samsungPhones, ...ipads, ...macbooks, ...buds, ...watches, ...samsungTablets];
+    }
+  };
+  
+  const phoneData = getPhoneData();
   const phoneVariants = phoneData.filter(phone => phone.name === phoneBaseName);
   
-  // Get unique storage options
-  const storageOptions = Array.from(new Set(phoneVariants.map(phone => phone.storage)));
+  // Get unique storage options (handle devices without storage)
+  const storageOptions = Array.from(new Set(phoneVariants.map(phone => phone.storage || 'Standard')));
   
   // Get selected phone variant
-  const selectedPhoneVariant = phoneVariants.find(phone => phone.storage === selectedStorage);
+  const selectedPhoneVariant = phoneVariants.find(phone => (phone.storage || 'Standard') === selectedStorage);
   
   // Get available colors for selected storage
   const availableColors = selectedPhoneVariant?.colors || [];
@@ -48,7 +61,7 @@ export default function PhoneStorageSelectionModal({
       return;
     }
 
-    const phoneVariant = phoneVariants.find(phone => phone.storage === selectedStorage);
+    const phoneVariant = phoneVariants.find(phone => (phone.storage || 'Standard') === selectedStorage);
     if (!phoneVariant) {
       toast({
         title: "Error",

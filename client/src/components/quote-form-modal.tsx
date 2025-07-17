@@ -13,7 +13,7 @@ import { useToast } from "@/hooks/use-toast";
 import { apiRequest } from "@/lib/queryClient";
 import { calculatePayment } from "@/lib/calculations";
 import { useCart } from "@/contexts/CartContext";
-import { iphones, samsungPhones } from "@/lib/phone-data";
+import { iphones, samsungPhones, ipads, macbooks, buds, watches, samsungTablets } from "@/lib/phone-data";
 import SuccessModal from "./success-modal";
 
 const quoteFormSchema = z.object({
@@ -416,12 +416,12 @@ export default function QuoteFormModal({ isOpen, onClose, selectedPhone }: Quote
             <h3 className="text-lg md:text-xl samsung-header mb-4">Select Storage & Color for Each Phone</h3>
             <div className="space-y-6">
               {uniquePhoneModels.map((phoneModel, index) => {
-                const phoneData = [...iphones, ...samsungPhones];
+                const phoneData = [...iphones, ...samsungPhones, ...ipads, ...macbooks, ...buds, ...watches, ...samsungTablets];
                 const phoneVariants = phoneData.filter(phone => phone.name === phoneModel.name);
-                const storageOptions = Array.from(new Set(phoneVariants.map(phone => phone.storage)));
+                const storageOptions = Array.from(new Set(phoneVariants.map(phone => phone.storage || 'Standard')));
                 
                 const currentSelection = phoneSelections[phoneModel.name] || {};
-                const selectedVariant = phoneVariants.find(phone => phone.storage === currentSelection.storage);
+                const selectedVariant = phoneVariants.find(phone => (phone.storage || 'Standard') === currentSelection.storage);
                 const availableColors = selectedVariant?.colors || [];
                 
                 return (
@@ -435,7 +435,7 @@ export default function QuoteFormModal({ isOpen, onClose, selectedPhone }: Quote
                         <Select
                           value={currentSelection.storage || ""}
                           onValueChange={(value) => {
-                            const variant = phoneVariants.find(phone => phone.storage === value);
+                            const variant = phoneVariants.find(phone => (phone.storage || 'Standard') === value);
                             if (variant) {
                               setPhoneSelections(prev => ({
                                 ...prev,
@@ -455,7 +455,7 @@ export default function QuoteFormModal({ isOpen, onClose, selectedPhone }: Quote
                           </SelectTrigger>
                           <SelectContent className="rounded-xl">
                             {storageOptions.map((storage) => {
-                              const variant = phoneVariants.find(phone => phone.storage === storage);
+                              const variant = phoneVariants.find(phone => (phone.storage || 'Standard') === storage);
                               return (
                                 <SelectItem key={storage} value={storage}>
                                   {storage} - N${variant?.price.toLocaleString()}

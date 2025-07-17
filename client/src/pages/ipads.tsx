@@ -14,6 +14,7 @@ export default function IPads() {
     name: string;
     storage: string;
     price: number;
+    colors: string[];
   } | null>(null);
   
   const [showCalculator, setShowCalculator] = useState(false);
@@ -22,8 +23,8 @@ export default function IPads() {
   const [showCart, setShowCart] = useState(false);
   const { addToCart } = useCart();
 
-  const handleSelectDevice = (name: string, storage: string, price: number) => {
-    setSelectedDevice({ name, storage, price });
+  const handleSelectDevice = (name: string, storage: string, price: number, colors: string[]) => {
+    setSelectedDevice({ name, storage, price, colors });
     setShowQuoteForm(true);
   };
 
@@ -158,7 +159,7 @@ export default function IPads() {
                   
                   <div className="space-y-2">
                     <Button
-                      onClick={() => handleSelectDevice(device.name, device.storage || "", device.price)}
+                      onClick={() => handleSelectDevice(device.name, device.storage || "", device.price, device.colors)}
                       className="samsung-btn w-full"
                     >
                       Request Quote
