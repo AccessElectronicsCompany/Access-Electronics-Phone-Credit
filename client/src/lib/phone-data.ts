@@ -369,7 +369,7 @@ export const ipads: Device[] = [
     name: "iPad Air 11-inch WiFi",
     storage: "128GB",
     price: 13999,
-    colors: ["Space Gray", "Starlight", "Pink", "Purple", "Blue"],
+    colors: ["Blue", "Purple", "Starlight", "Space Gray"],
     condition: "NEW",
     specs: "M2 chip, 11-inch Liquid Retina display"
   },
@@ -377,7 +377,7 @@ export const ipads: Device[] = [
     name: "iPad Air 13-inch WiFi",
     storage: "128GB",
     price: 17999,
-    colors: ["Space Gray", "Starlight", "Pink", "Purple", "Blue"],
+    colors: ["Blue", "Purple", "Starlight", "Space Gray"],
     condition: "NEW",
     specs: "M2 chip, 13-inch Liquid Retina display"
   },
@@ -385,7 +385,7 @@ export const ipads: Device[] = [
     name: "iPad Air 13-inch WiFi",
     storage: "256GB",
     price: 19999,
-    colors: ["Space Gray", "Starlight", "Pink", "Purple", "Blue"],
+    colors: ["Blue", "Purple", "Starlight", "Space Gray"],
     condition: "NEW",
     specs: "M2 chip, 13-inch Liquid Retina display"
   },
@@ -393,7 +393,7 @@ export const ipads: Device[] = [
     name: "iPad 10",
     storage: "64GB WiFi",
     price: 6999,
-    colors: ["Silver", "Pink", "Blue", "Yellow"],
+    colors: ["Silver", "Blue", "Pink", "Yellow"],
     condition: "NEW",
     specs: "A14 Bionic chip, 10.9-inch Liquid Retina display"
   },
@@ -401,7 +401,7 @@ export const ipads: Device[] = [
     name: "iPad 11",
     storage: "128GB WiFi",
     price: 7999,
-    colors: ["Silver", "Pink", "Blue", "Yellow"],
+    colors: ["Silver", "Space Gray"],
     condition: "NEW",
     specs: "A14 Bionic chip, 10.9-inch Liquid Retina display"
   },
@@ -409,7 +409,7 @@ export const ipads: Device[] = [
     name: "iPad Pro M4 11-inch",
     storage: "256GB WiFi",
     price: 21999,
-    colors: ["Space Black", "Silver"],
+    colors: ["Silver", "Space Black"],
     condition: "NEW",
     specs: "M4 chip, 11-inch Liquid Retina XDR display"
   },
@@ -417,7 +417,7 @@ export const ipads: Device[] = [
     name: "iPad Pro M4 11-inch",
     storage: "256GB Cellular",
     price: 26999,
-    colors: ["Space Black", "Silver"],
+    colors: ["Silver", "Space Black"],
     condition: "NEW",
     specs: "M4 chip, 11-inch Liquid Retina XDR display"
   }
@@ -426,31 +426,31 @@ export const ipads: Device[] = [
 export const macbooks: Device[] = [
   {
     name: "MacBook Pro 14-inch M4",
-    storage: "16GB/512GB SSD",
+    storage: "512GB (MW2W3)",
     price: 35999,
     colors: ["Silver"],
     condition: "NEW",
-    specs: "M4 chip, 14-inch Liquid Retina XDR display (MW2W3)"
+    specs: "M4 chip, 14-inch Liquid Retina XDR display"
   },
   {
     name: "MacBook Pro 14-inch M4",
-    storage: "16GB/1TB SSD",
+    storage: "1TB (MW2V3)",
     price: 39999,
     colors: ["Space Black"],
     condition: "NEW",
-    specs: "M4 chip, 14-inch Liquid Retina XDR display (MW2V3)"
+    specs: "M4 chip, 14-inch Liquid Retina XDR display"
   },
   {
     name: "MacBook Pro 14-inch M4 Pro",
-    storage: "24GB/512GB SSD",
+    storage: "512GB (MX2H3)",
     price: 42999,
     colors: ["Space Black"],
     condition: "NEW",
-    specs: "M4 Pro chip, 14-inch Liquid Retina XDR display (MX2H3)"
+    specs: "M4 Pro chip, 14-inch Liquid Retina XDR display"
   },
   {
     name: "MacBook Pro 16-inch M4 Pro",
-    storage: "24GB/512GB SSD",
+    storage: "512GB",
     price: 54999,
     colors: ["Space Black"],
     condition: "NEW",
@@ -468,7 +468,7 @@ export const macbooks: Device[] = [
     name: "MacBook Air 13-inch M2",
     storage: "16/256",
     price: 16999,
-    colors: ["Midnight", "Starlight", "Space Gray", "Silver"],
+    colors: ["Midnight", "Starlight", "Silver", "Space Gray"],
     condition: "NEW",
     specs: "M2 chip, 13.6-inch Liquid Retina display"
   },
@@ -476,7 +476,7 @@ export const macbooks: Device[] = [
     name: "MacBook Air 13-inch M4",
     storage: "16/256GB",
     price: 20999,
-    colors: ["Midnight", "Starlight", "Space Gray", "Silver"],
+    colors: ["Midnight", "Starlight", "Silver", "Space Gray"],
     condition: "NEW",
     specs: "M4 chip, 13.6-inch Liquid Retina display"
   }
@@ -486,7 +486,7 @@ export const buds: Device[] = [
   {
     name: "Samsung Buds 3 Pro",
     price: 2999,
-    colors: ["Silver", "White"],
+    colors: ["Graphite", "Silver"],
     condition: "NEW",
     specs: "Adaptive Active Noise Cancellation, 360 Audio"
   },
@@ -524,7 +524,7 @@ export const watches: Device[] = [
   {
     name: "Samsung Watch Ultra",
     price: 9999,
-    colors: ["Titanium Gray", "Titanium White", "Titanium Silver"],
+    colors: ["Titanium Gray"],
     condition: "NEW",
     specs: "Exynos W1000, 47mm Titanium case"
   },
@@ -532,15 +532,7 @@ export const watches: Device[] = [
     name: "Samsung Watch 7",
     storage: "44mm",
     price: 5499,
-    colors: ["Green"],
-    condition: "NEW",
-    specs: "Exynos W1000, 44mm Aluminum case"
-  },
-  {
-    name: "Samsung Watch 7",
-    storage: "44mm",
-    price: 5499,
-    colors: ["Silver"],
+    colors: ["Green", "Silver", "Graphite"],
     condition: "NEW",
     specs: "Exynos W1000, 44mm Aluminum case"
   },
@@ -548,15 +540,7 @@ export const watches: Device[] = [
     name: "Samsung Watch 7",
     storage: "40mm",
     price: 4999,
-    colors: ["Green"],
-    condition: "NEW",
-    specs: "Exynos W1000, 40mm Aluminum case"
-  },
-  {
-    name: "Samsung Watch 7",
-    storage: "40mm",
-    price: 4999,
-    colors: ["Cream"],
+    colors: ["Green", "Cream", "Graphite", "Silver"],
     condition: "NEW",
     specs: "Exynos W1000, 40mm Aluminum case"
   },
@@ -564,7 +548,7 @@ export const watches: Device[] = [
     name: "Apple Watch SE",
     storage: "40mm",
     price: 5299,
-    colors: ["Black"],
+    colors: ["Midnight", "Silver", "Starlight"],
     condition: "NEW",
     specs: "S8 chip, 40mm Aluminum case"
   },
@@ -572,23 +556,22 @@ export const watches: Device[] = [
     name: "Apple Watch SE",
     storage: "44mm",
     price: 5999,
-    colors: ["Starlight Silver"],
+    colors: ["Midnight", "Silver", "Starlight"],
     condition: "NEW",
     specs: "S8 chip, 44mm Aluminum case"
   },
   {
     name: "Apple Watch Series 10",
-    storage: "10/46mm",
+    storage: "46mm",
     price: 9999,
-    colors: ["Black"],
+    colors: ["Midnight", "Silver", "Blue", "Starlight"],
     condition: "NEW",
     specs: "S10 chip, 46mm Aluminum case"
   },
   {
-    name: "Apple Watch Ultra",
-    storage: "Black Ocean",
+    name: "Apple Watch Ultra (2nd Gen)",
     price: 18999,
-    colors: ["Black"],
+    colors: ["Natural Titanium"],
     condition: "NEW",
     specs: "S9 chip, 49mm Titanium case, Action Button"
   }
@@ -599,7 +582,7 @@ export const samsungTablets: Device[] = [
     name: "Tab S10 Ultra X926",
     storage: "256GB 5G",
     price: 24999,
-    colors: ["Moonstone Gray", "Platinum Silver"],
+    colors: ["Graphite", "Beige"],
     condition: "NEW",
     specs: "MediaTek Dimensity 9300+, 14.6-inch AMOLED display"
   },
@@ -607,7 +590,7 @@ export const samsungTablets: Device[] = [
     name: "Tab S10 FE X526",
     storage: "12/256GB 5G",
     price: 16999,
-    colors: ["Moonstone Gray", "Platinum Silver"],
+    colors: ["Mint", "Lavender", "Gray", "Silver"],
     condition: "NEW",
     specs: "MediaTek Dimensity 9300+, 12.4-inch AMOLED display"
   },
@@ -615,7 +598,7 @@ export const samsungTablets: Device[] = [
     name: "Tab S10 FE X526",
     storage: "8/128GB 5G",
     price: 14999,
-    colors: ["Moonstone Gray", "Platinum Silver"],
+    colors: ["Mint", "Lavender", "Gray", "Silver"],
     condition: "NEW",
     specs: "MediaTek Dimensity 9300+, 12.4-inch AMOLED display"
   },
@@ -623,7 +606,7 @@ export const samsungTablets: Device[] = [
     name: "Tab S9 X710",
     storage: "256GB WiFi",
     price: 16999,
-    colors: ["Beige", "Graphite"],
+    colors: ["Graphite", "Beige"],
     condition: "NEW",
     specs: "Snapdragon 8 Gen 2, 11-inch AMOLED display"
   },
@@ -631,7 +614,7 @@ export const samsungTablets: Device[] = [
     name: "Tab A9",
     storage: "64GB WiFi",
     price: 2999,
-    colors: ["Graphite", "Silver", "Navy"],
+    colors: ["Graphite", "Silver"],
     condition: "NEW",
     specs: "Snapdragon 695, 8.7-inch TFT display"
   }

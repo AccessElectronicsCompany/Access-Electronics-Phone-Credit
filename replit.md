@@ -152,6 +152,12 @@ This is a full-stack web application built for Access Electronics, allowing cust
     * Buds: 5 models ranging from N$1,199 to N$5,499
     * Samsung Tablets: 5 models ranging from N$2,999 to N$24,999
     * Watches: 9 models ranging from N$4,999 to N$18,999
+  - Updated all device categories with correct color options:
+    * iPads: Blue, Purple, Starlight, Space Gray for Air models; Silver, Blue, Pink, Yellow for iPad 10; Silver, Space Gray for iPad 11; Silver, Space Black for iPad Pro M4
+    * MacBooks: Silver for 14-inch 512GB; Space Black for 1TB and Pro models; Silver, Space Gray, Gold for M1 Air; Midnight, Starlight, Silver, Space Gray for M2 and M4 Air
+    * Buds: Graphite, Silver for Samsung Buds 3 Pro; Graphite, White for Buds FE; White for all AirPods models
+    * Samsung Tablets: Graphite, Beige for Ultra and S9; Mint, Lavender, Gray, Silver for S10 FE; Graphite, Silver for Tab A9
+    * Watches: Titanium Gray for Samsung Ultra; Green, Silver, Graphite for Watch 7 44mm; Green, Cream, Graphite, Silver for Watch 7 40mm; Midnight, Silver, Starlight for Apple Watch SE; Midnight, Silver, Blue, Starlight for Series 10; Natural Titanium for Apple Watch Ultra
 
 ## User Preferences
 
