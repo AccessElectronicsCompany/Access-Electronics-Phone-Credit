@@ -25,7 +25,7 @@ const quoteFormSchema = z.object({
   region: z.string().min(2, "Region is required"),
   country: z.string().min(2, "Country is required"),
   productName: z.string().min(2, "Product name is required"),
-  storageCapacity: z.string().min(2, "Storage capacity is required"),
+  storageCapacity: z.string().optional(), // Made optional since watches/buds don't need storage
   condition: z.string().min(1, "Condition is required"),
   color: z.string().min(2, "Color is required"),
   quantity: z.number().min(1, "Quantity must be at least 1"),
@@ -140,7 +140,11 @@ export default function QuoteFormModal({ isOpen, onClose, selectedPhone }: Quote
       region: "",
       country: "Namibia",
       productName: selectedPhone?.name || "",
-      storageCapacity: selectedPhone?.storage || "",
+      storageCapacity: selectedPhone ? (
+        watches.some(w => w.name === selectedPhone.name) || buds.some(b => b.name === selectedPhone.name) 
+          ? "N/A" 
+          : selectedPhone.storage || ""
+      ) : "",
       condition: "NEW",
       color: "",
       quantity: 1,
@@ -156,7 +160,16 @@ export default function QuoteFormModal({ isOpen, onClose, selectedPhone }: Quote
   useEffect(() => {
     if (selectedPhone) {
       setValue("productName", selectedPhone.name);
-      setValue("storageCapacity", selectedPhone.storage);
+      
+      // Only set storage capacity for devices that have storage
+      const isWatch = watches.some(w => w.name === selectedPhone.name);
+      const isBuds = buds.some(b => b.name === selectedPhone.name);
+      if (!isWatch && !isBuds) {
+        setValue("storageCapacity", selectedPhone.storage || "");
+      } else {
+        setValue("storageCapacity", "N/A"); // Set N/A for watches/buds
+      }
+      
       setValue("originalPrice", selectedPhone.price);
       setValue("creditAmount", selectedPhone.price);
       setValue("country", "Namibia");
@@ -668,18 +681,21 @@ export default function QuoteFormModal({ isOpen, onClose, selectedPhone }: Quote
                   <p className="text-red-500 text-sm mt-1">{errors.productName.message}</p>
                 )}
               </div>
-              <div>
-                <Label htmlFor="storageCapacity" className="text-sm font-semibold samsung-text mb-2 block">Storage Capacity *</Label>
-                <Input
-                  id="storageCapacity"
-                  {...register("storageCapacity")}
-                  className={`rounded-xl border-2 h-12 ${errors.storageCapacity ? "border-red-500" : "border-gray-300 focus:border-black"} bg-gray-100`}
-                  readOnly
-                />
-                {errors.storageCapacity && (
-                  <p className="text-red-500 text-sm mt-1">{errors.storageCapacity.message}</p>
-                )}
-              </div>
+              {/* Only show storage capacity for devices that need it */}
+              {selectedPhone && !watches.some(w => w.name === selectedPhone.name) && !buds.some(b => b.name === selectedPhone.name) && (
+                <div>
+                  <Label htmlFor="storageCapacity" className="text-sm font-semibold samsung-text mb-2 block">Storage Capacity *</Label>
+                  <Input
+                    id="storageCapacity"
+                    {...register("storageCapacity")}
+                    className={`rounded-xl border-2 h-12 ${errors.storageCapacity ? "border-red-500" : "border-gray-300 focus:border-black"} bg-gray-100`}
+                    readOnly
+                  />
+                  {errors.storageCapacity && (
+                    <p className="text-red-500 text-sm mt-1">{errors.storageCapacity.message}</p>
+                  )}
+                </div>
+              )}
               <div>
                 <Label htmlFor="condition" className="text-sm font-semibold samsung-text mb-2 block">Condition *</Label>
                 <Input
