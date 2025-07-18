@@ -51,12 +51,42 @@ export default function Home() {
             </div>
             
             {/* Desktop Navigation */}
-            <nav className="hidden lg:flex space-x-8 xl:space-x-12 items-center animate-in slide-in-from-right duration-1000 delay-700">
+            <nav className="hidden lg:flex space-x-6 xl:space-x-8 items-center animate-in slide-in-from-right duration-1000 delay-700">
               <button
                 onClick={() => window.location.href = '/phones'}
                 className="samsung-text hover:text-black transition-all duration-300 font-medium tracking-wide uppercase text-sm whitespace-nowrap hover:scale-105 transform"
               >
-                Select Phone
+                Phones
+              </button>
+              <button
+                onClick={() => window.location.href = '/ipads'}
+                className="samsung-text hover:text-black transition-all duration-300 font-medium tracking-wide uppercase text-sm whitespace-nowrap hover:scale-105 transform"
+              >
+                iPads
+              </button>
+              <button
+                onClick={() => window.location.href = '/macbooks'}
+                className="samsung-text hover:text-black transition-all duration-300 font-medium tracking-wide uppercase text-sm whitespace-nowrap hover:scale-105 transform"
+              >
+                MacBooks
+              </button>
+              <button
+                onClick={() => window.location.href = '/buds'}
+                className="samsung-text hover:text-black transition-all duration-300 font-medium tracking-wide uppercase text-sm whitespace-nowrap hover:scale-105 transform"
+              >
+                Buds
+              </button>
+              <button
+                onClick={() => window.location.href = '/watches'}
+                className="samsung-text hover:text-black transition-all duration-300 font-medium tracking-wide uppercase text-sm whitespace-nowrap hover:scale-105 transform"
+              >
+                Watches
+              </button>
+              <button
+                onClick={() => window.location.href = '/tablets'}
+                className="samsung-text hover:text-black transition-all duration-300 font-medium tracking-wide uppercase text-sm whitespace-nowrap hover:scale-105 transform"
+              >
+                Tablets
               </button>
               <button
                 onClick={() => scrollToSection('calculator')}
@@ -93,7 +123,52 @@ export default function Home() {
                   }}
                   className="block w-full text-left px-4 py-3 samsung-text hover:bg-gray-50 transition-colors font-medium tracking-wide uppercase text-sm"
                 >
-                  Select Phone
+                  Phones
+                </button>
+                <button
+                  onClick={() => {
+                    window.location.href = '/ipads';
+                    setShowMobileMenu(false);
+                  }}
+                  className="block w-full text-left px-4 py-3 samsung-text hover:bg-gray-50 transition-colors font-medium tracking-wide uppercase text-sm"
+                >
+                  iPads
+                </button>
+                <button
+                  onClick={() => {
+                    window.location.href = '/macbooks';
+                    setShowMobileMenu(false);
+                  }}
+                  className="block w-full text-left px-4 py-3 samsung-text hover:bg-gray-50 transition-colors font-medium tracking-wide uppercase text-sm"
+                >
+                  MacBooks
+                </button>
+                <button
+                  onClick={() => {
+                    window.location.href = '/buds';
+                    setShowMobileMenu(false);
+                  }}
+                  className="block w-full text-left px-4 py-3 samsung-text hover:bg-gray-50 transition-colors font-medium tracking-wide uppercase text-sm"
+                >
+                  Buds
+                </button>
+                <button
+                  onClick={() => {
+                    window.location.href = '/watches';
+                    setShowMobileMenu(false);
+                  }}
+                  className="block w-full text-left px-4 py-3 samsung-text hover:bg-gray-50 transition-colors font-medium tracking-wide uppercase text-sm"
+                >
+                  Watches
+                </button>
+                <button
+                  onClick={() => {
+                    window.location.href = '/tablets';
+                    setShowMobileMenu(false);
+                  }}
+                  className="block w-full text-left px-4 py-3 samsung-text hover:bg-gray-50 transition-colors font-medium tracking-wide uppercase text-sm"
+                >
+                  Tablets
                 </button>
                 <button
                   onClick={() => {
