@@ -306,13 +306,24 @@ export default function QuoteFormModal({ isOpen, onClose, selectedPhone }: Quote
     if (isCartQuote) {
       const incompleteSelections = uniquePhoneModels.filter(phoneModel => {
         const selection = phoneSelections[phoneModel.name];
-        return !selection || !selection.storage || !selection.color || !selection.quantity;
+        const isWatch = watches.some(w => w.name === phoneModel.name);
+        const isBuds = buds.some(b => b.name === phoneModel.name);
+        const needsStorageSelection = !isWatch && !isBuds;
+        
+        // For devices that need storage selection, check both storage and color
+        if (needsStorageSelection) {
+          return !selection || !selection.storage || !selection.color || !selection.quantity;
+        }
+        // For devices that don't need storage selection (watches, buds), only check color
+        else {
+          return !selection || !selection.color || !selection.quantity;
+        }
       });
       
       if (incompleteSelections.length > 0) {
         toast({
           title: "Incomplete Selections",
-          description: `Please complete storage and color selections for: ${incompleteSelections.map(p => p.name).join(", ")}`,
+          description: `Please complete color selections for: ${incompleteSelections.map(p => p.name).join(", ")}`,
           variant: "destructive",
         });
         return;
@@ -364,53 +375,82 @@ export default function QuoteFormModal({ isOpen, onClose, selectedPhone }: Quote
               {uniquePhoneModels.map((phoneModel, index) => {
                 const phoneData = [...iphones, ...samsungPhones, ...ipads, ...macbooks, ...buds, ...watches, ...samsungTablets];
                 const phoneVariants = phoneData.filter(phone => phone.name === phoneModel.name);
-                const storageOptions = Array.from(new Set(phoneVariants.map(phone => phone.storage || 'Standard')));
+                
+                // Check if this device type needs storage selection
+                const isWatch = watches.some(w => w.name === phoneModel.name);
+                const isBuds = buds.some(b => b.name === phoneModel.name);
+                const needsStorageSelection = !isWatch && !isBuds && phoneVariants.some(phone => phone.storage);
+                
+                const storageOptions = needsStorageSelection 
+                  ? Array.from(new Set(phoneVariants.map(phone => phone.storage || 'Standard')))
+                  : ['Standard'];
                 
                 const currentSelection = phoneSelections[phoneModel.name] || {};
-                const selectedVariant = phoneVariants.find(phone => (phone.storage || 'Standard') === currentSelection.storage);
+                
+                // For devices that don't need storage selection, auto-select the first variant
+                if (!needsStorageSelection && !currentSelection.storage) {
+                  const firstVariant = phoneVariants[0];
+                  if (firstVariant) {
+                    setPhoneSelections(prev => ({
+                      ...prev,
+                      [phoneModel.name]: {
+                        storage: 'Standard',
+                        price: firstVariant.price,
+                        color: "",
+                        quantity: 1
+                      }
+                    }));
+                  }
+                }
+                
+                const selectedVariant = needsStorageSelection 
+                  ? phoneVariants.find(phone => (phone.storage || 'Standard') === currentSelection.storage)
+                  : phoneVariants[0];
                 const availableColors = selectedVariant?.colors || [];
                 
                 return (
                   <div key={phoneModel.name} className="bg-white p-4 rounded-xl border border-gray-200">
                     <h4 className="samsung-text font-semibold text-lg mb-4">{phoneModel.name}</h4>
                     
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                      {/* Storage Selection */}
-                      <div>
-                        <Label className="text-sm font-semibold samsung-text mb-2 block">Storage Capacity *</Label>
-                        <Select
-                          value={currentSelection.storage || ""}
-                          onValueChange={(value) => {
-                            const variant = phoneVariants.find(phone => (phone.storage || 'Standard') === value);
-                            if (variant) {
-                              setPhoneSelections(prev => ({
-                                ...prev,
-                                [phoneModel.name]: {
-                                  ...prev[phoneModel.name],
-                                  storage: value,
-                                  price: variant.price,
-                                  color: "", // Reset color when storage changes
-                                  quantity: prev[phoneModel.name]?.quantity || 1
-                                }
-                              }));
-                            }
-                          }}
-                        >
-                          <SelectTrigger className="rounded-xl border-2 border-gray-300 focus:border-black">
-                            <SelectValue placeholder="Select storage capacity" />
-                          </SelectTrigger>
-                          <SelectContent className="rounded-xl">
-                            {storageOptions.map((storage) => {
-                              const variant = phoneVariants.find(phone => (phone.storage || 'Standard') === storage);
-                              return (
-                                <SelectItem key={storage} value={storage}>
-                                  {storage} - N${variant?.price.toLocaleString()}
-                                </SelectItem>
-                              );
-                            })}
-                          </SelectContent>
-                        </Select>
-                      </div>
+                    <div className={`grid grid-cols-1 ${needsStorageSelection ? 'md:grid-cols-3' : 'md:grid-cols-2'} gap-4`}>
+                      {/* Storage Selection - Only show for devices that need it */}
+                      {needsStorageSelection && (
+                        <div>
+                          <Label className="text-sm font-semibold samsung-text mb-2 block">Storage Capacity *</Label>
+                          <Select
+                            value={currentSelection.storage || ""}
+                            onValueChange={(value) => {
+                              const variant = phoneVariants.find(phone => (phone.storage || 'Standard') === value);
+                              if (variant) {
+                                setPhoneSelections(prev => ({
+                                  ...prev,
+                                  [phoneModel.name]: {
+                                    ...prev[phoneModel.name],
+                                    storage: value,
+                                    price: variant.price,
+                                    color: "", // Reset color when storage changes
+                                    quantity: prev[phoneModel.name]?.quantity || 1
+                                  }
+                                }));
+                              }
+                            }}
+                          >
+                            <SelectTrigger className="rounded-xl border-2 border-gray-300 focus:border-black">
+                              <SelectValue placeholder="Select storage capacity" />
+                            </SelectTrigger>
+                            <SelectContent className="rounded-xl">
+                              {storageOptions.map((storage) => {
+                                const variant = phoneVariants.find(phone => (phone.storage || 'Standard') === storage);
+                                return (
+                                  <SelectItem key={storage} value={storage}>
+                                    {storage} - N${variant?.price.toLocaleString()}
+                                  </SelectItem>
+                                );
+                              })}
+                            </SelectContent>
+                          </Select>
+                        </div>
+                      )}
                       
                       {/* Color Selection */}
                       <div>

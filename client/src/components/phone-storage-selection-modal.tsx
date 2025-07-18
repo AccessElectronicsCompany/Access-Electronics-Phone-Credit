@@ -42,17 +42,31 @@ export default function PhoneStorageSelectionModal({
   const phoneData = getPhoneData();
   const phoneVariants = phoneData.filter(phone => phone.name === phoneBaseName);
   
+  // Check if this device type needs storage selection
+  const isWatch = phoneType === "watch";
+  const isBuds = phoneType === "buds";
+  const needsStorageSelection = !isWatch && !isBuds && phoneVariants.some(phone => phone.storage);
+  
   // Get unique storage options (handle devices without storage)
-  const storageOptions = Array.from(new Set(phoneVariants.map(phone => phone.storage || 'Standard')));
+  const storageOptions = needsStorageSelection 
+    ? Array.from(new Set(phoneVariants.map(phone => phone.storage || 'Standard')))
+    : ['Standard'];
+  
+  // For devices that don't need storage selection, auto-select the first variant
+  if (!needsStorageSelection && !selectedStorage) {
+    setSelectedStorage('Standard');
+  }
   
   // Get selected phone variant
-  const selectedPhoneVariant = phoneVariants.find(phone => (phone.storage || 'Standard') === selectedStorage);
+  const selectedPhoneVariant = needsStorageSelection 
+    ? phoneVariants.find(phone => (phone.storage || 'Standard') === selectedStorage)
+    : phoneVariants[0];
   
   // Get available colors for selected storage
   const availableColors = selectedPhoneVariant?.colors || [];
 
   const handleAddToCart = () => {
-    if (!selectedStorage || !selectedColor) {
+    if (needsStorageSelection && (!selectedStorage || !selectedColor)) {
       toast({
         title: "Selection Required",
         description: "Please select both storage and color options",
@@ -60,8 +74,20 @@ export default function PhoneStorageSelectionModal({
       });
       return;
     }
+    
+    if (!needsStorageSelection && !selectedColor) {
+      toast({
+        title: "Selection Required",
+        description: "Please select a color option",
+        variant: "destructive",
+      });
+      return;
+    }
 
-    const phoneVariant = phoneVariants.find(phone => (phone.storage || 'Standard') === selectedStorage);
+    const phoneVariant = needsStorageSelection 
+      ? phoneVariants.find(phone => (phone.storage || 'Standard') === selectedStorage)
+      : phoneVariants[0];
+      
     if (!phoneVariant) {
       toast({
         title: "Error",
@@ -80,7 +106,7 @@ export default function PhoneStorageSelectionModal({
 
     toast({
       title: "Added to cart",
-      description: `${phoneVariant.name} ${phoneVariant.storage} in ${selectedColor} has been added to your cart`,
+      description: `${phoneVariant.name}${phoneVariant.storage ? ` ${phoneVariant.storage}` : ''} in ${selectedColor} has been added to your cart`,
     });
 
     // Reset and close
@@ -100,35 +126,40 @@ export default function PhoneStorageSelectionModal({
       <DialogContent className="sm:max-w-md rounded-xl border-2 border-black">
         <DialogHeader>
           <DialogTitle className="samsung-header text-xl">
-            Select Storage & Color
+            {needsStorageSelection ? "Select Storage & Color" : "Select Color"}
           </DialogTitle>
           <DialogDescription className="samsung-text">
-            Choose your preferred storage capacity and color for {phoneBaseName}
+            {needsStorageSelection 
+              ? `Choose your preferred storage capacity and color for ${phoneBaseName}`
+              : `Choose your preferred color for ${phoneBaseName}`
+            }
           </DialogDescription>
         </DialogHeader>
         
         <div className="space-y-4">
-          {/* Storage Selection */}
-          <div>
-            <Label htmlFor="storage" className="text-sm font-semibold samsung-text mb-2 block">
-              Storage Capacity *
-            </Label>
-            <Select value={selectedStorage} onValueChange={setSelectedStorage}>
-              <SelectTrigger className="rounded-xl border-2 border-gray-300 focus:border-black">
-                <SelectValue placeholder="Select storage capacity" />
-              </SelectTrigger>
-              <SelectContent className="rounded-xl">
-                {storageOptions.map((storage) => {
-                  const variant = phoneVariants.find(phone => phone.storage === storage);
-                  return (
-                    <SelectItem key={storage} value={storage}>
-                      {storage} - N${variant?.price.toLocaleString()}
-                    </SelectItem>
-                  );
-                })}
-              </SelectContent>
-            </Select>
-          </div>
+          {/* Storage Selection - Only show for devices that need it */}
+          {needsStorageSelection && (
+            <div>
+              <Label htmlFor="storage" className="text-sm font-semibold samsung-text mb-2 block">
+                Storage Capacity *
+              </Label>
+              <Select value={selectedStorage} onValueChange={setSelectedStorage}>
+                <SelectTrigger className="rounded-xl border-2 border-gray-300 focus:border-black">
+                  <SelectValue placeholder="Select storage capacity" />
+                </SelectTrigger>
+                <SelectContent className="rounded-xl">
+                  {storageOptions.map((storage) => {
+                    const variant = phoneVariants.find(phone => phone.storage === storage);
+                    return (
+                      <SelectItem key={storage} value={storage}>
+                        {storage} - N${variant?.price.toLocaleString()}
+                      </SelectItem>
+                    );
+                  })}
+                </SelectContent>
+              </Select>
+            </div>
+          )}
 
           {/* Color Selection */}
           <div>
@@ -138,10 +169,14 @@ export default function PhoneStorageSelectionModal({
             <Select 
               value={selectedColor} 
               onValueChange={setSelectedColor}
-              disabled={!selectedStorage}
+              disabled={needsStorageSelection && !selectedStorage}
             >
               <SelectTrigger className="rounded-xl border-2 border-gray-300 focus:border-black">
-                <SelectValue placeholder={selectedStorage ? "Select color" : "Select storage first"} />
+                <SelectValue placeholder={
+                  needsStorageSelection 
+                    ? (selectedStorage ? "Select color" : "Select storage first")
+                    : "Select color"
+                } />
               </SelectTrigger>
               <SelectContent className="rounded-xl">
                 {availableColors.map((color) => (
@@ -159,7 +194,9 @@ export default function PhoneStorageSelectionModal({
               <h4 className="samsung-text font-semibold mb-2">Selected Configuration:</h4>
               <div className="space-y-1 text-sm samsung-text">
                 <div>Model: {selectedPhoneVariant.name}</div>
-                <div>Storage: {selectedPhoneVariant.storage}</div>
+                {needsStorageSelection && selectedPhoneVariant.storage && (
+                  <div>Storage: {selectedPhoneVariant.storage}</div>
+                )}
                 <div>Price: N${selectedPhoneVariant.price.toLocaleString()}</div>
                 <div>Condition: {selectedPhoneVariant.condition}</div>
                 {selectedColor && <div>Color: {selectedColor}</div>}
@@ -179,7 +216,7 @@ export default function PhoneStorageSelectionModal({
           <Button 
             onClick={handleAddToCart}
             className="flex-1 rounded-xl samsung-btn"
-            disabled={!selectedStorage || !selectedColor}
+            disabled={needsStorageSelection ? (!selectedStorage || !selectedColor) : !selectedColor}
           >
             Add to Cart
           </Button>
