@@ -79,8 +79,6 @@ export default function QuoteFormModal({ isOpen, onClose, selectedPhone }: Quote
   const [paymentTerm, setPaymentTerm] = useState("36");
   const [monthlyPayment, setMonthlyPayment] = useState("");
   const [totalAmount, setTotalAmount] = useState("");
-  const [canSubmit, setCanSubmit] = useState(true);
-  const [timeRemaining, setTimeRemaining] = useState(0);
   const [depositMethod, setDepositMethod] = useState("");
   const [showSuccessModal, setShowSuccessModal] = useState(false);
   const { toast } = useToast();
@@ -121,37 +119,7 @@ export default function QuoteFormModal({ isOpen, onClose, selectedPhone }: Quote
     }
   }, [isCartQuote, uniquePhoneModels.length]);
 
-  // Check if user can submit based on last submission time
-  useEffect(() => {
-    const lastSubmission = localStorage.getItem('lastQuoteSubmission');
-    if (lastSubmission) {
-      const lastSubmissionTime = new Date(lastSubmission).getTime();
-      const now = Date.now();
-      const timeDiff = now - lastSubmissionTime;
-      const thirtyMinutes = 30 * 60 * 1000;
-      
-      if (timeDiff < thirtyMinutes) {
-        setCanSubmit(false);
-        setTimeRemaining(thirtyMinutes - timeDiff);
-        
-        // Update countdown every second
-        const interval = setInterval(() => {
-          const currentTime = Date.now();
-          const remaining = thirtyMinutes - (currentTime - lastSubmissionTime);
-          
-          if (remaining <= 0) {
-            setCanSubmit(true);
-            setTimeRemaining(0);
-            clearInterval(interval);
-          } else {
-            setTimeRemaining(remaining);
-          }
-        }, 1000);
-        
-        return () => clearInterval(interval);
-      }
-    }
-  }, [isOpen]);
+
 
   const {
     register,
@@ -314,11 +282,6 @@ export default function QuoteFormModal({ isOpen, onClose, selectedPhone }: Quote
       return apiRequest("POST", "/api/quote-requests", quoteData);
     },
     onSuccess: () => {
-      // Set last submission time
-      localStorage.setItem('lastQuoteSubmission', new Date().toISOString());
-      setCanSubmit(false);
-      setTimeRemaining(30 * 60 * 1000);
-      
       // Clear cart if this was a cart quote
       if (isCartQuote) {
         clearCart();
@@ -339,15 +302,6 @@ export default function QuoteFormModal({ isOpen, onClose, selectedPhone }: Quote
   });
 
   const onSubmit = (data: QuoteFormData) => {
-    if (!canSubmit) {
-      toast({
-        title: "Please wait",
-        description: `You can submit another quote in ${formatTimeRemaining(timeRemaining)}.`,
-        variant: "destructive",
-      });
-      return;
-    }
-    
     // Validate individual phone selections for multi-phone quotes
     if (isCartQuote) {
       const incompleteSelections = uniquePhoneModels.filter(phoneModel => {
@@ -368,11 +322,7 @@ export default function QuoteFormModal({ isOpen, onClose, selectedPhone }: Quote
     createQuoteMutation.mutate(data);
   };
 
-  const formatTimeRemaining = (milliseconds: number) => {
-    const minutes = Math.floor(milliseconds / 60000);
-    const seconds = Math.floor((milliseconds % 60000) / 1000);
-    return `${minutes}:${seconds.toString().padStart(2, '0')}`;
-  };
+
 
   const handleRequestAnother = () => {
     // Reset form and reopen
@@ -403,11 +353,7 @@ export default function QuoteFormModal({ isOpen, onClose, selectedPhone }: Quote
               : "Please fill out the form below to request a quote for your selected phone."
             }
           </DialogDescription>
-          {!canSubmit && (
-            <div className="bg-orange-100 border border-orange-400 text-orange-700 px-4 py-3 rounded-xl text-center">
-              <p className="samsung-text">You can submit another quote in {formatTimeRemaining(timeRemaining)}</p>
-            </div>
-          )}
+
         </DialogHeader>
         
         {/* Individual Phone Selection Sections for Multi-Phone Quotes */}
@@ -876,12 +822,10 @@ export default function QuoteFormModal({ isOpen, onClose, selectedPhone }: Quote
             </Button>
             <Button
               type="submit"
-              disabled={createQuoteMutation.isPending || !canSubmit}
+              disabled={createQuoteMutation.isPending}
               className="px-6 md:px-8 py-3 samsung-btn order-1 sm:order-2"
             >
-              {createQuoteMutation.isPending ? "Submitting..." : 
-               !canSubmit ? `Wait ${formatTimeRemaining(timeRemaining)}` : 
-               "Submit Quote Request"}
+              {createQuoteMutation.isPending ? "Submitting..." : "Submit Quote Request"}
             </Button>
           </div>
         </form>
