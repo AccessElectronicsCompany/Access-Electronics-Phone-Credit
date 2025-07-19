@@ -218,6 +218,48 @@ export const iphones: Phone[] = [
     price: 8500,
     colors: ["Black", "White", "Green", "Purple", "Yellow", "(PRODUCT)RED"],
     condition: "NEW"
+  },
+  {
+    name: "iPhone 15 Plus",
+    storage: "256GB",
+    price: 19999,
+    colors: ["Black", "Blue", "Green", "Yellow", "Pink"],
+    condition: "NEW"
+  },
+  {
+    name: "iPhone 15 Plus",
+    storage: "128GB",
+    price: 17999,
+    colors: ["Black", "Blue", "Green", "Yellow", "Pink"],
+    condition: "NEW"
+  },
+  {
+    name: "iPhone XS Max",
+    storage: "256GB",
+    price: 6999,
+    colors: ["Space Gray", "Silver", "Gold"],
+    condition: "NEW"
+  },
+  {
+    name: "iPhone XR",
+    storage: "256GB",
+    price: 6700,
+    colors: ["Black", "White", "Blue", "Coral", "Yellow", "(PRODUCT)RED"],
+    condition: "NEW"
+  },
+  {
+    name: "iPhone X",
+    storage: "256GB",
+    price: 5850,
+    colors: ["Space Gray", "Silver"],
+    condition: "NEW"
+  },
+  {
+    name: "iPhone X",
+    storage: "64GB",
+    price: 5500,
+    colors: ["Space Gray", "Silver"],
+    condition: "NEW"
   }
 ];
 
@@ -360,6 +402,62 @@ export const samsungPhones: Phone[] = [
     storage: "256GB",
     price: 24999,
     colors: ["Mint", "Graphite", "Cream", "Lavender", "Yellow", "Blue", "Green", "Gray", "Peach", "Indigo"],
+    condition: "NEW"
+  },
+  {
+    name: "Samsung S22 Ultra",
+    storage: "256GB",
+    price: 11999,
+    colors: ["Phantom Black", "Phantom White", "Burgundy", "Green"],
+    condition: "NEW"
+  },
+  {
+    name: "Samsung Note Ultra",
+    storage: "256GB",
+    price: 12999,
+    colors: ["Mystic Bronze", "Mystic Black", "Mystic White"],
+    condition: "NEW"
+  },
+  {
+    name: "Samsung S21 Ultra",
+    storage: "128GB",
+    price: 10999,
+    colors: ["Phantom Black", "Phantom Silver"],
+    condition: "NEW"
+  },
+  {
+    name: "Samsung S21",
+    storage: "256GB",
+    price: 9500,
+    colors: ["Phantom Gray", "Phantom White", "Phantom Violet", "Phantom Pink"],
+    condition: "NEW"
+  },
+  {
+    name: "Samsung S21",
+    storage: "128GB",
+    price: 8500,
+    colors: ["Phantom Gray", "Phantom White", "Phantom Violet", "Phantom Pink"],
+    condition: "NEW"
+  },
+  {
+    name: "Samsung S20 Ultra",
+    storage: "128GB",
+    price: 8499,
+    colors: ["Cosmic Gray", "Cosmic Black"],
+    condition: "NEW"
+  },
+  {
+    name: "Samsung S20",
+    storage: "256GB",
+    price: 6999,
+    colors: ["Cosmic Gray", "Cloud Blue", "Cloud White"],
+    condition: "NEW"
+  },
+  {
+    name: "Samsung S20",
+    storage: "128GB",
+    price: 6700,
+    colors: ["Cosmic Gray", "Cloud Blue", "Cloud Pink"],
     condition: "NEW"
   }
 ];
