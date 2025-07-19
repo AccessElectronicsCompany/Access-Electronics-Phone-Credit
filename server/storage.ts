@@ -4,6 +4,7 @@ export interface IStorage {
   createQuoteRequest(quoteRequest: InsertQuoteRequest): Promise<QuoteRequest>;
   getQuoteRequest(id: number): Promise<QuoteRequest | undefined>;
   getAllQuoteRequests(): Promise<QuoteRequest[]>;
+  getRecentQuotesByUser(contactNumber: string, timeWindowMinutes: number): Promise<QuoteRequest[]>;
 }
 
 export class MemStorage implements IStorage {
@@ -34,6 +35,16 @@ export class MemStorage implements IStorage {
 
   async getAllQuoteRequests(): Promise<QuoteRequest[]> {
     return Array.from(this.quoteRequests.values());
+  }
+
+  async getRecentQuotesByUser(contactNumber: string, timeWindowMinutes: number): Promise<QuoteRequest[]> {
+    const cutoffTime = new Date(Date.now() - timeWindowMinutes * 60 * 1000);
+    const allQuotes = Array.from(this.quoteRequests.values());
+    
+    return allQuotes.filter(quote => 
+      quote.contactNumber === contactNumber && 
+      quote.createdAt > cutoffTime
+    );
   }
 }
 

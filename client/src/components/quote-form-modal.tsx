@@ -306,11 +306,22 @@ export default function QuoteFormModal({ isOpen, onClose, selectedPhone }: Quote
       queryClient.invalidateQueries({ queryKey: ["/api/quote-requests"] });
     },
     onError: (error: any) => {
-      toast({
-        title: "Error",
-        description: error.message || "Failed to submit quote request. Please try again.",
-        variant: "destructive",
-      });
+      console.error("Quote submission failed:", error);
+      
+      // Handle rate limit error (429 status)
+      if (error.status === 429) {
+        toast({
+          title: "Quote Request Limit Reached",
+          description: error.message || "You have reached the maximum number of quote requests. Please try again in 30 minutes.",
+          variant: "destructive",
+        });
+      } else {
+        toast({
+          title: "Error",
+          description: error.message || "Failed to submit quote request. Please try again.",
+          variant: "destructive",
+        });
+      }
     },
   });
 

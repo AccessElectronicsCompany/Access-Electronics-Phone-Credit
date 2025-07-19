@@ -164,6 +164,13 @@ This is a full-stack web application built for Access Electronics, allowing cust
   - Fixed color selection functionality across all device quote forms by properly passing device colors to quote modal
   - Improved navigation spacing and layout to accommodate additional menu items
   - Enhanced user experience with direct access to all device categories from header navigation
+- July 19, 2025. Implemented 30-minute quote request rate limiting with 2 requests per user
+  - Added backend rate limiting logic to track quote requests by contact number
+  - Users can now submit maximum 2 quote requests every 30 minutes
+  - Enhanced error handling to display user-friendly rate limit messages
+  - Improved backend storage interface to support querying recent quotes by user
+  - Updated frontend error handling to specifically handle 429 rate limit responses
+  - System tracks request timestamps and calculates remaining wait time for users
 
 ## User Preferences
 
