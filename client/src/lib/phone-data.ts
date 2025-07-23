@@ -131,7 +131,7 @@ export const iphones: Phone[] = [
   {
     name: "iPhone 14",
     storage: "128GB",
-    price: 12999,
+    price: 11999,
     colors: ["Midnight", "Starlight", "Blue", "Purple", "Yellow", "(PRODUCT)RED"],
     condition: "NEW"
   },
@@ -173,14 +173,14 @@ export const iphones: Phone[] = [
   {
     name: "iPhone 12 Pro Max",
     storage: "256GB",
-    price: 13999,
+    price: 12999,
     colors: ["Graphite", "Silver", "Gold", "Pacific Blue"],
     condition: "NEW"
   },
   {
     name: "iPhone 12 Pro Max",
     storage: "128GB",
-    price: 12999,
+    price: 11999,
     colors: ["Graphite", "Silver", "Gold", "Pacific Blue"],
     condition: "NEW"
   },
