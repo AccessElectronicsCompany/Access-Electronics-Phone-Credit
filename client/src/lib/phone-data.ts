@@ -89,7 +89,7 @@ export const iphones: Phone[] = [
   {
     name: "iPhone 15",
     storage: "128GB",
-    price: 16499,
+    price: 15999,
     colors: ["Black", "Blue", "Green", "Pink", "Yellow"],
     condition: "NEW"
   },
