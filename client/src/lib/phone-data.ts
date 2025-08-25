@@ -404,13 +404,7 @@ export const samsungPhones: Phone[] = [
     colors: ["Mint", "Graphite", "Cream", "Lavender", "Yellow", "Blue", "Green", "Gray", "Peach", "Indigo"],
     condition: "NEW"
   },
-  {
-    name: "Samsung S22 Ultra",
-    storage: "256GB",
-    price: 11999,
-    colors: ["Phantom Black", "Phantom White", "Burgundy", "Green"],
-    condition: "NEW"
-  },
+
   {
     name: "Samsung Note Ultra",
     storage: "256GB",
