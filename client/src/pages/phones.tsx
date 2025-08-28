@@ -5,7 +5,7 @@ import QuoteFormModal from "@/components/quote-form-modal";
 import CartButton from "@/components/cart-button";
 import CartModal from "@/components/cart-modal";
 import { Card, CardContent } from "@/components/ui/card";
-import { iphones, samsungPhones } from "@/lib/phone-data";
+import { iphones, samsungPhones, usedPhones } from "@/lib/phone-data";
 import { ArrowLeft, Menu, X } from "lucide-react";
 
 export default function Phones() {
@@ -22,7 +22,7 @@ export default function Phones() {
 
   const handleSelectPhone = (name: string, storage: string, price: number) => {
     // Find the phone to get colors
-    const phone = [...iphones, ...samsungPhones].find(p => p.name === name && p.storage === storage);
+    const phone = [...iphones, ...samsungPhones, ...usedPhones].find(p => p.name === name && p.storage === storage);
     setSelectedPhone({ name, storage, price, colors: phone?.colors || [] });
     setShowQuoteForm(true);
   };
@@ -193,10 +193,16 @@ export default function Phones() {
             <h2 className="text-4xl samsung-header mb-6">USED PHONES</h2>
             <p className="samsung-text text-lg">Quality pre-owned devices at great prices</p>
           </div>
-          <div className="text-center py-16">
-            <div className="text-8xl mb-8">🔧</div>
-            <p className="text-2xl samsung-text mb-6 tracking-wide">COMING SOON</p>
-            <p className="samsung-text opacity-70 text-lg">We're preparing an amazing selection of quality used phones</p>
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
+            {usedPhones.map((phone) => (
+              <PhoneCard
+                key={`${phone.name}-${phone.storage}`}
+                phone={phone}
+                phoneType="used"
+                onSelect={handleSelectPhone}
+                onRequestQuote={handleRequestQuote}
+              />
+            ))}
           </div>
         </div>
       </section>
