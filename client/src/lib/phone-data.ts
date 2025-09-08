@@ -323,14 +323,7 @@ export const samsungPhones: Phone[] = [
   {
     name: "Samsung Z Fold",
     storage: "256GB",
-    price: 39999,
-    colors: ["Phantom Black", "Icy Blue", "Cream", "Gray", "Blue", "Crafted Black", "Silver Shadow"],
-    condition: "NEW"
-  },
-  {
-    name: "Samsung Z Fold",
-    storage: "512GB",
-    price: 43999,
+    price: 31999,
     colors: ["Phantom Black", "Icy Blue", "Cream", "Gray", "Blue", "Crafted Black", "Silver Shadow"],
     condition: "NEW"
   },
@@ -407,14 +400,7 @@ export const samsungPhones: Phone[] = [
   {
     name: "Samsung Z Flip",
     storage: "256GB",
-    price: 23999,
-    colors: ["Mint", "Graphite", "Cream", "Lavender", "Yellow", "Blue", "Green", "Gray", "Peach", "Indigo"],
-    condition: "NEW"
-  },
-  {
-    name: "Samsung Z Flip",
-    storage: "512GB",
-    price: 25999,
+    price: 24999,
     colors: ["Mint", "Graphite", "Cream", "Lavender", "Yellow", "Blue", "Green", "Gray", "Peach", "Indigo"],
     condition: "NEW"
   },
