@@ -265,6 +265,34 @@ export const iphones: Phone[] = [
 
 export const samsungPhones: Phone[] = [
   {
+    name: "Samsung Z Fold 7",
+    storage: "512GB",
+    price: 43999,
+    colors: ["Phantom Black", "Icy Blue", "Cream", "Gray", "Blue", "Crafted Black", "Silver Shadow"],
+    condition: "NEW"
+  },
+  {
+    name: "Samsung Z Fold 7",
+    storage: "256GB",
+    price: 39999,
+    colors: ["Phantom Black", "Icy Blue", "Cream", "Gray", "Blue", "Crafted Black", "Silver Shadow"],
+    condition: "NEW"
+  },
+  {
+    name: "Samsung Z Flip 7",
+    storage: "512GB",
+    price: 25999,
+    colors: ["Mint", "Graphite", "Cream", "Lavender", "Yellow", "Blue", "Green", "Gray", "Peach", "Indigo"],
+    condition: "NEW"
+  },
+  {
+    name: "Samsung Z Flip 7",
+    storage: "256GB",
+    price: 23999,
+    colors: ["Mint", "Graphite", "Cream", "Lavender", "Yellow", "Blue", "Green", "Gray", "Peach", "Indigo"],
+    condition: "NEW"
+  },
+  {
     name: "Samsung S25 Ultra",
     storage: "512GB",
     price: 27999,
