@@ -605,6 +605,48 @@ export const usedPhones: Phone[] = [
     price: 17999,
     colors: ["Titanium Black", "Titanium Gray", "Titanium Violet", "Titanium Yellow"],
     condition: "USED"
+  },
+  {
+    name: "Samsung S23 Ultra",
+    storage: "256GB",
+    price: 14999,
+    colors: ["Phantom Black", "Cream", "Green", "Lavender", "Graphite", "Lime", "Sky Blue", "Red"],
+    condition: "USED"
+  },
+  {
+    name: "Samsung S20+",
+    storage: "256GB",
+    price: 6499,
+    colors: ["Cosmic Gray", "Cloud Blue", "Cosmic Black"],
+    condition: "USED"
+  },
+  {
+    name: "Samsung S23 Plus (Single Sim)",
+    storage: "512GB",
+    price: 11999,
+    colors: ["Phantom Black", "Cream", "Green", "Lavender", "Graphite", "Lime"],
+    condition: "USED"
+  },
+  {
+    name: "Samsung S20 Ultra (Dual Sim)",
+    storage: "256GB",
+    price: 7499,
+    colors: ["Cosmic Gray", "Cosmic Black"],
+    condition: "USED"
+  },
+  {
+    name: "Samsung S22 Ultra",
+    storage: "512GB",
+    price: 12999,
+    colors: ["Phantom Black", "Phantom White", "Green", "Burgundy", "Graphite", "Sky Blue", "Red"],
+    condition: "USED"
+  },
+  {
+    name: "Samsung S22 (1 Sim)",
+    storage: "256GB",
+    price: 6999,
+    colors: ["Phantom Black", "Phantom White", "Green", "Pink Gold", "Graphite", "Sky Blue", "Violet", "Cream"],
+    condition: "USED"
   }
 ];
 
