@@ -20,28 +20,28 @@ export const iphones: Phone[] = [
     name: "iPhone 17 Pro Max",
     storage: "256GB",
     price: 30999,
-    colors: ["Black Titanium", "White Titanium", "Natural Titanium", "Desert Titanium"],
+    colors: ["Cosmic Orange", "Deep Blue", "Silver"],
     condition: "NEW"
   },
   {
     name: "iPhone 17 Pro",
     storage: "256GB",
     price: 27299,
-    colors: ["Black Titanium", "White Titanium", "Natural Titanium", "Desert Titanium"],
+    colors: ["Cosmic Orange", "Deep Blue", "Silver"],
     condition: "NEW"
   },
   {
     name: "iPhone Air",
     storage: "256GB",
     price: 24699,
-    colors: ["Black", "White", "Pink", "Teal", "Ultramarine"],
+    colors: ["Sky Blue", "Light Gold", "Cloud White", "Space Black"],
     condition: "NEW"
   },
   {
     name: "iPhone 17",
     storage: "256GB",
     price: 19999,
-    colors: ["Black", "White", "Pink", "Teal", "Ultramarine"],
+    colors: ["Lavender", "Sage", "Mist Blue", "White", "Black"],
     condition: "NEW"
   },
   {
