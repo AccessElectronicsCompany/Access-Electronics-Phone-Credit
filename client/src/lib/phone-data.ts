@@ -19,7 +19,7 @@ export const iphones: Phone[] = [
   {
     name: "iPhone 16 Pro Max",
     storage: "256GB",
-    price: 27999,
+    price: 26999,
     colors: ["Black Titanium", "White Titanium", "Natural Titanium", "Desert Titanium"],
     condition: "NEW"
   },
@@ -33,7 +33,7 @@ export const iphones: Phone[] = [
   {
     name: "iPhone 16 Pro",
     storage: "256GB",
-    price: 25999,
+    price: 24999,
     colors: ["Black Titanium", "White Titanium", "Natural Titanium", "Desert Titanium"],
     condition: "NEW"
   },
@@ -47,7 +47,7 @@ export const iphones: Phone[] = [
   {
     name: "iPhone 16",
     storage: "128GB",
-    price: 17999,
+    price: 16999,
     colors: ["Black", "White", "Pink", "Teal", "Ultramarine"],
     condition: "NEW"
   },
@@ -89,7 +89,7 @@ export const iphones: Phone[] = [
   {
     name: "iPhone 15",
     storage: "128GB",
-    price: 15999,
+    price: 14999,
     colors: ["Black", "Blue", "Green", "Pink", "Yellow"],
     condition: "NEW"
   },
@@ -295,14 +295,14 @@ export const samsungPhones: Phone[] = [
   {
     name: "Samsung S25 Ultra",
     storage: "512GB",
-    price: 27999,
+    price: 26999,
     colors: ["Titanium Silver Blue", "Titanium Black", "Titanium White Silver", "Titanium Gray"],
     condition: "NEW"
   },
   {
     name: "Samsung S25 Ultra",
     storage: "256GB",
-    price: 26999,
+    price: 25999,
     colors: ["Titanium Silver Blue", "Titanium Black", "Titanium White Silver", "Titanium Gray"],
     condition: "NEW"
   },
@@ -316,7 +316,7 @@ export const samsungPhones: Phone[] = [
   {
     name: "Samsung S25",
     storage: "256GB",
-    price: 18499,
+    price: 17499,
     colors: ["Icy Blue", "Mint", "Navy", "Silver Shadow"],
     condition: "NEW"
   },
@@ -337,14 +337,14 @@ export const samsungPhones: Phone[] = [
   {
     name: "Samsung S24 Plus",
     storage: "256GB",
-    price: 18499,
+    price: 17499,
     colors: ["Onyx Black", "Marble Gray", "Cobalt Violet", "Amber Yellow", "Jade Green", "Sapphire Blue"],
     condition: "NEW"
   },
   {
     name: "Samsung S24",
     storage: "256GB",
-    price: 15499,
+    price: 14499,
     colors: ["Onyx Black", "Marble Gray", "Cobalt Violet", "Amber Yellow", "Jade Green", "Sapphire Blue"],
     condition: "NEW"
   },
