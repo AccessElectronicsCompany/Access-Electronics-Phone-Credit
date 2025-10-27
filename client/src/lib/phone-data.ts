@@ -19,7 +19,7 @@ export const iphones: Phone[] = [
   {
     name: "iPhone 17 Pro Max",
     storage: "256GB",
-    price: 30999,
+    price: 29999,
     colors: ["Cosmic Orange", "Deep Blue", "Silver"],
     condition: "NEW"
   },
@@ -96,7 +96,7 @@ export const iphones: Phone[] = [
   {
     name: "iPhone 15 Pro Max",
     storage: "256GB",
-    price: 27999,
+    price: 25999,
     colors: ["Black Titanium", "White Titanium", "Blue Titanium", "Natural Titanium"],
     condition: "NEW"
   },
@@ -138,6 +138,13 @@ export const iphones: Phone[] = [
   {
     name: "iPhone 14 Pro",
     storage: "256GB",
+    price: 16999,
+    colors: ["Deep Purple", "Space Black"],
+    condition: "NEW"
+  },
+  {
+    name: "iPhone 14 Pro",
+    storage: "128GB",
     price: 15999,
     colors: ["Deep Purple", "Space Black"],
     condition: "NEW"
@@ -180,7 +187,7 @@ export const iphones: Phone[] = [
   {
     name: "iPhone 13 Pro Max",
     storage: "128GB",
-    price: 14400,
+    price: 14999,
     colors: ["Graphite", "Silver", "Gold", "Sierra Blue", "Alpine Green"],
     condition: "NEW"
   },
@@ -442,7 +449,7 @@ export const samsungPhones: Phone[] = [
   {
     name: "Samsung A56",
     storage: "256GB",
-    price: 10499,
+    price: 9999,
     colors: ["Awesome Iceblue", "Awesome Lilac", "Awesome Navy", "Awesome White"],
     condition: "NEW"
   },
