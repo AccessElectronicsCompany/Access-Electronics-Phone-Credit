@@ -940,3 +940,118 @@ export const samsungTablets: Device[] = [
     specs: "Snapdragon 695, 8.7-inch TFT display"
   }
 ];
+
+export const gamingSound: Device[] = [
+  {
+    name: "JBL Flip 7",
+    price: 2799,
+    colors: ["Blue", "Black"],
+    condition: "NEW",
+    specs: "Portable Bluetooth Speaker"
+  },
+  {
+    name: "JBL Charge 5",
+    price: 2999,
+    colors: ["Pink", "White", "Black"],
+    condition: "NEW",
+    specs: "Portable Bluetooth Speaker with Powerbank"
+  },
+  {
+    name: "JBL Live 670NC",
+    price: 2299,
+    colors: ["Sandstone"],
+    condition: "NEW",
+    specs: "Wireless Over-Ear Headphones with Active Noise Cancelling"
+  },
+  {
+    name: "JBL Tune 520BT",
+    price: 799,
+    colors: ["White", "Black"],
+    condition: "NEW",
+    specs: "Wireless On-Ear Headphones"
+  },
+  {
+    name: "JBL Tune 670NC",
+    price: 1999,
+    colors: ["Black"],
+    condition: "NEW",
+    specs: "Wireless Over-Ear Headphones with Active Noise Cancelling"
+  },
+  {
+    name: "JBL Clip 5",
+    price: 1299,
+    colors: ["White", "Red"],
+    condition: "NEW",
+    specs: "Ultra-Portable Bluetooth Speaker with Carabiner"
+  },
+  {
+    name: "Harman Kardon Onyx Studio 9",
+    price: 5499,
+    colors: ["Grey", "Black"],
+    condition: "NEW",
+    specs: "Premium Bluetooth Speaker"
+  },
+  {
+    name: "DualSense Charging Station",
+    price: 599,
+    colors: ["White"],
+    condition: "NEW",
+    specs: "PS5 Controller Charging Station"
+  },
+  {
+    name: "PlayStation Portal Remote Player",
+    price: 4999,
+    colors: ["White"],
+    condition: "NEW",
+    specs: "PS5 Remote Play Device"
+  },
+  {
+    name: "DualSense Edge Wireless Controller",
+    price: 4299,
+    colors: ["Midnight Black"],
+    condition: "NEW",
+    specs: "PS5 Pro Controller"
+  },
+  {
+    name: "DualSense Wireless Controller",
+    price: 1499,
+    colors: ["White"],
+    condition: "NEW",
+    specs: "PS5 Standard Controller"
+  },
+  {
+    name: "PULSE Elite Wireless Headset",
+    price: 3999,
+    colors: ["Midnight Black", "White"],
+    condition: "NEW",
+    specs: "PS5 Premium Gaming Headset"
+  },
+  {
+    name: "PULSE Explore Wireless Earbuds",
+    price: 4999,
+    colors: ["Midnight Black", "White"],
+    condition: "NEW",
+    specs: "PS5 Gaming Earbuds"
+  },
+  {
+    name: "PlayStation 5 Digital Edition Console",
+    price: 12999,
+    colors: ["White"],
+    condition: "NEW",
+    specs: "PS5 Digital Console (No Disc Drive)"
+  },
+  {
+    name: "PlayStation 5 Slim Disc Console",
+    price: 13999,
+    colors: ["White"],
+    condition: "NEW",
+    specs: "PS5 Slim with Ultra HD Blu-ray Disc Drive"
+  },
+  {
+    name: "PlayStation 5 Pro Console",
+    price: 17999,
+    colors: ["White"],
+    condition: "NEW",
+    specs: "PS5 Pro with Advanced Graphics and Performance"
+  }
+];

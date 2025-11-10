@@ -319,9 +319,17 @@ export default function Home() {
                 <p className="text-sm opacity-80">Samsung Galaxy Tabs</p>
               </CardContent>
             </Card>
+            <Card className="text-center p-6 border-2 border-black hover:bg-black hover:text-white transition-all duration-500 cursor-pointer rounded-xl animate-in slide-in-from-left duration-1000 delay-900 hover:scale-105 transform"
+                  onClick={() => window.location.href = '/gaming-sound'}>
+              <CardContent className="pt-4">
+                <div className="text-4xl mb-4 animate-bounce">🎮</div>
+                <h4 className="text-lg font-semibold mb-3 tracking-wide">GAMING & SOUND</h4>
+                <p className="text-sm opacity-80">PS5, JBL, Harman Kardon</p>
+              </CardContent>
+            </Card>
           </div>
           <div className="mt-12 text-center">
-            <Card className="text-center p-6 border-2 border-black hover:bg-black hover:text-white transition-all duration-500 cursor-pointer rounded-xl animate-in slide-in-from-bottom duration-1000 delay-900 hover:scale-105 transform max-w-md mx-auto"
+            <Card className="text-center p-6 border-2 border-black hover:bg-black hover:text-white transition-all duration-500 cursor-pointer rounded-xl animate-in slide-in-from-bottom duration-1000 delay-1000 hover:scale-105 transform max-w-md mx-auto"
                   onClick={() => scrollToSection('calculator')}>
               <CardContent className="pt-4">
                 <div className="text-4xl mb-4 animate-bounce">🧮</div>
