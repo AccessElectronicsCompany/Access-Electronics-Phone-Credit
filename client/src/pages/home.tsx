@@ -89,6 +89,12 @@ export default function Home() {
                 Tablets
               </button>
               <button
+                onClick={() => window.location.href = '/gaming-sound'}
+                className="samsung-text hover:text-black transition-all duration-300 font-medium tracking-wide uppercase text-sm whitespace-nowrap hover:scale-105 transform"
+              >
+                Gaming & Sound
+              </button>
+              <button
                 onClick={() => scrollToSection('calculator')}
                 className="samsung-text hover:text-black transition-all duration-300 font-medium tracking-wide uppercase text-sm whitespace-nowrap hover:scale-105 transform"
               >
@@ -169,6 +175,15 @@ export default function Home() {
                   className="block w-full text-left px-4 py-3 samsung-text hover:bg-gray-50 transition-colors font-medium tracking-wide uppercase text-sm"
                 >
                   Tablets
+                </button>
+                <button
+                  onClick={() => {
+                    window.location.href = '/gaming-sound';
+                    setShowMobileMenu(false);
+                  }}
+                  className="block w-full text-left px-4 py-3 samsung-text hover:bg-gray-50 transition-colors font-medium tracking-wide uppercase text-sm"
+                >
+                  Gaming & Sound
                 </button>
                 <button
                   onClick={() => {
