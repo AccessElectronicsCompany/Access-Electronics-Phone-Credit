@@ -180,6 +180,11 @@ This is a full-stack web application built for Access Electronics, allowing cust
   - Created dedicated gaming-sound.tsx page with full cart and quote functionality
   - Added Gaming & Sound category to main dashboard with 7-category grid layout
   - Integrated routing and navigation for new category across entire platform
+  - Added Gaming & Sound links to both desktop header navigation and mobile toggle menu
+- November 23, 2025. Expanded iPhone 17 series product offerings
+  - Added iPhone 17 Pro Max 512GB at N$34,999 with Cosmic Orange, Deep Blue, and Silver color options
+  - Added iPhone 17 Pro 512GB at N$32,999 with Cosmic Orange, Deep Blue, and Silver color options
+  - Enhanced premium tier offerings for customers seeking higher storage capacity models
 
 ## User Preferences
 

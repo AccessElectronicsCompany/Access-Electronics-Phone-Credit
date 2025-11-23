@@ -18,8 +18,22 @@ export interface Device {
 export const iphones: Phone[] = [
   {
     name: "iPhone 17 Pro Max",
+    storage: "512GB",
+    price: 34999,
+    colors: ["Cosmic Orange", "Deep Blue", "Silver"],
+    condition: "NEW"
+  },
+  {
+    name: "iPhone 17 Pro Max",
     storage: "256GB",
     price: 29999,
+    colors: ["Cosmic Orange", "Deep Blue", "Silver"],
+    condition: "NEW"
+  },
+  {
+    name: "iPhone 17 Pro",
+    storage: "512GB",
+    price: 32999,
     colors: ["Cosmic Orange", "Deep Blue", "Silver"],
     condition: "NEW"
   },
