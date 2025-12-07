@@ -14,6 +14,7 @@ export default function Phones() {
     storage: string;
     price: number;
     colors: string[];
+    condition?: string;
   } | null>(null);
   
   const [showQuoteForm, setShowQuoteForm] = useState(false);
@@ -21,14 +22,14 @@ export default function Phones() {
   const [showCart, setShowCart] = useState(false);
 
   const handleSelectPhone = (name: string, storage: string, price: number) => {
-    // Find the phone to get colors
+    // Find the phone to get colors and condition
     const phone = [...iphones, ...samsungPhones, ...usedPhones].find(p => p.name === name && p.storage === storage);
-    setSelectedPhone({ name, storage, price, colors: phone?.colors || [] });
+    setSelectedPhone({ name, storage, price, colors: phone?.colors || [], condition: phone?.condition });
     setShowQuoteForm(true);
   };
 
-  const handleRequestQuote = (name: string, storage: string, price: number, colors: string[]) => {
-    setSelectedPhone({ name, storage, price, colors });
+  const handleRequestQuote = (name: string, storage: string, price: number, colors: string[], condition?: string) => {
+    setSelectedPhone({ name, storage, price, colors, condition });
     setShowQuoteForm(true);
   };
 

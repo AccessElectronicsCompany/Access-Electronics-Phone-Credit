@@ -5,13 +5,13 @@ import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { useCart } from "@/contexts/CartContext";
 import { useToast } from "@/hooks/use-toast";
-import { iphones, samsungPhones, ipads, macbooks, buds, watches, samsungTablets } from "@/lib/phone-data";
+import { iphones, samsungPhones, usedPhones, ipads, macbooks, buds, watches, samsungTablets } from "@/lib/phone-data";
 
 interface PhoneStorageSelectionModalProps {
   isOpen: boolean;
   onClose: () => void;
   phoneBaseName: string; // e.g., "iPhone 16 Pro"
-  phoneType: "iphone" | "samsung" | "ipad" | "macbook" | "buds" | "watch" | "tablet";
+  phoneType: "iphone" | "samsung" | "used" | "ipad" | "macbook" | "buds" | "watch" | "tablet";
 }
 
 export default function PhoneStorageSelectionModal({ 
@@ -30,12 +30,13 @@ export default function PhoneStorageSelectionModal({
     switch (phoneType) {
       case "iphone": return iphones;
       case "samsung": return samsungPhones;
+      case "used": return usedPhones;
       case "ipad": return ipads;
       case "macbook": return macbooks;
       case "buds": return buds;
       case "watch": return watches;
       case "tablet": return samsungTablets;
-      default: return [...iphones, ...samsungPhones, ...ipads, ...macbooks, ...buds, ...watches, ...samsungTablets];
+      default: return [...iphones, ...samsungPhones, ...usedPhones, ...ipads, ...macbooks, ...buds, ...watches, ...samsungTablets];
     }
   };
   
@@ -99,9 +100,10 @@ export default function PhoneStorageSelectionModal({
 
     addToCart({
       name: phoneVariant.name,
-      storage: phoneVariant.storage,
+      storage: phoneVariant.storage || "N/A",
       price: phoneVariant.price,
-      color: selectedColor
+      color: selectedColor,
+      condition: phoneVariant.condition
     });
 
     toast({

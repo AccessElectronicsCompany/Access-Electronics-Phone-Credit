@@ -16,9 +16,9 @@ interface Phone {
 
 interface PhoneCardProps {
   phone: Phone;
-  phoneType: "iphone" | "samsung";
+  phoneType: "iphone" | "samsung" | "used";
   onSelect: (name: string, storage: string, price: number) => void;
-  onRequestQuote: (name: string, storage: string, price: number, colors: string[]) => void;
+  onRequestQuote: (name: string, storage: string, price: number, colors: string[], condition?: string) => void;
 }
 
 export default function PhoneCard({ phone, phoneType, onSelect, onRequestQuote }: PhoneCardProps) {
@@ -68,7 +68,7 @@ export default function PhoneCard({ phone, phoneType, onSelect, onRequestQuote }
                 <span className="lg:hidden">ADD</span>
               </Button>
               <Button
-                onClick={() => onRequestQuote(phone.name, phone.storage, phone.price, phone.colors)}
+                onClick={() => onRequestQuote(phone.name, phone.storage, phone.price, phone.colors, phone.condition)}
                 className="samsung-btn-outline flex-1 py-2 h-9 text-xs px-1"
               >
                 <span className="hidden lg:inline">QUOTE NOW</span>

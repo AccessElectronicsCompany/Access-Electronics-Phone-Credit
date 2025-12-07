@@ -72,6 +72,7 @@ interface QuoteFormModalProps {
     storage: string;
     price: number;
     colors: string[];
+    condition?: string;
   } | null;
 }
 
@@ -145,7 +146,7 @@ export default function QuoteFormModal({ isOpen, onClose, selectedPhone }: Quote
           ? "N/A" 
           : selectedPhone.storage || ""
       ) : "",
-      condition: "NEW",
+      condition: selectedPhone?.condition === "USED" ? "Used" : "NEW",
       color: "",
       quantity: 1,
       originalPrice: selectedPhone?.price || 0,
@@ -173,7 +174,7 @@ export default function QuoteFormModal({ isOpen, onClose, selectedPhone }: Quote
       setValue("originalPrice", selectedPhone.price);
       setValue("creditAmount", selectedPhone.price);
       setValue("country", "Namibia");
-      setValue("condition", "NEW");
+      setValue("condition", selectedPhone.condition === "USED" ? "Used" : "NEW");
       setValue("color", "");
     } else if (isCartQuote) {
       // For cart quotes, calculate total from cart items using their selected configurations
@@ -190,7 +191,9 @@ export default function QuoteFormModal({ isOpen, onClose, selectedPhone }: Quote
       setValue("originalPrice", totalPrice || 0);
       setValue("creditAmount", totalPrice || 0);
       setValue("country", "Namibia");
-      setValue("condition", "NEW");
+      // For cart quotes, check if any item is used
+      const hasUsedItems = cartItems.some(item => item.condition === "USED");
+      setValue("condition", hasUsedItems ? "Used" : "NEW");
       setValue("color", "Multiple");
       setValue("quantity", totalQuantity); // Total quantity = sum of all item quantities
     }
