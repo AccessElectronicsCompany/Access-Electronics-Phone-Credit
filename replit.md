@@ -185,6 +185,11 @@ This is a full-stack web application built for Access Electronics, allowing cust
   - Added iPhone 17 Pro Max 512GB at N$34,999 with Cosmic Orange, Deep Blue, and Silver color options
   - Added iPhone 17 Pro 512GB at N$32,999 with Cosmic Orange, Deep Blue, and Silver color options
   - Enhanced premium tier offerings for customers seeking higher storage capacity models
+- December 07, 2025. Moved older phones to Used category
+  - Moved iPhones to Used: iPhone 11 Pro Max 256GB, iPhone 11 Pro 256GB, iPhone 11 128GB, iPhone XS Max 256GB, iPhone XR 256GB, iPhone X 256GB, iPhone X 64GB
+  - Moved Samsung phones to Used: Samsung S23 Ultra, S23 Plus, S23 (512GB & 256GB), S22 Ultra (512GB & 256GB), S22 Plus, S22, S21 Ultra, S21 (256GB & 128GB), S20 Ultra, S20 (256GB & 128GB)
+  - All moved phones now display with "Used" prefix and USED condition in the Used Phones category
+  - Prices maintained from original new phone pricing
 
 ## User Preferences
 

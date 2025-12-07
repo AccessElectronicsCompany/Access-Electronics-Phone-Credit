@@ -248,27 +248,6 @@ export const iphones: Phone[] = [
     condition: "NEW"
   },
   {
-    name: "iPhone 11 Pro Max",
-    storage: "256GB",
-    price: 11300,
-    colors: ["Space Gray", "Silver", "Midnight Green", "Gold"],
-    condition: "NEW"
-  },
-  {
-    name: "iPhone 11 Pro",
-    storage: "256GB",
-    price: 9800,
-    colors: ["Space Gray", "Silver", "Midnight Green", "Gold"],
-    condition: "NEW"
-  },
-  {
-    name: "iPhone 11",
-    storage: "128GB",
-    price: 8500,
-    colors: ["Black", "White", "Green", "Purple", "Yellow", "(PRODUCT)RED"],
-    condition: "NEW"
-  },
-  {
     name: "iPhone 15 Plus",
     storage: "256GB",
     price: 19999,
@@ -282,34 +261,6 @@ export const iphones: Phone[] = [
     colors: ["Black", "Blue", "Green", "Yellow", "Pink"],
     condition: "NEW"
   },
-  {
-    name: "iPhone XS Max",
-    storage: "256GB",
-    price: 6999,
-    colors: ["Space Gray", "Silver", "Gold"],
-    condition: "NEW"
-  },
-  {
-    name: "iPhone XR",
-    storage: "256GB",
-    price: 6700,
-    colors: ["Black", "White", "Blue", "Coral", "Yellow", "(PRODUCT)RED"],
-    condition: "NEW"
-  },
-  {
-    name: "iPhone X",
-    storage: "256GB",
-    price: 5850,
-    colors: ["Space Gray", "Silver"],
-    condition: "NEW"
-  },
-  {
-    name: "iPhone X",
-    storage: "64GB",
-    price: 5500,
-    colors: ["Space Gray", "Silver"],
-    condition: "NEW"
-  }
 ];
 
 export const samsungPhones: Phone[] = [
@@ -405,62 +356,6 @@ export const samsungPhones: Phone[] = [
     condition: "NEW"
   },
   {
-    name: "Samsung S23 Ultra",
-    storage: "256GB",
-    price: 19999,
-    colors: ["Phantom Black", "Cream", "Green", "Lavender", "Graphite", "Lime", "Sky Blue", "Red"],
-    condition: "NEW"
-  },
-  {
-    name: "Samsung S23 Plus",
-    storage: "256GB",
-    price: 16999,
-    colors: ["Phantom Black", "Cream", "Green", "Lavender", "Graphite", "Lime"],
-    condition: "NEW"
-  },
-  {
-    name: "Samsung S23",
-    storage: "512GB",
-    price: 13999,
-    colors: ["Phantom Black", "Cream", "Green", "Lavender", "Graphite", "Lime"],
-    condition: "NEW"
-  },
-  {
-    name: "Samsung S23",
-    storage: "256GB",
-    price: 12999,
-    colors: ["Phantom Black", "Cream", "Green", "Lavender", "Graphite", "Lime"],
-    condition: "NEW"
-  },
-  {
-    name: "Samsung S22 Ultra",
-    storage: "512GB",
-    price: 16999,
-    colors: ["Phantom Black", "Phantom White", "Green", "Burgundy", "Graphite", "Sky Blue", "Red"],
-    condition: "NEW"
-  },
-  {
-    name: "Samsung S22 Ultra",
-    storage: "256GB",
-    price: 15999,
-    colors: ["Phantom Black", "Phantom White", "Green", "Burgundy", "Graphite", "Sky Blue", "Red"],
-    condition: "NEW"
-  },
-  {
-    name: "Samsung S22 Plus",
-    storage: "256GB",
-    price: 11999,
-    colors: ["Phantom Black", "Phantom White", "Green", "Pink Gold", "Graphite", "Sky Blue", "Violet", "Cream"],
-    condition: "NEW"
-  },
-  {
-    name: "Samsung S22",
-    storage: "256GB",
-    price: 9500,
-    colors: ["Phantom Black", "Phantom White", "Green", "Pink Gold", "Graphite", "Sky Blue", "Violet", "Cream"],
-    condition: "NEW"
-  },
-  {
     name: "Samsung A56",
     storage: "256GB",
     price: 9999,
@@ -489,85 +384,57 @@ export const samsungPhones: Phone[] = [
     colors: ["Mystic Bronze", "Mystic Black", "Mystic White"],
     condition: "NEW"
   },
-  {
-    name: "Samsung S21 Ultra",
-    storage: "128GB",
-    price: 10999,
-    colors: ["Phantom Black", "Phantom Silver"],
-    condition: "NEW"
-  },
-  {
-    name: "Samsung S21",
-    storage: "256GB",
-    price: 9500,
-    colors: ["Phantom Gray", "Phantom White", "Phantom Violet", "Phantom Pink"],
-    condition: "NEW"
-  },
-  {
-    name: "Samsung S21",
-    storage: "128GB",
-    price: 8500,
-    colors: ["Phantom Gray", "Phantom White", "Phantom Violet", "Phantom Pink"],
-    condition: "NEW"
-  },
-  {
-    name: "Samsung S20 Ultra",
-    storage: "128GB",
-    price: 8499,
-    colors: ["Cosmic Gray", "Cosmic Black"],
-    condition: "NEW"
-  },
-  {
-    name: "Samsung S20",
-    storage: "256GB",
-    price: 6999,
-    colors: ["Cosmic Gray", "Cloud Blue", "Cloud White"],
-    condition: "NEW"
-  },
-  {
-    name: "Samsung S20",
-    storage: "128GB",
-    price: 6700,
-    colors: ["Cosmic Gray", "Cloud Blue", "Cloud Pink"],
-    condition: "NEW"
-  }
 ];
 
 export const usedPhones: Phone[] = [
   // Used iPhones
   {
-    name: "Used iPhone XR",
-    storage: "128GB",
-    price: 4999,
-    colors: ["Black", "White", "Blue", "Coral", "Yellow", "(PRODUCT)RED"],
-    condition: "USED"
-  },
-  {
-    name: "Used iPhone 11",
-    storage: "64GB",
-    price: 5999,
-    colors: ["Black", "White", "Green", "Purple", "Yellow", "(PRODUCT)RED"],
-    condition: "USED"
-  },
-  {
-    name: "Used iPhone 11",
-    storage: "128GB",
-    price: 6999,
-    colors: ["Black", "White", "Green", "Purple", "Yellow", "(PRODUCT)RED"],
+    name: "Used iPhone 11 Pro Max",
+    storage: "256GB",
+    price: 11300,
+    colors: ["Space Gray", "Silver", "Midnight Green", "Gold"],
     condition: "USED"
   },
   {
     name: "Used iPhone 11 Pro",
     storage: "256GB",
-    price: 7799,
+    price: 9800,
     colors: ["Space Gray", "Silver", "Midnight Green", "Gold"],
     condition: "USED"
   },
   {
-    name: "Used iPhone 11 Pro Max",
+    name: "Used iPhone 11",
+    storage: "128GB",
+    price: 8500,
+    colors: ["Black", "White", "Green", "Purple", "Yellow", "(PRODUCT)RED"],
+    condition: "USED"
+  },
+  {
+    name: "Used iPhone XS Max",
     storage: "256GB",
-    price: 7999,
-    colors: ["Space Gray", "Silver", "Midnight Green", "Gold"],
+    price: 6999,
+    colors: ["Space Gray", "Silver", "Gold"],
+    condition: "USED"
+  },
+  {
+    name: "Used iPhone XR",
+    storage: "256GB",
+    price: 6700,
+    colors: ["Black", "White", "Blue", "Coral", "Yellow", "(PRODUCT)RED"],
+    condition: "USED"
+  },
+  {
+    name: "Used iPhone X",
+    storage: "256GB",
+    price: 5850,
+    colors: ["Space Gray", "Silver"],
+    condition: "USED"
+  },
+  {
+    name: "Used iPhone X",
+    storage: "64GB",
+    price: 5500,
+    colors: ["Space Gray", "Silver"],
     condition: "USED"
   },
   {
@@ -635,31 +502,10 @@ export const usedPhones: Phone[] = [
   },
   // Used Samsung Phones
   {
-    name: "Used Samsung S22 Ultra",
-    storage: "256GB",
-    price: 11999,
-    colors: ["Phantom Black", "Phantom White", "Burgundy", "Green"],
-    condition: "USED"
-  },
-  {
-    name: "Used Samsung S22 Ultra",
-    storage: "512GB",
-    price: 12999,
-    colors: ["Phantom Black", "Phantom White", "Burgundy", "Green"],
-    condition: "USED"
-  },
-  {
     name: "Used Samsung S24 Ultra",
     storage: "256GB",
     price: 17999,
     colors: ["Titanium Black", "Titanium Gray", "Titanium Violet", "Titanium Yellow"],
-    condition: "USED"
-  },
-  {
-    name: "Used Samsung S23 Ultra",
-    storage: "256GB",
-    price: 14999,
-    colors: ["Phantom Black", "Cream", "Green", "Lavender", "Graphite", "Lime", "Sky Blue", "Red"],
     condition: "USED"
   },
   {
@@ -684,17 +530,108 @@ export const usedPhones: Phone[] = [
     condition: "USED"
   },
   {
-    name: "Used Samsung S22 Ultra",
-    storage: "512GB",
-    price: 12999,
-    colors: ["Phantom Black", "Phantom White", "Green", "Burgundy", "Graphite", "Sky Blue", "Red"],
-    condition: "USED"
-  },
-  {
     name: "Used Samsung S22 (1 Sim)",
     storage: "256GB",
     price: 6999,
     colors: ["Phantom Black", "Phantom White", "Green", "Pink Gold", "Graphite", "Sky Blue", "Violet", "Cream"],
+    condition: "USED"
+  },
+  {
+    name: "Used Samsung S23 Ultra",
+    storage: "256GB",
+    price: 19999,
+    colors: ["Phantom Black", "Cream", "Green", "Lavender", "Graphite", "Lime", "Sky Blue", "Red"],
+    condition: "USED"
+  },
+  {
+    name: "Used Samsung S23 Plus",
+    storage: "256GB",
+    price: 16999,
+    colors: ["Phantom Black", "Cream", "Green", "Lavender", "Graphite", "Lime"],
+    condition: "USED"
+  },
+  {
+    name: "Used Samsung S23",
+    storage: "512GB",
+    price: 13999,
+    colors: ["Phantom Black", "Cream", "Green", "Lavender", "Graphite", "Lime"],
+    condition: "USED"
+  },
+  {
+    name: "Used Samsung S23",
+    storage: "256GB",
+    price: 12999,
+    colors: ["Phantom Black", "Cream", "Green", "Lavender", "Graphite", "Lime"],
+    condition: "USED"
+  },
+  {
+    name: "Used Samsung S22 Ultra",
+    storage: "512GB",
+    price: 16999,
+    colors: ["Phantom Black", "Phantom White", "Green", "Burgundy", "Graphite", "Sky Blue", "Red"],
+    condition: "USED"
+  },
+  {
+    name: "Used Samsung S22 Ultra",
+    storage: "256GB",
+    price: 15999,
+    colors: ["Phantom Black", "Phantom White", "Green", "Burgundy", "Graphite", "Sky Blue", "Red"],
+    condition: "USED"
+  },
+  {
+    name: "Used Samsung S22 Plus",
+    storage: "256GB",
+    price: 11999,
+    colors: ["Phantom Black", "Phantom White", "Green", "Pink Gold", "Graphite", "Sky Blue", "Violet", "Cream"],
+    condition: "USED"
+  },
+  {
+    name: "Used Samsung S22",
+    storage: "256GB",
+    price: 9500,
+    colors: ["Phantom Black", "Phantom White", "Green", "Pink Gold", "Graphite", "Sky Blue", "Violet", "Cream"],
+    condition: "USED"
+  },
+  {
+    name: "Used Samsung S21 Ultra",
+    storage: "128GB",
+    price: 10999,
+    colors: ["Phantom Black", "Phantom Silver"],
+    condition: "USED"
+  },
+  {
+    name: "Used Samsung S21",
+    storage: "256GB",
+    price: 9500,
+    colors: ["Phantom Gray", "Phantom White", "Phantom Violet", "Phantom Pink"],
+    condition: "USED"
+  },
+  {
+    name: "Used Samsung S21",
+    storage: "128GB",
+    price: 8500,
+    colors: ["Phantom Gray", "Phantom White", "Phantom Violet", "Phantom Pink"],
+    condition: "USED"
+  },
+  {
+    name: "Used Samsung S20 Ultra",
+    storage: "128GB",
+    price: 8499,
+    colors: ["Cosmic Gray", "Cosmic Black"],
+    condition: "USED"
+  },
+  {
+    name: "Used Samsung S20",
+    storage: "256GB",
+    price: 6999,
+    colors: ["Cosmic Gray", "Cloud Blue", "Cloud White"],
+    condition: "USED"
+  },
+  {
+    name: "Used Samsung S20",
+    storage: "128GB",
+    price: 6700,
+    colors: ["Cosmic Gray", "Cloud Blue", "Cloud Pink"],
     condition: "USED"
   }
 ];
