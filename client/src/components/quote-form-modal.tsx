@@ -206,25 +206,43 @@ export default function QuoteFormModal({ isOpen, onClose, selectedPhone }: Quote
 
       // If cart quote, add detailed individual phone data to FormCarry
       if (isCartQuote) {
-        // Use cart items directly - they already have complete info (storage, color, price)
-        let phoneIndex = 1;
-        cartItems.forEach((item) => {
-          // Create separate entries for each quantity of this item
-          for (let i = 0; i < item.quantity; i++) {
-            formData.append(`phone_${phoneIndex}_name`, item.name);
-            formData.append(`phone_${phoneIndex}_storage`, item.storage);
-            formData.append(`phone_${phoneIndex}_color`, item.color);
-            formData.append(`phone_${phoneIndex}_quantity`, "1"); // Each entry is quantity 1
-            formData.append(`phone_${phoneIndex}_price`, item.price.toString());
-            formData.append(`phone_${phoneIndex}_total`, item.price.toString()); // Total = price * 1
-            formData.append(`phone_${phoneIndex}_condition`, item.condition || "NEW");
-            phoneIndex++;
-          }
+        // Build line items array for Zoho-compatible structure
+        const lineItems = cartItems.map((item, index) => ({
+          item_number: index + 1,
+          product_name: `${item.name} ${item.storage}`,
+          description: `${item.name} ${item.storage} - ${item.color}`,
+          quantity: item.quantity,
+          unit_price: item.price,
+          total: item.price * item.quantity,
+          condition: item.condition || "NEW",
+          color: item.color
+        }));
+        
+        // Send line items as JSON array for Zoho mapping
+        formData.append('line_items', JSON.stringify(lineItems));
+        formData.append('line_items_count', lineItems.length.toString());
+        
+        // Also send individual item fields with Zoho-compatible naming
+        lineItems.forEach((item, index) => {
+          const itemNum = index + 1;
+          formData.append(`item_${itemNum}_name`, item.product_name);
+          formData.append(`item_${itemNum}_description`, item.description);
+          formData.append(`item_${itemNum}_qty`, item.quantity.toString());
+          formData.append(`item_${itemNum}_rate`, item.unit_price.toString());
+          formData.append(`item_${itemNum}_amount`, item.total.toString());
+          formData.append(`item_${itemNum}_condition`, item.condition);
         });
         
-        formData.append('total_phones', cartTotalQuantity.toString());
+        // Summary fields for easy reference
+        formData.append('total_items', cartItems.length.toString());
         formData.append('total_quantity', cartTotalQuantity.toString());
-        formData.append('total_amount', cartTotalPrice.toString());
+        formData.append('subtotal', cartTotalPrice.toString());
+        
+        // Build a text summary for Zoho notes/description field
+        const itemsSummary = cartItems.map((item, i) => 
+          `${i + 1}. ${item.name} ${item.storage} (${item.color}) - Qty: ${item.quantity} x N$${item.price.toLocaleString()} = N$${(item.price * item.quantity).toLocaleString()}`
+        ).join('\n');
+        formData.append('items_summary', itemsSummary);
       }
 
       try {
