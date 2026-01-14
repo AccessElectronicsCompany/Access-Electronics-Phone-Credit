@@ -33,8 +33,7 @@ export default function Buds() {
       name,
       storage,
       price,
-      color,
-      quantity: 1
+      color
     });
   };
 
@@ -193,6 +192,7 @@ export default function Buds() {
         isOpen={showCart}
         onClose={() => setShowCart(false)}
         onRequestQuote={() => {
+          setSelectedDevice(null); // Clear selected device so quote form uses cart items
           setShowCart(false);
           setShowQuoteForm(true);
         }}

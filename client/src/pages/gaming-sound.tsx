@@ -33,8 +33,7 @@ export default function GamingSound() {
       name,
       storage,
       price,
-      color,
-      quantity: 1
+      color
     });
   };
 
@@ -196,6 +195,7 @@ export default function GamingSound() {
         isOpen={showCart}
         onClose={() => setShowCart(false)}
         onRequestQuote={() => {
+          setSelectedDevice(null); // Clear selected device so quote form uses cart items
           setShowCart(false);
           setShowQuoteForm(true);
         }}
