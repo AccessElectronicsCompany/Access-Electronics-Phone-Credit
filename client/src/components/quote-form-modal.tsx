@@ -337,17 +337,27 @@ export default function QuoteFormModal({ isOpen, onClose, selectedPhone }: Quote
             <h3 className="text-lg md:text-xl samsung-header mb-4">Your Cart Items</h3>
             <div className="space-y-3">
               {cartItems.map((item) => (
-                <div key={item.id} className="bg-white p-4 rounded-xl border border-gray-200 flex justify-between items-center">
-                  <div>
-                    <h4 className="samsung-text font-semibold">{item.name}</h4>
-                    <p className="samsung-text text-sm text-gray-600">
-                      {item.storage} - {item.color}
-                      {item.condition === "USED" && <span className="ml-2 text-orange-600">(Used)</span>}
-                    </p>
+                <div key={item.id} className="bg-white p-4 rounded-xl border border-gray-200">
+                  <div className="flex justify-between items-start mb-2">
+                    <div>
+                      <h4 className="samsung-text font-semibold">{item.name}</h4>
+                      <p className="samsung-text text-sm text-gray-600">
+                        {item.storage} - {item.color}
+                        {item.condition === "USED" && <span className="ml-2 text-orange-600">(Used)</span>}
+                      </p>
+                    </div>
+                    <div className="text-right">
+                      <p className="samsung-text text-sm text-gray-500">Qty: {item.quantity}</p>
+                    </div>
                   </div>
-                  <div className="text-right">
-                    <p className="samsung-text font-bold">N${item.price.toLocaleString()}</p>
-                    <p className="samsung-text text-sm text-gray-600">Qty: {item.quantity}</p>
+                  <div className="flex justify-between items-center pt-2 border-t border-gray-100">
+                    <p className="samsung-text text-sm">
+                      <span className="text-gray-500">Unit Price:</span>{" "}
+                      <span className="font-semibold">N${item.price.toLocaleString()}</span>
+                    </p>
+                    <p className="samsung-text font-bold text-blue-600">
+                      Subtotal: N${(item.price * item.quantity).toLocaleString()}
+                    </p>
                   </div>
                 </div>
               ))}
