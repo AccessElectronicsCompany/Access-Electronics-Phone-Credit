@@ -223,26 +223,46 @@ export default function QuoteFormModal({ isOpen, onClose, selectedPhone }: Quote
         formData.append('line_items_count', lineItems.length.toString());
         
         // Also send individual item fields with Zoho-compatible naming
+        // Using multiple naming conventions to ensure Zoho can map correctly
         lineItems.forEach((item, index) => {
           const itemNum = index + 1;
+          // Standard naming
           formData.append(`item_${itemNum}_name`, item.product_name);
           formData.append(`item_${itemNum}_description`, item.description);
           formData.append(`item_${itemNum}_qty`, item.quantity.toString());
-          formData.append(`item_${itemNum}_rate`, item.unit_price.toString());
-          formData.append(`item_${itemNum}_amount`, item.total.toString());
+          formData.append(`item_${itemNum}_quantity`, item.quantity.toString());
           formData.append(`item_${itemNum}_condition`, item.condition);
+          
+          // Unit price fields - multiple naming conventions for Zoho compatibility
+          formData.append(`item_${itemNum}_rate`, item.unit_price.toString());
+          formData.append(`item_${itemNum}_unit_price`, item.unit_price.toString());
+          formData.append(`item_${itemNum}_list_price`, item.unit_price.toString());
+          formData.append(`item_${itemNum}_price`, item.unit_price.toString());
+          
+          // Total/Amount fields
+          formData.append(`item_${itemNum}_amount`, item.total.toString());
+          formData.append(`item_${itemNum}_total`, item.total.toString());
+          formData.append(`item_${itemNum}_net_total`, item.total.toString());
         });
         
         // Summary fields for easy reference
         formData.append('total_items', cartItems.length.toString());
         formData.append('total_quantity', cartTotalQuantity.toString());
         formData.append('subtotal', cartTotalPrice.toString());
+        formData.append('grand_total', cartTotalPrice.toString());
         
-        // Build a text summary for Zoho notes/description field
+        // Build a detailed text summary for Zoho notes/description field
         const itemsSummary = cartItems.map((item, i) => 
-          `${i + 1}. ${item.name} ${item.storage} (${item.color}) - Qty: ${item.quantity} x N$${item.price.toLocaleString()} = N$${(item.price * item.quantity).toLocaleString()}`
-        ).join('\n');
+          `${i + 1}. ${item.name} ${item.storage} (${item.color})\n   Condition: ${item.condition || 'NEW'}\n   Unit Price: N$${item.price.toLocaleString()}\n   Quantity: ${item.quantity}\n   Subtotal: N$${(item.price * item.quantity).toLocaleString()}`
+        ).join('\n\n');
         formData.append('items_summary', itemsSummary);
+        
+        // Create a simple table format for easier Zoho parsing
+        const tableHeader = "Item | Qty | Unit Price | Total";
+        const tableRows = cartItems.map((item) => 
+          `${item.name} ${item.storage} | ${item.quantity} | N$${item.price.toLocaleString()} | N$${(item.price * item.quantity).toLocaleString()}`
+        ).join('\n');
+        formData.append('items_table', `${tableHeader}\n${tableRows}\n\nGrand Total: N$${cartTotalPrice.toLocaleString()}`);
       }
 
       try {
