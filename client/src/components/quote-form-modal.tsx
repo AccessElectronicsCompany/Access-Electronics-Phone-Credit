@@ -198,84 +198,83 @@ export default function QuoteFormModal({ isOpen, onClose, selectedPhone }: Quote
         isMultipleItems: isCartQuote ? "true" : "false",
       };
 
-      // Submit to FormCarry with enhanced cart data
-      const formData = new FormData();
-      Object.entries(quoteData).forEach(([key, value]) => {
-        formData.append(key, value?.toString() || '');
-      });
-
-      // If cart quote, add detailed individual phone data to FormCarry
-      if (isCartQuote) {
-        // Build line items array for Zoho-compatible structure
-        const lineItems = cartItems.map((item, index) => ({
-          item_number: index + 1,
-          product_name: `${item.name} ${item.storage}`,
-          description: `${item.name} ${item.storage} - ${item.color}`,
-          quantity: item.quantity,
-          unit_price: item.price,
-          total: item.price * item.quantity,
-          condition: item.condition || "NEW",
-          color: item.color
-        }));
+      // Submit to FormCarry - send SEPARATE submissions for each cart item
+      // This ensures Zoho receives each item as its own quote with correct pricing
+      if (isCartQuote && cartItems.length > 0) {
+        // Generate a unique order/batch ID to link all items from same cart
+        const batchId = `CART-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`;
         
-        // Send line items as JSON array for Zoho mapping
-        formData.append('line_items', JSON.stringify(lineItems));
-        formData.append('line_items_count', lineItems.length.toString());
-        
-        // Also send individual item fields with Zoho-compatible naming
-        // Using multiple naming conventions to ensure Zoho can map correctly
-        lineItems.forEach((item, index) => {
-          const itemNum = index + 1;
-          // Standard naming
-          formData.append(`item_${itemNum}_name`, item.product_name);
-          formData.append(`item_${itemNum}_description`, item.description);
-          formData.append(`item_${itemNum}_qty`, item.quantity.toString());
-          formData.append(`item_${itemNum}_quantity`, item.quantity.toString());
-          formData.append(`item_${itemNum}_condition`, item.condition);
+        // Send each cart item as a SEPARATE FormCarry submission
+        // This way Zoho can process each item individually with correct pricing
+        for (let i = 0; i < cartItems.length; i++) {
+          const item = cartItems[i];
+          const itemFormData = new FormData();
           
-          // Unit price fields - multiple naming conventions for Zoho compatibility
-          formData.append(`item_${itemNum}_rate`, item.unit_price.toString());
-          formData.append(`item_${itemNum}_unit_price`, item.unit_price.toString());
-          formData.append(`item_${itemNum}_list_price`, item.unit_price.toString());
-          formData.append(`item_${itemNum}_price`, item.unit_price.toString());
+          // Customer info - same for all items in this batch
+          itemFormData.append('fullName', data.fullName);
+          itemFormData.append('email', data.email);
+          itemFormData.append('contactNumber', data.contactNumber);
+          itemFormData.append('physicalAddress', data.physicalAddress);
+          itemFormData.append('city', data.city);
+          itemFormData.append('region', data.region);
+          itemFormData.append('country', data.country);
+          itemFormData.append('paymentTerm', data.paymentTerm.toString());
+          itemFormData.append('deposit', (data.deposit || 0).toString());
+          itemFormData.append('depositMethod', data.depositMethod || '');
           
-          // Total/Amount fields
-          formData.append(`item_${itemNum}_amount`, item.total.toString());
-          formData.append(`item_${itemNum}_total`, item.total.toString());
-          formData.append(`item_${itemNum}_net_total`, item.total.toString());
-        });
-        
-        // Summary fields for easy reference
-        formData.append('total_items', cartItems.length.toString());
-        formData.append('total_quantity', cartTotalQuantity.toString());
-        formData.append('subtotal', cartTotalPrice.toString());
-        formData.append('grand_total', cartTotalPrice.toString());
-        
-        // Build a detailed text summary for Zoho notes/description field
-        const itemsSummary = cartItems.map((item, i) => 
-          `${i + 1}. ${item.name} ${item.storage} (${item.color})\n   Condition: ${item.condition || 'NEW'}\n   Unit Price: N$${item.price.toLocaleString()}\n   Quantity: ${item.quantity}\n   Subtotal: N$${(item.price * item.quantity).toLocaleString()}`
-        ).join('\n\n');
-        formData.append('items_summary', itemsSummary);
-        
-        // Create a simple table format for easier Zoho parsing
-        const tableHeader = "Item | Qty | Unit Price | Total";
-        const tableRows = cartItems.map((item) => 
-          `${item.name} ${item.storage} | ${item.quantity} | N$${item.price.toLocaleString()} | N$${(item.price * item.quantity).toLocaleString()}`
-        ).join('\n');
-        formData.append('items_table', `${tableHeader}\n${tableRows}\n\nGrand Total: N$${cartTotalPrice.toLocaleString()}`);
-      }
-
-      try {
-        const formCarryResponse = await fetch("https://formcarry.com/s/UzI6HDYG6hC", {
-          method: "POST",
-          body: formData,
-        });
-
-        if (!formCarryResponse.ok) {
-          console.warn("FormCarry submission failed, but continuing with internal API");
+          // Batch/Order linking info
+          itemFormData.append('batch_id', batchId);
+          itemFormData.append('item_number', (i + 1).toString());
+          itemFormData.append('total_items_in_batch', cartItems.length.toString());
+          
+          // THIS ITEM's specific product info - sent as primary fields for Zoho
+          itemFormData.append('phoneName', `${item.name} ${item.storage}`);
+          itemFormData.append('phoneStorage', item.storage);
+          itemFormData.append('phoneColor', item.color);
+          itemFormData.append('phoneCondition', item.condition || 'NEW');
+          itemFormData.append('quantity', item.quantity.toString());
+          
+          // CRITICAL: Unit price as the main price field - this is what Zoho reads
+          itemFormData.append('originalPrice', item.price.toString());
+          itemFormData.append('rate', item.price.toString());
+          itemFormData.append('unit_price', item.price.toString());
+          itemFormData.append('list_price', item.price.toString());
+          
+          // Calculate this item's totals
+          const itemTotal = item.price * item.quantity;
+          const itemCalculation = calculatePayment(item.price, data.paymentTerm, 0);
+          itemFormData.append('amount', itemTotal.toString());
+          itemFormData.append('item_total', itemTotal.toString());
+          itemFormData.append('monthlyPayment', itemCalculation.monthlyPayment.toString());
+          
+          // Cart summary for reference
+          itemFormData.append('cart_total', cartTotalPrice.toString());
+          itemFormData.append('cart_total_quantity', cartTotalQuantity.toString());
+          
+          try {
+            await fetch("https://formcarry.com/s/UzI6HDYG6hC", {
+              method: "POST",
+              body: itemFormData,
+            });
+          } catch (error) {
+            console.warn(`FormCarry submission error for item ${i + 1}:`, error);
+          }
         }
-      } catch (error) {
-        console.warn("FormCarry submission error:", error);
+      } else {
+        // Single item quote - send as before
+        const formData = new FormData();
+        Object.entries(quoteData).forEach(([key, value]) => {
+          formData.append(key, value?.toString() || '');
+        });
+        
+        try {
+          await fetch("https://formcarry.com/s/UzI6HDYG6hC", {
+            method: "POST",
+            body: formData,
+          });
+        } catch (error) {
+          console.warn("FormCarry submission error:", error);
+        }
       }
 
       // Also submit to our internal API
