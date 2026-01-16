@@ -1,59 +1,59 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root {
-  --background: hsl(30, 10%, 98%);
-  --foreground: hsl(30, 5%, 10%);
-  --muted: hsl(30, 10%, 94%);
-  --muted-foreground: hsl(30, 5%, 45%);
-  --popover: hsl(30, 10%, 99%);
-  --popover-foreground: hsl(30, 5%, 10%);
-  --card: hsl(30, 10%, 99%);
-  --card-foreground: hsl(30, 5%, 10%);
-  --border: hsl(40, 30%, 85%);
-  --input: hsl(30, 10%, 95%);
-  --primary: hsl(30, 5%, 8%);
-  --primary-foreground: hsl(42, 60%, 65%);
-  --secondary: hsl(30, 10%, 94%);
-  --secondary-foreground: hsl(30, 5%, 10%);
-  --accent: hsl(42, 60%, 55%);
-  --accent-foreground: hsl(30, 5%, 8%);
+  --background: hsl(210, 15%, 98%);
+  --foreground: hsl(210, 10%, 10%);
+  --muted: hsl(210, 15%, 94%);
+  --muted-foreground: hsl(210, 10%, 45%);
+  --popover: hsl(210, 15%, 99%);
+  --popover-foreground: hsl(210, 10%, 10%);
+  --card: hsl(210, 15%, 99%);
+  --card-foreground: hsl(210, 10%, 10%);
+  --border: hsl(210, 20%, 88%);
+  --input: hsl(210, 15%, 95%);
+  --primary: hsl(210, 10%, 8%);
+  --primary-foreground: hsl(200, 70%, 55%);
+  --secondary: hsl(210, 15%, 94%);
+  --secondary-foreground: hsl(210, 10%, 10%);
+  --accent: hsl(200, 70%, 55%);
+  --accent-foreground: hsl(210, 10%, 8%);
   --destructive: hsl(0, 72%, 51%);
   --destructive-foreground: hsl(0, 0%, 100%);
-  --ring: hsl(42, 60%, 55%);
+  --ring: hsl(200, 70%, 55%);
   --radius: 0.5rem;
   
-  --gold: hsl(42, 60%, 55%);
-  --gold-light: hsl(42, 60%, 70%);
-  --gold-dark: hsl(42, 50%, 40%);
-  --luxury-black: hsl(30, 5%, 8%);
-  --luxury-charcoal: hsl(30, 5%, 15%);
-  --cream: hsl(40, 30%, 96%);
+  --accent-blue: hsl(200, 70%, 55%);
+  --accent-blue-light: hsl(200, 80%, 70%);
+  --accent-blue-dark: hsl(200, 65%, 45%);
+  --luxury-black: hsl(210, 10%, 8%);
+  --luxury-charcoal: hsl(210, 10%, 15%);
+  --cream: hsl(210, 20%, 97%);
 }
 
 .dark {
-  --background: hsl(30, 5%, 5%);
-  --foreground: hsl(40, 30%, 95%);
-  --muted: hsl(30, 5%, 12%);
-  --muted-foreground: hsl(30, 10%, 60%);
-  --popover: hsl(30, 5%, 8%);
-  --popover-foreground: hsl(40, 30%, 95%);
-  --card: hsl(30, 5%, 8%);
-  --card-foreground: hsl(40, 30%, 95%);
-  --border: hsl(42, 30%, 25%);
-  --input: hsl(30, 5%, 15%);
-  --primary: hsl(42, 60%, 55%);
-  --primary-foreground: hsl(30, 5%, 5%);
-  --secondary: hsl(30, 5%, 15%);
-  --secondary-foreground: hsl(40, 30%, 95%);
-  --accent: hsl(42, 60%, 55%);
-  --accent-foreground: hsl(30, 5%, 5%);
+  --background: hsl(210, 10%, 5%);
+  --foreground: hsl(210, 20%, 95%);
+  --muted: hsl(210, 10%, 12%);
+  --muted-foreground: hsl(210, 15%, 60%);
+  --popover: hsl(210, 10%, 8%);
+  --popover-foreground: hsl(210, 20%, 95%);
+  --card: hsl(210, 10%, 8%);
+  --card-foreground: hsl(210, 20%, 95%);
+  --border: hsl(200, 30%, 25%);
+  --input: hsl(210, 10%, 15%);
+  --primary: hsl(200, 70%, 55%);
+  --primary-foreground: hsl(210, 10%, 5%);
+  --secondary: hsl(210, 10%, 15%);
+  --secondary-foreground: hsl(210, 20%, 95%);
+  --accent: hsl(200, 70%, 55%);
+  --accent-foreground: hsl(210, 10%, 5%);
   --destructive: hsl(0, 63%, 45%);
   --destructive-foreground: hsl(0, 0%, 100%);
-  --ring: hsl(42, 60%, 55%);
+  --ring: hsl(200, 70%, 55%);
 }
 
 @layer base {
@@ -74,13 +74,13 @@
   }
   
   h1, h2, h3, h4, h5, h6 {
-    font-family: 'Playfair Display', Georgia, serif;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
   }
 }
 
 @layer components {
   .luxury-btn {
-    @apply bg-neutral-900 text-amber-400 hover:bg-neutral-800 transition-all duration-300 border-0 rounded-sm font-medium tracking-widest uppercase text-xs py-3 px-6;
+    @apply bg-neutral-900 text-sky-400 hover:bg-neutral-800 transition-all duration-300 border-0 rounded-sm font-medium tracking-widest uppercase text-xs py-3 px-6;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
   }
   
@@ -90,16 +90,16 @@
   }
   
   .luxury-btn-outline {
-    @apply bg-transparent border border-neutral-900 text-neutral-900 hover:bg-neutral-900 hover:text-amber-400 transition-all duration-300 rounded-sm font-medium tracking-widest uppercase text-xs py-3 px-6;
+    @apply bg-transparent border border-neutral-900 text-neutral-900 hover:bg-neutral-900 hover:text-sky-400 transition-all duration-300 rounded-sm font-medium tracking-widest uppercase text-xs py-3 px-6;
   }
   
-  .luxury-btn-gold {
-    @apply bg-amber-500 text-neutral-900 hover:bg-amber-600 transition-all duration-300 border-0 rounded-sm font-medium tracking-widest uppercase text-xs py-3 px-6;
-    box-shadow: 0 4px 20px rgba(196, 163, 98, 0.3);
+  .luxury-btn-accent {
+    @apply bg-sky-500 text-white hover:bg-sky-600 transition-all duration-300 border-0 rounded-sm font-medium tracking-widest uppercase text-xs py-3 px-6;
+    box-shadow: 0 4px 20px rgba(79, 179, 255, 0.3);
   }
   
-  .luxury-btn-gold:hover {
-    box-shadow: 0 6px 25px rgba(196, 163, 98, 0.45);
+  .luxury-btn-accent:hover {
+    box-shadow: 0 6px 25px rgba(79, 179, 255, 0.45);
     transform: translateY(-1px);
   }
   
@@ -110,12 +110,12 @@
   
   .luxury-card:hover {
     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
-    border-color: var(--gold);
+    border-color: var(--accent-blue);
     transform: translateY(-4px);
   }
   
   .luxury-header {
-    font-family: 'Playfair Display', Georgia, serif;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
     @apply font-semibold tracking-wide text-neutral-900;
     letter-spacing: 0.05em;
   }
@@ -135,7 +135,7 @@
   }
 
   .samsung-btn {
-    @apply bg-neutral-900 text-amber-400 hover:bg-neutral-800 transition-all duration-300 border-0 rounded-sm font-medium tracking-widest uppercase text-xs py-3 px-6;
+    @apply bg-neutral-900 text-sky-400 hover:bg-neutral-800 transition-all duration-300 border-0 rounded-sm font-medium tracking-widest uppercase text-xs py-3 px-6;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
   }
   
@@ -145,7 +145,7 @@
   }
   
   .samsung-btn-outline {
-    @apply bg-transparent border border-neutral-900 text-neutral-900 hover:bg-neutral-900 hover:text-amber-400 transition-all duration-300 rounded-sm font-medium tracking-widest uppercase text-xs py-3 px-6;
+    @apply bg-transparent border border-neutral-900 text-neutral-900 hover:bg-neutral-900 hover:text-sky-400 transition-all duration-300 rounded-sm font-medium tracking-widest uppercase text-xs py-3 px-6;
   }
   
   .samsung-card {
@@ -155,12 +155,12 @@
   
   .samsung-card:hover {
     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
-    border-color: var(--gold);
+    border-color: var(--accent-blue);
     transform: translateY(-4px);
   }
   
   .samsung-header {
-    font-family: 'Playfair Display', Georgia, serif;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
     @apply font-semibold tracking-wide text-neutral-900;
     letter-spacing: 0.05em;
   }
@@ -181,12 +181,12 @@
 }
 
 @layer utilities {
-  .gold-gradient {
-    background: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 50%, var(--gold) 100%);
+  .accent-gradient {
+    background: linear-gradient(135deg, var(--accent-blue) 0%, var(--accent-blue-light) 50%, var(--accent-blue) 100%);
   }
   
-  .gold-text {
-    background: linear-gradient(135deg, var(--gold-dark) 0%, var(--gold) 50%, var(--gold-light) 100%);
+  .accent-text {
+    background: linear-gradient(135deg, var(--accent-blue-dark) 0%, var(--accent-blue) 50%, var(--accent-blue-light) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -194,7 +194,7 @@
   
   .luxury-divider {
     @apply w-24 h-0.5 mx-auto my-6;
-    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    background: linear-gradient(90deg, transparent, var(--accent-blue), transparent);
   }
   
   .bg-luxury-black {
@@ -205,24 +205,24 @@
     background-color: var(--luxury-charcoal);
   }
   
-  .bg-gold {
-    background-color: var(--gold);
+  .bg-accent-blue {
+    background-color: var(--accent-blue);
   }
   
   .bg-cream {
     background-color: var(--cream);
   }
   
-  .text-gold {
-    color: var(--gold);
+  .text-accent-blue {
+    color: var(--accent-blue);
   }
   
   .text-luxury-black {
     color: var(--luxury-black);
   }
   
-  .border-gold {
-    border-color: var(--gold);
+  .border-accent-blue {
+    border-color: var(--accent-blue);
   }
 
   @keyframes fadeInUp {
@@ -298,7 +298,7 @@
   }
   
   .animate-shimmer {
-    background: linear-gradient(90deg, var(--gold-dark), var(--gold-light), var(--gold-dark));
+    background: linear-gradient(90deg, var(--accent-blue-dark), var(--accent-blue-light), var(--accent-blue-dark));
     background-size: 200% auto;
     animation: shimmer 3s linear infinite;
   }

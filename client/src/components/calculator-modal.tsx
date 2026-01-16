@@ -63,7 +63,7 @@ export default function CalculatorModal({ isOpen, onClose, selectedPrice, isEmbe
           value={phonePrice}
           onChange={(e) => setPhonePrice(e.target.value)}
           placeholder="Enter phone price"
-          className="border border-neutral-300 focus:border-amber-500 focus:ring-1 focus:ring-amber-500/20 rounded-sm h-12 bg-white transition-colors"
+          className="border border-neutral-300 focus:border-sky-500 focus:ring-1 focus:ring-sky-500/20 rounded-sm h-12 bg-white transition-colors"
         />
       </div>
       
@@ -76,33 +76,33 @@ export default function CalculatorModal({ isOpen, onClose, selectedPrice, isEmbe
             onClick={() => setPaymentTerm("12")}
             className={`py-4 border rounded-sm text-center transition-all flex flex-col items-center justify-center ${
               paymentTerm === "12" 
-                ? "border-amber-500 bg-neutral-900 text-amber-400" 
-                : "border-neutral-300 hover:border-amber-400 bg-white text-neutral-700"
+                ? "border-sky-500 bg-neutral-900 text-sky-400" 
+                : "border-neutral-300 hover:border-sky-400 bg-white text-neutral-700"
             }`}
           >
-            <div className="text-xl font-bold" style={{ fontFamily: "'Playfair Display', Georgia, serif" }}>12</div>
+            <div className="text-xl font-bold" >12</div>
             <div className="text-[10px] uppercase tracking-wider text-neutral-500">Months</div>
           </button>
           <button
             onClick={() => setPaymentTerm("24")}
             className={`py-4 border rounded-sm text-center transition-all flex flex-col items-center justify-center ${
               paymentTerm === "24" 
-                ? "border-amber-500 bg-neutral-900 text-amber-400" 
-                : "border-neutral-300 hover:border-amber-400 bg-white text-neutral-700"
+                ? "border-sky-500 bg-neutral-900 text-sky-400" 
+                : "border-neutral-300 hover:border-sky-400 bg-white text-neutral-700"
             }`}
           >
-            <div className="text-xl font-bold" style={{ fontFamily: "'Playfair Display', Georgia, serif" }}>24</div>
+            <div className="text-xl font-bold" >24</div>
             <div className="text-[10px] uppercase tracking-wider text-neutral-500">Months</div>
           </button>
           <button
             onClick={() => setPaymentTerm("36")}
             className={`py-4 border rounded-sm text-center transition-all flex flex-col items-center justify-center ${
               paymentTerm === "36" 
-                ? "border-amber-500 bg-neutral-900 text-amber-400" 
-                : "border-neutral-300 hover:border-amber-400 bg-white text-neutral-700"
+                ? "border-sky-500 bg-neutral-900 text-sky-400" 
+                : "border-neutral-300 hover:border-sky-400 bg-white text-neutral-700"
             }`}
           >
-            <div className="text-xl font-bold" style={{ fontFamily: "'Playfair Display', Georgia, serif" }}>36</div>
+            <div className="text-xl font-bold" >36</div>
             <div className="text-[10px] uppercase tracking-wider text-neutral-500">Months</div>
           </button>
         </div>
@@ -118,13 +118,13 @@ export default function CalculatorModal({ isOpen, onClose, selectedPrice, isEmbe
           value={deposit}
           onChange={(e) => setDeposit(e.target.value)}
           placeholder="Enter deposit amount"
-          className="border border-neutral-300 focus:border-amber-500 focus:ring-1 focus:ring-amber-500/20 rounded-sm h-12 bg-white transition-colors"
+          className="border border-neutral-300 focus:border-sky-500 focus:ring-1 focus:ring-sky-500/20 rounded-sm h-12 bg-white transition-colors"
         />
       </div>
       
       <Button
         onClick={handleCalculate}
-        className="w-full py-4 h-12 bg-neutral-900 text-amber-400 hover:bg-neutral-800 rounded-sm font-medium tracking-widest uppercase text-xs transition-all"
+        className="w-full py-4 h-12 bg-neutral-900 text-sky-400 hover:bg-neutral-800 rounded-sm font-medium tracking-widest uppercase text-xs transition-all"
       >
         Calculate Monthly Payment
       </Button>
@@ -133,7 +133,7 @@ export default function CalculatorModal({ isOpen, onClose, selectedPrice, isEmbe
         <Card className="bg-neutral-50 border border-neutral-200 rounded-sm overflow-hidden">
           <CardContent className="p-6">
             <div className="luxury-divider mb-4"></div>
-            <h4 className="font-semibold text-neutral-900 mb-5 tracking-wider uppercase text-xs" style={{ fontFamily: "'Playfair Display', Georgia, serif" }}>Payment Breakdown</h4>
+            <h4 className="font-semibold text-neutral-900 mb-5 tracking-wider uppercase text-xs" >Payment Breakdown</h4>
             <div className="space-y-3 text-sm">
               <div className="flex justify-between text-neutral-600">
                 <span>Phone Price:</span>
@@ -158,7 +158,7 @@ export default function CalculatorModal({ isOpen, onClose, selectedPrice, isEmbe
               <div className="border-t border-neutral-200 pt-4 mt-4">
                 <div className="flex justify-between items-center">
                   <span className="text-neutral-900 font-medium">Monthly Payment:</span>
-                  <span className="text-2xl font-bold text-amber-600" style={{ fontFamily: "'Playfair Display', Georgia, serif" }}>N${result.monthlyPayment.toFixed(2)}</span>
+                  <span className="text-2xl font-bold text-sky-600" >N${result.monthlyPayment.toFixed(2)}</span>
                 </div>
               </div>
             </div>
@@ -183,7 +183,7 @@ export default function CalculatorModal({ isOpen, onClose, selectedPrice, isEmbe
       <DialogContent className="max-w-md bg-white border border-neutral-200 rounded-sm">
         <DialogHeader>
           <div className="luxury-divider mb-4"></div>
-          <DialogTitle className="text-xl font-semibold tracking-wider" style={{ fontFamily: "'Playfair Display', Georgia, serif" }}>PAYMENT CALCULATOR</DialogTitle>
+          <DialogTitle className="text-xl font-semibold tracking-wider" >PAYMENT CALCULATOR</DialogTitle>
           <DialogDescription className="text-neutral-500 text-sm">
             Calculate your monthly payments for any phone with our flexible credit options.
           </DialogDescription>
