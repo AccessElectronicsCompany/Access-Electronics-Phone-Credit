@@ -223,39 +223,39 @@ export default function Home() {
       />
 
       {/* Credit Info Section */}
-      <section className="samsung-section bg-cream">
+      <section className="py-12 sm:py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-cream">
         <div className="samsung-container">
-          <div className="text-center mb-16 animate-in slide-in-from-bottom duration-1000">
-            <div className="luxury-divider mb-6"></div>
-            <h3 className="text-3xl md:text-4xl samsung-header mb-4">FLEXIBLE CREDIT OPTIONS</h3>
-            <p className="samsung-text max-w-2xl mx-auto text-base md:text-lg text-neutral-600">Choose from multiple payment plans with competitive rates</p>
+          <div className="text-center mb-8 sm:mb-12 md:mb-16 animate-in slide-in-from-bottom duration-1000">
+            <div className="luxury-divider mb-4 sm:mb-6"></div>
+            <h3 className="text-2xl sm:text-3xl md:text-4xl samsung-header mb-3 sm:mb-4">FLEXIBLE CREDIT OPTIONS</h3>
+            <p className="samsung-text max-w-2xl mx-auto text-sm sm:text-base md:text-lg text-neutral-600">Choose from multiple payment plans with competitive rates</p>
           </div>
-          <div className="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
-            <Card className="bg-white border border-neutral-200 text-center p-8 animate-in slide-in-from-left duration-1000 delay-300 hover:border-sky-500 transition-all duration-500 rounded-sm group" style={{ boxShadow: '0 4px 20px rgba(0, 0, 0, 0.05)' }}>
-              <CardContent className="pt-4">
-                <div className="text-5xl font-bold text-sky-500 mb-2 group-hover:scale-110 transition-transform duration-300" >12</div>
-                <div className="text-xs font-medium text-neutral-500 mb-4 tracking-widest uppercase">Months</div>
-                <div className="luxury-divider my-4"></div>
-                <p className="text-neutral-600 text-sm">Higher monthly payments,</p>
-                <p className="text-neutral-600 text-sm">less interest</p>
+          <div className="grid grid-cols-3 gap-2 sm:gap-4 md:gap-8 max-w-4xl mx-auto">
+            <Card className="bg-white border border-neutral-200 text-center p-3 sm:p-5 md:p-8 animate-in slide-in-from-left duration-1000 delay-300 hover:border-sky-500 transition-all duration-500 rounded-sm group active:scale-[0.98]" style={{ boxShadow: '0 4px 20px rgba(0, 0, 0, 0.05)' }}>
+              <CardContent className="p-0 sm:pt-4">
+                <div className="text-3xl sm:text-4xl md:text-5xl font-bold text-sky-500 mb-1 sm:mb-2 group-hover:scale-110 transition-transform duration-300">12</div>
+                <div className="text-[10px] sm:text-xs font-medium text-neutral-500 mb-2 sm:mb-4 tracking-widest uppercase">Months</div>
+                <div className="luxury-divider my-2 sm:my-4 hidden sm:block"></div>
+                <p className="text-neutral-600 text-[10px] sm:text-sm hidden sm:block">Higher monthly payments,</p>
+                <p className="text-neutral-600 text-[10px] sm:text-sm hidden sm:block">less interest</p>
               </CardContent>
             </Card>
-            <Card className="bg-neutral-900 border border-sky-500/30 text-center p-8 animate-in slide-in-from-bottom duration-1000 delay-500 hover:border-sky-400 transition-all duration-500 rounded-sm group" style={{ boxShadow: '0 4px 30px rgba(0, 0, 0, 0.15)' }}>
-              <CardContent className="pt-4">
-                <div className="text-5xl font-bold text-sky-400 mb-2 group-hover:scale-110 transition-transform duration-300" >24</div>
-                <div className="text-xs font-medium text-sky-400/70 mb-4 tracking-widest uppercase">Months</div>
-                <div className="w-16 h-0.5 mx-auto my-4 bg-gradient-to-r from-transparent via-sky-500 to-transparent"></div>
-                <p className="text-neutral-400 text-sm">Balanced</p>
-                <p className="text-neutral-400 text-sm">payment option</p>
+            <Card className="bg-neutral-900 border border-sky-500/30 text-center p-3 sm:p-5 md:p-8 animate-in slide-in-from-bottom duration-1000 delay-500 hover:border-sky-400 transition-all duration-500 rounded-sm group active:scale-[0.98]" style={{ boxShadow: '0 4px 30px rgba(0, 0, 0, 0.15)' }}>
+              <CardContent className="p-0 sm:pt-4">
+                <div className="text-3xl sm:text-4xl md:text-5xl font-bold text-sky-400 mb-1 sm:mb-2 group-hover:scale-110 transition-transform duration-300">24</div>
+                <div className="text-[10px] sm:text-xs font-medium text-sky-400/70 mb-2 sm:mb-4 tracking-widest uppercase">Months</div>
+                <div className="w-12 sm:w-16 h-0.5 mx-auto my-2 sm:my-4 bg-gradient-to-r from-transparent via-sky-500 to-transparent hidden sm:block"></div>
+                <p className="text-neutral-400 text-[10px] sm:text-sm hidden sm:block">Balanced</p>
+                <p className="text-neutral-400 text-[10px] sm:text-sm hidden sm:block">payment option</p>
               </CardContent>
             </Card>
-            <Card className="bg-white border border-neutral-200 text-center p-8 animate-in slide-in-from-right duration-1000 delay-700 hover:border-sky-500 transition-all duration-500 rounded-sm group" style={{ boxShadow: '0 4px 20px rgba(0, 0, 0, 0.05)' }}>
-              <CardContent className="pt-4">
-                <div className="text-5xl font-bold text-sky-500 mb-2 group-hover:scale-110 transition-transform duration-300" >36</div>
-                <div className="text-xs font-medium text-neutral-500 mb-4 tracking-widest uppercase">Months</div>
-                <div className="luxury-divider my-4"></div>
-                <p className="text-neutral-600 text-sm">Lower</p>
-                <p className="text-neutral-600 text-sm">monthly payments</p>
+            <Card className="bg-white border border-neutral-200 text-center p-3 sm:p-5 md:p-8 animate-in slide-in-from-right duration-1000 delay-700 hover:border-sky-500 transition-all duration-500 rounded-sm group active:scale-[0.98]" style={{ boxShadow: '0 4px 20px rgba(0, 0, 0, 0.05)' }}>
+              <CardContent className="p-0 sm:pt-4">
+                <div className="text-3xl sm:text-4xl md:text-5xl font-bold text-sky-500 mb-1 sm:mb-2 group-hover:scale-110 transition-transform duration-300">36</div>
+                <div className="text-[10px] sm:text-xs font-medium text-neutral-500 mb-2 sm:mb-4 tracking-widest uppercase">Months</div>
+                <div className="luxury-divider my-2 sm:my-4 hidden sm:block"></div>
+                <p className="text-neutral-600 text-[10px] sm:text-sm hidden sm:block">Lower</p>
+                <p className="text-neutral-600 text-[10px] sm:text-sm hidden sm:block">monthly payments</p>
               </CardContent>
             </Card>
           </div>
@@ -263,12 +263,12 @@ export default function Home() {
       </section>
 
       {/* Payment Calculator Section */}
-      <section id="calculator" className="samsung-section bg-white">
+      <section id="calculator" className="py-12 sm:py-16 md:py-24 bg-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12 animate-in slide-in-from-top duration-1000">
-            <div className="luxury-divider mb-6"></div>
-            <h3 className="text-3xl md:text-4xl mb-4" >PAYMENT CALCULATOR</h3>
-            <p className="text-neutral-600 text-base md:text-lg">Calculate your monthly payments with our flexible credit options</p>
+          <div className="text-center mb-8 sm:mb-12 animate-in slide-in-from-top duration-1000">
+            <div className="luxury-divider mb-4 sm:mb-6"></div>
+            <h3 className="text-2xl sm:text-3xl md:text-4xl mb-3 sm:mb-4">PAYMENT CALCULATOR</h3>
+            <p className="text-neutral-600 text-sm sm:text-base md:text-lg">Calculate your monthly payments with our flexible credit options</p>
           </div>
           <div className="animate-in fade-in duration-1000 delay-500">
             <CalculatorModal 
@@ -282,78 +282,78 @@ export default function Home() {
       </section>
 
       {/* Device Categories Navigation */}
-      <section className="samsung-section bg-neutral-900">
+      <section className="py-12 sm:py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-neutral-900">
         <div className="samsung-container">
-          <div className="text-center mb-16 animate-in slide-in-from-bottom duration-1000">
-            <div className="luxury-divider mb-6"></div>
-            <h3 className="text-3xl md:text-4xl text-white mb-4" >CHOOSE YOUR DEVICE</h3>
-            <p className="text-neutral-400 text-base md:text-lg">Select from our premium device categories</p>
+          <div className="text-center mb-8 sm:mb-12 md:mb-16 animate-in slide-in-from-bottom duration-1000">
+            <div className="luxury-divider mb-4 sm:mb-6"></div>
+            <h3 className="text-2xl sm:text-3xl md:text-4xl text-white mb-3 sm:mb-4">CHOOSE YOUR DEVICE</h3>
+            <p className="text-neutral-400 text-sm sm:text-base md:text-lg">Select from our premium device categories</p>
           </div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
-            <Card className="text-center p-6 bg-neutral-800/50 border border-neutral-700 hover:border-sky-500 hover:bg-neutral-800 transition-all duration-500 cursor-pointer rounded-sm animate-in slide-in-from-left duration-1000 delay-300 group"
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4 md:gap-6 max-w-6xl mx-auto">
+            <Card className="text-center p-3 sm:p-4 md:p-6 bg-neutral-800/50 border border-neutral-700 hover:border-sky-500 hover:bg-neutral-800 transition-all duration-500 cursor-pointer rounded-sm group active:scale-[0.98]"
                   onClick={() => window.location.href = '/phones'}>
-              <CardContent className="pt-4">
-                <div className="text-3xl mb-4 group-hover:scale-110 transition-transform duration-300">📱</div>
-                <h4 className="text-base font-semibold mb-2 tracking-wider text-white group-hover:text-sky-400 transition-colors">PHONES</h4>
-                <p className="text-xs text-neutral-400">iPhones, Samsung & more</p>
+              <CardContent className="p-0 pt-2 sm:pt-4">
+                <div className="text-2xl sm:text-3xl mb-2 sm:mb-4 group-hover:scale-110 transition-transform duration-300">📱</div>
+                <h4 className="text-xs sm:text-sm md:text-base font-semibold mb-1 sm:mb-2 tracking-wider text-white group-hover:text-sky-400 transition-colors">PHONES</h4>
+                <p className="text-[10px] sm:text-xs text-neutral-400 hidden sm:block">iPhones, Samsung & more</p>
               </CardContent>
             </Card>
-            <Card className="text-center p-6 bg-neutral-800/50 border border-neutral-700 hover:border-sky-500 hover:bg-neutral-800 transition-all duration-500 cursor-pointer rounded-sm animate-in slide-in-from-bottom duration-1000 delay-400 group"
+            <Card className="text-center p-3 sm:p-4 md:p-6 bg-neutral-800/50 border border-neutral-700 hover:border-sky-500 hover:bg-neutral-800 transition-all duration-500 cursor-pointer rounded-sm group active:scale-[0.98]"
                   onClick={() => window.location.href = '/ipads'}>
-              <CardContent className="pt-4">
-                <div className="mb-4 flex justify-center group-hover:scale-110 transition-transform duration-300">
-                  <Tablet size={32} className="text-white group-hover:text-sky-400 transition-colors" />
+              <CardContent className="p-0 pt-2 sm:pt-4">
+                <div className="mb-2 sm:mb-4 flex justify-center group-hover:scale-110 transition-transform duration-300">
+                  <Tablet size={24} className="sm:w-8 sm:h-8 text-white group-hover:text-sky-400 transition-colors" />
                 </div>
-                <h4 className="text-base font-semibold mb-2 tracking-wider text-white group-hover:text-sky-400 transition-colors">IPADS</h4>
-                <p className="text-xs text-neutral-400">iPad Pro, Air & more</p>
+                <h4 className="text-xs sm:text-sm md:text-base font-semibold mb-1 sm:mb-2 tracking-wider text-white group-hover:text-sky-400 transition-colors">IPADS</h4>
+                <p className="text-[10px] sm:text-xs text-neutral-400 hidden sm:block">iPad Pro, Air & more</p>
               </CardContent>
             </Card>
-            <Card className="text-center p-6 bg-neutral-800/50 border border-neutral-700 hover:border-sky-500 hover:bg-neutral-800 transition-all duration-500 cursor-pointer rounded-sm animate-in slide-in-from-right duration-1000 delay-500 group"
+            <Card className="text-center p-3 sm:p-4 md:p-6 bg-neutral-800/50 border border-neutral-700 hover:border-sky-500 hover:bg-neutral-800 transition-all duration-500 cursor-pointer rounded-sm group active:scale-[0.98]"
                   onClick={() => window.location.href = '/macbooks'}>
-              <CardContent className="pt-4">
-                <div className="text-3xl mb-4 group-hover:scale-110 transition-transform duration-300">💻</div>
-                <h4 className="text-base font-semibold mb-2 tracking-wider text-white group-hover:text-sky-400 transition-colors">MACBOOKS</h4>
-                <p className="text-xs text-neutral-400">MacBook Pro & Air</p>
+              <CardContent className="p-0 pt-2 sm:pt-4">
+                <div className="text-2xl sm:text-3xl mb-2 sm:mb-4 group-hover:scale-110 transition-transform duration-300">💻</div>
+                <h4 className="text-xs sm:text-sm md:text-base font-semibold mb-1 sm:mb-2 tracking-wider text-white group-hover:text-sky-400 transition-colors">MACBOOKS</h4>
+                <p className="text-[10px] sm:text-xs text-neutral-400 hidden sm:block">MacBook Pro & Air</p>
               </CardContent>
             </Card>
-            <Card className="text-center p-6 bg-neutral-800/50 border border-neutral-700 hover:border-sky-500 hover:bg-neutral-800 transition-all duration-500 cursor-pointer rounded-sm animate-in slide-in-from-left duration-1000 delay-600 group"
+            <Card className="text-center p-3 sm:p-4 md:p-6 bg-neutral-800/50 border border-neutral-700 hover:border-sky-500 hover:bg-neutral-800 transition-all duration-500 cursor-pointer rounded-sm group active:scale-[0.98]"
                   onClick={() => window.location.href = '/buds'}>
-              <CardContent className="pt-4">
-                <div className="text-3xl mb-4 group-hover:scale-110 transition-transform duration-300">🎧</div>
-                <h4 className="text-base font-semibold mb-2 tracking-wider text-white group-hover:text-sky-400 transition-colors">BUDS</h4>
-                <p className="text-xs text-neutral-400">AirPods & Galaxy Buds</p>
+              <CardContent className="p-0 pt-2 sm:pt-4">
+                <div className="text-2xl sm:text-3xl mb-2 sm:mb-4 group-hover:scale-110 transition-transform duration-300">🎧</div>
+                <h4 className="text-xs sm:text-sm md:text-base font-semibold mb-1 sm:mb-2 tracking-wider text-white group-hover:text-sky-400 transition-colors">BUDS</h4>
+                <p className="text-[10px] sm:text-xs text-neutral-400 hidden sm:block">AirPods & Galaxy Buds</p>
               </CardContent>
             </Card>
-            <Card className="text-center p-6 bg-neutral-800/50 border border-neutral-700 hover:border-sky-500 hover:bg-neutral-800 transition-all duration-500 cursor-pointer rounded-sm animate-in slide-in-from-bottom duration-1000 delay-700 group"
+            <Card className="text-center p-3 sm:p-4 md:p-6 bg-neutral-800/50 border border-neutral-700 hover:border-sky-500 hover:bg-neutral-800 transition-all duration-500 cursor-pointer rounded-sm group active:scale-[0.98]"
                   onClick={() => window.location.href = '/watches'}>
-              <CardContent className="pt-4">
-                <div className="text-3xl mb-4 group-hover:scale-110 transition-transform duration-300">⌚</div>
-                <h4 className="text-base font-semibold mb-2 tracking-wider text-white group-hover:text-sky-400 transition-colors">WATCHES</h4>
-                <p className="text-xs text-neutral-400">Apple Watch & Galaxy Watch</p>
+              <CardContent className="p-0 pt-2 sm:pt-4">
+                <div className="text-2xl sm:text-3xl mb-2 sm:mb-4 group-hover:scale-110 transition-transform duration-300">⌚</div>
+                <h4 className="text-xs sm:text-sm md:text-base font-semibold mb-1 sm:mb-2 tracking-wider text-white group-hover:text-sky-400 transition-colors">WATCHES</h4>
+                <p className="text-[10px] sm:text-xs text-neutral-400 hidden sm:block">Apple & Galaxy Watch</p>
               </CardContent>
             </Card>
-            <Card className="text-center p-6 bg-neutral-800/50 border border-neutral-700 hover:border-sky-500 hover:bg-neutral-800 transition-all duration-500 cursor-pointer rounded-sm animate-in slide-in-from-right duration-1000 delay-800 group"
+            <Card className="text-center p-3 sm:p-4 md:p-6 bg-neutral-800/50 border border-neutral-700 hover:border-sky-500 hover:bg-neutral-800 transition-all duration-500 cursor-pointer rounded-sm group active:scale-[0.98]"
                   onClick={() => window.location.href = '/tablets'}>
-              <CardContent className="pt-4">
-                <div className="text-3xl mb-4 group-hover:scale-110 transition-transform duration-300">📱</div>
-                <h4 className="text-base font-semibold mb-2 tracking-wider text-white group-hover:text-sky-400 transition-colors">TABLETS</h4>
-                <p className="text-xs text-neutral-400">Samsung Galaxy Tabs</p>
+              <CardContent className="p-0 pt-2 sm:pt-4">
+                <div className="text-2xl sm:text-3xl mb-2 sm:mb-4 group-hover:scale-110 transition-transform duration-300">📱</div>
+                <h4 className="text-xs sm:text-sm md:text-base font-semibold mb-1 sm:mb-2 tracking-wider text-white group-hover:text-sky-400 transition-colors">TABLETS</h4>
+                <p className="text-[10px] sm:text-xs text-neutral-400 hidden sm:block">Samsung Galaxy Tabs</p>
               </CardContent>
             </Card>
-            <Card className="text-center p-6 bg-neutral-800/50 border border-neutral-700 hover:border-sky-500 hover:bg-neutral-800 transition-all duration-500 cursor-pointer rounded-sm animate-in slide-in-from-left duration-1000 delay-900 group"
+            <Card className="text-center p-3 sm:p-4 md:p-6 bg-neutral-800/50 border border-neutral-700 hover:border-sky-500 hover:bg-neutral-800 transition-all duration-500 cursor-pointer rounded-sm group active:scale-[0.98]"
                   onClick={() => window.location.href = '/gaming-sound'}>
-              <CardContent className="pt-4">
-                <div className="text-3xl mb-4 group-hover:scale-110 transition-transform duration-300">🎮</div>
-                <h4 className="text-base font-semibold mb-2 tracking-wider text-white group-hover:text-sky-400 transition-colors">GAMING & SOUND</h4>
-                <p className="text-xs text-neutral-400">PS5, JBL, Harman Kardon</p>
+              <CardContent className="p-0 pt-2 sm:pt-4">
+                <div className="text-2xl sm:text-3xl mb-2 sm:mb-4 group-hover:scale-110 transition-transform duration-300">🎮</div>
+                <h4 className="text-xs sm:text-sm md:text-base font-semibold mb-1 sm:mb-2 tracking-wider text-white group-hover:text-sky-400 transition-colors">GAMING</h4>
+                <p className="text-[10px] sm:text-xs text-neutral-400 hidden sm:block">PS5, JBL & more</p>
               </CardContent>
             </Card>
-            <Card className="text-center p-6 bg-sky-500/20 border border-sky-500/50 hover:border-sky-400 hover:bg-sky-500/30 transition-all duration-500 cursor-pointer rounded-sm animate-in slide-in-from-bottom duration-1000 delay-1000 group"
+            <Card className="text-center p-3 sm:p-4 md:p-6 bg-sky-500/20 border border-sky-500/50 hover:border-sky-400 hover:bg-sky-500/30 transition-all duration-500 cursor-pointer rounded-sm group active:scale-[0.98]"
                   onClick={() => scrollToSection('calculator')}>
-              <CardContent className="pt-4">
-                <div className="text-3xl mb-4 group-hover:scale-110 transition-transform duration-300">🧮</div>
-                <h4 className="text-base font-semibold mb-2 tracking-wider text-sky-400">CALCULATOR</h4>
-                <p className="text-xs text-sky-400/70">Calculate monthly payments</p>
+              <CardContent className="p-0 pt-2 sm:pt-4">
+                <div className="text-2xl sm:text-3xl mb-2 sm:mb-4 group-hover:scale-110 transition-transform duration-300">🧮</div>
+                <h4 className="text-xs sm:text-sm md:text-base font-semibold mb-1 sm:mb-2 tracking-wider text-sky-400">CALC</h4>
+                <p className="text-[10px] sm:text-xs text-sky-400/70 hidden sm:block">Monthly payments</p>
               </CardContent>
             </Card>
           </div>
@@ -361,100 +361,98 @@ export default function Home() {
       </section>
 
       {/* Looking for Device Not Listed Section */}
-      <section className="samsung-section bg-cream">
+      <section className="py-12 sm:py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-cream">
         <div className="samsung-container">
-          <Card className="max-w-5xl mx-auto p-10 bg-white border border-neutral-200 rounded-sm animate-in slide-in-from-bottom duration-1000" style={{ boxShadow: '0 4px 30px rgba(0, 0, 0, 0.06)' }}>
-            <CardContent className="text-center">
-              <div className="luxury-divider mb-6"></div>
-              <h3 className="text-2xl md:text-3xl mb-6 animate-in fade-in duration-1000 delay-300" >
+          <Card className="max-w-5xl mx-auto p-5 sm:p-8 md:p-10 bg-white border border-neutral-200 rounded-sm animate-in slide-in-from-bottom duration-1000" style={{ boxShadow: '0 4px 30px rgba(0, 0, 0, 0.06)' }}>
+            <CardContent className="text-center p-0">
+              <div className="luxury-divider mb-4 sm:mb-6"></div>
+              <h3 className="text-lg sm:text-2xl md:text-3xl mb-4 sm:mb-6 animate-in fade-in duration-1000 delay-300">
                 Looking for a Device on Credit That's Not Listed?
               </h3>
-              <p className="text-base text-neutral-600 mb-4 max-w-3xl mx-auto animate-in slide-in-from-left duration-1000 delay-500">
+              <p className="text-sm sm:text-base text-neutral-600 mb-3 sm:mb-4 max-w-3xl mx-auto animate-in slide-in-from-left duration-1000 delay-500">
                 If you're interested in buying a phone, iPad, tablet, or MacBook on credit that isn't listed here, we're happy to help!
               </p>
-              <p className="text-base text-neutral-600 mb-8 max-w-3xl mx-auto animate-in slide-in-from-right duration-1000 delay-700">
-                Simply submit your quote request via email to{' '}
+              <p className="text-sm sm:text-base text-neutral-600 mb-6 sm:mb-8 max-w-3xl mx-auto animate-in slide-in-from-right duration-1000 delay-700">
+                Simply email{' '}
                 <a 
                   href="mailto:info@accessnamibia.com" 
                   className="text-sky-600 font-semibold hover:text-sky-500 transition-colors"
                 >
                   info@accessnamibia.com
                 </a>
-                , or contact one of our branches directly:
+                {' '}or contact our branches:
               </p>
               
-              <div className="grid md:grid-cols-3 gap-8 mb-8">
-                <div className="text-center animate-in slide-in-from-bottom duration-1000 delay-700 p-4 bg-neutral-50 rounded-sm border border-neutral-100 hover:border-sky-500/30 transition-colors">
-                  <h4 className="text-lg font-semibold text-neutral-900 mb-2" >Windhoek</h4>
-                  <p className="text-neutral-600 text-sm">081 162 6462 / 081 495 2277</p>
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4 md:gap-8 mb-6 sm:mb-8">
+                <div className="text-center animate-in slide-in-from-bottom duration-1000 delay-700 p-3 sm:p-4 bg-neutral-50 rounded-sm border border-neutral-100 hover:border-sky-500/30 transition-colors active:scale-[0.98]">
+                  <h4 className="text-sm sm:text-lg font-semibold text-neutral-900 mb-1 sm:mb-2">Windhoek</h4>
+                  <p className="text-neutral-600 text-xs sm:text-sm">081 162 6462 / 081 495 2277</p>
                 </div>
-                <div className="text-center animate-in slide-in-from-bottom duration-1000 delay-900 p-4 bg-neutral-50 rounded-sm border border-neutral-100 hover:border-sky-500/30 transition-colors">
-                  <h4 className="text-lg font-semibold text-neutral-900 mb-2" >Oshakati</h4>
-                  <p className="text-neutral-600 text-sm">081 860 1188</p>
+                <div className="text-center animate-in slide-in-from-bottom duration-1000 delay-900 p-3 sm:p-4 bg-neutral-50 rounded-sm border border-neutral-100 hover:border-sky-500/30 transition-colors active:scale-[0.98]">
+                  <h4 className="text-sm sm:text-lg font-semibold text-neutral-900 mb-1 sm:mb-2">Oshakati</h4>
+                  <p className="text-neutral-600 text-xs sm:text-sm">081 860 1188</p>
                 </div>
-                <div className="text-center animate-in slide-in-from-bottom duration-1000 delay-1000 p-4 bg-neutral-50 rounded-sm border border-neutral-100 hover:border-sky-500/30 transition-colors">
-                  <h4 className="text-lg font-semibold text-neutral-900 mb-2" >Walvis Bay</h4>
-                  <p className="text-neutral-600 text-sm">081 670 5032</p>
+                <div className="text-center animate-in slide-in-from-bottom duration-1000 delay-1000 p-3 sm:p-4 bg-neutral-50 rounded-sm border border-neutral-100 hover:border-sky-500/30 transition-colors active:scale-[0.98]">
+                  <h4 className="text-sm sm:text-lg font-semibold text-neutral-900 mb-1 sm:mb-2">Walvis Bay</h4>
+                  <p className="text-neutral-600 text-xs sm:text-sm">081 670 5032</p>
                 </div>
               </div>
 
-              <p className="text-neutral-500 text-sm animate-in fade-in duration-1000 delay-1200">
-                Our sales team at each branch will gladly assist you in getting a customized quote for the device you need.
-              </p>
+              <p className="text-neutral-500 text-xs sm:text-sm animate-in fade-in duration-1000 delay-1200">
+                Our sales team will gladly assist you in getting a customized quote.</p>
             </CardContent>
           </Card>
         </div>
       </section>
 
       {/* Credit Application Requirements Section */}
-      <section className="samsung-section bg-neutral-900">
+      <section className="py-12 sm:py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-neutral-900">
         <div className="samsung-container">
-          <Card className="max-w-4xl mx-auto p-10 bg-neutral-800 border border-neutral-700 rounded-sm animate-in slide-in-from-top duration-1000">
-            <CardContent>
-              <div className="luxury-divider mb-6"></div>
-              <h3 className="text-2xl md:text-3xl text-white mb-8 text-center animate-in fade-in duration-1000 delay-300" >
+          <Card className="max-w-4xl mx-auto p-5 sm:p-8 md:p-10 bg-neutral-800 border border-neutral-700 rounded-sm animate-in slide-in-from-top duration-1000">
+            <CardContent className="p-0">
+              <div className="luxury-divider mb-4 sm:mb-6"></div>
+              <h3 className="text-lg sm:text-2xl md:text-3xl text-white mb-5 sm:mb-8 text-center animate-in fade-in duration-1000 delay-300">
                 Requirements for a Credit Application
               </h3>
               
-              <div className="space-y-4 mb-8">
-                <div className="flex items-center gap-4 animate-in slide-in-from-left duration-1000 delay-500 p-3 bg-neutral-700/30 rounded-sm border-l-2 border-sky-500">
-                  <div className="w-2 h-2 bg-sky-500 rounded-full"></div>
-                  <p className="text-neutral-300">Latest Payslip</p>
+              <div className="space-y-2 sm:space-y-4 mb-5 sm:mb-8">
+                <div className="flex items-center gap-3 sm:gap-4 animate-in slide-in-from-left duration-1000 delay-500 p-2 sm:p-3 bg-neutral-700/30 rounded-sm border-l-2 border-sky-500">
+                  <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-sky-500 rounded-full flex-shrink-0"></div>
+                  <p className="text-neutral-300 text-xs sm:text-base">Latest Payslip</p>
                 </div>
-                <div className="flex items-center gap-4 animate-in slide-in-from-left duration-1000 delay-600 p-3 bg-neutral-700/30 rounded-sm border-l-2 border-sky-500">
-                  <div className="w-2 h-2 bg-sky-500 rounded-full"></div>
-                  <p className="text-neutral-300">Employment Confirmation Letter</p>
+                <div className="flex items-center gap-3 sm:gap-4 animate-in slide-in-from-left duration-1000 delay-600 p-2 sm:p-3 bg-neutral-700/30 rounded-sm border-l-2 border-sky-500">
+                  <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-sky-500 rounded-full flex-shrink-0"></div>
+                  <p className="text-neutral-300 text-xs sm:text-base">Employment Confirmation Letter</p>
                 </div>
-                <div className="flex items-center gap-4 animate-in slide-in-from-left duration-1000 delay-700 p-3 bg-neutral-700/30 rounded-sm border-l-2 border-sky-500">
-                  <div className="w-2 h-2 bg-sky-500 rounded-full"></div>
-                  <p className="text-neutral-300">Copy of ID</p>
+                <div className="flex items-center gap-3 sm:gap-4 animate-in slide-in-from-left duration-1000 delay-700 p-2 sm:p-3 bg-neutral-700/30 rounded-sm border-l-2 border-sky-500">
+                  <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-sky-500 rounded-full flex-shrink-0"></div>
+                  <p className="text-neutral-300 text-xs sm:text-base">Copy of ID</p>
                 </div>
-                <div className="flex items-center gap-4 animate-in slide-in-from-left duration-1000 delay-800 p-3 bg-neutral-700/30 rounded-sm border-l-2 border-sky-500">
-                  <div className="w-2 h-2 bg-sky-500 rounded-full"></div>
-                  <p className="text-neutral-300">Quotation (We'll provide this after you complete the quote request form)</p>
+                <div className="flex items-center gap-3 sm:gap-4 animate-in slide-in-from-left duration-1000 delay-800 p-2 sm:p-3 bg-neutral-700/30 rounded-sm border-l-2 border-sky-500">
+                  <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-sky-500 rounded-full flex-shrink-0"></div>
+                  <p className="text-neutral-300 text-xs sm:text-base">Quotation (provided after quote request)</p>
                 </div>
               </div>
 
-              <div className="border-t border-neutral-700 pt-6">
-                <h4 className="text-lg text-sky-400 mb-4" >
-                  Once you've gathered all the required documents, please either:
+              <div className="border-t border-neutral-700 pt-4 sm:pt-6">
+                <h4 className="text-sm sm:text-lg text-sky-400 mb-3 sm:mb-4">
+                  Once you've gathered all documents:
                 </h4>
-                <div className="space-y-3">
-                  <div className="flex items-center gap-3">
-                    <div className="w-1.5 h-1.5 bg-sky-500 rounded-full"></div>
-                    <p className="text-neutral-400">Submit them at your nearest FNB branch, or</p>
+                <div className="space-y-2 sm:space-y-3">
+                  <div className="flex items-start gap-2 sm:gap-3">
+                    <div className="w-1.5 h-1.5 bg-sky-500 rounded-full mt-1.5 flex-shrink-0"></div>
+                    <p className="text-neutral-400 text-xs sm:text-base">Submit at your nearest FNB branch, or</p>
                   </div>
-                  <div className="flex items-center gap-3">
-                    <div className="w-1.5 h-1.5 bg-sky-500 rounded-full"></div>
-                    <p className="text-neutral-400">
-                      Email them directly to our credit team at{' '}
+                  <div className="flex items-start gap-2 sm:gap-3">
+                    <div className="w-1.5 h-1.5 bg-sky-500 rounded-full mt-1.5 flex-shrink-0"></div>
+                    <p className="text-neutral-400 text-xs sm:text-base">
+                      Email to{' '}
                       <a 
                         href="mailto:credit@accessnamibia.com" 
                         className="text-sky-400 font-medium hover:text-sky-300 transition-colors"
                       >
                         credit@accessnamibia.com
                       </a>
-                      {' '}for faster processing.
                     </p>
                   </div>
                 </div>
@@ -465,21 +463,21 @@ export default function Home() {
       </section>
 
       {/* Our Promise Section */}
-      <section className="samsung-section bg-cream">
+      <section className="py-12 sm:py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-cream">
         <div className="samsung-container">
-          <Card className="max-w-4xl mx-auto p-10 bg-white border border-neutral-200 rounded-sm animate-in slide-in-from-bottom duration-1000" style={{ boxShadow: '0 4px 30px rgba(0, 0, 0, 0.06)' }}>
-            <CardContent className="text-center">
-              <div className="luxury-divider mb-6"></div>
-              <h3 className="text-2xl md:text-3xl text-neutral-900 mb-8 animate-in fade-in duration-1000 delay-300" >
+          <Card className="max-w-4xl mx-auto p-5 sm:p-8 md:p-10 bg-white border border-neutral-200 rounded-sm animate-in slide-in-from-bottom duration-1000" style={{ boxShadow: '0 4px 30px rgba(0, 0, 0, 0.06)' }}>
+            <CardContent className="text-center p-0">
+              <div className="luxury-divider mb-4 sm:mb-6"></div>
+              <h3 className="text-lg sm:text-2xl md:text-3xl text-neutral-900 mb-4 sm:mb-8 animate-in fade-in duration-1000 delay-300">
                 Our Promise to You
               </h3>
               
-              <p className="text-base text-neutral-600 mb-6 max-w-3xl mx-auto animate-in slide-in-from-left duration-1000 delay-500">
+              <p className="text-sm sm:text-base text-neutral-600 mb-4 sm:mb-6 max-w-3xl mx-auto animate-in slide-in-from-left duration-1000 delay-500">
                 We aim to send your quotation within 1 hour of receiving your quote request — during our working hours, 08:00 to 18:00.
               </p>
               
-              <p className="text-neutral-500 text-sm animate-in slide-in-from-right duration-1000 delay-700">
-                Requests submitted outside of these hours will be prioritized and sent out first thing the next morning.
+              <p className="text-neutral-500 text-xs sm:text-sm animate-in slide-in-from-right duration-1000 delay-700">
+                Requests submitted outside of these hours will be prioritized the next morning.
               </p>
             </CardContent>
           </Card>
@@ -519,75 +517,71 @@ export default function Home() {
       />
 
       {/* Footer */}
-      <footer className="bg-neutral-900 text-white py-16">
+      <footer className="bg-neutral-900 text-white py-10 sm:py-12 md:py-16 px-4 sm:px-6 lg:px-8">
         <div className="samsung-container">
-          <div className="luxury-divider mb-12"></div>
-          <div className="grid md:grid-cols-3 gap-12">
+          <div className="luxury-divider mb-8 sm:mb-12"></div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 sm:gap-10 md:gap-12">
             {/* Company Info */}
-            <div>
-              <h4 className="text-lg font-semibold text-sky-400 mb-4 tracking-widest" >ACCESS ELECTRONICS</h4>
-              <p className="text-neutral-400 mb-6 text-sm leading-relaxed">
+            <div className="text-center sm:text-left">
+              <h4 className="text-base sm:text-lg font-semibold text-sky-400 mb-3 sm:mb-4 tracking-widest">ACCESS ELECTRONICS</h4>
+              <p className="text-neutral-400 mb-4 sm:mb-6 text-xs sm:text-sm leading-relaxed">
                 Connecting you with the latest technology through flexible financing options.
               </p>
-              <div className="flex space-x-3">
-                <div className="w-9 h-9 bg-neutral-800 border border-neutral-700 rounded-sm flex items-center justify-center hover:border-sky-500 hover:bg-neutral-800 transition-all cursor-pointer group">
-                  <span className="text-neutral-400 text-sm group-hover:text-sky-400 transition-colors">f</span>
+              <div className="flex space-x-3 justify-center sm:justify-start">
+                <div className="w-8 h-8 sm:w-9 sm:h-9 bg-neutral-800 border border-neutral-700 rounded-sm flex items-center justify-center hover:border-sky-500 hover:bg-neutral-800 transition-all cursor-pointer group active:scale-[0.95]">
+                  <span className="text-neutral-400 text-xs sm:text-sm group-hover:text-sky-400 transition-colors">f</span>
                 </div>
-                <div className="w-9 h-9 bg-neutral-800 border border-neutral-700 rounded-sm flex items-center justify-center hover:border-sky-500 hover:bg-neutral-800 transition-all cursor-pointer group">
-                  <span className="text-neutral-400 text-sm group-hover:text-sky-400 transition-colors">t</span>
+                <div className="w-8 h-8 sm:w-9 sm:h-9 bg-neutral-800 border border-neutral-700 rounded-sm flex items-center justify-center hover:border-sky-500 hover:bg-neutral-800 transition-all cursor-pointer group active:scale-[0.95]">
+                  <span className="text-neutral-400 text-xs sm:text-sm group-hover:text-sky-400 transition-colors">t</span>
                 </div>
-                <div className="w-9 h-9 bg-neutral-800 border border-neutral-700 rounded-sm flex items-center justify-center hover:border-sky-500 hover:bg-neutral-800 transition-all cursor-pointer group">
-                  <span className="text-neutral-400 text-sm group-hover:text-sky-400 transition-colors">@</span>
+                <div className="w-8 h-8 sm:w-9 sm:h-9 bg-neutral-800 border border-neutral-700 rounded-sm flex items-center justify-center hover:border-sky-500 hover:bg-neutral-800 transition-all cursor-pointer group active:scale-[0.95]">
+                  <span className="text-neutral-400 text-xs sm:text-sm group-hover:text-sky-400 transition-colors">@</span>
                 </div>
               </div>
             </div>
 
             {/* Quick Links */}
-            <div>
-              <h4 className="text-lg font-semibold text-white mb-4 tracking-wider" >Quick Links</h4>
-              <ul className="space-y-3 text-neutral-400 text-sm">
+            <div className="text-center sm:text-left">
+              <h4 className="text-base sm:text-lg font-semibold text-white mb-3 sm:mb-4 tracking-wider">Quick Links</h4>
+              <ul className="space-y-2 sm:space-y-3 text-neutral-400 text-xs sm:text-sm">
                 <li><a href="/" className="hover:text-sky-400 transition-colors">Home</a></li>
                 <li><a href="/phones" className="hover:text-sky-400 transition-colors">Products</a></li>
-                <li><button onClick={() => setShowCalculator(true)} className="hover:text-sky-400 transition-colors text-left">Financing Options</button></li>
-                <li><a href="/terms" className="hover:text-sky-400 transition-colors">Terms & Conditions</a></li>
-                <li><a href="https://accessnamibia.com/" target="_blank" rel="noopener noreferrer" className="hover:text-sky-400 transition-colors">Official Online Store</a></li>
-                <li><a href="mailto:info@accessnamibia.com" className="hover:text-sky-400 transition-colors">Contact</a></li>
+                <li><button onClick={() => setShowCalculator(true)} className="hover:text-sky-400 transition-colors text-left">Financing</button></li>
+                <li><a href="/terms" className="hover:text-sky-400 transition-colors">Terms</a></li>
+                <li><a href="https://accessnamibia.com/" target="_blank" rel="noopener noreferrer" className="hover:text-sky-400 transition-colors">Online Store</a></li>
               </ul>
             </div>
 
             {/* Our Branches */}
-            <div>
-              <h4 className="text-lg font-semibold text-white mb-4 tracking-wider" >Our Branches</h4>
-              <div className="space-y-4">
-                <div className="p-4 bg-neutral-800/50 border border-neutral-700/50 rounded-sm hover:border-sky-500/30 transition-colors">
-                  <div className="flex items-center space-x-2 mb-2">
-                    <div className="w-2 h-2 bg-sky-500 rounded-full"></div>
-                    <span className="text-white font-medium text-sm">Windhoek (Main Shop)</span>
+            <div className="sm:col-span-2 md:col-span-1">
+              <h4 className="text-base sm:text-lg font-semibold text-white mb-3 sm:mb-4 tracking-wider text-center sm:text-left">Our Branches</h4>
+              <div className="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-1 gap-2 sm:gap-3 md:gap-4">
+                <div className="p-3 sm:p-4 bg-neutral-800/50 border border-neutral-700/50 rounded-sm hover:border-sky-500/30 transition-colors active:scale-[0.98]">
+                  <div className="flex items-center space-x-2 mb-1 sm:mb-2 justify-center sm:justify-start">
+                    <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-sky-500 rounded-full"></div>
+                    <span className="text-white font-medium text-xs sm:text-sm">Windhoek</span>
                   </div>
-                  <p className="text-neutral-500 text-xs ml-4 mb-1">
-                    Independence Avenue, Opposite Zoo Park
-                  </p>
-                  <p className="text-neutral-400 text-xs ml-4">
-                    +264 814952277 / +264 811626462
+                  <p className="text-neutral-400 text-[10px] sm:text-xs text-center sm:text-left sm:ml-4">
+                    +264 814952277
                   </p>
                 </div>
 
-                <div className="p-4 bg-neutral-800/50 border border-neutral-700/50 rounded-sm hover:border-sky-500/30 transition-colors">
-                  <div className="flex items-center space-x-2 mb-2">
-                    <div className="w-2 h-2 bg-sky-500 rounded-full"></div>
-                    <span className="text-white font-medium text-sm">Oshakati</span>
+                <div className="p-3 sm:p-4 bg-neutral-800/50 border border-neutral-700/50 rounded-sm hover:border-sky-500/30 transition-colors active:scale-[0.98]">
+                  <div className="flex items-center space-x-2 mb-1 sm:mb-2 justify-center sm:justify-start">
+                    <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-sky-500 rounded-full"></div>
+                    <span className="text-white font-medium text-xs sm:text-sm">Oshakati</span>
                   </div>
-                  <p className="text-neutral-400 text-xs ml-4">
+                  <p className="text-neutral-400 text-[10px] sm:text-xs text-center sm:text-left sm:ml-4">
                     +264 818601188
                   </p>
                 </div>
 
-                <div className="p-4 bg-neutral-800/50 border border-neutral-700/50 rounded-sm hover:border-sky-500/30 transition-colors">
-                  <div className="flex items-center space-x-2 mb-2">
-                    <div className="w-2 h-2 bg-sky-500 rounded-full"></div>
-                    <span className="text-white font-medium text-sm">Walvis Bay</span>
+                <div className="p-3 sm:p-4 bg-neutral-800/50 border border-neutral-700/50 rounded-sm hover:border-sky-500/30 transition-colors active:scale-[0.98]">
+                  <div className="flex items-center space-x-2 mb-1 sm:mb-2 justify-center sm:justify-start">
+                    <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-sky-500 rounded-full"></div>
+                    <span className="text-white font-medium text-xs sm:text-sm">Walvis Bay</span>
                   </div>
-                  <p className="text-neutral-400 text-xs ml-4">
+                  <p className="text-neutral-400 text-[10px] sm:text-xs text-center sm:text-left sm:ml-4">
                     +264 816705032
                   </p>
                 </div>
@@ -596,8 +590,8 @@ export default function Home() {
           </div>
 
           {/* Copyright */}
-          <div className="border-t border-neutral-800 mt-12 pt-8 text-center">
-            <p className="text-neutral-500 text-xs tracking-wider">
+          <div className="border-t border-neutral-800 mt-8 sm:mt-12 pt-6 sm:pt-8 text-center">
+            <p className="text-neutral-500 text-[10px] sm:text-xs tracking-wider">
               © 2025 Access Electronics. All rights reserved.
             </p>
           </div>
