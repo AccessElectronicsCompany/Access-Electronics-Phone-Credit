@@ -518,82 +518,76 @@ export default function Home() {
       />
 
       {/* Footer */}
-      <footer className="bg-gray-900 text-white py-12">
+      <footer className="bg-neutral-900 text-white py-16">
         <div className="samsung-container">
+          <div className="luxury-divider mb-12"></div>
           <div className="grid md:grid-cols-3 gap-12">
             {/* Company Info */}
             <div>
-              <h4 className="text-xl font-bold text-white mb-4">ACCESS ELECTRONICS</h4>
-              <p className="text-gray-400 mb-6">
+              <h4 className="text-lg font-semibold text-amber-400 mb-4 tracking-widest" style={{ fontFamily: "'Playfair Display', Georgia, serif" }}>ACCESS ELECTRONICS</h4>
+              <p className="text-neutral-400 mb-6 text-sm leading-relaxed">
                 Connecting you with the latest technology through flexible financing options.
               </p>
-              <div className="flex space-x-4">
-                <div className="w-8 h-8 bg-gray-700 rounded-xl flex items-center justify-center hover:bg-gray-600 transition-colors cursor-pointer">
-                  <span className="text-white text-sm">f</span>
+              <div className="flex space-x-3">
+                <div className="w-9 h-9 bg-neutral-800 border border-neutral-700 rounded-sm flex items-center justify-center hover:border-amber-500 hover:bg-neutral-800 transition-all cursor-pointer group">
+                  <span className="text-neutral-400 text-sm group-hover:text-amber-400 transition-colors">f</span>
                 </div>
-                <div className="w-8 h-8 bg-gray-700 rounded-xl flex items-center justify-center hover:bg-gray-600 transition-colors cursor-pointer">
-                  <span className="text-white text-sm">t</span>
+                <div className="w-9 h-9 bg-neutral-800 border border-neutral-700 rounded-sm flex items-center justify-center hover:border-amber-500 hover:bg-neutral-800 transition-all cursor-pointer group">
+                  <span className="text-neutral-400 text-sm group-hover:text-amber-400 transition-colors">t</span>
                 </div>
-                <div className="w-8 h-8 bg-gray-700 rounded-xl flex items-center justify-center hover:bg-gray-600 transition-colors cursor-pointer">
-                  <span className="text-white text-sm">@</span>
+                <div className="w-9 h-9 bg-neutral-800 border border-neutral-700 rounded-sm flex items-center justify-center hover:border-amber-500 hover:bg-neutral-800 transition-all cursor-pointer group">
+                  <span className="text-neutral-400 text-sm group-hover:text-amber-400 transition-colors">@</span>
                 </div>
               </div>
             </div>
 
             {/* Quick Links */}
             <div>
-              <h4 className="text-xl font-bold text-white mb-4">Quick Links</h4>
-              <ul className="space-y-3 text-gray-400">
-                <li><a href="/" className="hover:text-white transition-colors">Home</a></li>
-                <li><a href="/phones" className="hover:text-white transition-colors">Products</a></li>
-                <li><button onClick={() => setShowCalculator(true)} className="hover:text-white transition-colors text-left">Financing Options</button></li>
-                <li><a href="/terms" className="hover:text-white transition-colors">Terms & Conditions</a></li>
-                <li><a href="mailto:info@accessnamibia.com" className="hover:text-white transition-colors">Official Online Store</a></li>
-                <li><a href="mailto:info@accessnamibia.com" className="hover:text-white transition-colors">About Us</a></li>
-                <li><a href="mailto:info@accessnamibia.com" className="hover:text-white transition-colors">Contact</a></li>
+              <h4 className="text-lg font-semibold text-white mb-4 tracking-wider" style={{ fontFamily: "'Playfair Display', Georgia, serif" }}>Quick Links</h4>
+              <ul className="space-y-3 text-neutral-400 text-sm">
+                <li><a href="/" className="hover:text-amber-400 transition-colors">Home</a></li>
+                <li><a href="/phones" className="hover:text-amber-400 transition-colors">Products</a></li>
+                <li><button onClick={() => setShowCalculator(true)} className="hover:text-amber-400 transition-colors text-left">Financing Options</button></li>
+                <li><a href="/terms" className="hover:text-amber-400 transition-colors">Terms & Conditions</a></li>
+                <li><a href="https://accessnamibia.com/" target="_blank" rel="noopener noreferrer" className="hover:text-amber-400 transition-colors">Official Online Store</a></li>
+                <li><a href="mailto:info@accessnamibia.com" className="hover:text-amber-400 transition-colors">Contact</a></li>
               </ul>
             </div>
 
             {/* Our Branches */}
             <div>
-              <h4 className="text-xl font-bold text-white mb-4">Our Branches</h4>
+              <h4 className="text-lg font-semibold text-white mb-4 tracking-wider" style={{ fontFamily: "'Playfair Display', Georgia, serif" }}>Our Branches</h4>
               <div className="space-y-4">
-                <div className="p-4 bg-gray-800 rounded-xl">
+                <div className="p-4 bg-neutral-800/50 border border-neutral-700/50 rounded-sm hover:border-amber-500/30 transition-colors">
                   <div className="flex items-center space-x-2 mb-2">
-                    <div className="w-4 h-4 bg-gray-600 rounded-full flex items-center justify-center">
-                      <div className="w-2 h-2 bg-white rounded-full"></div>
-                    </div>
-                    <span className="text-white font-semibold">Windhoek (Main Shop)</span>
+                    <div className="w-2 h-2 bg-amber-500 rounded-full"></div>
+                    <span className="text-white font-medium text-sm">Windhoek (Main Shop)</span>
                   </div>
-                  <p className="text-gray-400 text-sm ml-6">
-                    Independence Avenue, Opposite Zoo Park, next to NWR Head Office
+                  <p className="text-neutral-500 text-xs ml-4 mb-1">
+                    Independence Avenue, Opposite Zoo Park
                   </p>
-                  <p className="text-gray-400 text-sm ml-6">
-                    📞 +264 814952277 / +264 811626462
+                  <p className="text-neutral-400 text-xs ml-4">
+                    +264 814952277 / +264 811626462
                   </p>
                 </div>
 
-                <div className="p-4 bg-gray-800 rounded-xl">
+                <div className="p-4 bg-neutral-800/50 border border-neutral-700/50 rounded-sm hover:border-amber-500/30 transition-colors">
                   <div className="flex items-center space-x-2 mb-2">
-                    <div className="w-4 h-4 bg-gray-600 rounded-full flex items-center justify-center">
-                      <div className="w-2 h-2 bg-white rounded-full"></div>
-                    </div>
-                    <span className="text-white font-semibold">Oshakati</span>
+                    <div className="w-2 h-2 bg-amber-500 rounded-full"></div>
+                    <span className="text-white font-medium text-sm">Oshakati</span>
                   </div>
-                  <p className="text-gray-400 text-sm ml-6">
-                    📞 +264 818601188
+                  <p className="text-neutral-400 text-xs ml-4">
+                    +264 818601188
                   </p>
                 </div>
 
-                <div className="p-4 bg-gray-800 rounded-xl">
+                <div className="p-4 bg-neutral-800/50 border border-neutral-700/50 rounded-sm hover:border-amber-500/30 transition-colors">
                   <div className="flex items-center space-x-2 mb-2">
-                    <div className="w-4 h-4 bg-gray-600 rounded-full flex items-center justify-center">
-                      <div className="w-2 h-2 bg-white rounded-full"></div>
-                    </div>
-                    <span className="text-white font-semibold">Walvis Bay</span>
+                    <div className="w-2 h-2 bg-amber-500 rounded-full"></div>
+                    <span className="text-white font-medium text-sm">Walvis Bay</span>
                   </div>
-                  <p className="text-gray-400 text-sm ml-6">
-                    📞 +264 816705032
+                  <p className="text-neutral-400 text-xs ml-4">
+                    +264 816705032
                   </p>
                 </div>
               </div>
@@ -601,8 +595,8 @@ export default function Home() {
           </div>
 
           {/* Copyright */}
-          <div className="border-t border-gray-800 mt-8 pt-6 text-center">
-            <p className="text-gray-400 text-sm">
+          <div className="border-t border-neutral-800 mt-12 pt-8 text-center">
+            <p className="text-neutral-500 text-xs tracking-wider">
               © 2025 Access Electronics. All rights reserved.
             </p>
           </div>
