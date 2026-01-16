@@ -1,52 +1,59 @@
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root {
-  --background: hsl(0, 0%, 100%);
-  --foreground: hsl(0, 0%, 0%);
-  --muted: hsl(0, 0%, 96%);
-  --muted-foreground: hsl(0, 0%, 40%);
-  --popover: hsl(0, 0%, 100%);
-  --popover-foreground: hsl(0, 0%, 0%);
-  --card: hsl(0, 0%, 100%);
-  --card-foreground: hsl(0, 0%, 0%);
-  --border: hsl(0, 0%, 85%);
-  --input: hsl(0, 0%, 95%);
-  --primary: hsl(0, 0%, 0%);
-  --primary-foreground: hsl(0, 0%, 100%);
-  --secondary: hsl(0, 0%, 96%);
-  --secondary-foreground: hsl(0, 0%, 0%);
-  --accent: hsl(0, 0%, 96%);
-  --accent-foreground: hsl(0, 0%, 0%);
-  --destructive: hsl(0, 84%, 60%);
+  --background: hsl(30, 10%, 98%);
+  --foreground: hsl(30, 5%, 10%);
+  --muted: hsl(30, 10%, 94%);
+  --muted-foreground: hsl(30, 5%, 45%);
+  --popover: hsl(30, 10%, 99%);
+  --popover-foreground: hsl(30, 5%, 10%);
+  --card: hsl(30, 10%, 99%);
+  --card-foreground: hsl(30, 5%, 10%);
+  --border: hsl(40, 30%, 85%);
+  --input: hsl(30, 10%, 95%);
+  --primary: hsl(30, 5%, 8%);
+  --primary-foreground: hsl(42, 60%, 65%);
+  --secondary: hsl(30, 10%, 94%);
+  --secondary-foreground: hsl(30, 5%, 10%);
+  --accent: hsl(42, 60%, 55%);
+  --accent-foreground: hsl(30, 5%, 8%);
+  --destructive: hsl(0, 72%, 51%);
   --destructive-foreground: hsl(0, 0%, 100%);
-  --ring: hsl(0, 0%, 0%);
-  --radius: 0.75rem;
+  --ring: hsl(42, 60%, 55%);
+  --radius: 0.5rem;
+  
+  --gold: hsl(42, 60%, 55%);
+  --gold-light: hsl(42, 60%, 70%);
+  --gold-dark: hsl(42, 50%, 40%);
+  --luxury-black: hsl(30, 5%, 8%);
+  --luxury-charcoal: hsl(30, 5%, 15%);
+  --cream: hsl(40, 30%, 96%);
 }
 
 .dark {
-  --background: hsl(222, 84%, 4.9%);
-  --foreground: hsl(210, 40%, 98%);
-  --muted: hsl(217, 32%, 17%);
-  --muted-foreground: hsl(215, 20%, 65%);
-  --popover: hsl(222, 84%, 4.9%);
-  --popover-foreground: hsl(210, 40%, 98%);
-  --card: hsl(222, 84%, 4.9%);
-  --card-foreground: hsl(210, 40%, 98%);
-  --border: hsl(217, 32%, 17%);
-  --input: hsl(217, 32%, 17%);
-  --primary: hsl(210, 40%, 98%);
-  --primary-foreground: hsl(222, 47%, 11%);
-  --secondary: hsl(217, 32%, 17%);
-  --secondary-foreground: hsl(210, 40%, 98%);
-  --accent: hsl(217, 32%, 17%);
-  --accent-foreground: hsl(210, 40%, 98%);
-  --destructive: hsl(0, 63%, 31%);
-  --destructive-foreground: hsl(210, 40%, 98%);
-  --ring: hsl(212, 72%, 59%);
+  --background: hsl(30, 5%, 5%);
+  --foreground: hsl(40, 30%, 95%);
+  --muted: hsl(30, 5%, 12%);
+  --muted-foreground: hsl(30, 10%, 60%);
+  --popover: hsl(30, 5%, 8%);
+  --popover-foreground: hsl(40, 30%, 95%);
+  --card: hsl(30, 5%, 8%);
+  --card-foreground: hsl(40, 30%, 95%);
+  --border: hsl(42, 30%, 25%);
+  --input: hsl(30, 5%, 15%);
+  --primary: hsl(42, 60%, 55%);
+  --primary-foreground: hsl(30, 5%, 5%);
+  --secondary: hsl(30, 5%, 15%);
+  --secondary-foreground: hsl(40, 30%, 95%);
+  --accent: hsl(42, 60%, 55%);
+  --accent-foreground: hsl(30, 5%, 5%);
+  --destructive: hsl(0, 63%, 45%);
+  --destructive-foreground: hsl(0, 0%, 100%);
+  --ring: hsl(42, 60%, 55%);
 }
 
 @layer base {
@@ -60,43 +67,145 @@
 
   body {
     @apply antialiased bg-background text-foreground;
-    font-family: 'Open Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
   }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Playfair Display', Georgia, serif;
+  }
 }
 
 @layer utilities {
+  .luxury-btn {
+    @apply bg-luxury-black text-gold hover:bg-luxury-charcoal transition-all duration-300 border-0 rounded-sm font-medium tracking-widest uppercase text-xs py-3 px-6;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  }
+  
+  .luxury-btn:hover {
+    box-shadow: 0 6px 25px rgba(0, 0, 0, 0.25);
+    transform: translateY(-1px);
+  }
+  
+  .luxury-btn-outline {
+    @apply bg-transparent border border-luxury-black text-luxury-black hover:bg-luxury-black hover:text-gold transition-all duration-300 rounded-sm font-medium tracking-widest uppercase text-xs py-3 px-6;
+  }
+  
+  .luxury-btn-gold {
+    @apply bg-gold text-luxury-black hover:bg-gold-dark transition-all duration-300 border-0 rounded-sm font-medium tracking-widest uppercase text-xs py-3 px-6;
+    box-shadow: 0 4px 20px rgba(196, 163, 98, 0.3);
+  }
+  
+  .luxury-btn-gold:hover {
+    box-shadow: 0 6px 25px rgba(196, 163, 98, 0.45);
+    transform: translateY(-1px);
+  }
+  
+  .luxury-card {
+    @apply bg-white border border-border transition-all duration-500 rounded-sm;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.04);
+  }
+  
+  .luxury-card:hover {
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+    border-color: var(--gold);
+    transform: translateY(-4px);
+  }
+  
+  .luxury-header {
+    font-family: 'Playfair Display', Georgia, serif;
+    @apply font-semibold tracking-wide text-luxury-black;
+    letter-spacing: 0.05em;
+  }
+  
+  .luxury-text {
+    font-family: 'Inter', sans-serif;
+    @apply text-foreground leading-relaxed;
+    letter-spacing: 0.02em;
+  }
+  
+  .luxury-section {
+    @apply py-24 px-6 lg:px-8;
+  }
+  
+  .luxury-container {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+  
+  .gold-gradient {
+    background: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 50%, var(--gold) 100%);
+  }
+  
+  .gold-text {
+    background: linear-gradient(135deg, var(--gold-dark) 0%, var(--gold) 50%, var(--gold-light) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  .luxury-divider {
+    @apply w-24 h-0.5 mx-auto my-6;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  }
+  
+  .bg-luxury-black {
+    background-color: var(--luxury-black);
+  }
+  
+  .bg-luxury-charcoal {
+    background-color: var(--luxury-charcoal);
+  }
+  
+  .bg-gold {
+    background-color: var(--gold);
+  }
+  
+  .bg-cream {
+    background-color: var(--cream);
+  }
+  
+  .text-gold {
+    color: var(--gold);
+  }
+  
+  .text-luxury-black {
+    color: var(--luxury-black);
+  }
+  
+  .border-gold {
+    border-color: var(--gold);
+  }
+
   .samsung-btn {
-    @apply bg-black text-white hover:bg-gray-800 transition-colors border-0 rounded-xl font-semibold tracking-wide uppercase text-sm;
+    @apply luxury-btn;
   }
   
   .samsung-btn-outline {
-    @apply bg-transparent text-black border-2 border-black hover:bg-black hover:text-white transition-all rounded-xl font-semibold tracking-wide uppercase text-sm;
+    @apply luxury-btn-outline;
   }
   
   .samsung-card {
-    @apply bg-white border-2 border-gray-200 hover:border-black transition-colors rounded-xl shadow-none;
+    @apply luxury-card;
   }
   
   .samsung-header {
-    @apply font-bold tracking-tight text-black;
+    @apply luxury-header;
   }
   
   .samsung-text {
-    @apply text-black leading-relaxed;
+    @apply luxury-text;
   }
   
   .samsung-section {
-    @apply py-20 px-6 lg:px-8;
+    @apply luxury-section;
   }
   
   .samsung-container {
-    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+    @apply luxury-container;
   }
 
-  /* Hero animations */
   @keyframes fadeInUp {
     from {
       opacity: 0;
@@ -129,6 +238,33 @@
       transform: translateX(0);
     }
   }
+  
+  @keyframes shimmer {
+    0% {
+      background-position: -200% center;
+    }
+    100% {
+      background-position: 200% center;
+    }
+  }
+  
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+  
+  @keyframes glow {
+    0%, 100% {
+      opacity: 0.4;
+    }
+    50% {
+      opacity: 1;
+    }
+  }
 
   .animate-fadeInUp {
     animation: fadeInUp 0.8s ease-out;
@@ -140,6 +276,20 @@
 
   .animate-fadeInRight {
     animation: fadeInRight 0.8s ease-out;
+  }
+  
+  .animate-shimmer {
+    background: linear-gradient(90deg, var(--gold-dark), var(--gold-light), var(--gold-dark));
+    background-size: 200% auto;
+    animation: shimmer 3s linear infinite;
+  }
+  
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+  
+  .animate-glow {
+    animation: glow 2s ease-in-out infinite;
   }
 
   .animate-delay-200 {
