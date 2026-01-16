@@ -78,9 +78,9 @@
   }
 }
 
-@layer utilities {
+@layer components {
   .luxury-btn {
-    @apply bg-luxury-black text-gold hover:bg-luxury-charcoal transition-all duration-300 border-0 rounded-sm font-medium tracking-widest uppercase text-xs py-3 px-6;
+    @apply bg-neutral-900 text-amber-400 hover:bg-neutral-800 transition-all duration-300 border-0 rounded-sm font-medium tracking-widest uppercase text-xs py-3 px-6;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
   }
   
@@ -90,11 +90,11 @@
   }
   
   .luxury-btn-outline {
-    @apply bg-transparent border border-luxury-black text-luxury-black hover:bg-luxury-black hover:text-gold transition-all duration-300 rounded-sm font-medium tracking-widest uppercase text-xs py-3 px-6;
+    @apply bg-transparent border border-neutral-900 text-neutral-900 hover:bg-neutral-900 hover:text-amber-400 transition-all duration-300 rounded-sm font-medium tracking-widest uppercase text-xs py-3 px-6;
   }
   
   .luxury-btn-gold {
-    @apply bg-gold text-luxury-black hover:bg-gold-dark transition-all duration-300 border-0 rounded-sm font-medium tracking-widest uppercase text-xs py-3 px-6;
+    @apply bg-amber-500 text-neutral-900 hover:bg-amber-600 transition-all duration-300 border-0 rounded-sm font-medium tracking-widest uppercase text-xs py-3 px-6;
     box-shadow: 0 4px 20px rgba(196, 163, 98, 0.3);
   }
   
@@ -104,7 +104,7 @@
   }
   
   .luxury-card {
-    @apply bg-white border border-border transition-all duration-500 rounded-sm;
+    @apply bg-white border border-neutral-200 transition-all duration-500 rounded-sm;
     box-shadow: 0 2px 15px rgba(0, 0, 0, 0.04);
   }
   
@@ -116,13 +116,13 @@
   
   .luxury-header {
     font-family: 'Playfair Display', Georgia, serif;
-    @apply font-semibold tracking-wide text-luxury-black;
+    @apply font-semibold tracking-wide text-neutral-900;
     letter-spacing: 0.05em;
   }
   
   .luxury-text {
     font-family: 'Inter', sans-serif;
-    @apply text-foreground leading-relaxed;
+    @apply text-neutral-800 leading-relaxed;
     letter-spacing: 0.02em;
   }
   
@@ -133,7 +133,54 @@
   .luxury-container {
     @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
   }
+
+  .samsung-btn {
+    @apply bg-neutral-900 text-amber-400 hover:bg-neutral-800 transition-all duration-300 border-0 rounded-sm font-medium tracking-widest uppercase text-xs py-3 px-6;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  }
   
+  .samsung-btn:hover {
+    box-shadow: 0 6px 25px rgba(0, 0, 0, 0.25);
+    transform: translateY(-1px);
+  }
+  
+  .samsung-btn-outline {
+    @apply bg-transparent border border-neutral-900 text-neutral-900 hover:bg-neutral-900 hover:text-amber-400 transition-all duration-300 rounded-sm font-medium tracking-widest uppercase text-xs py-3 px-6;
+  }
+  
+  .samsung-card {
+    @apply bg-white border border-neutral-200 transition-all duration-500 rounded-sm;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.04);
+  }
+  
+  .samsung-card:hover {
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+    border-color: var(--gold);
+    transform: translateY(-4px);
+  }
+  
+  .samsung-header {
+    font-family: 'Playfair Display', Georgia, serif;
+    @apply font-semibold tracking-wide text-neutral-900;
+    letter-spacing: 0.05em;
+  }
+  
+  .samsung-text {
+    font-family: 'Inter', sans-serif;
+    @apply text-neutral-800 leading-relaxed;
+    letter-spacing: 0.02em;
+  }
+  
+  .samsung-section {
+    @apply py-24 px-6 lg:px-8;
+  }
+  
+  .samsung-container {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+}
+
+@layer utilities {
   .gold-gradient {
     background: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 50%, var(--gold) 100%);
   }
@@ -176,34 +223,6 @@
   
   .border-gold {
     border-color: var(--gold);
-  }
-
-  .samsung-btn {
-    @apply luxury-btn;
-  }
-  
-  .samsung-btn-outline {
-    @apply luxury-btn-outline;
-  }
-  
-  .samsung-card {
-    @apply luxury-card;
-  }
-  
-  .samsung-header {
-    @apply luxury-header;
-  }
-  
-  .samsung-text {
-    @apply luxury-text;
-  }
-  
-  .samsung-section {
-    @apply luxury-section;
-  }
-  
-  .samsung-container {
-    @apply luxury-container;
   }
 
   @keyframes fadeInUp {

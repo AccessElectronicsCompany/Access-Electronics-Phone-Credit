@@ -41,70 +41,70 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-background">
       {/* Header */}
-      <header className="bg-white border-b border-black sticky top-0 z-50 animate-in slide-in-from-top duration-1000">
+      <header className="bg-neutral-900 border-b border-amber-500/30 sticky top-0 z-50 animate-in slide-in-from-top duration-1000">
         <div className="samsung-container">
           <div className="flex justify-between items-center h-20">
             <div className="flex items-center ml-4">
-              <h1 className="text-2xl md:text-3xl samsung-header tracking-widest animate-in fade-in duration-1000 delay-500">
+              <h1 className="text-xl md:text-2xl font-semibold tracking-[0.2em] animate-in fade-in duration-1000 delay-500 text-amber-400" style={{ fontFamily: "'Playfair Display', Georgia, serif" }}>
                 ACCESS ELECTRONICS
               </h1>
             </div>
             
             {/* Desktop Navigation */}
-            <nav className="hidden lg:flex space-x-6 xl:space-x-8 items-center animate-in slide-in-from-right duration-1000 delay-700">
+            <nav className="hidden lg:flex space-x-5 xl:space-x-7 items-center animate-in slide-in-from-right duration-1000 delay-700">
               <button
                 onClick={() => window.location.href = '/phones'}
-                className="samsung-text hover:text-black transition-all duration-300 font-medium tracking-wide uppercase text-sm whitespace-nowrap hover:scale-105 transform"
+                className="text-neutral-300 hover:text-amber-400 transition-all duration-300 font-medium tracking-wider uppercase text-xs whitespace-nowrap"
               >
                 Phones
               </button>
               <button
                 onClick={() => window.location.href = '/ipads'}
-                className="samsung-text hover:text-black transition-all duration-300 font-medium tracking-wide uppercase text-sm whitespace-nowrap hover:scale-105 transform"
+                className="text-neutral-300 hover:text-amber-400 transition-all duration-300 font-medium tracking-wider uppercase text-xs whitespace-nowrap"
               >
                 iPads
               </button>
               <button
                 onClick={() => window.location.href = '/macbooks'}
-                className="samsung-text hover:text-black transition-all duration-300 font-medium tracking-wide uppercase text-sm whitespace-nowrap hover:scale-105 transform"
+                className="text-neutral-300 hover:text-amber-400 transition-all duration-300 font-medium tracking-wider uppercase text-xs whitespace-nowrap"
               >
                 MacBooks
               </button>
               <button
                 onClick={() => window.location.href = '/buds'}
-                className="samsung-text hover:text-black transition-all duration-300 font-medium tracking-wide uppercase text-sm whitespace-nowrap hover:scale-105 transform"
+                className="text-neutral-300 hover:text-amber-400 transition-all duration-300 font-medium tracking-wider uppercase text-xs whitespace-nowrap"
               >
                 Buds
               </button>
               <button
                 onClick={() => window.location.href = '/watches'}
-                className="samsung-text hover:text-black transition-all duration-300 font-medium tracking-wide uppercase text-sm whitespace-nowrap hover:scale-105 transform"
+                className="text-neutral-300 hover:text-amber-400 transition-all duration-300 font-medium tracking-wider uppercase text-xs whitespace-nowrap"
               >
                 Watches
               </button>
               <button
                 onClick={() => window.location.href = '/tablets'}
-                className="samsung-text hover:text-black transition-all duration-300 font-medium tracking-wide uppercase text-sm whitespace-nowrap hover:scale-105 transform"
+                className="text-neutral-300 hover:text-amber-400 transition-all duration-300 font-medium tracking-wider uppercase text-xs whitespace-nowrap"
               >
                 Tablets
               </button>
               <button
                 onClick={() => window.location.href = '/gaming-sound'}
-                className="samsung-text hover:text-black transition-all duration-300 font-medium tracking-wide uppercase text-sm whitespace-nowrap hover:scale-105 transform"
+                className="text-neutral-300 hover:text-amber-400 transition-all duration-300 font-medium tracking-wider uppercase text-xs whitespace-nowrap"
               >
                 Gaming & Sound
               </button>
               <button
                 onClick={() => scrollToSection('calculator')}
-                className="samsung-text hover:text-black transition-all duration-300 font-medium tracking-wide uppercase text-sm whitespace-nowrap hover:scale-105 transform"
+                className="text-neutral-300 hover:text-amber-400 transition-all duration-300 font-medium tracking-wider uppercase text-xs whitespace-nowrap"
               >
                 Calculator
               </button>
               <button
                 onClick={() => window.location.href = '/terms'}
-                className="samsung-text hover:text-black transition-all duration-300 font-medium tracking-wide uppercase text-sm whitespace-nowrap hover:scale-105 transform"
+                className="text-neutral-300 hover:text-amber-400 transition-all duration-300 font-medium tracking-wider uppercase text-xs whitespace-nowrap"
               >
-                Terms & Conditions
+                Terms
               </button>
               <CartButton onClick={() => setShowCart(true)} />
             </nav>
@@ -112,7 +112,7 @@ export default function Home() {
             {/* Mobile Menu Button */}
             <button
               onClick={() => setShowMobileMenu(!showMobileMenu)}
-              className="lg:hidden p-2 samsung-text hover:text-black transition-colors"
+              className="lg:hidden p-2 text-amber-400 hover:text-amber-300 transition-colors"
             >
               {showMobileMenu ? <X size={24} /> : <Menu size={24} />}
             </button>
@@ -120,14 +120,14 @@ export default function Home() {
 
           {/* Mobile Menu */}
           {showMobileMenu && (
-            <div className="lg:hidden bg-white border-t border-black">
-              <nav className="py-4 space-y-2">
+            <div className="lg:hidden bg-neutral-900 border-t border-amber-500/20">
+              <nav className="py-4 space-y-1">
                 <button
                   onClick={() => {
                     window.location.href = '/phones';
                     setShowMobileMenu(false);
                   }}
-                  className="block w-full text-left px-4 py-3 samsung-text hover:bg-gray-50 transition-colors font-medium tracking-wide uppercase text-sm"
+                  className="block w-full text-left px-6 py-3 text-neutral-300 hover:text-amber-400 hover:bg-neutral-800 transition-colors font-medium tracking-wider uppercase text-xs"
                 >
                   Phones
                 </button>
@@ -136,7 +136,7 @@ export default function Home() {
                     window.location.href = '/ipads';
                     setShowMobileMenu(false);
                   }}
-                  className="block w-full text-left px-4 py-3 samsung-text hover:bg-gray-50 transition-colors font-medium tracking-wide uppercase text-sm"
+                  className="block w-full text-left px-6 py-3 text-neutral-300 hover:text-amber-400 hover:bg-neutral-800 transition-colors font-medium tracking-wider uppercase text-xs"
                 >
                   iPads
                 </button>
@@ -145,7 +145,7 @@ export default function Home() {
                     window.location.href = '/macbooks';
                     setShowMobileMenu(false);
                   }}
-                  className="block w-full text-left px-4 py-3 samsung-text hover:bg-gray-50 transition-colors font-medium tracking-wide uppercase text-sm"
+                  className="block w-full text-left px-6 py-3 text-neutral-300 hover:text-amber-400 hover:bg-neutral-800 transition-colors font-medium tracking-wider uppercase text-xs"
                 >
                   MacBooks
                 </button>
@@ -154,7 +154,7 @@ export default function Home() {
                     window.location.href = '/buds';
                     setShowMobileMenu(false);
                   }}
-                  className="block w-full text-left px-4 py-3 samsung-text hover:bg-gray-50 transition-colors font-medium tracking-wide uppercase text-sm"
+                  className="block w-full text-left px-6 py-3 text-neutral-300 hover:text-amber-400 hover:bg-neutral-800 transition-colors font-medium tracking-wider uppercase text-xs"
                 >
                   Buds
                 </button>
@@ -163,7 +163,7 @@ export default function Home() {
                     window.location.href = '/watches';
                     setShowMobileMenu(false);
                   }}
-                  className="block w-full text-left px-4 py-3 samsung-text hover:bg-gray-50 transition-colors font-medium tracking-wide uppercase text-sm"
+                  className="block w-full text-left px-6 py-3 text-neutral-300 hover:text-amber-400 hover:bg-neutral-800 transition-colors font-medium tracking-wider uppercase text-xs"
                 >
                   Watches
                 </button>
@@ -172,7 +172,7 @@ export default function Home() {
                     window.location.href = '/tablets';
                     setShowMobileMenu(false);
                   }}
-                  className="block w-full text-left px-4 py-3 samsung-text hover:bg-gray-50 transition-colors font-medium tracking-wide uppercase text-sm"
+                  className="block w-full text-left px-6 py-3 text-neutral-300 hover:text-amber-400 hover:bg-neutral-800 transition-colors font-medium tracking-wider uppercase text-xs"
                 >
                   Tablets
                 </button>
@@ -181,7 +181,7 @@ export default function Home() {
                     window.location.href = '/gaming-sound';
                     setShowMobileMenu(false);
                   }}
-                  className="block w-full text-left px-4 py-3 samsung-text hover:bg-gray-50 transition-colors font-medium tracking-wide uppercase text-sm"
+                  className="block w-full text-left px-6 py-3 text-neutral-300 hover:text-amber-400 hover:bg-neutral-800 transition-colors font-medium tracking-wider uppercase text-xs"
                 >
                   Gaming & Sound
                 </button>
@@ -190,7 +190,7 @@ export default function Home() {
                     scrollToSection('calculator');
                     setShowMobileMenu(false);
                   }}
-                  className="block w-full text-left px-4 py-3 samsung-text hover:bg-gray-50 transition-colors font-medium tracking-wide uppercase text-sm"
+                  className="block w-full text-left px-6 py-3 text-neutral-300 hover:text-amber-400 hover:bg-neutral-800 transition-colors font-medium tracking-wider uppercase text-xs"
                 >
                   Calculator
                 </button>
@@ -199,11 +199,11 @@ export default function Home() {
                     window.location.href = '/terms';
                     setShowMobileMenu(false);
                   }}
-                  className="block w-full text-left px-4 py-3 samsung-text hover:bg-gray-50 transition-colors font-medium tracking-wide uppercase text-sm"
+                  className="block w-full text-left px-6 py-3 text-neutral-300 hover:text-amber-400 hover:bg-neutral-800 transition-colors font-medium tracking-wider uppercase text-xs"
                 >
                   Terms & Conditions
                 </button>
-                <div className="px-4 py-3">
+                <div className="px-6 py-3">
                   <CartButton onClick={() => {
                     setShowCart(true);
                     setShowMobileMenu(false);
