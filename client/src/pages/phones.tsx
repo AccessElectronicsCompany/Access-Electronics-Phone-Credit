@@ -219,7 +219,6 @@ export default function Phones() {
         isOpen={showCart}
         onClose={() => setShowCart(false)}
         onRequestQuote={() => {
-          setSelectedPhone(null); // Clear selected phone so quote form uses cart items
           setShowCart(false);
           setShowQuoteForm(true);
         }}

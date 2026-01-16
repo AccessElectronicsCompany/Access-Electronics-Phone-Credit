@@ -13,8 +13,6 @@ export default function Home() {
     name: string;
     storage: string;
     price: number;
-    colors: string[];
-    condition?: string;
   } | null>(null);
   
   const [showCalculator, setShowCalculator] = useState(false);
@@ -23,13 +21,13 @@ export default function Home() {
   const [showMobileMenu, setShowMobileMenu] = useState(false);
   const [showCart, setShowCart] = useState(false);
 
-  const handleSelectPhone = (name: string, storage: string, price: number, colors: string[] = [], condition?: string) => {
-    setSelectedPhone({ name, storage, price, colors, condition });
+  const handleSelectPhone = (name: string, storage: string, price: number) => {
+    setSelectedPhone({ name, storage, price });
     setShowQuoteForm(true);
   };
 
-  const handleRequestQuote = (name: string, storage: string, price: number, colors: string[] = [], condition?: string) => {
-    setSelectedPhone({ name, storage, price, colors, condition });
+  const handleRequestQuote = (name: string, storage: string, price: number) => {
+    setSelectedPhone({ name, storage, price });
     setShowQuoteForm(true);
   };
 
@@ -508,7 +506,6 @@ export default function Home() {
         isOpen={showCart}
         onClose={() => setShowCart(false)}
         onRequestQuote={() => {
-          setSelectedPhone(null); // Clear selected phone so quote form uses cart items
           setShowCart(false);
           setShowQuoteForm(true);
         }}

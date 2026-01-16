@@ -33,7 +33,8 @@ export default function Tablets() {
       name,
       storage,
       price,
-      color
+      color,
+      quantity: 1
     });
   };
 
@@ -195,7 +196,6 @@ export default function Tablets() {
         isOpen={showCart}
         onClose={() => setShowCart(false)}
         onRequestQuote={() => {
-          setSelectedDevice(null); // Clear selected device so quote form uses cart items
           setShowCart(false);
           setShowQuoteForm(true);
         }}

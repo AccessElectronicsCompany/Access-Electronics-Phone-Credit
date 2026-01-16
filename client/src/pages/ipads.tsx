@@ -33,7 +33,8 @@ export default function IPads() {
       name,
       storage,
       price,
-      color
+      color,
+      quantity: 1
     });
   };
 
@@ -197,7 +198,6 @@ export default function IPads() {
         isOpen={showCart}
         onClose={() => setShowCart(false)}
         onRequestQuote={() => {
-          setSelectedDevice(null); // Clear selected device so quote form uses cart items
           setShowCart(false);
           setShowQuoteForm(true);
         }}
