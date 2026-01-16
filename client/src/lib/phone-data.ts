@@ -142,6 +142,55 @@ export const iphones: Phone[] = [
     colors: ["Midnight", "Starlight", "Blue", "Pink", "Green", "(PRODUCT)RED"],
     condition: "NEW"
   },
+  {
+    name: "iPhone 13",
+    storage: "256GB",
+    price: 11999,
+    colors: ["Midnight", "Starlight", "Blue", "Pink", "Green", "(PRODUCT)RED"],
+    condition: "NEW"
+  },
+  {
+    name: "iPhone 13 Pro",
+    storage: "256GB",
+    price: 14999,
+    colors: ["Graphite", "Gold", "Silver", "Sierra Blue"],
+    condition: "NEW"
+  },
+  {
+    name: "iPhone 13 Pro Max",
+    storage: "128GB",
+    price: 14999,
+    colors: ["Graphite", "Gold", "Silver", "Sierra Blue"],
+    condition: "NEW"
+  },
+  {
+    name: "iPhone 13 Pro Max",
+    storage: "256GB",
+    price: 15999,
+    colors: ["Graphite", "Gold", "Silver", "Sierra Blue"],
+    condition: "NEW"
+  },
+  {
+    name: "iPhone 14 Pro",
+    storage: "128GB",
+    price: 14999,
+    colors: ["Space Black", "Silver", "Gold", "Deep Purple"],
+    condition: "NEW"
+  },
+  {
+    name: "iPhone 14 Pro",
+    storage: "256GB",
+    price: 15999,
+    colors: ["Space Black", "Silver", "Gold", "Deep Purple"],
+    condition: "NEW"
+  },
+  {
+    name: "iPhone 14 Pro Max",
+    storage: "256GB",
+    price: 17999,
+    colors: ["Space Black", "Silver", "Gold", "Deep Purple"],
+    condition: "NEW"
+  },
 ];
 
 export const samsungPhones: Phone[] = [
@@ -937,5 +986,20 @@ export const gamingSound: Device[] = [
     colors: ["White"],
     condition: "NEW",
     specs: "PS5 Pro with Advanced Graphics and Performance"
+  },
+  {
+    name: "Xbox Series X",
+    price: 11999,
+    colors: ["Black"],
+    condition: "NEW",
+    specs: "1TB Storage, 4K Gaming at 120FPS"
+  },
+  {
+    name: "Xbox Series S",
+    storage: "1TB",
+    price: 7499,
+    colors: ["White", "Black"],
+    condition: "NEW",
+    specs: "1TB Digital Edition, Up to 120FPS"
   }
 ];
