@@ -7,6 +7,7 @@ import CartButton from "@/components/cart-button";
 import CartModal from "@/components/cart-modal";
 import { Card, CardContent } from "@/components/ui/card";
 import { Smartphone, DollarSign, Calendar, CheckCircle, Menu, X, Tablet } from "lucide-react";
+import logoUrl from "@/assets/logo.png";
 
 export default function Home() {
   const [selectedPhone, setSelectedPhone] = useState<{
@@ -47,7 +48,7 @@ export default function Home() {
             <div className="flex items-center ml-4">
               <a href="/" className="animate-in fade-in duration-1000 delay-500">
                 <img 
-                  src="/attached_assets/AE_-_LOGO_1768564327603.png" 
+                  src={logoUrl} 
                   alt="Access Electronics" 
                   className="h-10 sm:h-12 md:h-14 w-auto"
                 />
@@ -528,7 +529,7 @@ export default function Home() {
             {/* Company Info */}
             <div className="text-center sm:text-left">
               <img 
-                src="/attached_assets/AE_-_LOGO_1768564327603.png" 
+                src={logoUrl} 
                 alt="Access Electronics" 
                 className="h-8 sm:h-10 w-auto mb-3 sm:mb-4 mx-auto sm:mx-0"
               />

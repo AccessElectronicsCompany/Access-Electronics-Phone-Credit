@@ -7,6 +7,7 @@ import CartModal from "@/components/cart-modal";
 import { Card, CardContent } from "@/components/ui/card";
 import { iphones, samsungPhones, usedPhones } from "@/lib/phone-data";
 import { ArrowLeft, Menu, X } from "lucide-react";
+import logoUrl from "@/assets/logo.png";
 
 export default function Phones() {
   const [selectedPhone, setSelectedPhone] = useState<{
@@ -243,7 +244,7 @@ export default function Phones() {
             {/* Company Info */}
             <div>
               <img 
-                src="/attached_assets/AE_-_LOGO_1768564327603.png" 
+                src={logoUrl} 
                 alt="Access Electronics" 
                 className="h-10 w-auto mb-4"
               />

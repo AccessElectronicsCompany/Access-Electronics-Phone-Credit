@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Menu, X } from "lucide-react";
+import logoUrl from "@/assets/logo.png";
 
 export default function Terms() {
   const [showMobileMenu, setShowMobileMenu] = useState(false);
@@ -14,7 +15,7 @@ export default function Terms() {
             <div className="flex items-center ml-4">
               <a href="/">
                 <img 
-                  src="/attached_assets/AE_-_LOGO_1768564327603.png" 
+                  src={logoUrl} 
                   alt="Access Electronics" 
                   className="h-10 sm:h-12 md:h-14 w-auto"
                 />
@@ -304,7 +305,7 @@ export default function Terms() {
             {/* Company Info */}
             <div>
               <img 
-                src="/attached_assets/AE_-_LOGO_1768564327603.png" 
+                src={logoUrl} 
                 alt="Access Electronics" 
                 className="h-10 w-auto mb-4"
               />
