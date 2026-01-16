@@ -601,6 +601,54 @@ export const ipads: Device[] = [
     colors: ["Silver", "Space Black"],
     condition: "NEW",
     specs: "M4 chip, 11-inch Liquid Retina XDR display"
+  },
+  {
+    name: "iPad Pro M4 13-inch",
+    storage: "256GB WiFi",
+    price: 24999,
+    colors: ["Silver", "Space Black"],
+    condition: "NEW",
+    specs: "M4 chip, 13-inch Liquid Retina XDR display"
+  },
+  {
+    name: "iPad Pro M4 13-inch",
+    storage: "256GB Cellular",
+    price: 25999,
+    colors: ["Silver", "Space Black"],
+    condition: "NEW",
+    specs: "M4 chip, 13-inch Liquid Retina XDR display"
+  },
+  {
+    name: "iPad Air M4 13-inch",
+    storage: "256GB WiFi",
+    price: 19999,
+    colors: ["Blue", "Purple", "Starlight", "Space Gray"],
+    condition: "NEW",
+    specs: "M4 chip, 13-inch Liquid Retina display"
+  },
+  {
+    name: "iPad A16",
+    storage: "128GB",
+    price: 7999,
+    colors: ["Silver", "Space Gray"],
+    condition: "NEW",
+    specs: "A16 Bionic chip, 10.9-inch Liquid Retina display"
+  },
+  {
+    name: "iPad A16",
+    storage: "256GB",
+    price: 9499,
+    colors: ["Silver", "Space Gray"],
+    condition: "NEW",
+    specs: "A16 Bionic chip, 10.9-inch Liquid Retina display"
+  },
+  {
+    name: "iPad 10th Gen",
+    storage: "256GB WiFi",
+    price: 8499,
+    colors: ["Silver", "Blue", "Pink", "Yellow"],
+    condition: "NEW",
+    specs: "A14 Bionic chip, 10.9-inch Liquid Retina display"
   }
 ];
 
@@ -728,7 +776,8 @@ export const buds: Device[] = [
 export const watches: Device[] = [
   {
     name: "Samsung Watch Ultra",
-    price: 9999,
+    storage: "47mm",
+    price: 7999,
     colors: ["Titanium Gray"],
     condition: "NEW",
     specs: "Exynos W1000, 47mm Titanium case"
@@ -736,7 +785,7 @@ export const watches: Device[] = [
   {
     name: "Samsung Watch 7",
     storage: "44mm",
-    price: 5499,
+    price: 4499,
     colors: ["Green", "Silver", "Graphite"],
     condition: "NEW",
     specs: "Exynos W1000, 44mm Aluminum case"
@@ -744,7 +793,7 @@ export const watches: Device[] = [
   {
     name: "Samsung Watch 7",
     storage: "40mm",
-    price: 4999,
+    price: 3999,
     colors: ["Green", "Cream", "Graphite", "Silver"],
     condition: "NEW",
     specs: "Exynos W1000, 40mm Aluminum case"
@@ -779,6 +828,86 @@ export const watches: Device[] = [
     colors: ["Natural Titanium"],
     condition: "NEW",
     specs: "S9 chip, 49mm Titanium case, Action Button"
+  },
+  {
+    name: "Apple Watch Ultra 3",
+    storage: "49mm",
+    price: 17999,
+    colors: ["Natural Titanium"],
+    condition: "NEW",
+    specs: "S10 chip, 49mm Titanium case"
+  },
+  {
+    name: "Apple Watch 11",
+    storage: "46mm",
+    price: 8999,
+    colors: ["Midnight", "Silver", "Starlight"],
+    condition: "NEW",
+    specs: "S11 chip, 46mm Aluminum case"
+  },
+  {
+    name: "Apple Watch SE 3rd Gen",
+    storage: "44mm",
+    price: 6499,
+    colors: ["Midnight", "Silver", "Starlight"],
+    condition: "NEW",
+    specs: "S9 chip, 44mm Aluminum case"
+  },
+  {
+    name: "Apple Watch SE 3rd Gen",
+    storage: "40mm",
+    price: 5999,
+    colors: ["Midnight", "Silver", "Starlight"],
+    condition: "NEW",
+    specs: "S9 chip, 40mm Aluminum case"
+  },
+  {
+    name: "Apple Watch SE 2nd Gen",
+    storage: "44mm",
+    price: 5499,
+    colors: ["Midnight", "Silver", "Starlight"],
+    condition: "NEW",
+    specs: "S8 chip, 44mm Aluminum case"
+  },
+  {
+    name: "Apple Watch SE 2nd Gen",
+    storage: "40mm",
+    price: 4999,
+    colors: ["Midnight", "Silver", "Starlight"],
+    condition: "NEW",
+    specs: "S8 chip, 40mm Aluminum case"
+  },
+  {
+    name: "Samsung Watch 8",
+    storage: "44mm",
+    price: 5999,
+    colors: ["Graphite", "Silver", "Gold"],
+    condition: "NEW",
+    specs: "Exynos W1100, 44mm Aluminum case"
+  },
+  {
+    name: "Samsung Watch 8",
+    storage: "40mm",
+    price: 5499,
+    colors: ["Graphite", "Silver", "Gold"],
+    condition: "NEW",
+    specs: "Exynos W1100, 40mm Aluminum case"
+  },
+  {
+    name: "Samsung Watch 8 Ultra",
+    storage: "47mm",
+    price: 9999,
+    colors: ["Titanium Gray"],
+    condition: "NEW",
+    specs: "Exynos W1100, 47mm Titanium case"
+  },
+  {
+    name: "Samsung Watch Classic",
+    storage: "43mm",
+    price: 7999,
+    colors: ["Black", "Silver"],
+    condition: "NEW",
+    specs: "Exynos W1000, 43mm Stainless Steel case"
   }
 ];
 
@@ -808,9 +937,9 @@ export const samsungTablets: Device[] = [
     specs: "MediaTek Dimensity 9300+, 12.4-inch AMOLED display"
   },
   {
-    name: "Tab S9 X710",
-    storage: "256GB WiFi",
-    price: 16999,
+    name: "Tab S9 WiFi",
+    storage: "256GB",
+    price: 13499,
     colors: ["Graphite", "Beige"],
     condition: "NEW",
     specs: "Snapdragon 8 Gen 2, 11-inch AMOLED display"
@@ -822,6 +951,22 @@ export const samsungTablets: Device[] = [
     colors: ["Graphite", "Silver"],
     condition: "NEW",
     specs: "Snapdragon 695, 8.7-inch TFT display"
+  },
+  {
+    name: "Tab A9 Plus WiFi",
+    storage: "128GB",
+    price: 4999,
+    colors: ["Graphite", "Silver"],
+    condition: "NEW",
+    specs: "Snapdragon 695, 11-inch TFT display"
+  },
+  {
+    name: "Tab A9 Plus Cellular",
+    storage: "128GB",
+    price: 5999,
+    colors: ["Graphite", "Silver"],
+    condition: "NEW",
+    specs: "Snapdragon 695, 11-inch TFT display, 5G"
   }
 ];
 
@@ -937,5 +1082,119 @@ export const gamingSound: Device[] = [
     colors: ["White"],
     condition: "NEW",
     specs: "PS5 Pro with Advanced Graphics and Performance"
+  },
+  {
+    name: "Xbox Series X Console",
+    storage: "1TB",
+    price: 15999,
+    colors: ["Black"],
+    condition: "NEW",
+    specs: "Xbox Series X with 4K Gaming"
+  },
+  {
+    name: "Xbox Wireless Controller",
+    price: 1499,
+    colors: ["Black", "White", "Blue"],
+    condition: "NEW",
+    specs: "Xbox Wireless Controller"
+  },
+  {
+    name: "BackBone One PlayStation",
+    price: 2499,
+    colors: ["White"],
+    condition: "NEW",
+    specs: "Mobile Gaming Controller for PlayStation"
+  },
+  {
+    name: "BackBone One USB-C",
+    price: 2499,
+    colors: ["Black"],
+    condition: "NEW",
+    specs: "Mobile Gaming Controller USB-C"
+  },
+  {
+    name: "BackBone One Lightning",
+    price: 2499,
+    colors: ["White"],
+    condition: "NEW",
+    specs: "Mobile Gaming Controller Lightning"
+  },
+  {
+    name: "Nintendo Switch",
+    price: 6999,
+    colors: ["Neon Blue/Red", "Gray"],
+    condition: "NEW",
+    specs: "Nintendo Switch Console"
+  },
+  {
+    name: "Nintendo Switch with Game",
+    price: 11999,
+    colors: ["Neon Blue/Red", "Gray"],
+    condition: "NEW",
+    specs: "Nintendo Switch Console with Game Bundle"
+  },
+  {
+    name: "Nintendo Switch Lite",
+    price: 3800,
+    colors: ["Yellow", "Gray", "Turquoise", "Coral"],
+    condition: "NEW",
+    specs: "Nintendo Switch Lite Handheld Console"
+  },
+  {
+    name: "Nintendo Switch 2",
+    price: 9999,
+    colors: ["Black"],
+    condition: "NEW",
+    specs: "Nintendo Switch 2 Console"
+  },
+  {
+    name: "Logitech G29 Racing Wheel",
+    price: 5999,
+    colors: ["Black"],
+    condition: "NEW",
+    specs: "Racing Wheel and Pedals for PlayStation and PC"
+  }
+];
+
+export const hpLaptops: Device[] = [
+  {
+    name: "HP I3 FD00133",
+    storage: "8/256GB",
+    price: 8999,
+    colors: ["Silver"],
+    condition: "NEW",
+    specs: "Intel Core i3, 8GB RAM, 256GB SSD"
+  },
+  {
+    name: "HP I5 FD0250",
+    storage: "16/512GB",
+    price: 12999,
+    colors: ["Silver"],
+    condition: "NEW",
+    specs: "Intel Core i5, 16GB RAM, 512GB SSD"
+  },
+  {
+    name: "HP I5 FD0215",
+    storage: "16/512GB",
+    price: 12999,
+    colors: ["Silver"],
+    condition: "NEW",
+    specs: "Intel Core i5, 16GB RAM, 512GB SSD"
+  },
+  {
+    name: "HP I7 FD0557",
+    storage: "16/512GB",
+    price: 15999,
+    colors: ["Silver"],
+    condition: "NEW",
+    specs: "Intel Core i7, 16GB RAM, 512GB SSD"
+  },
+  {
+    name: "HP I7 FD0127DX",
+    storage: "16/512GB",
+    price: 15999,
+    colors: ["Silver"],
+    condition: "NEW",
+    specs: "Intel Core i7, 16GB RAM, 512GB SSD"
   }
 ];
