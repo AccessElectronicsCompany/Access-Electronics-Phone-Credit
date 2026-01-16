@@ -17,7 +17,7 @@ export default function Terms() {
                 <img 
                   src={logoUrl} 
                   alt="Access Electronics" 
-                  className="h-14 sm:h-16 md:h-20 w-auto"
+                  className="h-20 sm:h-24 md:h-28 w-auto"
                 />
               </a>
             </div>
@@ -307,7 +307,7 @@ export default function Terms() {
               <img 
                 src={logoUrl} 
                 alt="Access Electronics" 
-                className="h-14 w-auto mb-4"
+                className="h-20 w-auto mb-4"
               />
               <p className="text-gray-400 mb-6">
                 Connecting you with the latest technology through flexible financing options.

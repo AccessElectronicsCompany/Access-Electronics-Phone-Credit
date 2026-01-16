@@ -50,7 +50,7 @@ export default function Home() {
                 <img 
                   src={logoUrl} 
                   alt="Access Electronics" 
-                  className="h-14 sm:h-16 md:h-20 w-auto"
+                  className="h-20 sm:h-24 md:h-28 w-auto"
                 />
               </a>
             </div>
@@ -531,7 +531,7 @@ export default function Home() {
               <img 
                 src={logoUrl} 
                 alt="Access Electronics" 
-                className="h-12 sm:h-14 w-auto mb-3 sm:mb-4 mx-auto sm:mx-0"
+                className="h-16 sm:h-20 w-auto mb-3 sm:mb-4 mx-auto sm:mx-0"
               />
               <p className="text-neutral-400 mb-4 sm:mb-6 text-xs sm:text-sm leading-relaxed">
                 Connecting you with the latest technology through flexible financing options.
