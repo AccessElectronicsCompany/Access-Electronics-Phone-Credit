@@ -265,9 +265,10 @@ export default function Home() {
       {/* Payment Calculator Section */}
       <section id="calculator" className="samsung-section bg-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16 animate-in slide-in-from-top duration-1000">
-            <h3 className="text-4xl samsung-header mb-6">PAYMENT CALCULATOR</h3>
-            <p className="samsung-text text-lg">Calculate your monthly payments with our flexible credit options</p>
+          <div className="text-center mb-12 animate-in slide-in-from-top duration-1000">
+            <div className="luxury-divider mb-6"></div>
+            <h3 className="text-3xl md:text-4xl mb-4" style={{ fontFamily: "'Playfair Display', Georgia, serif" }}>PAYMENT CALCULATOR</h3>
+            <p className="text-neutral-600 text-base md:text-lg">Calculate your monthly payments with our flexible credit options</p>
           </div>
           <div className="animate-in fade-in duration-1000 delay-500">
             <CalculatorModal 
