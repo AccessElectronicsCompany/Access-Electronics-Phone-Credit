@@ -117,24 +117,27 @@ export default function Phones() {
             <p className="samsung-text">Select from our premium smartphone categories</p>
           </div>
           <div className="grid md:grid-cols-3 gap-4 max-w-4xl mx-auto mb-12">
-            <Card className="text-center p-6 border-2 border-black hover:bg-black hover:text-white transition-all cursor-pointer rounded-xl"
+            <Card className="text-center p-6 border-2 border-black hover:bg-black hover:text-white transition-all cursor-pointer rounded-xl relative"
                   onClick={() => document.getElementById('iphones')?.scrollIntoView({ behavior: 'smooth' })}>
+              <div className="absolute top-2 right-2 bg-green-500 text-white text-[10px] font-bold px-2 py-0.5 rounded-full">NEW</div>
               <CardContent className="pt-4">
                 <div className="text-3xl mb-3">📱</div>
                 <h4 className="text-lg font-semibold mb-2 tracking-wide">iPHONES</h4>
                 <p className="text-xs opacity-80">Premium Apple devices with cutting-edge technology</p>
               </CardContent>
             </Card>
-            <Card className="text-center p-6 border-2 border-black hover:bg-black hover:text-white transition-all cursor-pointer rounded-xl"
+            <Card className="text-center p-6 border-2 border-black hover:bg-black hover:text-white transition-all cursor-pointer rounded-xl relative"
                   onClick={() => document.getElementById('samsung')?.scrollIntoView({ behavior: 'smooth' })}>
+              <div className="absolute top-2 right-2 bg-green-500 text-white text-[10px] font-bold px-2 py-0.5 rounded-full">NEW</div>
               <CardContent className="pt-4">
                 <div className="text-3xl mb-3">📱</div>
                 <h4 className="text-lg font-semibold mb-2 tracking-wide">SAMSUNG</h4>
                 <p className="text-xs opacity-80">Innovation meets performance in flagship devices</p>
               </CardContent>
             </Card>
-            <Card className="text-center p-6 border-2 border-black hover:bg-black hover:text-white transition-all cursor-pointer rounded-xl"
+            <Card className="text-center p-6 border-2 border-black hover:bg-black hover:text-white transition-all cursor-pointer rounded-xl relative"
                   onClick={() => document.getElementById('used')?.scrollIntoView({ behavior: 'smooth' })}>
+              <div className="absolute top-2 right-2 bg-sky-500 text-white text-[10px] font-bold px-2 py-0.5 rounded-full">USED</div>
               <CardContent className="pt-4">
                 <div className="text-3xl mb-3">🔧</div>
                 <h4 className="text-lg font-semibold mb-2 tracking-wide">USED PHONES</h4>
@@ -149,7 +152,10 @@ export default function Phones() {
       <section id="iphones" className="samsung-section bg-gray-50">
         <div className="samsung-container">
           <div className="text-center mb-16">
-            <h2 className="text-4xl samsung-header mb-6">iPHONE COLLECTION</h2>
+            <div className="inline-flex items-center gap-3 mb-4">
+              <h2 className="text-4xl samsung-header">iPHONE COLLECTION</h2>
+              <span className="bg-green-500 text-white text-xs font-bold px-3 py-1 rounded-full">NEW</span>
+            </div>
             <p className="samsung-text text-lg">Premium Apple devices with cutting-edge technology</p>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
@@ -170,7 +176,10 @@ export default function Phones() {
       <section id="samsung" className="samsung-section bg-white">
         <div className="samsung-container">
           <div className="text-center mb-16">
-            <h2 className="text-4xl samsung-header mb-6">SAMSUNG COLLECTION</h2>
+            <div className="inline-flex items-center gap-3 mb-4">
+              <h2 className="text-4xl samsung-header">SAMSUNG COLLECTION</h2>
+              <span className="bg-green-500 text-white text-xs font-bold px-3 py-1 rounded-full">NEW</span>
+            </div>
             <p className="samsung-text text-lg">Innovation meets performance in Samsung's flagship devices</p>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
@@ -191,7 +200,10 @@ export default function Phones() {
       <section id="used" className="samsung-section bg-gray-50">
         <div className="samsung-container">
           <div className="text-center mb-16">
-            <h2 className="text-4xl samsung-header mb-6">USED PHONES</h2>
+            <div className="inline-flex items-center gap-3 mb-4">
+              <h2 className="text-4xl samsung-header">USED PHONES</h2>
+              <span className="bg-sky-500 text-white text-xs font-bold px-3 py-1 rounded-full">USED</span>
+            </div>
             <p className="samsung-text text-lg">Quality pre-owned devices at great prices</p>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">

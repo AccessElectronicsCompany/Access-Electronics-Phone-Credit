@@ -33,8 +33,7 @@ export default function Buds() {
       name,
       storage,
       price,
-      color,
-      quantity: 1
+      color
     });
   };
 
@@ -61,9 +60,12 @@ export default function Buds() {
                 <ArrowLeft size={20} />
                 <span className="hidden sm:inline">Back to Home</span>
               </Button>
-              <h1 className="text-2xl md:text-3xl samsung-header tracking-widest animate-in fade-in duration-1000 delay-500">
-                BUDS
-              </h1>
+              <div className="flex items-center gap-2">
+                <h1 className="text-2xl md:text-3xl samsung-header tracking-widest animate-in fade-in duration-1000 delay-500">
+                  BUDS
+                </h1>
+                <span className="bg-green-500 text-white text-[10px] font-bold px-2 py-0.5 rounded-full">NEW</span>
+              </div>
             </div>
             
             {/* Desktop Navigation */}
