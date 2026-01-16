@@ -246,7 +246,7 @@ export default function Phones() {
               <img 
                 src={logoUrl} 
                 alt="Access Electronics" 
-                className="h-12 w-auto mb-4"
+                className="h-14 w-auto mb-4"
               />
               <p className="text-gray-400 mb-6">
                 Connecting you with the latest technology through flexible financing options.
