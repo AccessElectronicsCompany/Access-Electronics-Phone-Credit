@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { ArrowLeft, Menu, X } from "lucide-react";
 import { macbooks } from "@/lib/phone-data";
@@ -6,7 +7,6 @@ import QuoteFormModal from "@/components/quote-form-modal";
 import CalculatorModal from "@/components/calculator-modal";
 import CartButton from "@/components/cart-button";
 import CartModal from "@/components/cart-modal";
-import DeviceCard from "@/components/device-card";
 import { useCart } from "@/contexts/CartContext";
 
 export default function MacBooks() {
@@ -33,7 +33,8 @@ export default function MacBooks() {
       name,
       storage,
       price,
-      color
+      color,
+      quantity: 1
     });
   };
 
@@ -133,16 +134,44 @@ export default function MacBooks() {
             <p className="samsung-text text-lg">Choose from our premium MacBook selection</p>
           </div>
           
-          <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3 sm:gap-4 md:gap-6 max-w-7xl mx-auto">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto">
             {macbooks.map((device, index) => (
-              <DeviceCard
-                key={index}
-                device={device}
-                category="macbook"
-                onSelect={handleSelectDevice}
-                onAddToCart={handleAddToCart}
-                index={index}
-              />
+              <Card key={index} className="samsung-card hover:scale-105 transition-all duration-300 animate-in slide-in-from-bottom duration-1000" style={{ animationDelay: `${index * 100}ms` }}>
+                <CardContent className="p-6">
+                  <div className="text-center mb-4">
+                    <div className="text-4xl mb-4">💻</div>
+                    <h3 className="text-xl font-bold samsung-header mb-2">{device.name}</h3>
+                    {device.storage && (
+                      <p className="text-sm samsung-text opacity-70 mb-1">{device.storage}</p>
+                    )}
+                    {device.specs && (
+                      <p className="text-xs samsung-text opacity-60 mb-4">{device.specs}</p>
+                    )}
+                    <div className="text-2xl font-bold samsung-text mb-4">
+                      N${device.price.toLocaleString()}
+                    </div>
+                    <div className="text-sm samsung-text opacity-70 mb-4">
+                      Available Colors: {device.colors.join(", ")}
+                    </div>
+                  </div>
+                  
+                  <div className="space-y-2">
+                    <Button
+                      onClick={() => handleSelectDevice(device.name, device.storage || "", device.price, device.colors)}
+                      className="samsung-btn w-full"
+                    >
+                      Request Quote
+                    </Button>
+                    <Button
+                      onClick={() => handleAddToCart(device.name, device.storage || "", device.price, device.colors[0])}
+                      variant="outline"
+                      className="w-full border-black hover:bg-black hover:text-white transition-all duration-300"
+                    >
+                      Add to Cart
+                    </Button>
+                  </div>
+                </CardContent>
+              </Card>
             ))}
           </div>
         </div>

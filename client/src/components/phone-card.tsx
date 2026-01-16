@@ -1,11 +1,10 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { ShoppingCart } from "lucide-react";
+import { Smartphone, ShoppingCart } from "lucide-react";
 import { useCart } from "@/contexts/CartContext";
 import { useToast } from "@/hooks/use-toast";
 import { useState } from "react";
 import PhoneStorageSelectionModal from "./phone-storage-selection-modal";
-import { getProductImage } from "@/lib/product-images";
 
 interface Phone {
   name: string;
@@ -31,8 +30,6 @@ export default function PhoneCard({ phone, phoneType, onSelect, onRequestQuote }
     setShowStorageSelection(true);
   };
 
-  const productImage = getProductImage(phone.name, phoneType);
-
   return (
     <>
       <PhoneStorageSelectionModal
@@ -44,12 +41,8 @@ export default function PhoneCard({ phone, phoneType, onSelect, onRequestQuote }
       <Card className="bg-white border border-neutral-200 hover:border-sky-500/50 transition-all duration-500 cursor-pointer flex flex-col h-full rounded-sm group active:scale-[0.98]" style={{ boxShadow: '0 2px 15px rgba(0, 0, 0, 0.04)' }}>
         <CardContent className="text-center p-4 sm:p-5 flex-grow flex flex-col h-full">
           <div className="mb-3 sm:mb-4">
-            <div className="w-16 h-16 sm:w-20 sm:h-20 mx-auto rounded-lg overflow-hidden bg-neutral-50 flex items-center justify-center group-hover:scale-105 transition-transform duration-300">
-              <img 
-                src={productImage} 
-                alt={phone.name}
-                className="w-full h-full object-cover"
-              />
+            <div className="w-10 h-10 sm:w-12 sm:h-12 mx-auto bg-neutral-900 rounded-full flex items-center justify-center group-hover:bg-sky-500 transition-colors duration-300">
+              <Smartphone className="h-5 w-5 sm:h-6 sm:w-6 text-sky-400 group-hover:text-neutral-900 transition-colors duration-300" />
             </div>
           </div>
           <h4 className="font-semibold text-neutral-900 mb-1 sm:mb-2 text-xs sm:text-sm tracking-wide line-clamp-2">{phone.name}</h4>
