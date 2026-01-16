@@ -12,9 +12,13 @@ export default function Terms() {
         <div className="samsung-container">
           <div className="flex justify-between items-center h-20">
             <div className="flex items-center ml-4">
-              <h1 className="text-2xl md:text-3xl samsung-header tracking-widest">
-                ACCESS ELECTRONICS
-              </h1>
+              <a href="/">
+                <img 
+                  src="/attached_assets/AE_-_LOGO_1768564327603.png" 
+                  alt="Access Electronics" 
+                  className="h-10 sm:h-12 md:h-14 w-auto"
+                />
+              </a>
             </div>
             
             {/* Desktop Navigation */}
@@ -299,7 +303,11 @@ export default function Terms() {
           <div className="grid md:grid-cols-3 gap-12">
             {/* Company Info */}
             <div>
-              <h4 className="text-xl font-bold text-white mb-4">ACCESS ELECTRONICS</h4>
+              <img 
+                src="/attached_assets/AE_-_LOGO_1768564327603.png" 
+                alt="Access Electronics" 
+                className="h-10 w-auto mb-4"
+              />
               <p className="text-gray-400 mb-6">
                 Connecting you with the latest technology through flexible financing options.
               </p>

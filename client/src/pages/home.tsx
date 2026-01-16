@@ -45,9 +45,13 @@ export default function Home() {
         <div className="samsung-container">
           <div className="flex justify-between items-center h-20">
             <div className="flex items-center ml-4">
-              <h1 className="text-xl md:text-2xl font-semibold tracking-[0.2em] animate-in fade-in duration-1000 delay-500 text-sky-400" >
-                ACCESS ELECTRONICS
-              </h1>
+              <a href="/" className="animate-in fade-in duration-1000 delay-500">
+                <img 
+                  src="/attached_assets/AE_-_LOGO_1768564327603.png" 
+                  alt="Access Electronics" 
+                  className="h-10 sm:h-12 md:h-14 w-auto"
+                />
+              </a>
             </div>
             
             {/* Desktop Navigation */}
@@ -523,7 +527,11 @@ export default function Home() {
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 sm:gap-10 md:gap-12">
             {/* Company Info */}
             <div className="text-center sm:text-left">
-              <h4 className="text-base sm:text-lg font-semibold text-sky-400 mb-3 sm:mb-4 tracking-widest">ACCESS ELECTRONICS</h4>
+              <img 
+                src="/attached_assets/AE_-_LOGO_1768564327603.png" 
+                alt="Access Electronics" 
+                className="h-8 sm:h-10 w-auto mb-3 sm:mb-4 mx-auto sm:mx-0"
+              />
               <p className="text-neutral-400 mb-4 sm:mb-6 text-xs sm:text-sm leading-relaxed">
                 Connecting you with the latest technology through flexible financing options.
               </p>
