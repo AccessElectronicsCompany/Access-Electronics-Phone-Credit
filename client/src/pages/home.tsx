@@ -478,7 +478,7 @@ export default function Home() {
               </h3>
               
               <p className="text-sm sm:text-base text-neutral-600 mb-4 sm:mb-6 max-w-3xl mx-auto animate-in slide-in-from-left duration-1000 delay-500">
-                We aim to send your quotation within 1 hour of receiving your quote request — during our working hours, 08:00 to 18:00.
+                Credit approval takes 3-5 working days after submitting your documents to the bank.
               </p>
               
               <p className="text-neutral-500 text-xs sm:text-sm animate-in slide-in-from-right duration-1000 delay-700">

@@ -143,7 +143,7 @@ export default function Terms() {
                     </a>.
                   </p>
                   <p className="samsung-text mb-4 font-semibold">
-                    📌 Approval usually takes 48–72 hours
+                    📌 Approval usually takes 3-5 working days
                   </p>
                   <p className="samsung-text">
                     Once approved, you'll sign a loan agreement with the credit provider, and the phone will be issued once the bank disburses the funds.

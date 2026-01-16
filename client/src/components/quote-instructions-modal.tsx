@@ -134,7 +134,7 @@ export default function QuoteInstructionsModal({
                   <div className="bg-green-50 p-4 rounded-lg">
                     <div className="font-semibold text-sm">⏱️ Approval Process:</div>
                     <div className="text-sm">
-                      Approval takes maximum 48 hours. Once approved, sign your contract at the bank and collect your device!
+                      Approval takes 3-5 working days. Once approved, sign your contract at the bank and collect your device!
                     </div>
                   </div>
                 </div>

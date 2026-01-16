@@ -42,7 +42,7 @@ export default function HeroSection({ onBrowsePhones, onOpenCalculator, onOpenIn
               <span className="text-neutral-900 font-bold text-[10px] sm:text-xs md:text-sm">✓</span>
             </div>
             <p className="text-neutral-300 text-xs sm:text-sm md:text-base text-left">
-              Approval from our partner bank, FNB, takes only 48 hours.
+              Approval from our partner bank, FNB, takes 3-5 working days.
             </p>
           </div>
           
