@@ -13,7 +13,7 @@ import { useToast } from "@/hooks/use-toast";
 import { apiRequest } from "@/lib/queryClient";
 import { calculatePayment } from "@/lib/calculations";
 import { useCart } from "@/contexts/CartContext";
-import { iphones, samsungPhones, ipads, macbooks, buds, watches, samsungTablets } from "@/lib/phone-data";
+import { iphones, samsungPhones, ipads, macbooks, buds, watches, samsungTablets, gamingSound } from "@/lib/phone-data";
 import SuccessModal from "./success-modal";
 
 const quoteFormSchema = z.object({
@@ -335,7 +335,8 @@ export default function QuoteFormModal({ isOpen, onClose, selectedPhone }: Quote
         const selection = phoneSelections[phoneModel.name];
         const isWatch = watches.some(w => w.name === phoneModel.name);
         const isBuds = buds.some(b => b.name === phoneModel.name);
-        const needsStorageSelection = !isWatch && !isBuds;
+        const isGamingSound = gamingSound.some(g => g.name === phoneModel.name);
+        const needsStorageSelection = !isWatch && !isBuds && !isGamingSound;
         
         // For devices that need storage selection, check both storage and color
         if (needsStorageSelection) {
@@ -400,13 +401,14 @@ export default function QuoteFormModal({ isOpen, onClose, selectedPhone }: Quote
             <h3 className="text-lg md:text-xl samsung-header mb-4">Select Storage & Color for Each Phone</h3>
             <div className="space-y-6">
               {uniquePhoneModels.map((phoneModel, index) => {
-                const phoneData = [...iphones, ...samsungPhones, ...ipads, ...macbooks, ...buds, ...watches, ...samsungTablets];
+                const phoneData = [...iphones, ...samsungPhones, ...ipads, ...macbooks, ...buds, ...watches, ...samsungTablets, ...gamingSound];
                 const phoneVariants = phoneData.filter(phone => phone.name === phoneModel.name);
                 
                 // Check if this device type needs storage selection
                 const isWatch = watches.some(w => w.name === phoneModel.name);
                 const isBuds = buds.some(b => b.name === phoneModel.name);
-                const needsStorageSelection = !isWatch && !isBuds && phoneVariants.some(phone => phone.storage);
+                const isGamingSound = gamingSound.some(g => g.name === phoneModel.name);
+                const needsStorageSelection = !isWatch && !isBuds && !isGamingSound && phoneVariants.some(phone => phone.storage);
                 
                 const storageOptions = needsStorageSelection 
                   ? Array.from(new Set(phoneVariants.map(phone => phone.storage || 'Standard')))
