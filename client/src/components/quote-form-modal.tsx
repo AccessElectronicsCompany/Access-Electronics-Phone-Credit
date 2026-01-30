@@ -19,6 +19,7 @@ import SuccessModal from "./success-modal";
 const quoteFormSchema = z.object({
   fullName: z.string().min(2, "Full name is required"),
   contactNumber: z.string().min(10, "Valid contact number is required"),
+  confirmContactNumber: z.string().min(10, "Please confirm your contact number"),
   email: z.string().email("Valid email is required"),
   confirmEmail: z.string().email("Please confirm your email"),
   physicalAddress: z.string().min(1, "Physical address is required"),
@@ -35,6 +36,9 @@ const quoteFormSchema = z.object({
   deposit: z.number().min(0, "Deposit must be 0 or greater").optional(),
   depositMethod: z.string().optional(),
   paymentTerm: z.number().min(12, "Payment term is required"),
+}).refine((data) => data.contactNumber === data.confirmContactNumber, {
+  message: "Contact numbers don't match. Please check and try again.",
+  path: ["confirmContactNumber"],
 }).refine((data) => data.email === data.confirmEmail, {
   message: "Email addresses don't match. Please check and try again.",
   path: ["confirmEmail"],
@@ -139,6 +143,7 @@ export default function QuoteFormModal({ isOpen, onClose, selectedPhone }: Quote
     defaultValues: {
       fullName: "",
       contactNumber: "",
+      confirmContactNumber: "",
       email: "",
       confirmEmail: "",
       physicalAddress: "",
@@ -601,6 +606,18 @@ export default function QuoteFormModal({ isOpen, onClose, selectedPhone }: Quote
                 />
                 {errors.contactNumber && (
                   <p className="text-red-500 text-sm mt-1">{errors.contactNumber.message}</p>
+                )}
+              </div>
+              <div>
+                <Label htmlFor="confirmContactNumber" className="text-sm font-semibold samsung-text mb-2 block">Confirm Contact Number *</Label>
+                <Input
+                  id="confirmContactNumber"
+                  {...register("confirmContactNumber")}
+                  className={`rounded-xl border-2 h-12 ${errors.confirmContactNumber ? "border-red-500" : "border-gray-300 focus:border-black"}`}
+                  placeholder="Re-enter your contact number"
+                />
+                {errors.confirmContactNumber && (
+                  <p className="text-red-500 text-sm mt-1">{errors.confirmContactNumber.message}</p>
                 )}
               </div>
               <div>
