@@ -20,6 +20,7 @@ const quoteFormSchema = z.object({
   fullName: z.string().min(2, "Full name is required"),
   contactNumber: z.string().min(10, "Valid contact number is required"),
   email: z.string().email("Valid email is required"),
+  confirmEmail: z.string().email("Please confirm your email"),
   physicalAddress: z.string().min(1, "Physical address is required"),
   city: z.string().min(2, "City is required"),
   region: z.string().min(2, "Region is required"),
@@ -34,6 +35,9 @@ const quoteFormSchema = z.object({
   deposit: z.number().min(0, "Deposit must be 0 or greater").optional(),
   depositMethod: z.string().optional(),
   paymentTerm: z.number().min(12, "Payment term is required"),
+}).refine((data) => data.email === data.confirmEmail, {
+  message: "Email addresses don't match. Please check and try again.",
+  path: ["confirmEmail"],
 });
 
 // Schema for individual phone selections in multi-phone quotes
@@ -136,6 +140,7 @@ export default function QuoteFormModal({ isOpen, onClose, selectedPhone }: Quote
       fullName: "",
       contactNumber: "",
       email: "",
+      confirmEmail: "",
       physicalAddress: "",
       city: "",
       region: "",
@@ -609,6 +614,19 @@ export default function QuoteFormModal({ isOpen, onClose, selectedPhone }: Quote
                 />
                 {errors.email && (
                   <p className="text-red-500 text-sm mt-1">{errors.email.message}</p>
+                )}
+              </div>
+              <div>
+                <Label htmlFor="confirmEmail" className="text-sm font-semibold samsung-text mb-2 block">Confirm Email Address *</Label>
+                <Input
+                  id="confirmEmail"
+                  type="email"
+                  {...register("confirmEmail")}
+                  className={`rounded-xl border-2 h-12 ${errors.confirmEmail ? "border-red-500" : "border-gray-300 focus:border-black"}`}
+                  placeholder="Re-enter your email"
+                />
+                {errors.confirmEmail && (
+                  <p className="text-red-500 text-sm mt-1">{errors.confirmEmail.message}</p>
                 )}
               </div>
             </div>
