@@ -126,6 +126,7 @@ export default function QuoteInstructionsModal({
                     <div className="font-semibold text-sm mb-2">📱 Required Documents:</div>
                     <ul className="list-disc list-inside space-y-1 text-sm">
                       <li>Latest payslip</li>
+                      <li>Employment confirmation letter</li>
                       <li>Copy of ID</li>
                       <li>Your quote</li>
                     </ul>
