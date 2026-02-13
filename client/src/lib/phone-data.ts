@@ -1008,6 +1008,39 @@ export const gamingSound: Device[] = [
   }
 ];
 
+export interface GamingCombo {
+  id: string;
+  name: string;
+  description: string;
+  price: number;
+  category: string;
+  validUntil: string;
+}
+
+export const gamingCombos: GamingCombo[] = [
+  { id: "COMBO 1", name: "PS5 Pro Bundle", description: "PS5 Pro 2TB + Extra Controller", price: 17698, category: "PS5 Pro", validUntil: "2026-02-28" },
+  { id: "COMBO 2", name: "PS5 Pro Starter Kit", description: "PS5 Pro 2TB + Controller + Charging Station", price: 18133, category: "PS5 Pro", validUntil: "2026-02-28" },
+  { id: "COMBO 3", name: "PS5 Pro Racing Bundle", description: "PS5 Pro 2TB + Controller + Charging Station + Racing Wheel", price: 23132, category: "PS5 Pro", validUntil: "2026-02-28" },
+  { id: "COMBO 4", name: "PS5 Pro Ultimate Racing", description: "PS5 Pro 2TB + Controller + Charging Station + Racing Wheel + Gear Shifter", price: 23932, category: "PS5 Pro", validUntil: "2026-02-28" },
+  { id: "COMBO 5", name: "Racing Setup", description: "G29 Racing Wheel + Gear Shifter", price: 5799, category: "PS5 Pro", validUntil: "2026-02-28" },
+  { id: "COMBO 6", name: "PS5 Pro Portal Bundle", description: "PS5 Pro 2TB + Extra Controller + PS5 Portal", price: 22197, category: "PS5 Pro", validUntil: "2026-02-28" },
+  { id: "COMBO 7", name: "PS5 Pro + Portal", description: "PS5 Pro 2TB + PS5 Portal", price: 20998, category: "PS5 Pro", validUntil: "2026-02-28" },
+  { id: "COMBO 8", name: "PS5 Disc Bundle", description: "PS5 Disc 1TB + Extra Controller", price: 13698, category: "PS5 Disc", validUntil: "2026-02-28" },
+  { id: "COMBO 9", name: "PS5 Disc Starter Kit", description: "PS5 Disc 1TB + Extra Controller + Charging Station", price: 14133, category: "PS5 Disc", validUntil: "2026-02-28" },
+  { id: "COMBO 10", name: "PS5 Disc Racing Bundle", description: "PS5 Disc 1TB + Extra Controller + Charging Station + G29 Racing Wheel", price: 19132, category: "PS5 Disc", validUntil: "2026-02-28" },
+  { id: "COMBO 11", name: "PS5 Disc Ultimate Racing", description: "PS5 Disc 1TB + Extra Controller + Charging Station + G29 Racing Wheel + Gear Shifter", price: 19932, category: "PS5 Disc", validUntil: "2026-02-28" },
+  { id: "COMBO 12", name: "PS5 Disc Portal Bundle", description: "PS5 Disc 1TB + Extra Controller + PS5 Portal", price: 18197, category: "PS5 Disc", validUntil: "2026-02-28" },
+  { id: "COMBO 13", name: "PS5 Disc + Portal", description: "PS5 Disc 1TB + PS5 Portal", price: 16998, category: "PS5 Disc", validUntil: "2026-02-28" },
+  { id: "COMBO 14", name: "PS5 Digital Bundle", description: "PS5 Digital 825GB + Extra Controller", price: 12198, category: "PS5 Digital", validUntil: "2026-02-28" },
+  { id: "COMBO 15", name: "PS5 Digital Starter Kit", description: "PS5 Digital 825GB + Extra Controller + Charging Station", price: 12633, category: "PS5 Digital", validUntil: "2026-02-28" },
+  { id: "COMBO 16", name: "PS5 Digital Racing Bundle", description: "PS5 Digital 825GB + Extra Controller + Charging Station + G29 Racing Wheel", price: 17632, category: "PS5 Digital", validUntil: "2026-02-28" },
+  { id: "COMBO 17", name: "PS5 Digital Ultimate Racing", description: "PS5 Digital 825GB + Extra Controller + Charging Station + G29 Racing Wheel + Gear Shifter", price: 18432, category: "PS5 Digital", validUntil: "2026-02-28" },
+  { id: "COMBO 18", name: "PS5 Digital Portal Bundle", description: "PS5 Digital 825GB + Extra Controller + PS5 Portal", price: 16697, category: "PS5 Digital", validUntil: "2026-02-28" },
+  { id: "COMBO 19", name: "PS5 Digital + Portal", description: "PS5 Digital 825GB + Portal", price: 15498, category: "PS5 Digital", validUntil: "2026-02-28" },
+  { id: "COMBO 20", name: "Xbox X Bundle", description: "Xbox X-Series 1TB + Extra Controller", price: 15998, category: "Xbox", validUntil: "2026-02-28" },
+  { id: "COMBO 21", name: "Xbox S Bundle", description: "Xbox S-Series 1TB + Extra Controller", price: 12498, category: "Xbox", validUntil: "2026-02-28" },
+];
+
 export const hpLaptops: Device[] = [
   {
     name: "HP I3 FD00133",
