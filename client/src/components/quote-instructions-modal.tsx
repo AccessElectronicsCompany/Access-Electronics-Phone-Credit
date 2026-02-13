@@ -122,7 +122,7 @@ export default function QuoteInstructionsModal({
                     visit any Access/FNB branch.
                   </p>
                   
-                  <div className="bg-blue-50 p-4 rounded-lg mb-4">
+                  <div className="bg-rose-50 p-4 rounded-lg mb-4">
                     <div className="font-semibold text-sm mb-2">📱 Required Documents:</div>
                     <ul className="list-disc list-inside space-y-1 text-sm">
                       <li>Latest payslip</li>
