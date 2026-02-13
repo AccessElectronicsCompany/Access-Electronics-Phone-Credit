@@ -77,25 +77,25 @@ export default function HeroSection({ onBrowsePhones, onOpenCalculator, onOpenIn
             </p>
           </div>
           
-          <div className="flex flex-col gap-3 sm:gap-4 justify-center max-w-md sm:max-w-lg md:max-w-4xl mx-auto">
+          <div className="flex flex-col gap-3 sm:gap-4 justify-center max-w-md sm:max-w-lg md:max-w-4xl mx-auto w-full">
             <Button
               onClick={onBrowsePhones}
-              className="w-full sm:w-auto bg-rose-500 text-white hover:bg-rose-400 px-6 sm:px-8 py-4 h-12 sm:h-auto font-semibold tracking-widest uppercase text-xs transition-all rounded-sm shadow-lg shadow-rose-500/20 hover:shadow-rose-400/30"
+              className="w-full bg-rose-500 text-white hover:bg-rose-400 px-6 sm:px-8 py-4 h-12 sm:h-auto font-semibold tracking-widest uppercase text-xs transition-all rounded-sm shadow-lg shadow-rose-500/20 hover:shadow-rose-400/30"
               size="lg"
             >
               Shop Valentine's Specials
             </Button>
-            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
+            <div className="grid grid-cols-2 gap-3 sm:gap-4 w-full">
               <Button
                 onClick={onOpenInstructions}
-                className="w-full sm:w-auto bg-transparent text-rose-400 border border-rose-500/50 hover:bg-rose-500/10 hover:border-rose-400 px-6 sm:px-8 py-4 h-12 sm:h-auto font-semibold tracking-widest uppercase text-xs transition-all rounded-sm"
+                className="w-full bg-transparent text-rose-400 border border-rose-500/50 hover:bg-rose-500/10 hover:border-rose-400 px-6 sm:px-8 py-4 h-12 sm:h-auto font-semibold tracking-widest uppercase text-xs transition-all rounded-sm"
                 size="lg"
               >
                 How to Request Quotes
               </Button>
               <Button
                 onClick={() => window.open('https://accessnamibia.com/', '_blank')}
-                className="w-full sm:w-auto bg-neutral-800 text-neutral-300 border border-neutral-700 hover:bg-neutral-700 hover:text-white px-6 sm:px-8 py-4 h-12 sm:h-auto font-semibold tracking-widest uppercase text-xs transition-all rounded-sm"
+                className="w-full bg-neutral-800 text-neutral-300 border border-neutral-700 hover:bg-neutral-700 hover:text-white px-6 sm:px-8 py-4 h-12 sm:h-auto font-semibold tracking-widest uppercase text-xs transition-all rounded-sm"
                 size="lg"
               >
                 Visit Our Online Store
