@@ -141,56 +141,56 @@ export const samsungPhones: Phone[] = [
   {
     name: "Samsung S25 Ultra",
     storage: "512GB",
-    price: 27999,
+    price: 25999,
     colors: ["Titanium Silver Blue", "Titanium Black", "Titanium White Silver", "Titanium Gray"],
     condition: "NEW"
   },
   {
     name: "Samsung S25 Ultra",
     storage: "256GB",
-    price: 25999,
+    price: 22999,
     colors: ["Titanium Silver Blue", "Titanium Black", "Titanium White Silver", "Titanium Gray"],
     condition: "NEW"
   },
   {
     name: "Samsung S25 Plus",
     storage: "256GB",
-    price: 22999,
+    price: 17999,
     colors: ["Icy Blue", "Mint", "Navy", "Silver Shadow"],
     condition: "NEW"
   },
   {
     name: "Samsung S25",
     storage: "256GB",
-    price: 17999,
+    price: 15999,
     colors: ["Icy Blue", "Mint", "Navy", "Silver Shadow"],
     condition: "NEW"
   },
   {
     name: "Samsung S24 Ultra",
     storage: "512GB",
-    price: 15999,
+    price: 21999,
     colors: ["Titanium Black", "Titanium Gray", "Titanium Violet", "Titanium Yellow", "Titanium Green", "Titanium Blue", "Titanium Orange"],
     condition: "NEW"
   },
   {
     name: "Samsung S24 Ultra",
     storage: "256GB",
-    price: 21999,
+    price: 19999,
     colors: ["Titanium Black", "Titanium Gray", "Titanium Violet", "Titanium Yellow", "Titanium Green", "Titanium Blue", "Titanium Orange"],
     condition: "NEW"
   },
   {
     name: "Samsung S24 Plus",
     storage: "256GB",
-    price: 19999,
+    price: 15999,
     colors: ["Onyx Black", "Marble Gray", "Cobalt Violet", "Amber Yellow", "Jade Green", "Sapphire Blue"],
     condition: "NEW"
   },
   {
     name: "Samsung S24",
     storage: "256GB",
-    price: 15999,
+    price: 13999,
     colors: ["Onyx Black", "Marble Gray", "Cobalt Violet", "Amber Yellow", "Jade Green", "Sapphire Blue"],
     condition: "NEW"
   },
@@ -204,42 +204,42 @@ export const samsungPhones: Phone[] = [
   {
     name: "Samsung A56",
     storage: "256GB",
-    price: 13999,
+    price: 8999,
     colors: ["Awesome Iceblue", "Awesome Lilac", "Awesome Navy", "Awesome White"],
     condition: "NEW"
   },
   {
     name: "Samsung A36",
     storage: "256GB",
-    price: 8999,
+    price: 6499,
     colors: ["Awesome Navy", "Awesome Lilac", "Awesome Mint", "Awesome White"],
     condition: "NEW"
   },
   {
     name: "Samsung A17",
     storage: "128GB",
-    price: 6499,
+    price: 3500,
     colors: ["Black", "Light Blue", "Light Green", "Gold"],
     condition: "NEW"
   },
   {
     name: "Samsung A07",
     storage: "128GB",
-    price: 3500,
+    price: 2299,
     colors: ["Black", "Light Blue", "Light Green"],
     condition: "NEW"
   },
   {
     name: "Samsung A06",
     storage: "64GB",
-    price: 2499,
+    price: 1699,
     colors: ["Black", "Light Blue", "Light Green"],
     condition: "NEW"
   },
   {
     name: "Samsung A16",
     storage: "128GB",
-    price: 2299,
+    price: 2499,
     colors: ["Black", "Light Blue", "Light Green", "Gold"],
     condition: "NEW"
   },
