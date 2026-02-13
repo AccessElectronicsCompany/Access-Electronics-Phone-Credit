@@ -192,13 +192,13 @@ export default function GamingSound() {
                     </div>
                     <div className="space-y-2">
                       <Button
-                        onClick={() => handleSelectDevice(combo.description, "", combo.price, ["Standard"])}
+                        onClick={() => handleSelectDevice(combo.name, "", combo.price, ["Standard"])}
                         className="bg-rose-500 text-white hover:bg-rose-400 w-full transition-all duration-300 border-0 rounded-sm font-medium tracking-widest uppercase text-xs py-3"
                       >
                         Request Quote
                       </Button>
                       <Button
-                        onClick={() => handleAddToCart(combo.description, "", combo.price, "Standard")}
+                        onClick={() => handleAddToCart(combo.name, "", combo.price, "Standard")}
                         variant="outline"
                         className="w-full border-neutral-600 text-neutral-300 hover:bg-neutral-700 hover:text-white transition-all duration-300 rounded-sm"
                       >
