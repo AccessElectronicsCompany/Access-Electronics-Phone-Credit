@@ -13,6 +13,7 @@ import Buds from "@/pages/buds";
 import Watches from "@/pages/watches";
 import Tablets from "@/pages/tablets";
 import GamingSound from "@/pages/gaming-sound";
+import GamingCombo from "@/pages/gaming-combo";
 import Terms from "@/pages/terms";
 import NotFound from "@/pages/not-found";
 
@@ -27,6 +28,7 @@ function Router() {
       <Route path="/watches" component={Watches} />
       <Route path="/tablets" component={Tablets} />
       <Route path="/gaming-sound" component={GamingSound} />
+      <Route path="/gaming-combo" component={GamingCombo} />
       <Route path="/terms" component={Terms} />
       <Route component={NotFound} />
     </Switch>

@@ -100,6 +100,12 @@ export default function Home() {
                 Gaming & Sound
               </button>
               <button
+                onClick={() => window.location.href = '/gaming-combo'}
+                className="text-neutral-300 hover:text-rose-400 transition-all duration-300 font-medium tracking-wider uppercase text-xs whitespace-nowrap"
+              >
+                Gaming Combo
+              </button>
+              <button
                 onClick={() => scrollToSection('calculator')}
                 className="text-neutral-300 hover:text-rose-400 transition-all duration-300 font-medium tracking-wider uppercase text-xs whitespace-nowrap"
               >
@@ -189,6 +195,15 @@ export default function Home() {
                   className="block w-full text-left px-6 py-3 text-neutral-300 hover:text-rose-400 hover:bg-neutral-800 transition-colors font-medium tracking-wider uppercase text-xs"
                 >
                   Gaming & Sound
+                </button>
+                <button
+                  onClick={() => {
+                    window.location.href = '/gaming-combo';
+                    setShowMobileMenu(false);
+                  }}
+                  className="block w-full text-left px-6 py-3 text-neutral-300 hover:text-rose-400 hover:bg-neutral-800 transition-colors font-medium tracking-wider uppercase text-xs"
+                >
+                  Gaming Combo
                 </button>
                 <button
                   onClick={() => {
