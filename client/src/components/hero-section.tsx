@@ -55,7 +55,7 @@ export default function HeroSection({ onBrowsePhones, onOpenCalculator, onOpenIn
             <span className="text-rose-400">PAY LATER.</span>
           </h2>
           
-          <p className="text-base sm:text-lg md:text-xl text-sky-400/80 mb-2 font-medium tracking-widest uppercase">
+          <p className="text-base sm:text-lg md:text-xl text-rose-400/80 mb-2 font-medium tracking-widest uppercase">
             Powered by FNB
           </p>
           
@@ -88,7 +88,7 @@ export default function HeroSection({ onBrowsePhones, onOpenCalculator, onOpenIn
             <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
               <Button
                 onClick={onOpenInstructions}
-                className="w-full sm:w-auto bg-transparent text-sky-400 border border-sky-500/50 hover:bg-sky-500/10 hover:border-sky-400 px-6 sm:px-8 py-4 h-12 sm:h-auto font-semibold tracking-widest uppercase text-xs transition-all rounded-sm"
+                className="w-full sm:w-auto bg-transparent text-rose-400 border border-rose-500/50 hover:bg-rose-500/10 hover:border-rose-400 px-6 sm:px-8 py-4 h-12 sm:h-auto font-semibold tracking-widest uppercase text-xs transition-all rounded-sm"
                 size="lg"
               >
                 How to Request Quotes

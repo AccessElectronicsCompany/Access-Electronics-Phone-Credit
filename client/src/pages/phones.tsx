@@ -37,7 +37,7 @@ export default function Phones() {
   return (
     <div className="min-h-screen bg-background">
       {/* Header */}
-      <header className="bg-white border-b border-black sticky top-0 z-50">
+      <header className="bg-white border-b border-rose-400 sticky top-0 z-50">
         <div className="samsung-container">
           <div className="flex justify-between items-center h-20">
             <div className="flex items-center space-x-4 md:space-x-8 ml-4">
@@ -110,6 +110,18 @@ export default function Phones() {
         </div>
       </header>
 
+      {/* Valentine's Banner */}
+      <div className="bg-gradient-to-r from-rose-600 via-pink-500 to-rose-600 overflow-hidden">
+        <div className="animate-banner-scroll whitespace-nowrap py-2">
+          <span className="inline-block text-white text-xs sm:text-sm font-medium tracking-wider mx-8">&#10084; VALENTINE'S SPECIALS - ALL MONTH LONG &#10084;</span>
+          <span className="inline-block text-white text-xs sm:text-sm font-medium tracking-wider mx-8">&#10084; TREAT YOUR LOVED ONE TO A NEW DEVICE &#10084;</span>
+          <span className="inline-block text-white text-xs sm:text-sm font-medium tracking-wider mx-8">&#10084; BUY NOW, PAY LATER WITH EASY CREDIT &#10084;</span>
+          <span className="inline-block text-white text-xs sm:text-sm font-medium tracking-wider mx-8">&#10084; VALENTINE'S SPECIALS - ALL MONTH LONG &#10084;</span>
+          <span className="inline-block text-white text-xs sm:text-sm font-medium tracking-wider mx-8">&#10084; TREAT YOUR LOVED ONE TO A NEW DEVICE &#10084;</span>
+          <span className="inline-block text-white text-xs sm:text-sm font-medium tracking-wider mx-8">&#10084; BUY NOW, PAY LATER WITH EASY CREDIT &#10084;</span>
+        </div>
+      </div>
+
       {/* Collections Navigation */}
       <section className="samsung-section bg-white">
         <div className="samsung-container">
@@ -138,7 +150,7 @@ export default function Phones() {
             </Card>
             <Card className="text-center p-6 border-2 border-black hover:bg-black hover:text-white transition-all cursor-pointer rounded-xl relative"
                   onClick={() => document.getElementById('used')?.scrollIntoView({ behavior: 'smooth' })}>
-              <div className="absolute top-2 right-2 bg-sky-500 text-white text-[10px] font-bold px-2 py-0.5 rounded-full">USED</div>
+              <div className="absolute top-2 right-2 bg-rose-500 text-white text-[10px] font-bold px-2 py-0.5 rounded-full">USED</div>
               <CardContent className="pt-4">
                 <div className="text-3xl mb-3">🔧</div>
                 <h4 className="text-lg font-semibold mb-2 tracking-wide">USED PHONES</h4>
@@ -203,7 +215,7 @@ export default function Phones() {
           <div className="text-center mb-16">
             <div className="inline-flex items-center gap-3 mb-4">
               <h2 className="text-4xl samsung-header">USED PHONES</h2>
-              <span className="bg-sky-500 text-white text-xs font-bold px-3 py-1 rounded-full">USED</span>
+              <span className="bg-rose-500 text-white text-xs font-bold px-3 py-1 rounded-full">USED</span>
             </div>
             <p className="samsung-text text-lg">Quality pre-owned devices at great prices</p>
           </div>
@@ -326,6 +338,7 @@ export default function Phones() {
 
           {/* Copyright */}
           <div className="border-t border-gray-800 mt-8 pt-6 text-center">
+            <p className="text-rose-400/60 text-[10px] sm:text-xs tracking-wider mb-2 animate-heart-pulse">&#10084; Happy Valentine's Month &#10084;</p>
             <p className="text-gray-400 text-sm">
               © 2025 Access Electronics. All rights reserved.
             </p>

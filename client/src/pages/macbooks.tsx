@@ -47,7 +47,7 @@ export default function MacBooks() {
   return (
     <div className="min-h-screen bg-background">
       {/* Header */}
-      <header className="bg-white border-b border-black sticky top-0 z-50 animate-in slide-in-from-top duration-1000">
+      <header className="bg-white border-b border-rose-400 sticky top-0 z-50 animate-in slide-in-from-top duration-1000">
         <div className="samsung-container">
           <div className="flex justify-between items-center h-20">
             <div className="flex items-center gap-4 ml-4">
@@ -128,6 +128,18 @@ export default function MacBooks() {
         </div>
       </header>
 
+      {/* Valentine's Banner */}
+      <div className="bg-gradient-to-r from-rose-600 via-pink-500 to-rose-600 overflow-hidden">
+        <div className="animate-banner-scroll whitespace-nowrap py-2">
+          <span className="inline-block text-white text-xs sm:text-sm font-medium tracking-wider mx-8">&#10084; VALENTINE'S SPECIALS - ALL MONTH LONG &#10084;</span>
+          <span className="inline-block text-white text-xs sm:text-sm font-medium tracking-wider mx-8">&#10084; TREAT YOUR LOVED ONE TO A NEW DEVICE &#10084;</span>
+          <span className="inline-block text-white text-xs sm:text-sm font-medium tracking-wider mx-8">&#10084; BUY NOW, PAY LATER WITH EASY CREDIT &#10084;</span>
+          <span className="inline-block text-white text-xs sm:text-sm font-medium tracking-wider mx-8">&#10084; VALENTINE'S SPECIALS - ALL MONTH LONG &#10084;</span>
+          <span className="inline-block text-white text-xs sm:text-sm font-medium tracking-wider mx-8">&#10084; TREAT YOUR LOVED ONE TO A NEW DEVICE &#10084;</span>
+          <span className="inline-block text-white text-xs sm:text-sm font-medium tracking-wider mx-8">&#10084; BUY NOW, PAY LATER WITH EASY CREDIT &#10084;</span>
+        </div>
+      </div>
+
       {/* MacBook Collection */}
       <section className="samsung-section bg-white">
         <div className="samsung-container">
@@ -160,7 +172,7 @@ export default function MacBooks() {
                   <div className="space-y-2">
                     <Button
                       onClick={() => handleSelectDevice(device.name, device.storage || "", device.price, device.colors)}
-                      className="samsung-btn w-full"
+                      className="bg-rose-500 text-white hover:bg-rose-400 w-full transition-all duration-300 border-0 rounded-sm font-medium tracking-widest uppercase text-xs py-3 px-6"
                     >
                       Request Quote
                     </Button>

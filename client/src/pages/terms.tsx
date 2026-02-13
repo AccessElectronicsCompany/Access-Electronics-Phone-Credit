@@ -9,7 +9,7 @@ export default function Terms() {
   return (
     <div className="min-h-screen bg-background">
       {/* Header */}
-      <header className="bg-white border-b border-black sticky top-0 z-50">
+      <header className="bg-white border-b border-rose-400 sticky top-0 z-50">
         <div className="samsung-container">
           <div className="flex justify-between items-center h-20">
             <div className="flex items-center ml-4">
@@ -74,6 +74,18 @@ export default function Terms() {
           )}
         </div>
       </header>
+
+      {/* Valentine's Banner */}
+      <div className="bg-gradient-to-r from-rose-600 via-pink-500 to-rose-600 overflow-hidden">
+        <div className="animate-banner-scroll whitespace-nowrap py-2">
+          <span className="inline-block text-white text-xs sm:text-sm font-medium tracking-wider mx-8">&#10084; VALENTINE'S SPECIALS - ALL MONTH LONG &#10084;</span>
+          <span className="inline-block text-white text-xs sm:text-sm font-medium tracking-wider mx-8">&#10084; TREAT YOUR LOVED ONE TO A NEW DEVICE &#10084;</span>
+          <span className="inline-block text-white text-xs sm:text-sm font-medium tracking-wider mx-8">&#10084; BUY NOW, PAY LATER WITH EASY CREDIT &#10084;</span>
+          <span className="inline-block text-white text-xs sm:text-sm font-medium tracking-wider mx-8">&#10084; VALENTINE'S SPECIALS - ALL MONTH LONG &#10084;</span>
+          <span className="inline-block text-white text-xs sm:text-sm font-medium tracking-wider mx-8">&#10084; TREAT YOUR LOVED ONE TO A NEW DEVICE &#10084;</span>
+          <span className="inline-block text-white text-xs sm:text-sm font-medium tracking-wider mx-8">&#10084; BUY NOW, PAY LATER WITH EASY CREDIT &#10084;</span>
+        </div>
+      </div>
 
       {/* Terms and Conditions Content */}
       <section className="samsung-section bg-white">
@@ -387,6 +399,7 @@ export default function Terms() {
 
           {/* Copyright */}
           <div className="border-t border-gray-800 mt-8 pt-6 text-center">
+            <p className="text-rose-400/60 text-[10px] sm:text-xs tracking-wider mb-2 animate-heart-pulse">&#10084; Happy Valentine's Month &#10084;</p>
             <p className="text-gray-400 text-sm">
               © 2025 Access Electronics. All rights reserved.
             </p>
