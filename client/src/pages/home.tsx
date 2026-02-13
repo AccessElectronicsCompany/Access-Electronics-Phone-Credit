@@ -42,7 +42,7 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-background">
       {/* Header */}
-      <header className="bg-neutral-900 border-b border-sky-500/30 sticky top-0 z-50 animate-in slide-in-from-top duration-1000">
+      <header className="bg-neutral-900 border-b border-rose-500/30 sticky top-0 z-50 animate-in slide-in-from-top duration-1000">
         <div className="samsung-container">
           <div className="flex justify-between items-center h-20">
             <div className="flex items-center ml-4">
@@ -219,6 +219,18 @@ export default function Home() {
           )}
         </div>
       </header>
+
+      {/* Valentine's Banner */}
+      <div className="bg-gradient-to-r from-rose-600 via-pink-500 to-rose-600 overflow-hidden">
+        <div className="animate-banner-scroll whitespace-nowrap py-2">
+          <span className="inline-block text-white text-xs sm:text-sm font-medium tracking-wider mx-8">&#10084; VALENTINE'S SPECIALS - ALL MONTH LONG &#10084;</span>
+          <span className="inline-block text-white text-xs sm:text-sm font-medium tracking-wider mx-8">&#10084; TREAT YOUR LOVED ONE TO A NEW DEVICE &#10084;</span>
+          <span className="inline-block text-white text-xs sm:text-sm font-medium tracking-wider mx-8">&#10084; BUY NOW, PAY LATER WITH EASY CREDIT &#10084;</span>
+          <span className="inline-block text-white text-xs sm:text-sm font-medium tracking-wider mx-8">&#10084; VALENTINE'S SPECIALS - ALL MONTH LONG &#10084;</span>
+          <span className="inline-block text-white text-xs sm:text-sm font-medium tracking-wider mx-8">&#10084; TREAT YOUR LOVED ONE TO A NEW DEVICE &#10084;</span>
+          <span className="inline-block text-white text-xs sm:text-sm font-medium tracking-wider mx-8">&#10084; BUY NOW, PAY LATER WITH EASY CREDIT &#10084;</span>
+        </div>
+      </div>
 
       {/* Hero Section */}
       <HeroSection 
@@ -600,6 +612,9 @@ export default function Home() {
 
           {/* Copyright */}
           <div className="border-t border-neutral-800 mt-8 sm:mt-12 pt-6 sm:pt-8 text-center">
+            <p className="text-rose-400/60 text-[10px] sm:text-xs tracking-wider mb-2 animate-heart-pulse">
+              &#10084; Happy Valentine's Month &#10084;
+            </p>
             <p className="text-neutral-500 text-[10px] sm:text-xs tracking-wider">
               © 2025 Access Electronics. All rights reserved.
             </p>
