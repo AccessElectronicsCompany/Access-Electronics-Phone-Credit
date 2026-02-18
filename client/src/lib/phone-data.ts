@@ -118,34 +118,6 @@ export const iphones: Phone[] = [
 
 export const samsungPhones: Phone[] = [
   {
-    name: "Samsung Z Fold 7",
-    storage: "512GB",
-    price: 43999,
-    colors: ["Phantom Black", "Icy Blue", "Cream", "Gray", "Blue", "Crafted Black", "Silver Shadow"],
-    condition: "NEW"
-  },
-  {
-    name: "Samsung Z Fold 7",
-    storage: "256GB",
-    price: 39999,
-    colors: ["Phantom Black", "Icy Blue", "Cream", "Gray", "Blue", "Crafted Black", "Silver Shadow"],
-    condition: "NEW"
-  },
-  {
-    name: "Samsung Z Flip 7",
-    storage: "512GB",
-    price: 25999,
-    colors: ["Mint", "Graphite", "Cream", "Lavender", "Yellow", "Blue", "Green", "Gray", "Peach", "Indigo"],
-    condition: "NEW"
-  },
-  {
-    name: "Samsung Z Flip 7",
-    storage: "256GB",
-    price: 23999,
-    colors: ["Mint", "Graphite", "Cream", "Lavender", "Yellow", "Blue", "Green", "Gray", "Peach", "Indigo"],
-    condition: "NEW"
-  },
-  {
     name: "Samsung S25 Ultra",
     storage: "512GB",
     price: 27999,
@@ -255,21 +227,6 @@ export const samsungPhones: Phone[] = [
     storage: "64GB",
     price: 1999,
     colors: ["Black", "Light Blue", "Light Green"],
-    condition: "NEW"
-  },
-  {
-    name: "Samsung Z Flip",
-    storage: "256GB",
-    price: 24999,
-    colors: ["Mint", "Graphite", "Cream", "Lavender", "Yellow", "Blue", "Green", "Gray", "Peach", "Indigo"],
-    condition: "NEW"
-  },
-
-  {
-    name: "Samsung Note Ultra",
-    storage: "256GB",
-    price: 12999,
-    colors: ["Mystic Bronze", "Mystic Black", "Mystic White"],
     condition: "NEW"
   },
 ];
@@ -503,44 +460,12 @@ export const usedPhones: Phone[] = [
 
 export const ipads: Device[] = [
   {
-    name: "iPad Air 11-inch WiFi",
-    storage: "128GB",
-    price: 13999,
-    colors: ["Blue", "Purple", "Starlight", "Space Gray"],
-    condition: "NEW",
-    specs: "M2 chip, 11-inch Liquid Retina display"
-  },
-  {
-    name: "iPad Air 13-inch WiFi",
-    storage: "128GB",
-    price: 17999,
-    colors: ["Blue", "Purple", "Starlight", "Space Gray"],
-    condition: "NEW",
-    specs: "M2 chip, 13-inch Liquid Retina display"
-  },
-  {
     name: "iPad Air M5 13\" WiFi",
     storage: "256GB",
     price: 19999,
     colors: ["Blue", "Purple", "Starlight", "Space Gray"],
     condition: "NEW",
     specs: "M5 chip, 13-inch Liquid Retina display"
-  },
-  {
-    name: "iPad 10",
-    storage: "64GB WiFi",
-    price: 6999,
-    colors: ["Silver", "Blue", "Pink", "Yellow"],
-    condition: "NEW",
-    specs: "A14 Bionic chip, 10.9-inch Liquid Retina display"
-  },
-  {
-    name: "iPad 11",
-    storage: "128GB WiFi",
-    price: 7999,
-    colors: ["Silver", "Space Gray"],
-    condition: "NEW",
-    specs: "A14 Bionic chip, 10.9-inch Liquid Retina display"
   },
   {
     name: "iPad Pro M5 11\" WiFi",
@@ -582,57 +507,9 @@ export const ipads: Device[] = [
     condition: "NEW",
     specs: "A16 Bionic chip, 10.9-inch Liquid Retina display"
   },
-  {
-    name: "iPad A16",
-    storage: "256GB",
-    price: 9499,
-    colors: ["Silver", "Space Gray"],
-    condition: "NEW",
-    specs: "A16 Bionic chip, 10.9-inch Liquid Retina display"
-  },
-  {
-    name: "iPad 10th Gen",
-    storage: "256GB WiFi",
-    price: 8499,
-    colors: ["Silver", "Blue", "Pink", "Yellow"],
-    condition: "NEW",
-    specs: "A14 Bionic chip, 10.9-inch Liquid Retina display"
-  }
 ];
 
 export const macbooks: Device[] = [
-  {
-    name: "MacBook Pro 14-inch M4",
-    storage: "512GB (MW2W3)",
-    price: 35999,
-    colors: ["Silver"],
-    condition: "NEW",
-    specs: "M4 chip, 14-inch Liquid Retina XDR display"
-  },
-  {
-    name: "MacBook Pro 14-inch M4",
-    storage: "1TB (MW2V3)",
-    price: 39999,
-    colors: ["Space Black"],
-    condition: "NEW",
-    specs: "M4 chip, 14-inch Liquid Retina XDR display"
-  },
-  {
-    name: "MacBook Pro 14-inch M4 Pro",
-    storage: "512GB (MX2H3)",
-    price: 42999,
-    colors: ["Space Black"],
-    condition: "NEW",
-    specs: "M4 Pro chip, 14-inch Liquid Retina XDR display"
-  },
-  {
-    name: "MacBook Pro 16-inch M4 Pro",
-    storage: "512GB",
-    price: 54999,
-    colors: ["Space Black"],
-    condition: "NEW",
-    specs: "M4 Pro chip, 16-inch Liquid Retina XDR display"
-  },
   {
     name: "MacBook Air 13-inch M1",
     storage: "8/256",
@@ -684,20 +561,6 @@ export const macbooks: Device[] = [
 ];
 
 export const buds: Device[] = [
-  {
-    name: "Samsung Buds 3 Pro",
-    price: 2999,
-    colors: ["Graphite", "Silver"],
-    condition: "NEW",
-    specs: "Adaptive Active Noise Cancellation, 360 Audio"
-  },
-  {
-    name: "Buds FE",
-    price: 1199,
-    colors: ["Graphite", "White"],
-    condition: "NEW",
-    specs: "Enhanced audio experience, comfortable fit"
-  },
   {
     name: "AirPods Pro 3rd Gen",
     price: 5600,
@@ -830,30 +693,6 @@ export const watches: Device[] = [
 
 export const samsungTablets: Device[] = [
   {
-    name: "Tab S10 Ultra X926",
-    storage: "256GB 5G",
-    price: 24999,
-    colors: ["Graphite", "Beige"],
-    condition: "NEW",
-    specs: "MediaTek Dimensity 9300+, 14.6-inch AMOLED display"
-  },
-  {
-    name: "Tab S10 FE X526",
-    storage: "12/256GB 5G",
-    price: 16999,
-    colors: ["Mint", "Lavender", "Gray", "Silver"],
-    condition: "NEW",
-    specs: "MediaTek Dimensity 9300+, 12.4-inch AMOLED display"
-  },
-  {
-    name: "Tab S10 FE X526",
-    storage: "8/128GB 5G",
-    price: 14999,
-    colors: ["Mint", "Lavender", "Gray", "Silver"],
-    condition: "NEW",
-    specs: "MediaTek Dimensity 9300+, 12.4-inch AMOLED display"
-  },
-  {
     name: "Tab S9 WiFi",
     storage: "256GB",
     price: 13499,
@@ -888,55 +727,6 @@ export const samsungTablets: Device[] = [
 ];
 
 export const gamingSound: Device[] = [
-  {
-    name: "JBL Flip 7",
-    price: 2799,
-    colors: ["Blue", "Black"],
-    condition: "NEW",
-    specs: "Portable Bluetooth Speaker"
-  },
-  {
-    name: "JBL Charge 5",
-    price: 2999,
-    colors: ["Pink", "White", "Black"],
-    condition: "NEW",
-    specs: "Portable Bluetooth Speaker with Powerbank"
-  },
-  {
-    name: "JBL Live 670NC",
-    price: 2299,
-    colors: ["Sandstone"],
-    condition: "NEW",
-    specs: "Wireless Over-Ear Headphones with Active Noise Cancelling"
-  },
-  {
-    name: "JBL Tune 520BT",
-    price: 799,
-    colors: ["White", "Black"],
-    condition: "NEW",
-    specs: "Wireless On-Ear Headphones"
-  },
-  {
-    name: "JBL Tune 670NC",
-    price: 1999,
-    colors: ["Black"],
-    condition: "NEW",
-    specs: "Wireless Over-Ear Headphones with Active Noise Cancelling"
-  },
-  {
-    name: "JBL Clip 5",
-    price: 1299,
-    colors: ["White", "Red"],
-    condition: "NEW",
-    specs: "Ultra-Portable Bluetooth Speaker with Carabiner"
-  },
-  {
-    name: "Harman Kardon Onyx Studio 9",
-    price: 5499,
-    colors: ["Grey", "Black"],
-    condition: "NEW",
-    specs: "Premium Bluetooth Speaker"
-  },
   {
     name: "PlayStation 5 Pro Console",
     storage: "2TB",
@@ -1002,20 +792,6 @@ export const gamingSound: Device[] = [
     colors: ["White"],
     condition: "NEW",
     specs: "PS5 Controller Charging Station"
-  },
-  {
-    name: "PULSE Elite Wireless Headset",
-    price: 3999,
-    colors: ["Midnight Black", "White"],
-    condition: "NEW",
-    specs: "PS5 Premium Gaming Headset"
-  },
-  {
-    name: "PULSE Explore Wireless Earbuds",
-    price: 4999,
-    colors: ["Midnight Black", "White"],
-    condition: "NEW",
-    specs: "PS5 Gaming Earbuds"
   },
   {
     name: "Xbox Series X Console",

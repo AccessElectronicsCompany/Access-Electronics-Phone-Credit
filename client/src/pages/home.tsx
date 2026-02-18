@@ -377,7 +377,7 @@ export default function Home() {
               <CardContent className="p-0 pt-2 sm:pt-4">
                 <div className="text-2xl sm:text-3xl mb-2 sm:mb-4 group-hover:scale-110 transition-transform duration-300">🎮</div>
                 <h4 className="text-xs sm:text-sm md:text-base font-semibold mb-1 sm:mb-2 tracking-wider text-white group-hover:text-rose-400 transition-colors">GAMING</h4>
-                <p className="text-[10px] sm:text-xs text-neutral-400 hidden sm:block">PS5, JBL & more</p>
+                <p className="text-[10px] sm:text-xs text-neutral-400 hidden sm:block">PS5, Xbox & more</p>
               </CardContent>
             </Card>
             <Card className="text-center p-3 sm:p-4 md:p-6 bg-rose-500/20 border border-rose-500/50 hover:border-rose-400 hover:bg-rose-500/30 transition-all duration-500 cursor-pointer rounded-sm group active:scale-[0.98]"
