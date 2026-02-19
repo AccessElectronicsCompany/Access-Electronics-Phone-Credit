@@ -114,6 +114,19 @@ export default function WelcomePopup() {
                 })}
               </div>
             </div>
+
+            <div className="relative z-10 px-5 sm:px-6 pb-4 sm:pb-5 pt-1">
+              <div className="h-[1px] mb-3" style={{ background: "linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.06) 50%, transparent 100%)" }} />
+              <button
+                onClick={() => {
+                  sessionStorage.setItem("welcome_popup_seen", "1");
+                  setOpen(false);
+                }}
+                className="w-full text-[10px] sm:text-[11px] text-neutral-500 hover:text-neutral-300 transition-all duration-300 py-1 tracking-[0.15em] uppercase"
+              >
+                Continue browsing
+              </button>
+            </div>
           </div>
         </DialogPrimitive.Content>
       </DialogPortal>
