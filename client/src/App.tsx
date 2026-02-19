@@ -5,6 +5,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { CartProvider } from "@/contexts/CartContext";
 
+import WelcomePopup from "@/components/welcome-popup";
 import Home from "@/pages/home";
 import Phones from "@/pages/phones";
 import IPads from "@/pages/ipads";
@@ -42,6 +43,7 @@ function App() {
         <CartProvider>
           <div>
             <Toaster />
+            <WelcomePopup />
             <Router />
           </div>
         </CartProvider>
