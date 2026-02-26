@@ -382,14 +382,14 @@ export const usedPhones: Phone[] = [
   {
     name: "Used iPhone 11",
     storage: "128GB",
-    price: 6999,
+    price: 5999,
     colors: ["Black", "White", "Green", "Purple", "Yellow", "(PRODUCT)RED"],
     condition: "USED"
   },
   {
     name: "Used iPhone 11",
     storage: "64GB",
-    price: 5999,
+    price: 4999,
     colors: ["Black", "White", "Green", "Purple", "Yellow", "(PRODUCT)RED"],
     condition: "USED"
   },
