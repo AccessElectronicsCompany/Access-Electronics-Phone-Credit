@@ -25,7 +25,7 @@ export default function GamingCombo() {
   const { addToCart } = useCart();
 
   const comboCategories = ["all", "PS5 Pro", "PS5 Disc", "PS5 Digital", "Xbox"];
-  const activeCombos = gamingCombos.filter(c => new Date(c.validUntil) >= new Date());
+  const activeCombos = gamingCombos;
   const filteredCombos = comboFilter === "all" ? activeCombos : activeCombos.filter(c => c.category === comboFilter);
 
   const handleSelectDevice = (name: string, storage: string, price: number, colors: string[]) => {
