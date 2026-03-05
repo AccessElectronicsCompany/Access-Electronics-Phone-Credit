@@ -22,7 +22,7 @@ export default function CartModal({ isOpen, onClose, onRequestQuote }: CartModal
         {cartItems.length === 0 ? (
           <div className="text-center py-8">
             <p className="text-neutral-500 mb-4 text-sm">Your cart is empty</p>
-            <Button onClick={onClose} className="bg-rose-500 text-white hover:bg-rose-400">Continue Shopping</Button>
+            <Button onClick={onClose} className="bg-cyan-500 text-white hover:bg-cyan-400">Continue Shopping</Button>
           </div>
         ) : (
           <div className="flex flex-col flex-1 overflow-hidden">
@@ -32,7 +32,7 @@ export default function CartModal({ isOpen, onClose, onRequestQuote }: CartModal
                   <div className="flex-1 min-w-0">
                     <h3 className="font-semibold text-xs sm:text-sm truncate">{item.name}</h3>
                     <p className="text-[10px] sm:text-xs text-neutral-500">{item.storage} - {item.color}</p>
-                    <p className="text-sm sm:text-base font-bold text-rose-500">N${item.price.toLocaleString()}</p>
+                    <p className="text-sm sm:text-base font-bold text-cyan-500">N${item.price.toLocaleString()}</p>
                   </div>
                   
                   <div className="flex items-center gap-1 sm:gap-2 flex-shrink-0">
@@ -74,7 +74,7 @@ export default function CartModal({ isOpen, onClose, onRequestQuote }: CartModal
                 </Button>
               </div>
               
-              <div className="text-[10px] sm:text-sm text-neutral-600 mb-3 sm:mb-4 p-2 sm:p-3 bg-rose-50 border border-rose-100 rounded-sm">
+              <div className="text-[10px] sm:text-sm text-neutral-600 mb-3 sm:mb-4 p-2 sm:p-3 bg-cyan-50 border border-cyan-100 rounded-sm">
                 <p className="font-medium">Multiple Device Credit Option</p>
                 <p>Get all these devices on credit! Request a quote and we'll calculate payment plans for your entire cart.</p>
               </div>
@@ -83,7 +83,7 @@ export default function CartModal({ isOpen, onClose, onRequestQuote }: CartModal
                 <Button variant="outline" onClick={onClose} className="flex-1 text-xs sm:text-sm h-9 sm:h-10">
                   Continue Shopping
                 </Button>
-                <Button onClick={onRequestQuote} className="flex-1 bg-rose-500 text-white hover:bg-rose-400 text-xs sm:text-sm h-9 sm:h-10">
+                <Button onClick={onRequestQuote} className="flex-1 bg-cyan-500 text-white hover:bg-cyan-400 text-xs sm:text-sm h-9 sm:h-10">
                   Request Quote
                 </Button>
               </div>

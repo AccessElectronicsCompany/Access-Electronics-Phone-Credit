@@ -5,7 +5,7 @@ This full-stack web application enables Access Electronics customers to request 
 
 ## User Preferences
 Preferred communication style: Simple, everyday language.
-Design Theme: Premium luxury aesthetic with rose/pink (rose-400/500) accents and dark (neutral-900) backgrounds (Valentine's month theme).
+Design Theme: High-tech cyberpunk aesthetic with cyan/electric blue (cyan-400/500) accents and dark (neutral-900) backgrounds.
 Font: Inter font used consistently throughout the entire platform for both headings and body text.
 UI Style: Rounded corners (0.75rem) for all containers and components with proper spacing between content and borders.
 Animation Style: Continuous animations in hero section for engaging user experience.

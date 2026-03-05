@@ -192,7 +192,7 @@ export default function PhoneStorageSelectionModal({
 
           {/* Selected Phone Details */}
           {selectedPhoneVariant && (
-            <div className="bg-rose-50 p-4 rounded-xl border border-rose-200">
+            <div className="bg-cyan-50 p-4 rounded-xl border border-cyan-200">
               <h4 className="samsung-text font-semibold mb-2">Selected Configuration:</h4>
               <div className="space-y-1 text-sm samsung-text">
                 <div>Model: {selectedPhoneVariant.name}</div>

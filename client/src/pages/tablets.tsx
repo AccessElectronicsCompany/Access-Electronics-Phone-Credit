@@ -47,7 +47,7 @@ export default function Tablets() {
   return (
     <div className="min-h-screen bg-background">
       {/* Header */}
-      <header className="bg-white border-b border-rose-400 sticky top-0 z-50 animate-in slide-in-from-top duration-1000">
+      <header className="bg-white border-b border-cyan-400 sticky top-0 z-50 animate-in slide-in-from-top duration-1000">
         <div className="samsung-container">
           <div className="flex justify-between items-center h-20">
             <div className="flex items-center gap-4 ml-4">
@@ -128,15 +128,15 @@ export default function Tablets() {
         </div>
       </header>
 
-      {/* Valentine's Banner */}
-      <div className="bg-gradient-to-r from-rose-600 via-pink-500 to-rose-600 overflow-hidden">
+      {/* Tech Banner */}
+      <div className="bg-gradient-to-r from-cyan-600 via-blue-500 to-cyan-600 overflow-hidden">
         <div className="animate-banner-scroll whitespace-nowrap py-2">
-          <span className="inline-block text-white text-xs sm:text-sm font-medium tracking-wider mx-8">&#10084; VALENTINE'S SPECIALS - VALID UNTIL 28 FEB 2026 &#10084;</span>
-          <span className="inline-block text-white text-xs sm:text-sm font-medium tracking-wider mx-8">&#10084; TREAT YOUR LOVED ONE TO A NEW DEVICE &#10084;</span>
-          <span className="inline-block text-white text-xs sm:text-sm font-medium tracking-wider mx-8">&#10084; BUY NOW, PAY LATER WITH EASY CREDIT &#10084;</span>
-          <span className="inline-block text-white text-xs sm:text-sm font-medium tracking-wider mx-8">&#10084; VALENTINE'S SPECIALS - VALID UNTIL 28 FEB 2026 &#10084;</span>
-          <span className="inline-block text-white text-xs sm:text-sm font-medium tracking-wider mx-8">&#10084; TREAT YOUR LOVED ONE TO A NEW DEVICE &#10084;</span>
-          <span className="inline-block text-white text-xs sm:text-sm font-medium tracking-wider mx-8">&#10084; BUY NOW, PAY LATER WITH EASY CREDIT &#10084;</span>
+          <span className="inline-block text-white text-xs sm:text-sm font-medium tracking-wider mx-8">⚡ LATEST TECH DEALS ⚡</span>
+          <span className="inline-block text-white text-xs sm:text-sm font-medium tracking-wider mx-8">⚡ BUY NOW, PAY LATER WITH EASY CREDIT ⚡</span>
+          <span className="inline-block text-white text-xs sm:text-sm font-medium tracking-wider mx-8">⚡ FLEXIBLE PAYMENT PLANS AVAILABLE ⚡</span>
+          <span className="inline-block text-white text-xs sm:text-sm font-medium tracking-wider mx-8">⚡ LATEST TECH DEALS ⚡</span>
+          <span className="inline-block text-white text-xs sm:text-sm font-medium tracking-wider mx-8">⚡ BUY NOW, PAY LATER WITH EASY CREDIT ⚡</span>
+          <span className="inline-block text-white text-xs sm:text-sm font-medium tracking-wider mx-8">⚡ FLEXIBLE PAYMENT PLANS AVAILABLE ⚡</span>
         </div>
       </div>
 
@@ -172,7 +172,7 @@ export default function Tablets() {
                   <div className="space-y-2">
                     <Button
                       onClick={() => handleSelectDevice(device.name, device.storage || "", device.price, device.colors)}
-                      className="bg-rose-500 text-white hover:bg-rose-400 w-full transition-all duration-300 border-0 rounded-sm font-medium tracking-widest uppercase text-xs py-3 px-6"
+                      className="bg-cyan-500 text-white hover:bg-cyan-400 w-full transition-all duration-300 border-0 rounded-sm font-medium tracking-widest uppercase text-xs py-3 px-6"
                     >
                       Request Quote
                     </Button>

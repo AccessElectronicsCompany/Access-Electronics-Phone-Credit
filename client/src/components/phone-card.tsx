@@ -38,38 +38,38 @@ export default function PhoneCard({ phone, phoneType, onSelect, onRequestQuote }
         phoneBaseName={phone.name}
         phoneType={phoneType}
       />
-      <Card className="bg-white border border-neutral-200 hover:border-rose-400/50 transition-all duration-500 cursor-pointer flex flex-col h-full rounded-sm group active:scale-[0.98]" style={{ boxShadow: '0 2px 15px rgba(0, 0, 0, 0.04)' }}>
+      <Card className="bg-white border border-neutral-200 hover:border-cyan-400/50 transition-all duration-500 cursor-pointer flex flex-col h-full rounded-sm group active:scale-[0.98]" style={{ boxShadow: '0 2px 15px rgba(0, 0, 0, 0.04)' }}>
         <CardContent className="text-center p-4 sm:p-5 flex-grow flex flex-col h-full">
           <div className="mb-3 sm:mb-4">
-            <div className="w-10 h-10 sm:w-12 sm:h-12 mx-auto bg-neutral-900 rounded-full flex items-center justify-center group-hover:bg-rose-500 transition-colors duration-300">
-              <Smartphone className="h-5 w-5 sm:h-6 sm:w-6 text-rose-400 group-hover:text-white transition-colors duration-300" />
+            <div className="w-10 h-10 sm:w-12 sm:h-12 mx-auto bg-neutral-900 rounded-full flex items-center justify-center group-hover:bg-cyan-500 transition-colors duration-300">
+              <Smartphone className="h-5 w-5 sm:h-6 sm:w-6 text-cyan-400 group-hover:text-white transition-colors duration-300" />
             </div>
           </div>
           <h4 className="font-semibold text-neutral-900 mb-1 sm:mb-2 text-xs sm:text-sm tracking-wide line-clamp-2">{phone.name}</h4>
           <p className="text-[10px] sm:text-xs text-neutral-500 mb-1 sm:mb-2 tracking-wide">{phone.storage}</p>
-          <p className="text-lg sm:text-xl font-bold text-rose-500 mb-3 sm:mb-4">N${phone.price.toLocaleString()}</p>
+          <p className="text-lg sm:text-xl font-bold text-cyan-500 mb-3 sm:mb-4">N${phone.price.toLocaleString()}</p>
           <div className="space-y-0.5 sm:space-y-1 text-[10px] sm:text-xs text-neutral-500 mb-3 sm:mb-5 flex-grow">
             <div className="truncate">Colors: {phone.colors.slice(0, 2).join(", ")}{phone.colors.length > 2 ? '...' : ''}</div>
-            <div className={phone.condition === "USED" ? "text-rose-500 font-medium" : ""}>Condition: {phone.condition}</div>
+            <div className={phone.condition === "USED" ? "text-cyan-500 font-medium" : ""}>Condition: {phone.condition}</div>
           </div>
           <div className="space-y-2 mt-auto">
             <Button
               onClick={() => onSelect(phone.name, phone.storage, phone.price)}
-              className="w-full py-2 sm:py-2.5 h-9 sm:h-10 text-[10px] sm:text-xs bg-rose-500 text-white hover:bg-rose-400 rounded-sm font-medium tracking-widest transition-all duration-300"
+              className="w-full py-2 sm:py-2.5 h-9 sm:h-10 text-[10px] sm:text-xs bg-cyan-500 text-white hover:bg-cyan-400 rounded-sm font-medium tracking-widest transition-all duration-300"
             >
               SELECT
             </Button>
             <div className="flex gap-1.5 sm:gap-2">
               <Button
                 onClick={handleAddToCart}
-                className="flex-1 py-1.5 sm:py-2 h-8 sm:h-9 text-[10px] sm:text-xs bg-transparent border border-neutral-300 text-neutral-700 hover:border-rose-400 hover:text-rose-500 rounded-sm font-medium tracking-wider transition-all duration-300"
+                className="flex-1 py-1.5 sm:py-2 h-8 sm:h-9 text-[10px] sm:text-xs bg-transparent border border-neutral-300 text-neutral-700 hover:border-cyan-400 hover:text-cyan-500 rounded-sm font-medium tracking-wider transition-all duration-300"
               >
                 <ShoppingCart className="h-3 w-3 mr-0.5 sm:mr-1" />
                 <span>ADD</span>
               </Button>
               <Button
                 onClick={() => onRequestQuote(phone.name, phone.storage, phone.price, phone.colors, phone.condition)}
-                className="flex-1 py-1.5 sm:py-2 h-8 sm:h-9 text-[10px] sm:text-xs bg-transparent border border-neutral-300 text-neutral-700 hover:border-rose-400 hover:text-rose-500 rounded-sm font-medium tracking-wider transition-all duration-300"
+                className="flex-1 py-1.5 sm:py-2 h-8 sm:h-9 text-[10px] sm:text-xs bg-transparent border border-neutral-300 text-neutral-700 hover:border-cyan-400 hover:text-cyan-500 rounded-sm font-medium tracking-wider transition-all duration-300"
               >
                 QUOTE
               </Button>

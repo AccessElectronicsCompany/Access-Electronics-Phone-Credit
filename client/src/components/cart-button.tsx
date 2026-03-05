@@ -14,11 +14,11 @@ export default function CartButton({ onClick }: CartButtonProps) {
     <Button
       variant="outline"
       onClick={onClick}
-      className="relative border-neutral-300 hover:border-rose-400 hover:text-rose-500 transition-all"
+      className="relative border-neutral-300 hover:border-cyan-400 hover:text-cyan-500 transition-all"
     >
       <ShoppingCart className="h-4 w-4" />
       {totalItems > 0 && (
-        <span className="absolute -top-2 -right-2 bg-rose-500 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">
+        <span className="absolute -top-2 -right-2 bg-cyan-500 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">
           {totalItems}
         </span>
       )}

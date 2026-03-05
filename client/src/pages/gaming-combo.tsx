@@ -44,7 +44,7 @@ export default function GamingCombo() {
 
   return (
     <div className="min-h-screen bg-neutral-900">
-      <header className="bg-neutral-900 border-b border-rose-500/30 sticky top-0 z-50 animate-in slide-in-from-top duration-1000">
+      <header className="bg-neutral-900 border-b border-cyan-500/30 sticky top-0 z-50 animate-in slide-in-from-top duration-1000">
         <div className="samsung-container">
           <div className="flex justify-between items-center h-20">
             <div className="flex items-center gap-4 ml-4">
@@ -52,7 +52,7 @@ export default function GamingCombo() {
                 variant="ghost"
                 size="sm"
                 onClick={() => window.location.href = '/'}
-                className="flex items-center gap-2 text-neutral-300 hover:text-rose-400 hover:bg-neutral-800 transition-colors"
+                className="flex items-center gap-2 text-neutral-300 hover:text-cyan-400 hover:bg-neutral-800 transition-colors"
               >
                 <ArrowLeft size={20} />
                 <span className="hidden sm:inline">Back to Home</span>
@@ -61,26 +61,26 @@ export default function GamingCombo() {
                 <h1 className="text-2xl md:text-3xl font-bold text-white tracking-widest animate-in fade-in duration-1000 delay-500">
                   GAMING COMBO
                 </h1>
-                <span className="bg-rose-500 text-white text-[10px] font-bold px-2 py-0.5 rounded-full">HOT</span>
+                <span className="bg-cyan-500 text-white text-[10px] font-bold px-2 py-0.5 rounded-full">HOT</span>
               </div>
             </div>
             
             <nav className="hidden lg:flex space-x-8 xl:space-x-12 items-center animate-in slide-in-from-right duration-1000 delay-700">
               <button
                 onClick={() => window.location.href = '/gaming-sound'}
-                className="text-neutral-300 hover:text-rose-400 transition-all duration-300 font-medium tracking-wide uppercase text-sm whitespace-nowrap hover:scale-105 transform"
+                className="text-neutral-300 hover:text-cyan-400 transition-all duration-300 font-medium tracking-wide uppercase text-sm whitespace-nowrap hover:scale-105 transform"
               >
                 Gaming & Sound
               </button>
               <button
                 onClick={() => setShowCalculator(true)}
-                className="text-neutral-300 hover:text-rose-400 transition-all duration-300 font-medium tracking-wide uppercase text-sm whitespace-nowrap hover:scale-105 transform"
+                className="text-neutral-300 hover:text-cyan-400 transition-all duration-300 font-medium tracking-wide uppercase text-sm whitespace-nowrap hover:scale-105 transform"
               >
                 Calculator
               </button>
               <button
                 onClick={() => window.location.href = '/terms'}
-                className="text-neutral-300 hover:text-rose-400 transition-all duration-300 font-medium tracking-wide uppercase text-sm whitespace-nowrap hover:scale-105 transform"
+                className="text-neutral-300 hover:text-cyan-400 transition-all duration-300 font-medium tracking-wide uppercase text-sm whitespace-nowrap hover:scale-105 transform"
               >
                 Terms & Conditions
               </button>
@@ -89,21 +89,21 @@ export default function GamingCombo() {
 
             <button
               onClick={() => setShowMobileMenu(!showMobileMenu)}
-              className="lg:hidden p-2 text-rose-400 hover:text-rose-300 transition-colors"
+              className="lg:hidden p-2 text-cyan-400 hover:text-cyan-300 transition-colors"
             >
               {showMobileMenu ? <X size={24} /> : <Menu size={24} />}
             </button>
           </div>
 
           {showMobileMenu && (
-            <div className="lg:hidden bg-neutral-900 border-t border-rose-500/20">
+            <div className="lg:hidden bg-neutral-900 border-t border-cyan-500/20">
               <nav className="py-4 space-y-1">
                 <button
                   onClick={() => {
                     window.location.href = '/gaming-sound';
                     setShowMobileMenu(false);
                   }}
-                  className="block w-full text-left px-6 py-3 text-neutral-300 hover:text-rose-400 hover:bg-neutral-800 transition-colors font-medium tracking-wider uppercase text-xs"
+                  className="block w-full text-left px-6 py-3 text-neutral-300 hover:text-cyan-400 hover:bg-neutral-800 transition-colors font-medium tracking-wider uppercase text-xs"
                 >
                   Gaming & Sound
                 </button>
@@ -112,7 +112,7 @@ export default function GamingCombo() {
                     setShowCalculator(true);
                     setShowMobileMenu(false);
                   }}
-                  className="block w-full text-left px-6 py-3 text-neutral-300 hover:text-rose-400 hover:bg-neutral-800 transition-colors font-medium tracking-wider uppercase text-xs"
+                  className="block w-full text-left px-6 py-3 text-neutral-300 hover:text-cyan-400 hover:bg-neutral-800 transition-colors font-medium tracking-wider uppercase text-xs"
                 >
                   Calculator
                 </button>
@@ -121,7 +121,7 @@ export default function GamingCombo() {
                     window.location.href = '/terms';
                     setShowMobileMenu(false);
                   }}
-                  className="block w-full text-left px-6 py-3 text-neutral-300 hover:text-rose-400 hover:bg-neutral-800 transition-colors font-medium tracking-wider uppercase text-xs"
+                  className="block w-full text-left px-6 py-3 text-neutral-300 hover:text-cyan-400 hover:bg-neutral-800 transition-colors font-medium tracking-wider uppercase text-xs"
                 >
                   Terms & Conditions
                 </button>
@@ -137,14 +137,14 @@ export default function GamingCombo() {
         </div>
       </header>
 
-      <div className="bg-gradient-to-r from-rose-600 via-pink-500 to-rose-600 overflow-hidden">
+      <div className="bg-gradient-to-r from-cyan-600 via-blue-500 to-cyan-600 overflow-hidden">
         <div className="animate-banner-scroll whitespace-nowrap py-2">
-          <span className="inline-block text-white text-xs sm:text-sm font-medium tracking-wider mx-8">&#10084; VALENTINE'S SPECIALS - VALID UNTIL 28 FEB 2026 &#10084;</span>
-          <span className="inline-block text-white text-xs sm:text-sm font-medium tracking-wider mx-8">&#10084; GAMING COMBO DEALS - BUNDLE & SAVE &#10084;</span>
-          <span className="inline-block text-white text-xs sm:text-sm font-medium tracking-wider mx-8">&#10084; BUY NOW, PAY LATER WITH EASY CREDIT &#10084;</span>
-          <span className="inline-block text-white text-xs sm:text-sm font-medium tracking-wider mx-8">&#10084; VALENTINE'S SPECIALS - VALID UNTIL 28 FEB 2026 &#10084;</span>
-          <span className="inline-block text-white text-xs sm:text-sm font-medium tracking-wider mx-8">&#10084; GAMING COMBO DEALS - BUNDLE & SAVE &#10084;</span>
-          <span className="inline-block text-white text-xs sm:text-sm font-medium tracking-wider mx-8">&#10084; BUY NOW, PAY LATER WITH EASY CREDIT &#10084;</span>
+          <span className="inline-block text-white text-xs sm:text-sm font-medium tracking-wider mx-8">⚡ LATEST TECH DEALS ⚡</span>
+          <span className="inline-block text-white text-xs sm:text-sm font-medium tracking-wider mx-8">⚡ GAMING COMBO DEALS - BUNDLE & SAVE ⚡</span>
+          <span className="inline-block text-white text-xs sm:text-sm font-medium tracking-wider mx-8">⚡ FLEXIBLE PAYMENT PLANS AVAILABLE ⚡</span>
+          <span className="inline-block text-white text-xs sm:text-sm font-medium tracking-wider mx-8">⚡ LATEST TECH DEALS ⚡</span>
+          <span className="inline-block text-white text-xs sm:text-sm font-medium tracking-wider mx-8">⚡ GAMING COMBO DEALS - BUNDLE & SAVE ⚡</span>
+          <span className="inline-block text-white text-xs sm:text-sm font-medium tracking-wider mx-8">⚡ FLEXIBLE PAYMENT PLANS AVAILABLE ⚡</span>
         </div>
       </div>
 
@@ -152,15 +152,15 @@ export default function GamingCombo() {
         <div className="samsung-container">
           <div className="text-center mb-10 animate-in slide-in-from-bottom duration-1000">
             <div className="inline-block mb-4">
-              <span className="bg-rose-500 text-white text-xs font-bold px-4 py-1.5 rounded-full tracking-widest uppercase">
+              <span className="bg-cyan-500 text-white text-xs font-bold px-4 py-1.5 rounded-full tracking-widest uppercase">
                 Valid until 28 Feb 2026
               </span>
             </div>
             <h2 className="text-3xl sm:text-4xl font-bold text-white mb-3 tracking-wide">
               GAMING COMBO SPECIALS
             </h2>
-            <p className="text-rose-300 text-base sm:text-lg">
-              Save big with our Valentine's combo deals - bundle & save!
+            <p className="text-cyan-300 text-base sm:text-lg">
+              Save big with our combo deals - bundle & save!
             </p>
           </div>
 
@@ -171,7 +171,7 @@ export default function GamingCombo() {
                 onClick={() => setComboFilter(cat)}
                 className={`px-4 py-2 rounded-full text-xs sm:text-sm font-medium tracking-wide uppercase transition-all duration-300 ${
                   comboFilter === cat
-                    ? "bg-rose-500 text-white"
+                    ? "bg-cyan-500 text-white"
                     : "bg-neutral-800 text-neutral-300 hover:bg-neutral-700"
                 }`}
               >
@@ -184,24 +184,24 @@ export default function GamingCombo() {
             {filteredCombos.map((combo, index) => (
               <Card
                 key={combo.id}
-                className="bg-neutral-800 border-neutral-700 hover:border-rose-500 hover:scale-[1.02] transition-all duration-300 animate-in slide-in-from-bottom duration-700"
+                className="bg-neutral-800 border-neutral-700 hover:border-cyan-500 hover:scale-[1.02] transition-all duration-300 animate-in slide-in-from-bottom duration-700"
                 style={{ animationDelay: `${index * 60}ms` }}
               >
                 <CardContent className="p-5 sm:p-6">
                   <div className="flex items-start justify-between mb-3">
-                    <span className="text-rose-400 text-[10px] sm:text-xs font-bold tracking-widest">{combo.id}</span>
-                    <span className="bg-rose-500/20 text-rose-400 text-[10px] font-bold px-2 py-0.5 rounded-full">COMBO DEAL</span>
+                    <span className="text-cyan-400 text-[10px] sm:text-xs font-bold tracking-widest">{combo.id}</span>
+                    <span className="bg-cyan-500/20 text-cyan-400 text-[10px] font-bold px-2 py-0.5 rounded-full">COMBO DEAL</span>
                   </div>
                   <div className="text-3xl mb-3">🎮</div>
                   <h3 className="text-base sm:text-lg font-bold text-white mb-2">{combo.name}</h3>
                   <p className="text-neutral-400 text-xs sm:text-sm mb-4 leading-relaxed">{combo.description}</p>
-                  <div className="text-2xl sm:text-3xl font-bold text-rose-400 mb-5">
+                  <div className="text-2xl sm:text-3xl font-bold text-cyan-400 mb-5">
                     N${combo.price.toLocaleString()}
                   </div>
                   <div className="space-y-2">
                     <Button
                       onClick={() => handleSelectDevice(combo.name, "", combo.price, ["Standard"])}
-                      className="bg-rose-500 text-white hover:bg-rose-400 w-full transition-all duration-300 border-0 rounded-sm font-medium tracking-widest uppercase text-xs py-3"
+                      className="bg-cyan-500 text-white hover:bg-cyan-400 w-full transition-all duration-300 border-0 rounded-sm font-medium tracking-widest uppercase text-xs py-3"
                     >
                       Request Quote
                     </Button>

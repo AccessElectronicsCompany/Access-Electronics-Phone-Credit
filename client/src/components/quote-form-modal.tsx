@@ -407,7 +407,7 @@ export default function QuoteFormModal({ isOpen, onClose, selectedPhone }: Quote
         
         {/* Individual Phone Selection Sections for Multi-Phone Quotes */}
         {isCartQuote && (
-          <div className="bg-rose-50 p-4 md:p-6 rounded-xl border border-rose-200 mb-6">
+          <div className="bg-cyan-50 p-4 md:p-6 rounded-xl border border-cyan-200 mb-6">
             <h3 className="text-lg md:text-xl samsung-header mb-4">Select Storage & Color for Each Phone</h3>
             <div className="space-y-6">
               {uniquePhoneModels.map((phoneModel, index) => {
@@ -881,8 +881,8 @@ export default function QuoteFormModal({ isOpen, onClose, selectedPhone }: Quote
                   )}
                 />
                 {watchedDepositMethod === "trade-in" && (
-                  <div className="mt-3 p-3 bg-rose-50 border border-rose-200 rounded-xl">
-                    <p className="text-sm samsung-text text-rose-800">
+                  <div className="mt-3 p-3 bg-cyan-50 border border-cyan-200 rounded-xl">
+                    <p className="text-sm samsung-text text-cyan-800">
                       Please input the valuation estimate that you got from Access Electronics / contact Access Electronics team to obtain a valuation estimate for your phone, which you will then use as a deposit.
                     </p>
                   </div>
