@@ -1,4 +1,6 @@
 import { quoteRequests, type QuoteRequest, type InsertQuoteRequest } from "@shared/schema";
+import { db } from "./db";
+import { eq, and, gt, desc } from "drizzle-orm";
 
 export interface IStorage {
   createQuoteRequest(quoteRequest: InsertQuoteRequest): Promise<QuoteRequest>;
@@ -7,45 +9,42 @@ export interface IStorage {
   getRecentQuotesByUser(contactNumber: string, timeWindowMinutes: number): Promise<QuoteRequest[]>;
 }
 
-export class MemStorage implements IStorage {
-  private quoteRequests: Map<number, QuoteRequest>;
-  private currentId: number;
-
-  constructor() {
-    this.quoteRequests = new Map();
-    this.currentId = 1;
-  }
-
+export class DatabaseStorage implements IStorage {
   async createQuoteRequest(insertQuoteRequest: InsertQuoteRequest): Promise<QuoteRequest> {
-    const id = this.currentId++;
-    const quoteRequest: QuoteRequest = {
-      ...insertQuoteRequest,
-      id,
-      deposit: insertQuoteRequest.deposit || '0',
-      depositMethod: insertQuoteRequest.depositMethod || null,
-      createdAt: new Date(),
-    };
-    this.quoteRequests.set(id, quoteRequest);
+    const [quoteRequest] = await db
+      .insert(quoteRequests)
+      .values(insertQuoteRequest)
+      .returning();
     return quoteRequest;
   }
 
   async getQuoteRequest(id: number): Promise<QuoteRequest | undefined> {
-    return this.quoteRequests.get(id);
+    const [quoteRequest] = await db
+      .select()
+      .from(quoteRequests)
+      .where(eq(quoteRequests.id, id));
+    return quoteRequest;
   }
 
   async getAllQuoteRequests(): Promise<QuoteRequest[]> {
-    return Array.from(this.quoteRequests.values());
+    return await db
+      .select()
+      .from(quoteRequests)
+      .orderBy(desc(quoteRequests.createdAt));
   }
 
   async getRecentQuotesByUser(contactNumber: string, timeWindowMinutes: number): Promise<QuoteRequest[]> {
     const cutoffTime = new Date(Date.now() - timeWindowMinutes * 60 * 1000);
-    const allQuotes = Array.from(this.quoteRequests.values());
-    
-    return allQuotes.filter(quote => 
-      quote.contactNumber === contactNumber && 
-      quote.createdAt > cutoffTime
-    );
+    return await db
+      .select()
+      .from(quoteRequests)
+      .where(
+        and(
+          eq(quoteRequests.contactNumber, contactNumber),
+          gt(quoteRequests.createdAt, cutoffTime)
+        )
+      );
   }
 }
 
-export const storage = new MemStorage();
+export const storage = new DatabaseStorage();

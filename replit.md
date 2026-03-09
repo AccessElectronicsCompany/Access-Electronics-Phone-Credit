@@ -29,6 +29,7 @@ The application uses a monorepo structure with shared types between the frontend
 - **Language**: TypeScript with ESM modules
 - **Database**: PostgreSQL with Drizzle ORM
 - **API Design**: RESTful API with JSON responses
+- **Storage**: PostgreSQL database via Drizzle ORM (persistent quote storage).
 - **Session Management**: In-memory (development), planned PostgreSQL sessions.
 - **Rate Limiting**: 30-minute quote request rate limiting (2 requests per user) based on contact number.
 
