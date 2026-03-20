@@ -1,4 +1,4 @@
-import { quoteRequests, type QuoteRequest, type InsertQuoteRequest } from "@shared/schema";
+import { quoteRequests, type QuoteRequest, type InsertQuoteRequest } from "../shared/schema";
 import { db } from "./db";
 import { eq, and, gt, desc } from "drizzle-orm";
 
